@@ -56,7 +56,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $profile = Profile::create([
-            'username' => '',
+            'username' => $user->name,
             'first_name' => '',
             'last_name' => '',
             'user_id' => $user->id,

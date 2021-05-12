@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CMS\OverviewController;
+use App\Http\Controllers\CMS\CategoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/CMS', [OverviewController::class, 'index'])->name('overview');
+
+Route::get('/add_category', [CategoryController::class, 'index'])->name('view_add_category');
+Route::post('/add_category', [CategoryController::class, 'addCategory'])->name('add_category');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
