@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Profile;
 use App\Models\User_Interests_Categories;
 use App\Models\Profile_Statistics;
+use App\Models\Category;
+use App\Models\Currency_Points;
 
 
 use App\Providers\RouteServiceProvider;
@@ -17,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Auth\Datetime; 
+use Illuminate\Support\Facades\DB;
 
 class RegisteredUserController extends Controller
 {
@@ -66,6 +69,16 @@ class RegisteredUserController extends Controller
         $profile_statistics = Profile_Statistics::create([
             'user_id' => $user->id,
         ]);
+
+
+        $categories = DB::table('categories')->get();
+
+        foreach($categories as $category) {
+            $currency_points = Currency_Points::create([
+                'category_id' => $category->category_id,
+                'user_id' => $user->id,
+            ]);
+        }
 
 
 
