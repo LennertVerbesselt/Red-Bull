@@ -11,6 +11,12 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $guarded = [];
+
+    /*public function profile(){
+        return $this->belongsTo(Profile::class);
+    }*/
+
     /**
      * The attributes that are mass assignable.
      *

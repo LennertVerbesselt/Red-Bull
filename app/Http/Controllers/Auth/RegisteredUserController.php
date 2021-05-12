@@ -3,13 +3,20 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+
 use App\Models\User;
+use App\Models\Profile;
+use App\Models\User_Interests_Categories;
+use App\Models\Profile_Statistics;
+
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Http\Controllers\Auth\Datetime; 
 
 class RegisteredUserController extends Controller
 {
@@ -44,6 +51,23 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $profile = Profile::create([
+            'username' => '',
+            'first_name' => '',
+            'last_name' => '',
+            'user_id' => $user->id,
+        ]);
+
+        $user_interests_categories = User_Interests_Categories::create([
+            'user_id' => $user->id,
+        ]);
+
+        $profile_statistics = Profile_Statistics::create([
+            'user_id' => $user->id,
+        ]);
+
+
 
         event(new Registered($user));
 
