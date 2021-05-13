@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventTicketsTable extends Migration
+class CreateChallengeSetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateEventTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('event__tickets', function (Blueprint $table) {
+        Schema::create('challenge__sets', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('event_id');
-            $table->string('barcode')->default(0);
-            $table->string('expiration_date');
+            $table->unsignedInteger('category_id');
+            $table->string('name');
+            $table->integer('length');
+            $table->integer('difficulty');
+            $table->datetime('active_untill');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateEventTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event__tickets');
+        Schema::dropIfExists('challenge__sets');
     }
 }

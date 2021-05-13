@@ -22,7 +22,7 @@ class CreateEventsTable extends Migration
             $table->string('location');
             $table->datetime('datetime')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->integer('total_tickets_available');
-            $table->integer('tickets_sold');
+            $table->integer('tickets_sold')->default(0);
             $table->timestamps();
         });
     }

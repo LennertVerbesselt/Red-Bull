@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventTicketsTable extends Migration
+class CreateFeaturedEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateEventTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('event__tickets', function (Blueprint $table) {
+        Schema::create('featured__events', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('event_id');
-            $table->string('barcode')->default(0);
-            $table->string('expiration_date');
+            $table->json('events');
+            $table->datetime('start_datetime')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->datetime('end_datetime');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateEventTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event__tickets');
+        Schema::dropIfExists('featured__events');
     }
 }

@@ -36,7 +36,7 @@ export default {
     methods: {
         isLoggedIn(){
             if (this.item.email && this.item.password == '') {
-                console.log("nothing happened");
+                return;
             }
         }
     }

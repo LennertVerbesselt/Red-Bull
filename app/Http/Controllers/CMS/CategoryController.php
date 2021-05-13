@@ -11,7 +11,13 @@ use App\Models\Currency_Points;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index() {
+      $categories = Category::get();
+
+      return view('CMS/categories', ['categories' => $categories]);
+    }
+
+    public function addCategoryPage()
     {
       return view('CMS/addcategory');
     }
@@ -34,7 +40,9 @@ class CategoryController extends Controller
       }
 
       
-      return view('CMS/addcategory');
+      $categories = Category::get();
+
+      return view('CMS/categories', ['categories' => $categories]);
     }
 
 
