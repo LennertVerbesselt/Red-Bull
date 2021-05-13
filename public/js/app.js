@@ -14811,17 +14811,6 @@ __webpack_require__.r(__webpack_exports__);
       if (this.item.email && this.item.password == '') {
         return;
       }
-
-      axios.post('auth/login', {
-        email: this.email,
-        password: this.password
-      }).then(function (response) {
-        console.log('oki');
-
-        if (response.status == 200) {
-          console.log("yay");
-        }
-      });
     }
   }
 });
@@ -14914,7 +14903,7 @@ var _hoisted_2 = {
   "class": "form-group"
 };
 var _hoisted_3 = {
-  "class": "loginSection place-content-center justify-center"
+  "class": "loginSection"
 };
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Login");
@@ -14951,9 +14940,11 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Facebook");
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "passwordForgot"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
   href: "http://"
-}, " Forgot Password?", -1
+}, " Forgot Password?")], -1
 /* HOISTED */
 );
 
@@ -15081,7 +15072,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbutton[data-v-e1943abe] {\r\n    margin-top: 10px;\n}\n.secondary[data-v-e1943abe] {\r\n    border:2px solid #FFF07C;\r\n    border-radius: 2px ;\r\n    color:#FFF07C ;\r\n    height: 38px;\r\n    width: 135px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    background: none;\r\n    margin-left: 10px;\n}\n.primary[data-v-e1943abe] {\r\n    color: white;\r\n    background-color:#EB5876 ;\r\n    height: 38px;\r\n    width: 135px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    margin-right: 10px;\r\n    border:none;\n}\n.media[data-v-e1943abe] {\r\n    height: 40px;\r\n    border-radius: 6px;\r\n    width: 286px;\r\n    background-color: white;\r\n    font-weight: bold;\r\n    text-align: center;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbutton[data-v-e1943abe] {\r\n    margin-top: 10px;\n}\n.secondary[data-v-e1943abe] {\r\n    border:2px solid #FFF07C;\r\n    border-radius: 2px ;\r\n    color:#FFF07C ;\r\n    height: 38px;\r\n    width: 135px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    background: none;\r\n    margin-left: 20px;\n}\n.primary[data-v-e1943abe] {\r\n    color: white;\r\n    background-color:#EB5876 ;\r\n    height: 38px;\r\n    width: 135px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    margin-right: 10px;\r\n    border:none;\n}\n.media[data-v-e1943abe] {\r\n    height: 40px;\r\n    border-radius: 6px;\r\n    width: 286px;\r\n    background-color: white;\r\n    font-weight: bold;\r\n    text-align: center;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15105,7 +15096,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.form-group[data-v-39eb40dc] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    margin-top: 0.5rem;\n}\ninput[data-v-39eb40dc] {\r\n    height: 35px;\r\n    border-radius: 6px;\r\n    width: 286px;\r\n    \r\n    margin: 0.5rem;\r\n    text-align: center;\n}\nh4[data-v-39eb40dc] {\r\n    color: white;\n}\n.mediaIconG[data-v-39eb40dc] {\r\n    position:absolute;\r\n    height: 20px;\r\n    margin-left:-40px;\r\n    margin-top: -2px;\n}\n.mediaIconF[data-v-39eb40dc] {\r\n    position: absolute;\r\n    height: 20px;\r\n    margin-left:-33px;\r\n    margin-top: -4px;\n}\na[data-v-39eb40dc] {\r\n    position: absolute;\r\n    color: #EB5876;\r\n    bottom: 50px;\r\n    left: 130px;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.form-group[data-v-39eb40dc] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    margin-top: 0.5rem;\n}\n.loginSection[data-v-39eb40dc] {\r\n    display: flex;\r\n    flex-direction: row;\r\n   align-items: center;\r\n   justify-content: center;\n}\ninput[data-v-39eb40dc] {\r\n    height: 35px;\r\n    border-radius: 6px;\r\n    width: 286px;\r\n    \r\n    margin: 0.5rem;\r\n    text-align: center;\n}\nh4[data-v-39eb40dc] {\r\n    color: white;\r\n    text-align: center;\n}\n.mediaIconG[data-v-39eb40dc] {\r\n    position:absolute;\r\n    height: 20px;\r\n    margin-left:-40px;\r\n    margin-top: -2px;\n}\n.mediaIconF[data-v-39eb40dc] {\r\n    position: absolute;\r\n    height: 20px;\r\n    margin-left:-33px;\r\n    margin-top: -4px;\n}\n.mediaSection[data-v-39eb40dc]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\n}\n.passwordForgot[data-v-39eb40dc] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\n}\na[data-v-39eb40dc] {\r\n\r\n    color: #EB5876;\r\n    bottom: 50px;\r\n    margin-top: 3rem;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -1,5 +1,7 @@
 <template>
+
     <button :class="type" :disabled="disabled"> <slot></slot> </button>
+  
 </template>
 
 <script>
@@ -17,6 +19,7 @@
 button {
     margin-top: 10px;
 }
+
 .secondary {
     border:2px solid #FFF07C;
     border-radius: 2px ;
@@ -26,7 +29,7 @@ button {
     border-radius: 6px;
     font-weight: bold;
     background: none;
-    margin-left: 10px;
+    margin-left: 20px;
     
     }
     .primary {
@@ -38,6 +41,7 @@ button {
     font-weight: bold;
     margin-right: 10px;
     border:none;
+    
     }
     .media {
     height: 40px;

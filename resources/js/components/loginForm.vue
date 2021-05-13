@@ -4,7 +4,7 @@
             <input type="email" v-model="item.email" class="" placeholder="Email">
             <input type="password" v-model="item.password" class="" placeholder="Password">
         </div>
-        <div class="loginSection place-content-center justify-center">
+        <div class="loginSection">
            <form-button type="primary" @click="login()">Login</form-button>
            <form-button type="secondary">Register</form-button>
         </div>
@@ -13,7 +13,9 @@
             <form-button type="media"> <img class="mediaIconG" src="../../assets/google.svg" alt=""> Google</form-button>
             <form-button type="media"><img class="mediaIconF" src="../../assets/facebook.svg" alt="">Facebook</form-button>
         </div>
+        <div class="passwordForgot">
         <a href="http://"> Forgot Password?</a>
+        </div>
     </form>
 </template>
 
@@ -51,6 +53,12 @@ export default {
     align-items: center;
     margin-top: 0.5rem;
 }
+.loginSection {
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
 input {
     height: 35px;
     border-radius: 6px;
@@ -62,6 +70,7 @@ input {
 }
 h4 {
     color: white;
+    text-align: center;
 }
 
 .mediaIconG {
@@ -79,11 +88,22 @@ h4 {
     margin-top: -4px;
     
 }
+
+.mediaSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.passwordForgot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 a {
-    position: absolute;
+
     color: #EB5876;
     bottom: 50px;
-    left: 130px;
+    margin-top: 3rem;
 }
 
 </style>
