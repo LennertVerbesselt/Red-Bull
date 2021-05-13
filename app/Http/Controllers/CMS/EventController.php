@@ -52,7 +52,12 @@ class EventController extends Controller
         $eventTicket->expiration_date = $event->datetime;
         $eventTicket->save();
 
-        return view('CMS/addevent', ['categories' => $categories]);
+        $events = Event::get();
+        $eventTickets = Event_Ticket::get();
+        $featuredEvents = Featured_Events::get();
+
+
+        return view('CMS/events', ['events' => $events, 'event_tickets' => $eventTickets, 'featured_events' => $featuredEvents]);
     }
 
     public function addFeaturedEventsPage() {
@@ -79,6 +84,11 @@ class EventController extends Controller
         $events = Event::get();
 
 
-        return view('CMS/addfeaturedevents', ['events' => $events]);
+        $events = Event::get();
+        $eventTickets = Event_Ticket::get();
+        $featuredEvents = Featured_Events::get();
+
+
+        return view('CMS/events', ['events' => $events, 'event_tickets' => $eventTickets, 'featured_events' => $featuredEvents]);
     }
 }

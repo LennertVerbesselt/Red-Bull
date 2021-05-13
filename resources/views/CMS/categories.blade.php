@@ -59,32 +59,62 @@
         </nav>
         
     </aside>
+        
+
+        
+        
     
         <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                <h1 class="w-full text-3xl text-black pb-6">Form</h1>
 
-                <div class="flex flex-wrap">
-                    <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
-                        <p class="text-xl pb-6 flex items-center">
-                            <i class="fas fa-list mr-3"></i> Add Category
-                        </p>
-                        <div class="leading-loose">
-                            <form method="POST" action="{{ route('add_category') }}" class="p-10 bg-white rounded shadow-xl">
-                                @csrf <!-- {{ csrf_field() }} -->
-                                <div class="">
-                                    <label class="block text-sm text-gray-600" for="name">Category Name</label>
-                                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="name" name="name" type="text" required="" placeholder="Category Name" aria-label="Name">
-                                </div>
+                <div class="w-6/12 mt-12">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-list mr-3"></i> Categories
+                        <button class="text-xs ml-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                            <a href="{{ route('view_add_category')}}"> Add Category </a>
+                          </button>
+                    </p>
+                    
+                    
+                    <div class="bg-white overflow-auto"> 
+                        <table class="min-w-full leading-normal">
+                            <thead>
+                                <tr>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Category id
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Category
+                                    </th>
                                 
-                                <div class="mt-6">
-                                    <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Add Category</button>
-                                    <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit"> <a href="{{route('overview')}}">Back to overview</a>  </button>
-                                </div>
-                            </form>
-                        </div>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach ($categories as $category)
+                                
+                                    <tr>
+                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <div class="ml-3">
+                                                    <p class="text-gray-900 whitespace-no-wrap">
+                                                        {{$category->category_id}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <p class="text-gray-900 whitespace-no-wrap">{{$category->category_name}}</p>
+                                        </td>
+                                        
+                                    </tr>
+                                @endforeach
+                                
+                            </tbody>
+                        </table>
+                        
                     </div>
-    
                     
                 </div>
             </main>

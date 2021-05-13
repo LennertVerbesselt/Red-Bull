@@ -5,8 +5,9 @@ namespace App\Http\Controllers\CMS;
 use Illuminate\Http\Request;
 
 use App\Models\Category;
-use App\Models\User;
-use App\Models\Challenge_set;
+use App\Models\Event;
+use App\Models\Challenge_Set;
+
 
 
 class ChallengeController extends Controller
@@ -19,28 +20,27 @@ class ChallengeController extends Controller
 
     public function addChallengeSetPage()
     {
-      return view('CMS/addchallengeset');
+        $events = Event::get();
+        $categories = Category::get();
+
+        return view('CMS/addchallengeset', ['events' => $events, 'categories' => $categories]);
     }
 
     public function addChallengeSet(Request $request){
 
-      //Add new category to list
-      /*$category = new Category;
-      $category->category_name = $request->name;
-      $category->save();
+      //Add new Challenge Set
+      $challengeSet = new Challenge_Set;
+      $challengeSet->category_id = $request->category;
+      $challengeSet->event_id = $request->event;
+      $challengeSet->name = $request->name;
+      $challengeSet->length = $request->length;
+      $challengeSet->difficulty = $request->difficulty;
+      $challengeSet->active_untill = $request->active_untill;
+      $challengeSet->save();
 
-      //Create new Currency counter for every user for new category
-      $users = User::get();
-      $category = Category::latest()->first();
+      $challengeSets = Challenge_Set::get();
 
-      foreach ($users as $user){
-        $currency = new Currency_Points;
-        $currency->user_id = $user->id;
-        $currency->category_id = $category->category_id;
-      }*/
-
-      
-      return view('CMS/addchallengeset');
+        return view('CMS/challenges', ['challenge_sets' => $challengeSets]);
     }
 
 

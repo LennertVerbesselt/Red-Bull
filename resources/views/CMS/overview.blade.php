@@ -20,18 +20,19 @@
         .active-nav-link { background: #EB5876; }
         .nav-item:hover { background: #EB5876; }
         .account-link:hover { background: #3d68ff; }
+        .border-color-yellow { border-color: #FFF07C; }
     </style>
 </head>
-<body class=" font-family-karla flex">
+<body class="font-family-karla flex">
 
     
 
-    <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl border-r-4">
+    <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl border-r-4 border-color-yellow">
         <div class="p-6">
             <a href="{{route('overview')}}" class="text-white text-3xl font-semibold uppercase hover:text-white">Red Bull CMS</a>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
-            <a href="{{route('overview')}}" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="{{route('overview')}}" class="flex items-center active-nav-link text-white hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
@@ -463,6 +464,98 @@
                             </table>
                             
                         </div>
+                    </div>
+                </div>
+                
+            
+
+                        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+                            <main class="w-full flex-grow p-6">
+                                <div class="w-full mt-12">
+                                <p class="text-xl pb-3 flex items-center">
+                                    <i class="fas fa-list mr-3"></i> Challenge Sets
+                                    <button class="text-xs ml-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                        <a href="{{ route('view_add_challenge_set')}}"> Add Challenge Set </a>
+                                      </button>
+                                </p>
+                                
+                                
+                                <div class="bg-white overflow-auto"> 
+                                    <table class="min-w-full leading-normal">
+                                        <thead>
+                                            <tr>
+                                                <th
+                                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                    Challenge Set id
+                                                </th>
+                                                <th
+                                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                    Category id 
+                                                </th>
+                                                <th
+                                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                    Event id
+                                                </th>
+                                                <th
+                                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                    Name 
+                                                </th>
+                                                <th
+                                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                    Length 
+                                                </th>
+                                                <th
+                                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                    Difficulty (out of 5) 
+                                                </th>
+                                                <th
+                                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                    Active Untill
+                                                </th>
+                                            
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                
+                                            @foreach ($challenge_sets as $challenge_set)
+                                            
+                                                <tr>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                            <div class="ml-3">
+                                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                                    {{$challenge_set->id}}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->category_id}}</p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->event_id}}</p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->name}}</p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->length}}</p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->difficulty}}</p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->active_untill}}</p>
+                                                    </td>
+                                                    
+                                                </tr>
+                                            @endforeach
+                                            
+                                        </tbody>
+                                    </table>
+                                    
+                                </div>
+                                
+                            </div></div></div>
             </main>
     
             

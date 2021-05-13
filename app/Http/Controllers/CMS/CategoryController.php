@@ -40,7 +40,9 @@ class CategoryController extends Controller
       }
 
       
-      return view('CMS/addcategory');
+      $categories = Category::get();
+
+      return view('CMS/categories', ['categories' => $categories]);
     }
 
 
