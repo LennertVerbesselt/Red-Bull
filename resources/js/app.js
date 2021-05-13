@@ -1,3 +1,5 @@
-require('./bootstrap');
+import { createApp } from 'vue';
 
-require('alpinejs');
+import App from './App.vue';
+
+createApp(App).mount("#example");
