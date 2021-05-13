@@ -18,18 +18,9 @@
         "laravel-mix": "^6.0.19",
         "lodash": "^4.17.19",
         "postcss": "^8.2.1",
-<<<<<<< HEAD
         "postcss-import": "^14.0.2",
         "tailwindcss": "^2.0.2",
         "vue": "^3.0.11",
         "vue-loader": "^16.2.0"
     }
-=======
-        "postcss-import": "^12.0.1",
-        "tailwindcss": "^2.0.2",
-        "vue": "^3.0.11",
-        "vue-loader": "^16.2.0"
-    },
-    "dependencies": {}
->>>>>>> 789ccec25b1c27c36d20d5688e33faca200d3fd4
 }

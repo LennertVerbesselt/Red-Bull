@@ -14,8 +14,10 @@ class ChallengeController extends Controller
 {
     public function index(){
         $challengeSets = Challenge_Set::get();
+        $events = Event::get();
+        $categories = Category::get();
 
-        return view('CMS/challenges', ['challenge_sets' => $challengeSets]);
+        return view('CMS/challenges', ['challenge_sets' => $challengeSets, 'events' => $events, 'categories' => $categories]);
     }
 
     public function addChallengeSetPage()
@@ -28,19 +30,21 @@ class ChallengeController extends Controller
 
     public function addChallengeSet(Request $request){
 
-      //Add new Challenge Set
-      $challengeSet = new Challenge_Set;
-      $challengeSet->category_id = $request->category;
-      $challengeSet->event_id = $request->event;
-      $challengeSet->name = $request->name;
-      $challengeSet->length = $request->length;
-      $challengeSet->difficulty = $request->difficulty;
-      $challengeSet->active_untill = $request->active_untill;
-      $challengeSet->save();
+        //Add new Challenge Set
+        $challengeSet = new Challenge_Set;
+        $challengeSet->category_id = $request->category;
+        $challengeSet->event_id = $request->event;
+        $challengeSet->name = $request->name;
+        $challengeSet->length = $request->length;
+        $challengeSet->difficulty = $request->difficulty;
+        $challengeSet->active_untill = $request->active_untill;
+        $challengeSet->save();
 
-      $challengeSets = Challenge_Set::get();
+        $challengeSets = Challenge_Set::get();
+        $events = Event::get();
+        $categories = Category::get();
 
-        return view('CMS/challenges', ['challenge_sets' => $challengeSets]);
+        return view('CMS/challenges', ['challenge_sets' => $challengeSets, 'events' => $events, 'categories' => $categories]);
     }
 
 

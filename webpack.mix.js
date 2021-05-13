@@ -11,13 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-<<<<<<< HEAD
-mix.js('resources/js/app.js', 'public/js')
-.vue()
-.postCss('resources/css/app.css', 'public/css', [
-=======
 mix.js('resources/js/app.js', 'public/js').vue().postCss('resources/css/app.css', 'public/css', [
->>>>>>> 789ccec25b1c27c36d20d5688e33faca200d3fd4
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),
