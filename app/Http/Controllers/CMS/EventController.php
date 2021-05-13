@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Event;
 use App\Models\Event_Ticket;
+use App\Models\Featured_Events;
 
 
 class EventController extends Controller
@@ -53,7 +54,21 @@ class EventController extends Controller
 
     public function addFeaturedEvents(Request $request) {
 
-        dd($request);
-        return view('CMS/addfeaturedevents');
+        
+
+        $featuredEvents = new Featured_Events;
+
+        $featuredEvents->start_datetime = $request->start_datetime;
+        $featuredEvents->end_datetime = $request->end_datetime;
+
+        $featuredIDs = [$request->event1, $request->event2, $request->event3, $request->event4, $request->event5];
+        $featuredEvents->events = json_encode($featuredIDs);
+
+        $featuredEvents->save();
+        
+        $events = Event::get();
+
+
+        return view('CMS/addfeaturedevents', ['events' => $events]);
     }
 }
