@@ -71,7 +71,7 @@
                                 </div>
 
                                 <div class="">
-                                    <label class="block text-sm text-gray-600" for="name">Event Date/Time</label>
+                                    <label class="block text-sm text-gray-600" for="name">Event Date/Time (y-m-d h:m:s)</label>
                                     <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="date" name="datetime" type="text" required="" placeholder="Event Date/Time" aria-label="Name">
                                 </div>
 

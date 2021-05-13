@@ -11,6 +11,7 @@ use App\Models\Profile_Statistics;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Event_Ticket;
+use App\Models\Featured_Events;
 
 
 class OverviewController extends Controller
@@ -25,8 +26,9 @@ class OverviewController extends Controller
       $profile_statistics = Profile_statistics::get();
       $events = Event::get();
       $event_tickets = Event_Ticket::get();
+      $featured_events = Featured_events::get();
 
-      return view('CMS/overview', ['users' => $users, 'profiles' => $profiles, 'currency_points' => $currency_points, 'profile_statistics' => $profile_statistics, 'categories' => $categories, 'events' => $events, 'event_tickets' => $event_tickets]);
+      return view('CMS/overview', ['users' => $users, 'profiles' => $profiles, 'currency_points' => $currency_points, 'profile_statistics' => $profile_statistics, 'categories' => $categories, 'events' => $events, 'event_tickets' => $event_tickets, 'featured_events' => $featured_events]);
     }
 
 

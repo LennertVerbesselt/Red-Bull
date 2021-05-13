@@ -29,6 +29,9 @@ Route::post('/add_category', [CategoryController::class, 'addCategory'])->name('
 Route::get('/add_event', [EventController::class, 'index'])->name('view_add_event');
 Route::post('/add_event', [EventController::class, 'addEvent'])->name('add_event');
 
+Route::get('/add_featured_events', [EventController::class, 'addFeaturedEventsPage'])->name('view_add_featured_events');
+Route::post('/add_featured_events', [EventController::class, 'addFeaturedEvents'])->name('add_featured_events');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

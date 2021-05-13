@@ -43,4 +43,17 @@ class EventController extends Controller
 
         return view('CMS/addevent', ['categories' => $categories]);
     }
+
+    public function addFeaturedEventsPage() {
+
+        $events = Event::get();
+
+        return view('CMS/addfeaturedevents', ['events' => $events]);
+    }
+
+    public function addFeaturedEvents(Request $request) {
+
+        dd($request);
+        return view('CMS/addfeaturedevents');
+    }
 }

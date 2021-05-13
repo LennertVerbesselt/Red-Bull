@@ -308,7 +308,7 @@
                     
                 </div>
 
-                <div class="w-6/12 mt-12">
+                <div class="w-8/12 mt-12">
                     <p class="text-xl pb-3 flex items-center">
                         <i class="fas fa-list mr-3"></i> Event Tickets
                         
@@ -368,6 +368,69 @@
                         </table>
                         
                     </div>
+
+                    <div class="w-8/12 mt-12">
+                        <p class="text-xl pb-3 flex items-center">
+                            <i class="fas fa-list mr-3"></i> Featured Events
+                            <button class="text-xs ml-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                <a href="{{ route('view_add_featured_events')}}"> Add Featured Events </a>
+                              </button>
+                        </p>
+                        
+                        
+                        <div class="bg-white overflow-auto"> 
+                            <table class="min-w-full leading-normal">
+                                <thead>
+                                    <tr>
+                                        <th
+                                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            Featured Events id
+                                        </th>
+                                        <th
+                                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            Featured Events
+                                        </th>
+                                        <th
+                                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            Start Date/Time
+                                        </th>
+                                        <th
+                                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            End Date/Time
+                                        </th>
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+    
+                                    @foreach ($featured_events as $featured_event)
+                                    
+                                        <tr>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <div class="ml-3">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            {{$featured_event->id}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap">{{$featured_event->events}}</p>
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap">{{$featured_event->start_datetime}}</p>
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap">{{$featured_event->end_datetime}}</p>
+                                            </td>
+                                            
+                                        </tr>
+                                    @endforeach
+                                    
+                                </tbody>
+                            </table>
+                            
+                        </div>
             </main>
     
             
