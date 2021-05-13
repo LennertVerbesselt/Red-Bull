@@ -4,11 +4,11 @@
             <input type="email" v-model="item.email" class="" placeholder="Email">
             <input type="password" v-model="item.password" class="" placeholder="Password">
         </div>
-        <div class="loginSection">
+        <div class="loginSection place-content-center justify-center">
            <form-button type="primary" @click="isLoggedIn()">Login</form-button>
            <form-button type="secondary">Register</form-button>
         </div>
-        <h4>or use one of the following methods:</h4>
+        <h4 class="text-center">or use one of the following methods:</h4>
         <div class="mediaSection">
             <form-button type="media"> <img class="mediaIconG" src="../../assets/google.svg" alt=""> Google</form-button>
             <form-button type="media"><img class="mediaIconF" src="../../assets/facebook.svg" alt="">Facebook</form-button>
@@ -53,7 +53,7 @@ export default {
 }
 input {
     height: 35px;
-    border-radius: 10px;
+    border-radius: 6px;
     width: 286px;
     
     margin: 0.5rem;

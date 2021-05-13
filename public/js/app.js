@@ -14903,14 +14903,16 @@ var _hoisted_2 = {
   "class": "form-group"
 };
 var _hoisted_3 = {
-  "class": "loginSection"
+  "class": "loginSection place-content-center justify-center"
 };
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Login");
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Register");
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h4", null, "or use one of the following methods:", -1
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h4", {
+  "class": "text-center"
+}, "or use one of the following methods:", -1
 /* HOISTED */
 );
 
@@ -15044,7 +15046,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#app {\r\n  font-family: Avenir, Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  margin-top: 60px;\n}\nbody {\r\n  background:#121426 ;\n}\n.illustration {\r\n  color: white;\r\n  height: 327px;\r\n  border:2px solid white;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#app {\r\n  font-family: Avenir, Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  margin-top: 60px;\r\n  background:#121426 ;\n}\nbody {\r\n  background:#121426 ;\n}\n.illustration {\r\n  color: white;\r\n  height: 327px;\r\n  border:2px solid white;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15068,7 +15070,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbutton[data-v-e1943abe] {\r\n    margin-top: 10px;\n}\n.secondary[data-v-e1943abe] {\r\n    border:2px solid #FFF07C;\r\n    border-radius: 4px ;\r\n    color:#FFF07C ;\r\n    height: 38px;\r\n    width: 135px;\r\n    border-radius: 10px;\r\n    font-weight: bold;\r\n    background: none;\r\n    margin-left: 10px;\n}\n.primary[data-v-e1943abe] {\r\n    color: white;\r\n    background-color:#EB5876 ;\r\n    height: 38px;\r\n    width: 135px;\r\n    border-radius: 10px;\r\n    font-weight: bold;\r\n    margin-right: 10px;\r\n    border:none;\n}\n.media[data-v-e1943abe] {\r\n    height: 40px;\r\n    border-radius: 10px;\r\n    width: 286px;\r\n    background-color: white;\r\n    font-weight: bold;\r\n    text-align: center;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbutton[data-v-e1943abe] {\r\n    margin-top: 10px;\n}\n.secondary[data-v-e1943abe] {\r\n    border:2px solid #FFF07C;\r\n    border-radius: 2px ;\r\n    color:#FFF07C ;\r\n    height: 38px;\r\n    width: 135px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    background: none;\r\n    margin-left: 10px;\n}\n.primary[data-v-e1943abe] {\r\n    color: white;\r\n    background-color:#EB5876 ;\r\n    height: 38px;\r\n    width: 135px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    margin-right: 10px;\r\n    border:none;\n}\n.media[data-v-e1943abe] {\r\n    height: 40px;\r\n    border-radius: 6px;\r\n    width: 286px;\r\n    background-color: white;\r\n    font-weight: bold;\r\n    text-align: center;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15092,7 +15094,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.form-group[data-v-39eb40dc] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    margin-top: 0.5rem;\n}\ninput[data-v-39eb40dc] {\r\n    height: 35px;\r\n    border-radius: 10px;\r\n    width: 286px;\r\n    \r\n    margin: 0.5rem;\r\n    text-align: center;\n}\nh4[data-v-39eb40dc] {\r\n    color: white;\n}\n.mediaIconG[data-v-39eb40dc] {\r\n    position:absolute;\r\n    height: 20px;\r\n    margin-left:-40px;\r\n    margin-top: -2px;\n}\n.mediaIconF[data-v-39eb40dc] {\r\n    position: absolute;\r\n    height: 20px;\r\n    margin-left:-33px;\r\n    margin-top: -4px;\n}\na[data-v-39eb40dc] {\r\n    position: absolute;\r\n    color: #EB5876;\r\n    bottom: 50px;\r\n    left: 130px;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.form-group[data-v-39eb40dc] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    margin-top: 0.5rem;\n}\ninput[data-v-39eb40dc] {\r\n    height: 35px;\r\n    border-radius: 6px;\r\n    width: 286px;\r\n    \r\n    margin: 0.5rem;\r\n    text-align: center;\n}\nh4[data-v-39eb40dc] {\r\n    color: white;\n}\n.mediaIconG[data-v-39eb40dc] {\r\n    position:absolute;\r\n    height: 20px;\r\n    margin-left:-40px;\r\n    margin-top: -2px;\n}\n.mediaIconF[data-v-39eb40dc] {\r\n    position: absolute;\r\n    height: 20px;\r\n    margin-left:-33px;\r\n    margin-top: -4px;\n}\na[data-v-39eb40dc] {\r\n    position: absolute;\r\n    color: #EB5876;\r\n    bottom: 50px;\r\n    left: 130px;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
