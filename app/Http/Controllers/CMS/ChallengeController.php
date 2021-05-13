@@ -6,26 +6,26 @@ use Illuminate\Http\Request;
 
 use App\Models\Category;
 use App\Models\User;
-use App\Models\Currency_Points;
+use App\Models\Challenge_set;
 
 
-class CategoryController extends Controller
+class ChallengeController extends Controller
 {
-    public function index() {
-      $categories = Category::get();
+    public function index(){
+        $challengeSets = Challenge_Set::get();
 
-      return view('CMS/categories', ['categories' => $categories]);
+        return view('CMS/challenges', ['challenge_sets' => $challengeSets]);
     }
 
-    public function addCategoryPage()
+    public function addChallengeSetPage()
     {
-      return view('CMS/addcategory');
+      return view('CMS/addchallengeset');
     }
 
-    public function addCategory(Request $request){
+    public function addChallengeSet(Request $request){
 
       //Add new category to list
-      $category = new Category;
+      /*$category = new Category;
       $category->category_name = $request->name;
       $category->save();
 
@@ -37,10 +37,10 @@ class CategoryController extends Controller
         $currency = new Currency_Points;
         $currency->user_id = $user->id;
         $currency->category_id = $category->category_id;
-      }
+      }*/
 
       
-      return view('CMS/addcategory');
+      return view('CMS/addchallengeset');
     }
 
 

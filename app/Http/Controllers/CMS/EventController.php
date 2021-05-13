@@ -14,6 +14,16 @@ class EventController extends Controller
 {
     public function index(){
 
+        $events = Event::get();
+        $eventTickets = Event_Ticket::get();
+        $featuredEvents = Featured_Events::get();
+
+
+        return view('CMS/events', ['events' => $events, 'event_tickets' => $eventTickets, 'featured_events' => $featuredEvents]);
+    }
+
+    public function addEventPage(){
+
         $categories = Category::get();
 
         return view('CMS/addevent', ['categories' => $categories]);
