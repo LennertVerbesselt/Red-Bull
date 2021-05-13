@@ -14807,10 +14807,21 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    isLoggedIn: function isLoggedIn() {
+    login: function login() {
       if (this.item.email && this.item.password == '') {
         return;
       }
+
+      axios.post('auth/login', {
+        email: this.email,
+        password: this.password
+      }).then(function (response) {
+        console.log('oki');
+
+        if (response.status == 200) {
+          console.log("yay");
+        }
+      });
     }
   }
 });
@@ -14972,7 +14983,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.item.password]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_button, {
     type: "primary",
     onClick: _cache[3] || (_cache[3] = function ($event) {
-      return $options.isLoggedIn();
+      return $options.login();
     })
   }, {
     "default": _withId(function () {

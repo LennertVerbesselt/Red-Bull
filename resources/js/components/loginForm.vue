@@ -5,7 +5,7 @@
             <input type="password" v-model="item.password" class="" placeholder="Password">
         </div>
         <div class="loginSection place-content-center justify-center">
-           <form-button type="primary" @click="isLoggedIn()">Login</form-button>
+           <form-button type="primary" @click="login()">Login</form-button>
            <form-button type="secondary">Register</form-button>
         </div>
         <h4 class="text-center">or use one of the following methods:</h4>
@@ -34,7 +34,7 @@ export default {
         }
     },
     methods: {
-        isLoggedIn(){
+        login(){
             if (this.item.email && this.item.password == '') {
                 return;
             }

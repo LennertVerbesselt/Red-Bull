@@ -161,7 +161,7 @@
                 <p class="text-xl pb-3 flex items-center">
                     <i class="fas fa-list mr-3"></i> {{$challenge_set->name}}
                     <button class="text-xs ml-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                        <a href="{{ route('view_add_challenge_set')}}"> Add Challenge Set </a>
+                        <a href="{{ route('view_add_challenge')}}"> Add Challenge </a>
                       </button>
                 </p>
                 <div class="bg-white overflow-auto"> 
@@ -170,11 +170,11 @@
                             <tr>
                                 <th
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Challenge id 
+                                    Challenge Name
                                 </th>
                                 <th
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Challenge Name
+                                    Challenge id
                                 </th>
                                 <th
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -197,34 +197,31 @@
                         </thead>
                         <tbody>
 
-                            @foreach ($challenge_sets as $challenge_set)
+                            @foreach ($challenges as $challenge)
                             
                                 <tr>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <div class="ml-3">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                    {{$challenge_set->id}}
+                                                    {{$challenge->id}}
                                                 </p>
                                             </div>
                                         
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->category_id}}</p>
+                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge->id}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->event_id}}</p>
+                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge->description}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->name}}</p>
+                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge->diificulty}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->length}}</p>
+                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge->cans_needed_to_unlock}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->difficulty}}</p>
-                                    </td>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge_set->active_untill}}</p>
+                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge->upvote_ratio}}</p>
                                     </td>
                                     
                                 </tr>

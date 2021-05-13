@@ -44,6 +44,9 @@ Route::post('/CMS/add_featured_events', [EventController::class, 'addFeaturedEve
 Route::get('/CMS/add_challenge_set', [ChallengeController::class, 'addChallengeSetPage'])->name('view_add_challenge_set');
 Route::post('/CMS/add_challenge_set', [ChallengeController::class, 'addChallengeSet'])->name('add_challenge_set');
 
+Route::get('/CMS/add_challenge', [ChallengeController::class, 'addChallengePage'])->name('view_add_challenge');
+Route::post('/CMS/add_challenge', [ChallengeController::class, 'addChallenge'])->name('add_challenge');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

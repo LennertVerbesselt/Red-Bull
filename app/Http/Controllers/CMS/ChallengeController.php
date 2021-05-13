@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Event;
 use App\Models\Challenge_Set;
+use App\Models\Challenge;
+
 
 
 
@@ -16,8 +18,9 @@ class ChallengeController extends Controller
         $challengeSets = Challenge_Set::get();
         $events = Event::get();
         $categories = Category::get();
+        $challenges = Challenge::get();
 
-        return view('CMS/challenges', ['challenge_sets' => $challengeSets, 'events' => $events, 'categories' => $categories]);
+        return view('CMS/challenges', ['challenge_sets' => $challengeSets, 'events' => $events, 'categories' => $categories, 'challenges' => $challenges]);
     }
 
     public function addChallengeSetPage()
@@ -43,8 +46,38 @@ class ChallengeController extends Controller
         $challengeSets = Challenge_Set::get();
         $events = Event::get();
         $categories = Category::get();
+        $challenges = Challenge::get();
 
-        return view('CMS/challenges', ['challenge_sets' => $challengeSets, 'events' => $events, 'categories' => $categories]);
+        return view('CMS/challenges', ['challenge_sets' => $challengeSets, 'events' => $events, 'categories' => $categories, 'challenges' => $challenges]);
+    }
+
+    public function addChallengePage()
+    {
+        $events = Event::get();
+        $categories = Category::get();
+        $challengeSets = Challenge_Set::get();
+
+        return view('CMS/addchallenge', ['events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets]);
+    }
+
+
+    public function addChallenge(Request $request)
+    {
+        $challenge = new Challenge;
+        $challenge->challenge_set_id = $request->challenge_set_id;
+        $challenge->name = $request->name;
+        $challenge->difficulty = $request->difficulty;
+        $challenge->description = $request->description;
+        $challenge->cans_needed_to_unlock = $request->cans_needed;
+        $challenge->upvote_ratio = $request->upvote_ratio;
+
+        $challenge->save();
+
+        $events = Event::get();
+        $categories = Category::get();
+        $challengeSets = Challenge_Set::get();
+
+        return view('CMS/addchallenge', ['events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets]);
     }
 
 
