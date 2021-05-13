@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\Event_Ticket;
 
 
 class EventController extends Controller
@@ -33,6 +34,11 @@ class EventController extends Controller
         $event->total_tickets_available = $request->availableTickets;
         $event->tickets_sold = $request->ticketsSold;
         $event->save();
+
+        $event = Event::latest()->first();
+        $eventTicket = new Event_Ticket;
+        $eventTicket->event_id = $event->event_id;
+        $eventTicket->save();
 
         return view('CMS/addevent', ['categories' => $categories]);
     }
