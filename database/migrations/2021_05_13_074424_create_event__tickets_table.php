@@ -17,6 +17,7 @@ class CreateEventTicketsTable extends Migration
             $table->id();
             $table->unsignedInteger('event_id');
             $table->string('barcode')->default(0);
+            $table->string('expiration_date');
             $table->timestamps();
         });
     }

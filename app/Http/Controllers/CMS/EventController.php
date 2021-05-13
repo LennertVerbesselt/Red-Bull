@@ -38,6 +38,7 @@ class EventController extends Controller
         $event = Event::latest()->first();
         $eventTicket = new Event_Ticket;
         $eventTicket->event_id = $event->event_id;
+        $eventTicket->expiration_date = $event->datetime;
         $eventTicket->save();
 
         return view('CMS/addevent', ['categories' => $categories]);
