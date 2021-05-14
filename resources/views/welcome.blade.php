@@ -29,6 +29,8 @@
             @endif
             <div id="app">
                 <Login/>
+                <router-view></router-view>
+
             </div>
 
             </div>   
