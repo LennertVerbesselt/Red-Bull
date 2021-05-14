@@ -2,7 +2,7 @@
 <div class="illustration">
   Illustration goes here
 </div>
-                <router-view/>
+        <router-view/>
 </template>
 
 <script>

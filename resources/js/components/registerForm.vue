@@ -28,6 +28,45 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+input {
+    height: 35px;
+    border-radius: 6px;
+    width: 286px;
+    
+    margin: 0.5rem;
+    text-align: center;
 
+}
+.mediaIconG {
+    position:absolute;
+    height: 20px;
+    margin-left:-40px;
+    margin-top: -2px;
+    
+
+}
+.mediaIconF {
+    position: absolute;
+    height: 20px;
+    margin-left:-33px;
+    margin-top: -4px;
+    
+}
+
+.mediaSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h4 {
+    color: white;
+    text-align: center;
+}
 </style>

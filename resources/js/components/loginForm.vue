@@ -14,7 +14,7 @@
             <form-button type="media"><img class="mediaIconF" src="../../assets/facebook.svg" alt="">Facebook</form-button> 
         </div>
         <div class="passwordForgot">
-        <a href="http://"> Forgot Password?</a>
+        <a class="pwdF" href="http://"> Forgot Password?</a>
         </div>
     </form>
 </template>
@@ -110,7 +110,7 @@ h4 {
     flex-direction: column;
     align-items: center;
 }
-a {
+.pwdF {
 
     color: #EB5876;
     bottom: 50px;
