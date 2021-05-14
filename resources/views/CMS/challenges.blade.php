@@ -152,20 +152,20 @@
 
             @foreach ($categories as $category)
 
-            <h1 class="pt-6 w-full text-3xl text-black pb-6">{{$category->category_name}}</h1>
+            <h1 class="pt-6 w-full text-3xl text-black">{{$category->category_name}}</h1>
             
 
             @foreach ($challenge_sets as $challenge_set)
                 @if ($challenge_set->category_id == $category->category_id)
 
-                <p class="text-xl pb-3 flex items-center">
+                <p class="text-xl pb-3 flex items-center pt-6">
                     <i class="fas fa-list mr-3"></i> {{$challenge_set->name}}
                     <button class="text-xs ml-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                         <a href="{{ route('view_add_challenge')}}"> Add Challenge </a>
                       </button>
                 </p>
                 <div class="bg-white overflow-auto"> 
-                    <table class="min-w-full leading-normal">
+                    <table class="min-w-full leading-normal pb-8">
                         <thead>
                             <tr>
                                 <th
@@ -198,6 +198,7 @@
                         <tbody>
 
                             @foreach ($challenges as $challenge)
+                            @if ($challenge->challenge_set_id === $challenge_set->id)
                             
                                 <tr>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -225,6 +226,7 @@
                                     </td>
                                     
                                 </tr>
+                                @endif
                             @endforeach
                             
                         </tbody>
