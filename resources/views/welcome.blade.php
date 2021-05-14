@@ -27,7 +27,9 @@
                     @endauth
                 </div>
             @endif
-            <div id="example"></div>
+            <div id="app">
+                <Login/>
+            </div>
 
             </div>   
             

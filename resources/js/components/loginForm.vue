@@ -1,17 +1,17 @@
 <template>
-    <form action="">
+    <form method="" action="">
         <div class="form-group">
             <input type="email" v-model="item.email" class="" placeholder="Email">
             <input type="password" v-model="item.password" class="" placeholder="Password">
         </div>
         <div class="loginSection">
            <form-button type="primary" @click="login()">Login</form-button>
-           <form-button type="secondary">Register</form-button>
+           <router-link to="/register"><form-button type="secondary">Register</form-button></router-link>
         </div>
         <h4 class="text-center">or use one of the following methods:</h4>
         <div class="mediaSection">
             <form-button type="media"> <img class="mediaIconG" src="../../assets/google.svg" alt=""> Google</form-button>
-            <form-button type="media"><img class="mediaIconF" src="../../assets/facebook.svg" alt="">Facebook</form-button>
+            <form-button type="media"><img class="mediaIconF" src="../../assets/facebook.svg" alt="">Facebook</form-button> 
         </div>
         <div class="passwordForgot">
         <a href="http://"> Forgot Password?</a>
@@ -40,6 +40,17 @@ export default {
             if (this.item.email && this.item.password == '') {
                 return;
             }
+            axios.post('guest/login/store', {
+                item: this.email
+            })
+            .then( response => {
+                if (response.status ==201) {
+                    this.item.email == "";
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
         }
     }
     

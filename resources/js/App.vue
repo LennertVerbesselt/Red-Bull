@@ -3,6 +3,7 @@
   Illustration goes here
 </div>
   <Login/>
+  <router-view/>
 </template>
 
 <script>
@@ -10,9 +11,10 @@ import Login from './components/loginForm.vue'
   
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     Login,
+  
     
   }
 }
