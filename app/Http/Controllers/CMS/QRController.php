@@ -73,7 +73,7 @@ class QRController extends Controller
 
         $amountOfQRCodes = (int)$request->amount;
 
-        for($u = 0; $u <= $amountOfQRCodes; $u++){
+        for($u = 0; $u < $amountOfQRCodes; $u++){
 
             //Generate new value
             $QRValue = $this->generateQRValue();

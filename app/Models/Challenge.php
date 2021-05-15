@@ -9,6 +9,8 @@ class Challenge extends Model
 {
     use HasFactory;
 
+    protected $table = 'challenge';
+
     protected $guarded =[];
 
     public function challengeSet(){

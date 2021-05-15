@@ -28,6 +28,6 @@ class CreateQRSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('q_r_s');
+        Schema::dropIfExists('qr_codes');
     }
 }
