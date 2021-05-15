@@ -2,8 +2,7 @@
 <div class="illustration">
   Illustration goes here
 </div>
-  <Login/>
-  <router-view/>
+        <router-view/>
 </template>
 
 <script>

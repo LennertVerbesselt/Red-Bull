@@ -28,7 +28,8 @@
                 </div>
             @endif
             <div id="app">
-                <Login/>
+                
+
             </div>
 
             </div>   
