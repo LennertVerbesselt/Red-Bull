@@ -13,7 +13,7 @@ class CreateQRSTable extends Migration
      */
     public function up()
     {
-        Schema::create('q_r_s', function (Blueprint $table) {
+        Schema::create('qr_codes', function (Blueprint $table) {
             $table->id();
             $table->string('code');
             $table->boolean('available');
