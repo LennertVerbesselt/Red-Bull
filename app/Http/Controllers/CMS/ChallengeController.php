@@ -4,10 +4,12 @@ namespace App\Http\Controllers\CMS;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
 use App\Models\Category;
 use App\Models\Event;
 use App\Models\Challenge_Set;
 use App\Models\Challenge;
+use App\Models\Challenge_Progression;
 
 
 
@@ -72,6 +74,15 @@ class ChallengeController extends Controller
         $challenge->upvote_ratio = $request->upvote_ratio;
 
         $challenge->save();
+
+        $challenge = Challenge::latest()->first();
+        $users = User::get();
+        foreach($users as $user){
+            $challenge_progression = new Challenge_Progression;
+            $challenge_progression->user_id = $user->id;
+            $challenge_progression->challenge_id = $challenge->id;
+            $challenge_progression->save();
+         }
 
         $events = Event::get();
         $categories = Category::get();
