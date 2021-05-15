@@ -1,18 +1,14 @@
 <template>
-<div class="illustration">
-  Illustration goes here
-</div>
-        <router-view/>
+
+        <router-view></router-view>
 </template>
 
 <script>
-import Login from './components/loginForm.vue'
-  
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    Login,
+    
   
     
   }

@@ -1,31 +1,51 @@
 <template>
-   <form method="" action="">
+
+<div class="illustration">
+  Illustration goes here
+</div>
+
+   <form  @submit.prevent="register">
         <div class="form-group">
-            <input type="email"  class="" placeholder="Email">
-            <input type="username"  class="" placeholder="Username">
-            <input type="password"  class="" placeholder="Password">
-            <input type="password"  class="" placeholder="Confirm password">
+            <input type="email"  class="" placeholder="Email" v-model="fields.email">
+            <input type="username"  class="" placeholder="Username" v-model="fields.name">
+            <input type="password"  class="" placeholder="Password" v-model="fields.password">
+            <input type="password"  class="" placeholder="Confirm password" v-model="fields.password_confirmation">
         </div>
         <div class="loginSection">
-           <form-button type="secondary">Register</form-button>
+           <form-button type="submit">Register</form-button>
         </div>
         <h4 class="text-center">or use one of the following methods:</h4>
         <div class="mediaSection">
             <form-button type="media"> <img class="mediaIconG" src="../../assets/google.svg" alt=""> Google</form-button>
             <form-button type="media"><img class="mediaIconF" src="../../assets/facebook.svg" alt="">Facebook</form-button>
         </div>
-          <router-view/>
+          
     </form>
 </template>
     
 <script>
-import FormButton from './formButton.vue'
+import FormButton from './FormButton.vue'
 export default {
     name:'Register',
     components: {
         FormButton
     },
-}
+    data() {
+        return{
+            fields: {},
+        }
+    },
+    methods: {
+        register() {
+            axios.post('api/register', this.fields).then(response => {
+                this.fields={};
+            }).catch(error => {
+                console.log("Error");
+            });
+        }
+    }
+    }
+
 </script>
 
 <style scoped>

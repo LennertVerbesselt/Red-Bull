@@ -1,4 +1,7 @@
 <template>
+ <div class="illustration">
+    Illustration goes here
+  </div>
     <form method="" action="">
         <div class="form-group">
             <input type="email" v-model="item.email" class="" placeholder="Email">
@@ -21,7 +24,7 @@
 
 
 <script>
-import FormButton from './formButton.vue'
+import FormButton from './/FormButton.vue'
 export default {
     name: 'Login',
     components: {
