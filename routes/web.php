@@ -7,6 +7,7 @@ use App\Http\Controllers\CMS\CategoryController;
 use App\Http\Controllers\CMS\EventController;
 use App\Http\Controllers\CMS\UserController;
 use App\Http\Controllers\CMS\ChallengeController;
+use App\Http\Controllers\CMS\QRController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,8 @@ Route::get('/CMS/users', [UserController::class, 'index'])->name('users');
 Route::get('/CMS/categories', [categoryController::class, 'index'])->name('categories');
 Route::get('/CMS/events', [EventController::class, 'index'])->name('events');
 Route::get('/CMS/Challenges', [ChallengeController::class, 'index'])->name('challenges');
-Route::get('/CMS/Posts', [PostController::class, 'index'])->name('posts');
+Route::get('/CMS/Posts', [QRController::class, 'index'])->name('posts');
+Route::get('/CMS/QR', [QRController::class, 'index'])->name('qrcodes');
 
 Route::get('/CMS/add_category', [CategoryController::class, 'addCategoryPage'])->name('view_add_category');
 Route::post('/CMS/add_category', [CategoryController::class, 'addCategory'])->name('add_category');
@@ -46,6 +48,9 @@ Route::post('/CMS/add_challenge_set', [ChallengeController::class, 'addChallenge
 
 Route::get('/CMS/add_challenge', [ChallengeController::class, 'addChallengePage'])->name('view_add_challenge');
 Route::post('/CMS/add_challenge', [ChallengeController::class, 'addChallenge'])->name('add_challenge');
+
+Route::get('/CMS/QR_Codes', [QRController::class, 'index'])->name('view_qr_codes');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
