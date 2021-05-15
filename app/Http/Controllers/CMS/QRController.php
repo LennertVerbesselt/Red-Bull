@@ -20,18 +20,20 @@ use App\Models\QR;
 
 class QRController extends Controller
 {
+
+    
+
     public function index()
     {
-        $qrcodes = QR::get();
 
         $dataUri = $this->generateQRCodesURI();
         
 
-        return view('CMS/qr', ['qrcodes' => $qrcodes, 'dataUri' => $dataUri]);
+        return view('CMS/qr', ['dataUri' => $dataUri]);
     }
 
     public function generateQRCodesURI(){
-        $qrcodes = QR::get();
+        $qrcodes = QR::orderBy('id', 'asc')->get();
 
         $dataUriArray = [];
 
@@ -61,6 +63,64 @@ class QRController extends Controller
             array_push($dataUriArray, $dataUriItem);
         }
         return $dataUriArray;
+    }
+
+    public function addQRCodesPage(){
+        return view('CMS/addqrcode');
+    }
+
+    public function addQRCodes(Request $request){
+
+        $amountOfQRCodes = (int)$request->amount;
+
+        for($u = 0; $u <= $amountOfQRCodes; $u++){
+
+            //Generate new value
+            $QRValue = $this->generateQRValue();
+            
+            //Check if duplicate
+            if($this->QRDuplicateCheck($QRValue)){
+                $u--;
+            } else {
+                $qrcode = new QR;
+                $qrcode->code = $QRValue;
+                $qrcode->available = True;
+                $qrcode->save();
+            }
+        }
+
+
+
+        $dataUri = $this->generateQRCodesURI();
+        return view('CMS/qr', ['dataUri' => $dataUri]);
+    }
+    
+    function generateQRValue(){
+        //How long is the generated value of the QR Code
+        $QRCodeValueLength = 40;
+
+        //Characters in the generated value
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        $newQRValue = '';
+        for($i = 0; $i < $QRCodeValueLength; $i++) {
+            $number = random_int(0, 36);
+            $character = base_convert($number, 10, 36);
+            $newQRValue .= $character;
+        }
+
+        return $newQRValue;
+    }
+
+    function QRDuplicateCheck($newQRValue){
+        $qrcodes = QR::get();
+
+        foreach($qrcodes as $qrcode){
+            if ($qrcode->code == $newQRValue){
+                return True;
+            }
+        }
+        return False;
     }
 
 

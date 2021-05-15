@@ -49,7 +49,8 @@ Route::post('/CMS/add_challenge_set', [ChallengeController::class, 'addChallenge
 Route::get('/CMS/add_challenge', [ChallengeController::class, 'addChallengePage'])->name('view_add_challenge');
 Route::post('/CMS/add_challenge', [ChallengeController::class, 'addChallenge'])->name('add_challenge');
 
-Route::get('/CMS/QR_Codes', [QRController::class, 'index'])->name('view_qr_codes');
+Route::get('/CMS/add_qr_codes', [QRController::class, 'addQRCodesPage'])->name('view_add_qr_codes');
+Route::post('/CMS/add_qr_codes', [QRController::class, 'addQRCodes'])->name('add_qr_codes');
 
 
 Route::get('/dashboard', function () {

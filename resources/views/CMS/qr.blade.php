@@ -10,7 +10,7 @@
                     <p class="text-xl pb-3 flex items-center">
                         <i class="fas fa-list mr-3"></i> QR Codes
                         <button class="text-xs ml-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                            <a href=""> Generate QR Codes </a>
+                            <a href="{{route('view_add_qr_codes')}}"> Generate QR Codes </a>
                           </button>
                     </p>
                     
@@ -33,7 +33,7 @@
                                     </th>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Qr Code Scanned
+                                        Qr Code Available
                                     </th>
                                 
                                 </tr>
