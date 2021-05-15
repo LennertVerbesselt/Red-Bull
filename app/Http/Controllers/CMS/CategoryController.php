@@ -37,6 +37,7 @@ class CategoryController extends Controller
         $currency = new Currency_Points;
         $currency->user_id = $user->id;
         $currency->category_id = $category->category_id;
+        $currency->save();
       }
 
       

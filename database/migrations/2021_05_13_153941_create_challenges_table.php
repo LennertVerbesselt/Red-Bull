@@ -15,7 +15,7 @@ class CreateChallengesTable extends Migration
     {
         Schema::create('challenges', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('challende_set_id');
+            $table->unsignedInteger('challenge_set_id');
             $table->string('name');
             $table->integer('difficulty');
             $table->string('description');
