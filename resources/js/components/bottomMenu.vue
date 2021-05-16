@@ -16,11 +16,11 @@
     </div>
 </template>
 <script>
-import homeIcon from './homeIcon'
-import trophyIcon from './trophyIcon'
-import qrIcon from './qrIcon.vue'
-import calendarIcon from './calendarIcon.vue'
-import profileIcon from './profileIcon.vue'
+import homeIcon from './menu/homeIcon'
+import trophyIcon from './menu/trophyIcon'
+import qrIcon from './menu/qrIcon.vue'
+import calendarIcon from './menu/calendarIcon.vue'
+import profileIcon from './menu/profileIcon.vue'
 
 export default {
     components: {
