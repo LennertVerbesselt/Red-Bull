@@ -8,7 +8,7 @@
             <input type="password" v-model="item.password" class="" placeholder="Password">
         </div>
         <div class="loginSection">
-           <form-button type="primary" @click="login()">Login</form-button>
+           <router-link to="/dash"><form-button type="primary" @click="login()">Login</form-button></router-link>
            <router-link to="/register"><form-button type="secondary">Register</form-button></router-link>
         </div>
         <h4 class="text-center">or use one of the following methods:</h4>
