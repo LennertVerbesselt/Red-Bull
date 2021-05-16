@@ -11,4 +11,6 @@ class Category extends Model
 
     protected $guarded =[];
 
+    protected $primaryKey = 'category_id';
+
 }
