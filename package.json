@@ -26,12 +26,5 @@
     },
     "dependencies": {
         "vue-router": "^4.0.8"
-    },
-
-    "name": "red-bull",
-    "description": "",
-    "version": "1.0.0",
-    "engines": {
-        "node": "6.x"
     }
 }
