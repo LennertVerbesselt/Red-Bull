@@ -1,11 +1,11 @@
 <template>
     <div class="menu">
     <nav class="nav">
-        <homeIcon></homeIcon>
-        <trophyIcon></trophyIcon>
-        <qrIcon></qrIcon>
-        <calendarIcon></calendarIcon>
-        <profileIcon></profileIcon>
+        <HomeIcon></HomeIcon>
+        <TrophyIcon></TrophyIcon>
+        <QRIcon></QRIcon>
+        <CalendarIcon></CalendarIcon>
+        <ProfileIcon></ProfileIcon>
 
         
         
@@ -16,19 +16,20 @@
     </div>
 </template>
 <script>
-import homeIcon from './menu/homeIcon'
-import trophyIcon from './menu/trophyIcon'
-import qrIcon from './menu/qrIcon.vue'
-import calendarIcon from './menu/calendarIcon.vue'
-import profileIcon from './menu/profileIcon.vue'
+import HomeIcon from './menu/HomeIcon'
+import TrophyIcon from './menu/TrophyIcon'
+import QRIcon from './menu/QRIcon.vue'
+import CalendarIcon from './menu/CalendarIcon.vue'
+import ProfileIcon from './menu/ProfileIcon.vue'
 
 export default {
+    name: "BottomMenu",
     components: {
-        homeIcon,
-        trophyIcon,
-        qrIcon,
-        calendarIcon,
-        profileIcon
+        HomeIcon,
+        TrophyIcon,
+        QRIcon,
+        CalendarIcon,
+        ProfileIcon
     }
 }
 </script>

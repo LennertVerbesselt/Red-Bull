@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'homeIcon'
+    name: 'HomeIcon'
 }
 </script>
 

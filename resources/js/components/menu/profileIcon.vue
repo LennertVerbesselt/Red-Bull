@@ -17,7 +17,7 @@
 
 <script>
 export default {
- name:'profileIcon'
+ name:'ProfileIcon'
 }
 </script>
 

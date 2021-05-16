@@ -1,12 +1,12 @@
 <template>
-   <bottomMenu> </bottomMenu>
+   <BottomMenu> </BottomMenu>
 </template>
 
 <script>
-import bottomMenu from '../components/bottomMenu'
+import BottomMenu from '../components/BottomMenu'
 export default {
     components: {
-        bottomMenu
+        BottomMenu
     }
 }
 </script>

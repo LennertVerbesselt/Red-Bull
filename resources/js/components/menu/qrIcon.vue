@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    name:'qrIcon'
+    name:'QRIcon'
 }
 </script>
 

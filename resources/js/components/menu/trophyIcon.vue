@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name:'trophyIcon'
+    name:'TrophyIcon'
 }
 </script>
 
