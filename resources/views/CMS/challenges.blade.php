@@ -156,7 +156,7 @@
                                         <p class="text-gray-900 whitespace-no-wrap">{{$challenge->description}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge->diificulty}}</p>
+                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge->difficulty}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">{{$challenge->cans_needed_to_unlock}}</p>
