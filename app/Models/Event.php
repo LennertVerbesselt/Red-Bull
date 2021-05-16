@@ -10,6 +10,7 @@ class Event extends Model
     use HasFactory;
 
     protected $table = 'event';
+    protected $primaryKey = 'event_id';
 
     protected $guarded =[];
 
