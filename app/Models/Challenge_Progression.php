@@ -11,7 +11,7 @@ class Challenge_Progression extends Model
 
     protected $guarded =[];
 
-    protected $primaryKey = 'challenge_progression_id';
+    
 
     public function challenge(){
         return $this->belongsTo(Challenge::class);

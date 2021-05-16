@@ -11,7 +11,7 @@ class Challenge_Set extends Model
 
     protected $guarded =[];
 
-    protected $primaryKey = 'challenge_set_id';
+    
 
     public function event(){
         return $this->belongsTo(Event::class);
