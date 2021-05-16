@@ -29,9 +29,5 @@ export default {
 body {
   background:#121426 ;
 }
-.illustration {
-  color: white;
-  height: 327px;
-  border:2px solid white;
-}
+
 </style>

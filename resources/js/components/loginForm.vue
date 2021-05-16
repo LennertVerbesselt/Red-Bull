@@ -120,4 +120,14 @@ h4 {
     margin-top: 3rem;
 }
 
+.illustration {
+  color: white;
+  height: 200px;
+  width: 268px;
+  border:2px solid white;
+  justify-content: center;
+  margin:auto;
+  margin-top: 10px;
+}
+
 </style>

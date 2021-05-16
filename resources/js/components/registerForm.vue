@@ -12,7 +12,7 @@
             <input type="password"  class="" placeholder="Confirm password" v-model="fields.password_confirmation">
         </div>
         <div class="loginSection">
-           <form-button type="submit">Register</form-button>
+           <form-button type="secondary submit">Register</form-button>
         </div>
         <h4 class="text-center">or use one of the following methods:</h4>
         <div class="mediaSection">
