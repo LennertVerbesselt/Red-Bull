@@ -54,6 +54,14 @@ class EventController extends Controller
         $eventTicket->expiration_date = $event->datetime;
         $eventTicket->save();
 
+        //Create Default Event Header element
+        $eventheader = Event_Header::create([
+            'event_id' => $event->id,
+            'filename' => 'default.jpg',
+            'url' => 'https://redbullapp.s3.eu-west-2.amazonaws.com/EventHeaders/default.jpg',
+        ]);
+
+
         $events = Event::get();
         $eventTickets = Event_Ticket::get();
         $featuredEvents = Featured_Events::get();
@@ -84,7 +92,7 @@ class EventController extends Controller
         $featuredEvents->save();
         
         $events = Event::get();
-
+        
 
         $events = Event::get();
         $eventTickets = Event_Ticket::get();
@@ -125,12 +133,22 @@ class EventController extends Controller
         //Set image on AWS public
         Storage::disk('s3')->setVisibility($path, 'public');
 
-        //Create & Save new Profile Picture object
+        //Create & Save new Event Header object
         $eventheader = new Event_Header;
         $eventheader->event_id = $event->id;
         $eventheader->filename = $path;
         $eventheader->url = Storage::disk('s3')->url($path);
         $eventheader->save();
+
+        //Remove previous header image unless it is the placeholder image
+        $eventheaders = Event_Header::get();
+        $lasteventheader = Event_Header::latest()->first();
+        foreach($eventheaders as $eventheader){
+            if($eventheader->event_id == $event->id && $eventheader->id != $lasteventheader->id && $eventheader->filename != "default.jpg"){
+                
+                Storage::disk('s3')->delete($eventheader->filename);
+            } 
+        }
 
 
         $events = Event::get();
