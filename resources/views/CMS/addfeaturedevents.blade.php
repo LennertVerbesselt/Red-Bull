@@ -27,7 +27,7 @@
                                     <label class=" block text-sm text-gray-600" for="message">Event Category</label>
                                     <select class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input" id="event1" name="event1">
                                         @foreach ($events as $event)
-                                            <option value="{{$event->event_id}}">{{$event->name}}</option>
+                                            <option value="{{$event->id}}">{{$event->name}}</option>
                                         @endforeach
                                     </select>
                                     <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -39,7 +39,7 @@
                                     <label class=" block text-sm text-gray-600" for="message">Event Category</label>
                                     <select class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input" id="event2" name="event2">
                                         @foreach ($events as $event)
-                                            <option value="{{$event->event_id}}">{{$event->name}}</option>
+                                            <option value="{{$event->id}}">{{$event->name}}</option>
                                         @endforeach
                                     </select>
                                     <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -51,7 +51,7 @@
                                     <label class=" block text-sm text-gray-600" for="message">Event Category</label>
                                     <select class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input" id="event3" name="event3">
                                         @foreach ($events as $event)
-                                            <option value="{{$event->event_id}}">{{$event->name}}</option>
+                                            <option value="{{$event->id}}">{{$event->name}}</option>
                                         @endforeach
                                     </select>
                                     <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -63,7 +63,7 @@
                                     <label class=" block text-sm text-gray-600" for="message">Event Category</label>
                                     <select class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input" id="event4" name="event4">
                                         @foreach ($events as $event)
-                                            <option value="{{$event->event_id}}">{{$event->name}}</option>
+                                            <option value="{{$event->id}}">{{$event->name}}</option>
                                         @endforeach
                                     </select>
                                     <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -75,7 +75,7 @@
                                     <label class=" block text-sm text-gray-600" for="message">Event Category</label>
                                     <select class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input" id="event5" name="event5">
                                         @foreach ($events as $event)
-                                            <option value="{{$event->event_id}}">{{$event->name}}</option>
+                                            <option value="{{$event->id}}">{{$event->name}}</option>
                                         @endforeach
                                     </select>
                                     <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">

@@ -79,8 +79,6 @@ class EventController extends Controller
 
     public function addFeaturedEvents(Request $request) {
 
-        
-
         $featuredEvents = new Featured_Events;
 
         $featuredEvents->start_datetime = $request->start_datetime;
