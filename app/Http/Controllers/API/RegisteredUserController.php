@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Currency_Points;
 use App\Models\Challenge;
 use App\Models\Challenge_Progression;
+use App\Models\Profile_Picture;
 
 
 use App\Providers\RouteServiceProvider;
@@ -76,6 +77,14 @@ class RegisteredUserController extends Controller
                 'user_id' => $user->id,
             ]);
         }
+
+        //Create Default profile picture element
+        $profile_picture = Profile_Picture::create([
+            'user_id' => $user->id,
+            'filename' => 'default.jpg',
+            'url' => 'https://redbullapp.s3.eu-west-2.amazonaws.com/ProfilePictures/default.jpg',
+            'active' => 1,
+        ]);
 
 
 

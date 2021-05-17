@@ -14,7 +14,7 @@
                                 @csrf <!-- {{ csrf_field() }} -->
                                 <div class="">
                                     <label class="block text-sm text-gray-600" for="name">Amount of QR Codes</label>
-                                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="amount" name="amount" type="text" required="" placeholder="Category Name" aria-label="Name">
+                                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="amount" name="amount" type="text" required="" placeholder="Amount of QR Codes" aria-label="Name">
                                 </div>
                                 
                                 <div class="mt-6">

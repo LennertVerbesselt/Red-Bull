@@ -13,11 +13,12 @@ class CreateProfilePicturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('profile__picture', function (Blueprint $table) {
+        Schema::create('profile__pictures', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('user_id');
             $table->string('filename');
             $table->string('url');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
