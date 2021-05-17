@@ -8,7 +8,7 @@ use App\Http\Controllers\CMS\EventController;
 use App\Http\Controllers\CMS\UserController;
 use App\Http\Controllers\CMS\ChallengeController;
 use App\Http\Controllers\CMS\QRController;
-use App\Http\Controllers\CMS\FileUploadController;
+use App\Http\Controllers\CMS\ProfilePictureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,8 +53,8 @@ Route::post('/CMS/add_challenge', [ChallengeController::class, 'addChallenge'])-
 Route::get('/CMS/add_qr_codes', [QRController::class, 'addQRCodesPage'])->name('view_add_qr_codes');
 Route::post('/CMS/add_qr_codes', [QRController::class, 'addQRCodes'])->name('add_qr_codes');
 
-Route::get('/CMS/upload_profile_picture', [FileUploadController::class, 'uploadProfilePicturePage'])->name('view_upload_profile_picture');
-Route::post('/CMS/upload_profile_picture', [FileUploadController::class, 'uploadProfilePicture'])->name('upload_profile_picture');
+Route::get('/CMS/upload_profile_picture', [ProfilePictureController::class, 'uploadProfilePicturePage'])->name('view_upload_profile_picture');
+Route::post('/CMS/upload_profile_picture', [ProfilePictureController::class, 'uploadProfilePicture'])->name('upload_profile_picture');
 
 
 Route::get('/dashboard', function () {
