@@ -47,6 +47,11 @@
                                             {{$category->category_name}}
                                         </th>
                                     @endforeach
+
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -81,7 +86,9 @@
                                                         {{$current_profile->username}}
                                                     </p>
                                                 </div>
+                                                
                                             </div>
+                                            <a href="{{route('view_upload_profile_picture')}}"> <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded mt-6" type="submit">Upload Profile Picture</button></a>
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <p class="text-gray-900 whitespace-no-wrap">{{$current_profile->first_name}}</p>
@@ -120,6 +127,8 @@
                                         </td>
                                     @endforeach
                                 </tr>
+
+                                
                                 
 
                                 @endforeach
