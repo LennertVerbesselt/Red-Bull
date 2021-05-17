@@ -1,15 +1,13 @@
 
   <template>
     <div class="carousel">
-    <agile :dots="true">
+    <agile :dots="true" :navButtons="false">
         <div class="slide">
             <img src="../../assets/Neymar5.jpg" alt="">
         </div>
         
-        ...
-        
         <div class="slide">
-            <img src="../../assets/AirFlick.jpg" alt="">
+            <img  src="../../assets/AirFlick.jpg" alt="">
         </div>
     </agile>
     </div>
@@ -27,22 +25,25 @@ export default {
 </script>
 
 <style scoped>
-body {
-    display: flex;
-    margin: 0;
-}
+
 .agile {
     width: 100%;
 }
+
+
 .slide {
     align-items: center;
     display: flex;
     height: 200px;
+    max-width: 100%;
     justify-content: center;
     margin: 0;
+    top: 0;
+    object-fit: cover;
 }
 img {
     height: 200px;
     margin: 0;
 }
+
 </style>

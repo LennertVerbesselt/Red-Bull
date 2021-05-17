@@ -15,3 +15,8 @@ export default {
     
 }
 </script>
+<style scoped>
+body {
+  margin-top: 60px;
+}
+</style>

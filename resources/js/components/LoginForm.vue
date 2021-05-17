@@ -1,4 +1,5 @@
 <template>
+    <div class="login">
  <div class="illustration">
     Illustration goes here
   </div>
@@ -20,6 +21,7 @@
         <a class="pwdF" href="http://"> Forgot Password?</a>
         </div>
     </form>
+    </div>
 </template>
 
 
@@ -61,6 +63,11 @@ export default {
 </script>
 
 <style scoped>
+.login {
+
+  margin-top: 60px;
+
+}
 .form-group {
     display: flex;
     flex-direction: column;

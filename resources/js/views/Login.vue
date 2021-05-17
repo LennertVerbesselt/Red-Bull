@@ -17,6 +17,9 @@ export default {
 </script>
 
 <style scoped>
+body {
+  margin-top: 60px;
+}
 .illustration {
   color: white;
   height: 327px;

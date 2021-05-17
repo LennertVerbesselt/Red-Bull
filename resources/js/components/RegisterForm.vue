@@ -1,5 +1,5 @@
 <template>
-
+    <div class="register">
 <div class="illustration">
   Illustration goes here
 </div>
@@ -21,6 +21,7 @@
         </div>
           
     </form>
+    </div>
 </template>
     
 <script>
@@ -49,6 +50,9 @@ export default {
 </script>
 
 <style scoped>
+.register {
+    margin-top: 60px;
+}
 .form-group {
     display: flex;
     flex-direction: column;
