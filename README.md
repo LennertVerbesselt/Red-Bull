@@ -1,4 +1,4 @@
-<p align="center"><a href="https://red-bull.herokuapp.com" target="_blank"><img src="https://https://br.pinterest.com/pin/313492824071057818/" width="400"></a></p>
+<p align="center"><a href="https://red-bull.herokuapp.com" target="_blank"><img src="https://https://i.pinimg.com/564x/5a/6e/ef/5a6eef643356f369e2ea71b0a0fcc35d.jpg" width="400"></a></p>
 
 ## About Red Bull Events
 
