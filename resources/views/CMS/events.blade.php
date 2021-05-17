@@ -56,18 +56,29 @@
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                         Tickets Sold 
                                     </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Event Header 
+                                    </th>
                                 
                                 </tr>
                             </thead>
                             <tbody>
 
                                 @foreach ($events as $event)
+                                @php
+                                    foreach ($event_headers as $event_header) {
+                                        if ($event_header->event_id === $event->id){
+                                            $current_event_header = $event_header;
+                                        };
+                                    }; 
+                                @endphp
                                 
                                     <tr>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <div class="ml-3">
                                                     <p class="text-gray-900 whitespace-no-wrap">
-                                                        {{$event->event_id}}
+                                                        {{$event->id}}
                                                     </p>
                                                 </div>
                                             </div>
@@ -95,6 +106,14 @@
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <p class="text-gray-900 whitespace-no-wrap">{{$event->tickets_sold}}</p>
+                                        </td>
+                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            @if($current_event_header->event_id == $event->id)
+                                            <img class="w-6/12 h-6/12"
+                                                        src="{{$current_event_header->url}}"
+                                                        alt="" />
+                                                        @endif
+                                            <a href="{{route('view_upload_event_header')}}"> <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded mt-6" type="submit">Upload Event Header</button></a>
                                         </td>
                                         
                                     </tr>
