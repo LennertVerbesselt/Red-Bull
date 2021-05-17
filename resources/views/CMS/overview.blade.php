@@ -68,6 +68,12 @@
                                         };
                                     };
 
+                                    foreach ($profile_pictures as $profile_picture) {
+                                        if ($profile_picture->user_id === $user->id){
+                                            $current_profile_picture = $profile_picture;
+                                        };
+                                    }; 
+
                                     
                                 @endphp
 
@@ -76,7 +82,7 @@
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 w-10 h-10">
                                                     <img class="w-full h-full rounded-full"
-                                                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                                        src="{{$current_profile_picture->url}}"
                                                         alt="" />
                                                 </div>
                                                 <div class="ml-3">
