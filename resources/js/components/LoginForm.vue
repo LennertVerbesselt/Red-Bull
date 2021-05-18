@@ -3,13 +3,13 @@
  <div class="illustration">
     Illustration goes here
   </div>
-    <form method="" action="">
+    <form @submit.prevent="login">
         <div class="form-group">
             <input type="email" v-model="fields.email" class="" placeholder="Email">
             <input type="password" v-model="fields.password" class="" placeholder="Password">
         </div>
         <div class="loginSection">
-           <router-link to="/home"><form-button type="primary" @click="login()">Login</form-button></router-link>
+           <form-button type="primary submit">Login</form-button>
            <router-link to="/register"><form-button type="secondary">Register</form-button></router-link>
         </div>
         <h4 class="text-center">or use one of the following methods:</h4>
@@ -45,6 +45,8 @@ export default {
             axios.post('api/login', this.fields).then(response => {
                 this.fields={};
                 console.log("login succesfull");
+                this.$router.push('/');
+                
             }).catch(error => {
                 console.log("Error, Login not succesfull");
             });

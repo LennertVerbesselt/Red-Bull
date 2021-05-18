@@ -55,4 +55,8 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+
+    public function retrieveSessionData(){
+        dd(Auth::user()->name);
+    }
 }
