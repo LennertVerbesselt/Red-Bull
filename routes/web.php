@@ -8,7 +8,7 @@ use App\Http\Controllers\CMS\EventController;
 use App\Http\Controllers\CMS\UserController;
 use App\Http\Controllers\CMS\ChallengeController;
 use App\Http\Controllers\CMS\QRController;
-use App\Http\Controllers\CMS\FileUploadController;
+use App\Http\Controllers\CMS\ProfilePictureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +44,9 @@ Route::post('/CMS/add_event', [EventController::class, 'addEvent'])->name('add_e
 Route::get('/CMS/add_featured_events', [EventController::class, 'addFeaturedEventsPage'])->name('view_add_featured_events');
 Route::post('/CMS/add_featured_events', [EventController::class, 'addFeaturedEvents'])->name('add_featured_events');
 
+Route::get('/CMS/upload_event_header', [EventController::class, 'uploadEventHeaderPage'])->name('view_upload_event_header');
+Route::post('/CMS/upload_event_header', [EventController::class, 'uploadEventHeader'])->name('upload_event_header');
+
 Route::get('/CMS/add_challenge_set', [ChallengeController::class, 'addChallengeSetPage'])->name('view_add_challenge_set');
 Route::post('/CMS/add_challenge_set', [ChallengeController::class, 'addChallengeSet'])->name('add_challenge_set');
 
@@ -53,8 +56,8 @@ Route::post('/CMS/add_challenge', [ChallengeController::class, 'addChallenge'])-
 Route::get('/CMS/add_qr_codes', [QRController::class, 'addQRCodesPage'])->name('view_add_qr_codes');
 Route::post('/CMS/add_qr_codes', [QRController::class, 'addQRCodes'])->name('add_qr_codes');
 
-Route::get('/CMS/upload_profile_picture', [FileUploadController::class, 'uploadProfilePicturePage'])->name('view_upload_profile_picture');
-Route::post('/CMS/upload_profile_picture', [FileUploadController::class, 'uploadProfilePicture'])->name('upload_profile_picture');
+Route::get('/CMS/upload_profile_picture', [UserController::class, 'uploadProfilePicturePage'])->name('view_upload_profile_picture');
+Route::post('/CMS/upload_profile_picture', [UserController::class, 'uploadProfilePicture'])->name('upload_profile_picture');
 
 
 Route::get('/dashboard', function () {

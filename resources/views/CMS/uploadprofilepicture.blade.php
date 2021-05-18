@@ -15,7 +15,7 @@
 
                                 <div class="relative inline-block w-full text-gray-700">
                                     <label class=" block text-sm text-gray-600" for="message">User</label>
-                                    <select class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input" id="category" name="category">
+                                    <select class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input" id="user_id" name="user_id">
                                         @foreach ($users as $user)
                                             <option value="{{$user->id}}">{{$user->name}}</option>
                                         @endforeach

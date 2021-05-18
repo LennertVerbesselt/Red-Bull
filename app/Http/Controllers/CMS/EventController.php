@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\CMS;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Category;
 use App\Models\Event;
 use App\Models\Event_Ticket;
 use App\Models\Featured_Events;
+use App\Models\Event_Header;
 
 
 class EventController extends Controller
@@ -17,9 +19,9 @@ class EventController extends Controller
         $events = Event::get();
         $eventTickets = Event_Ticket::get();
         $featuredEvents = Featured_Events::get();
+        $eventheaders = Event_Header::get();
 
-
-        return view('CMS/events', ['events' => $events, 'event_tickets' => $eventTickets, 'featured_events' => $featuredEvents]);
+        return view('CMS/events', ['events' => $events, 'event_tickets' => $eventTickets, 'featured_events' => $featuredEvents, 'event_headers' => $eventheaders]);
     }
 
     public function addEventPage(){
@@ -48,16 +50,24 @@ class EventController extends Controller
 
         $event = Event::latest()->first();
         $eventTicket = new Event_Ticket;
-        $eventTicket->event_id = $event->event_id;
+        $eventTicket->event_id = $event->id;
         $eventTicket->expiration_date = $event->datetime;
         $eventTicket->save();
+
+        //Create Default Event Header element
+        $eventheader = Event_Header::create([
+            'event_id' => $event->id,
+            'filename' => 'default.jpg',
+            'url' => 'https://redbullapp.s3.eu-west-2.amazonaws.com/EventHeaders/default.jpg',
+        ]);
+
 
         $events = Event::get();
         $eventTickets = Event_Ticket::get();
         $featuredEvents = Featured_Events::get();
+        $eventheaders = Event_Header::get();
 
-
-        return view('CMS/events', ['events' => $events, 'event_tickets' => $eventTickets, 'featured_events' => $featuredEvents]);
+        return view('CMS/events', ['events' => $events, 'event_tickets' => $eventTickets, 'featured_events' => $featuredEvents, 'event_headers' => $eventheaders]);
     }
 
     public function addFeaturedEventsPage() {
@@ -68,8 +78,6 @@ class EventController extends Controller
     }
 
     public function addFeaturedEvents(Request $request) {
-
-        
 
         $featuredEvents = new Featured_Events;
 
@@ -82,13 +90,70 @@ class EventController extends Controller
         $featuredEvents->save();
         
         $events = Event::get();
+        
+
+        $events = Event::get();
+        $eventTickets = Event_Ticket::get();
+        $featuredEvents = Featured_Events::get();
+        $eventheaders = Event_Header::get();
+
+        return view('CMS/events', ['events' => $events, 'event_tickets' => $eventTickets, 'featured_events' => $featuredEvents, 'event_headers' => $eventheaders]);
+    }
+
+    public function uploadEventHeaderPage(){
+
+        $events = Event::get();
+
+        return view('CMS/uploadeventheader', ['events' => $events]);
+    }
+
+    public function uploadEventHeader(Request $request){
+
+        $eventid = $request->event_id;
+        $event = Event::find($eventid);
+        
+        //Generate Filename
+        $FileNameValueLength = 40;
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $fileName = '';
+        for($i = 0; $i < $FileNameValueLength; $i++) {
+            $number = random_int(0, 36);
+            $character = base_convert($number, 10, 36);
+            $fileName .= $character;
+        }
+
+        //Compile image name with generated name and readable data for debugging
+        $imageName = $event->id . "-" . $event->name . "-" . $fileName . ".jpg";
+
+        //Save image to AWS
+        $path = Storage::disk('s3')->putFileAs('/EventHeaders',$request->image,$imageName);
+
+        //Set image on AWS public
+        Storage::disk('s3')->setVisibility($path, 'public');
+
+        //Create & Save new Event Header object
+        $eventheader = new Event_Header;
+        $eventheader->event_id = $event->id;
+        $eventheader->filename = $path;
+        $eventheader->url = Storage::disk('s3')->url($path);
+        $eventheader->save();
+
+        //Remove previous header image unless it is the placeholder image
+        $eventheaders = Event_Header::get();
+        $lasteventheader = Event_Header::latest()->first();
+        foreach($eventheaders as $eventheader){
+            if($eventheader->event_id == $event->id && $eventheader->id != $lasteventheader->id && $eventheader->filename != "default.jpg"){
+                
+                Storage::disk('s3')->delete($eventheader->filename);
+            } 
+        }
 
 
         $events = Event::get();
         $eventTickets = Event_Ticket::get();
         $featuredEvents = Featured_Events::get();
+        $eventheaders = Event_Header::get();
 
-
-        return view('CMS/events', ['events' => $events, 'event_tickets' => $eventTickets, 'featured_events' => $featuredEvents]);
+        return view('CMS/events', ['events' => $events, 'event_tickets' => $eventTickets, 'featured_events' => $featuredEvents, 'event_headers' => $eventheaders]);
     }
 }
