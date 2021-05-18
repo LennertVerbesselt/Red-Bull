@@ -10,11 +10,24 @@ import Carousel from '../components/Carousel'
 import BottomMenu from '../components/BottomMenu'
 import FeedPost from '../components/Feed/FeedPost'
 export default {
+	name: 'Home', 
     components: {
         BottomMenu,
         Carousel,
 		FeedPost
-    }
+    },
+	methods: {
+		checkIfLoggedIn() {
+            axios.get('api/getsessiondata').then(response => {
+            }).catch(error => {
+                console.log("Error");
+				this.$router.push('/login');
+            });
+        }
+	},
+	mounted() {
+		this.checkIfLoggedIn();
+	}
 }
 </script>
 

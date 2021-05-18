@@ -13,6 +13,7 @@
         </div>
         <div class="loginSection">
            <form-button type="secondary submit">Register</form-button>
+           <router-link to="/login"><a class="BTL">Back to Login</a></router-link>
         </div>
         <h4 class="text-center">or use one of the following methods:</h4>
         <div class="mediaSection">
@@ -40,6 +41,7 @@ export default {
         register() {
             axios.post('api/register', this.fields).then(response => {
                 this.fields={};
+                this.$router.push('/');
             }).catch(error => {
                 console.log("Error");
             });
@@ -53,6 +55,14 @@ export default {
 .register {
     margin-top: 60px;
 }
+
+.loginSection {
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -92,5 +102,23 @@ input {
 h4 {
     color: white;
     text-align: center;
+}
+
+.BTL {
+
+    color: #EB5876;
+    bottom: 50px;
+    margin-top: 1rem;
+    padding-right: 1rem;
+}
+
+.illustration {
+  color: white;
+  height: 200px;
+  width: 268px;
+  border:2px solid white;
+  justify-content: center;
+  margin:auto;
+  margin-top: 10px;
 }
 </style>

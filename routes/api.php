@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\RegisteredUserController;
 use App\Http\Controllers\API\AuthenticatedSessionController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,3 +30,5 @@ Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->name('register');
 
 //Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
+
+Route::get('/getsessiondata', [AuthenticatedSessionController::class, 'retrieveSessionData'])->name('getsessiondata');
