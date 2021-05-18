@@ -16,18 +16,35 @@ export default {
 
 <style scoped>
 .button {
-    padding-top: 18px;
+    padding-top: 12.5px;
+    margin-right: 15px;
 }
-    .fill {
-        background-color: #EB5876;
-        color: white;
-        border-radius: 4px;
-        border: none;
-    }
-    .clicked {
-        background-color: transparent;
-        border: 2px solid #EB5876;
-        border-radius: 4px;
-        color: white;
-    }
+
+.fill {
+    background-color: #EB5876;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    font-size: 12px;
+    font-family: "Akzidenz Bold";
+    top:50%;
+    padding-top: 2px;
+
+    height: 25px;
+    width: 75px;
+
+}
+.clicked {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, .85);
+    border-radius: 4px;
+    color: rgba(255, 255, 255, .75);
+
+    font-size: 12px;
+    font-family: "Akzidenz Regular";
+
+    height: 25px;
+    width: 75px;
+    
+}
 </style>

@@ -1,20 +1,31 @@
 <template>
     <Carousel class="carousel"></Carousel>
-	<FeedPost></FeedPost>
+	<CarouselInfo></CarouselInfo>
+	<FeedNavigation></FeedNavigation>
+	<PostItem></PostItem>
+	<PostItem></PostItem>
    <BottomMenu> </BottomMenu>
 
 </template>
 
 <script>
 import Carousel from '../components/Carousel'
+import CarouselInfo from '../components/CarouselInfo'
 import BottomMenu from '../components/BottomMenu'
 import FeedPost from '../components/Feed/FeedPost'
+import PostItem from '../components/Feed/PostItem'
+import FeedNavigation from '../components/Feed/FeedNavigation'
+
+
 export default {
 	name: 'Home', 
     components: {
         BottomMenu,
         Carousel,
-		FeedPost
+		CarouselInfo,
+		FeedPost,
+		PostItem,
+		FeedNavigation,
     },
 	methods: {
 		checkIfLoggedIn() {
@@ -36,6 +47,18 @@ export default {
     position: relative;
     top: 0;
 }
+
+.carousel:after {
+	background: #252525;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.0000), rgba(18, 20, 38, 1));
+	top: 50px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	content: " ";
+	position: absolute
+}
+
 button {
 			background-color: transparent;
 			border: 1px solid #fff;

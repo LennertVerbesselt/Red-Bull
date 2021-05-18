@@ -12,7 +12,11 @@
             <img  src="../../assets/AirFlick.jpg" alt="">
         </div>
     </agile>
+    
     </div>
+    
+    
+    
 </template>
 
 
@@ -33,7 +37,6 @@ export default {
      
 }
 
-
 .slide {
     align-items: center;
     display: flex;
@@ -45,17 +48,17 @@ export default {
     object-fit: cover;
     
 }
+
 img {
     max-width: 100%;
     margin: 0;
- 
-    
-    
 }
+
 .imagebox {
     position: absolute;
     background-color: rgba(255,255,255,0.5);
        background: linear-gradient(to bottom, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%);
 }
+
 
 </style>

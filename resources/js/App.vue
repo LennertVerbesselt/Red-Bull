@@ -16,8 +16,23 @@ export default {
 </script>
 
 <style >
+@font-face {
+  font-family: "Akzidenz Regular";
+  src: url(../fonts/Berthold Akzidenz Grotesk Regular.otf)format("opentype");
+}
+
+@font-face {
+  font-family: "Akzidenz Bold";
+  src: url(../fonts/Berthold Akzidenz Grotesk Bold.otf)format("opentype");
+}
+
+@font-face {
+  font-family: "Akzidenz Light";
+  src: url(../fonts/Berthold Akzidenz Grotesk Light.otf)format("opentype");
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Akzidenz Regular", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -48,7 +63,7 @@ body {
     margin: 0 10px;
 }
 .agile__dots {
-  bottom: 10px;
+  bottom: -35px;
 		left: 50%;
 		position: absolute;
 		transform: translateX(-50%);

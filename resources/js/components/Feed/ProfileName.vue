@@ -1,5 +1,5 @@
 <template>
-  <h3>Jenny Klop</h3>
+  <h3>Uncle Bob</h3>
 </template>
 
 <script>
@@ -11,5 +11,10 @@ export default {
 <style scoped>
   h3 {
     color: white;
+    font-size: 12px;
+    font-family: "Akzidenz Bold";
+
+    margin-left: 0px;
+    margin-top: 18px;
   }
 </style>
