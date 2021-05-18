@@ -1,15 +1,19 @@
 <template>
     <Carousel class="carousel"></Carousel>
+	<FeedPost></FeedPost>
    <BottomMenu> </BottomMenu>
+
 </template>
 
 <script>
 import Carousel from '../components/Carousel'
 import BottomMenu from '../components/BottomMenu'
+import FeedPost from '../components/Feed/FeedPost'
 export default {
     components: {
         BottomMenu,
-        Carousel
+        Carousel,
+		FeedPost
     }
 }
 </script>
