@@ -6,6 +6,7 @@
         <QRIcon></QRIcon>
         <CalendarIcon></CalendarIcon>
         <ProfileIcon></ProfileIcon>
+        
 
         
         
@@ -22,6 +23,7 @@ import QRIcon from './menu/QRIcon.vue'
 import CalendarIcon from './menu/CalendarIcon.vue'
 import ProfileIcon from './menu/ProfileIcon.vue'
 
+
 export default {
     name: "BottomMenu",
     components: {
@@ -30,7 +32,7 @@ export default {
         QRIcon,
         CalendarIcon,
         ProfileIcon
-    }
+    },
 }
 </script>
 
@@ -43,7 +45,7 @@ body {
      position: fixed;
      bottom: 0;
      width: 100%;
-     height: 55px;
+     height: 40px;
      box-shadow: 0 0 3px rgba(44, 44, 44, 0.178);
      background-color: #191d38;
      display: flex;

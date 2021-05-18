@@ -32,3 +32,5 @@ Route::post('/register', [RegisteredUserController::class, 'store'])
 //Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
 
 Route::get('/getsessiondata', [AuthenticatedSessionController::class, 'retrieveSessionData'])->name('getsessiondata');
+
+Route::get('/getprofilepicture', [AuthenticatedSessionController::class, 'retrieveProfilePicture'])->name('getprofilepicture');

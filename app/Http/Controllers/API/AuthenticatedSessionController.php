@@ -8,6 +8,16 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\User;
+use App\Models\Profile;
+use App\Models\User_Interests_Categories;
+use App\Models\Profile_Statistics;
+use App\Models\Category;
+use App\Models\Currency_Points;
+use App\Models\Challenge;
+use App\Models\Challenge_Progression;
+use App\Models\Profile_Picture;
+
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -58,5 +68,22 @@ class AuthenticatedSessionController extends Controller
 
     public function retrieveSessionData(){
         dd(Auth::user()->name);
+    }
+
+    public function retrieveProfilePicture(){
+        $userid = Auth::user()->id;
+        $user = User::find($userid);
+
+        $profile_pictures = Profile_Picture::get();
+        
+
+        $userprofilepictureurl = "";
+        foreach($profile_pictures as $profile_picture) {
+            if($profile_picture->user_id == $user->id && $profile_picture->active == True){
+                $userprofilepictureurl = $profile_picture->url;
+            }
+        }
+
+        return ['url'=> $userprofilepictureurl];
     }
 }

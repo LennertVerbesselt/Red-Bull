@@ -1,5 +1,5 @@
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+    <svg class="Profile" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="2 2 18 18" style="enable-background:new 0 0 20 20;" xml:space="preserve">
 
             <g>
                 <g id="Profile_1_" transform="translate(-2.512 -1.002)">
@@ -12,15 +12,64 @@
                 <path class="st0" d="M14.21,7.42c0,0,0.32,0.13,0.69-0.04l-0.41,0.47L14.21,7.42z"/>
                 <path class="st0" d="M5.62,7.47c0,0,0.32,0.13,0.69-0.04L5.89,7.9L5.62,7.47z"/>
             </g>
+            
             </svg>
+            <img :src="profilepicture" class="profilepic" />
+
+            
 </template>
 
 <script>
+
+//import Vue from 'vue';
+//Vue.forceUpdate();
+
 export default {
- name:'ProfileIcon'
+    name:'ProfileIcon',
+    
+    data: function () {
+        return {
+            profilepicture: "https://redbullapp.s3.eu-west-2.amazonaws.com/ProfilePictures/default.jpg",
+        }
+    },
+    methods: {
+        getProfilePicture(){
+            axios.get('api/getprofilepicture').then(response => {
+                
+                this.profilepicture = response.data.url;
+                return response.data.url;
+            });
+        }
+    },
+    created() {
+        this.getProfilePicture();
+    }
 }
 </script>
 
 <style>
+svg {
+     display: flex;
+     flex-grow: 1;
+     min-width: 20px;
+     overflow: hidden;
+     white-space: nowrap;
+     fill: rgb(85, 85, 85);
+     padding: 10px;
+ }
+
+ svg:hover{
+     fill: white;
+ }
+
+ .profilepic {
+     position: relative;
+     top:13px;
+     right:55px;
+     display: block;
+    border-radius: 50%;
+    width: 12px;
+    height:12px;
+ }
 
 </style>
