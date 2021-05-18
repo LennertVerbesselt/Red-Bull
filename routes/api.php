@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\RegisteredUserController;
+use App\Http\Controllers\API\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+                ->middleware('guest');
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest')
