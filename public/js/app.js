@@ -16999,7 +16999,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      item: {
+      fields: {
         email: "",
         password: ""
       }
@@ -17009,18 +17009,11 @@ __webpack_require__.r(__webpack_exports__);
     login: function login() {
       var _this = this;
 
-      if (this.item.email && this.item.password == '') {
-        return;
-      }
-
-      axios.post('guest/login/store', {
-        item: this.email
-      }).then(function (response) {
-        if (response.status == 201) {
-          _this.item.email == "";
-        }
+      axios.post('api/login', this.fields).then(function (response) {
+        _this.fields = {};
+        console.log("login succesfull");
       })["catch"](function (error) {
-        console.log(error);
+        console.log("Error, Login not succesfull");
       });
     }
   }
@@ -17737,22 +17730,22 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
     type: "email",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.item.email = $event;
+      return _ctx.fields.email = $event;
     }),
     "class": "",
     placeholder: "Email"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.item.email]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.fields.email]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
     type: "password",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return _ctx.item.password = $event;
+      return _ctx.fields.password = $event;
     }),
     "class": "",
     placeholder: "Password"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.item.password]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.fields.password]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/home"
   }, {
     "default": _withId(function () {

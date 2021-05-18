@@ -5,8 +5,8 @@
   </div>
     <form method="" action="">
         <div class="form-group">
-            <input type="email" v-model="item.email" class="" placeholder="Email">
-            <input type="password" v-model="item.password" class="" placeholder="Password">
+            <input type="email" v-model="fields.email" class="" placeholder="Email">
+            <input type="password" v-model="fields.password" class="" placeholder="Password">
         </div>
         <div class="loginSection">
            <router-link to="/home"><form-button type="primary" @click="login()">Login</form-button></router-link>
@@ -34,7 +34,7 @@ export default {
     },
     data: function () {
         return {
-            item: {
+            fields: {
                 email:"",
                 password:""
             }
@@ -42,20 +42,12 @@ export default {
     },
     methods: {
         login(){
-            if (this.item.email && this.item.password == '') {
-                return;
-            }
-            axios.post('guest/login/store', {
-                item: this.email
-            })
-            .then( response => {
-                if (response.status ==201) {
-                    this.item.email == "";
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+            axios.post('api/login', this.fields).then(response => {
+                this.fields={};
+                console.log("login succesfull");
+            }).catch(error => {
+                console.log("Error, Login not succesfull");
+            });
         }
     }
     
