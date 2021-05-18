@@ -3,7 +3,9 @@
     <div class="carousel">
     <agile :dots="true" :navButtons="false">
         <div class="slide">
+            <div class="imgagebox">
             <img src="../../assets/Neymar5.jpg" alt="">
+            </div>
         </div>
         
         <div class="slide">
@@ -28,6 +30,7 @@ export default {
 
 .agile {
     width: 100%;
+     
 }
 
 
@@ -40,10 +43,19 @@ export default {
     margin: 0;
     top: 0;
     object-fit: cover;
+    
 }
 img {
-    height: 200px;
+    max-width: 100%;
     margin: 0;
+ 
+    
+    
+}
+.imagebox {
+    position: absolute;
+    background-color: rgba(255,255,255,0.5);
+       background: linear-gradient(to bottom, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%);
 }
 
 </style>
