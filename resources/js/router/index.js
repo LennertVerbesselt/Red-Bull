@@ -40,6 +40,11 @@ const routes = [
     component: Challenges,
   },
   {
+    path: "/qrscanner",
+    name: "QRScanner",
+    component: QRScanner,
+  },
+  {
     path: "/profile",
     name: "Profile",
     component: Profile,
