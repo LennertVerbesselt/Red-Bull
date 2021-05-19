@@ -18261,8 +18261,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _assets_google_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/google.svg */ "./resources/assets/google.svg");
-/* harmony import */ var _assets_facebook_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/facebook.svg */ "./resources/assets/facebook.svg");
+/* harmony import */ var _assets_Final_Illustration_test1_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/Final_Illustration_test1.png */ "./resources/assets/Final_Illustration_test1.png");
+/* harmony import */ var _assets_google_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/google.svg */ "./resources/assets/google.svg");
+/* harmony import */ var _assets_facebook_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/facebook.svg */ "./resources/assets/facebook.svg");
+
 
 
 
@@ -18277,7 +18279,11 @@ var _hoisted_1 = {
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "illustration"
-}, " Illustration goes here ", -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  "class": "header-illustration",
+  src: _assets_Final_Illustration_test1_png__WEBPACK_IMPORTED_MODULE_1__.default,
+  alt: ""
+})], -1
 /* HOISTED */
 );
 
@@ -18304,7 +18310,7 @@ var _hoisted_8 = {
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   "class": "mediaIconG",
-  src: _assets_google_svg__WEBPACK_IMPORTED_MODULE_1__.default,
+  src: _assets_google_svg__WEBPACK_IMPORTED_MODULE_2__.default,
   alt: ""
 }, null, -1
 /* HOISTED */
@@ -18314,7 +18320,7 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   "class": "mediaIconF",
-  src: _assets_facebook_svg__WEBPACK_IMPORTED_MODULE_2__.default,
+  src: _assets_facebook_svg__WEBPACK_IMPORTED_MODULE_3__.default,
   alt: ""
 }, null, -1
 /* HOISTED */
@@ -18424,8 +18430,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _assets_google_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/google.svg */ "./resources/assets/google.svg");
-/* harmony import */ var _assets_facebook_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/facebook.svg */ "./resources/assets/facebook.svg");
+/* harmony import */ var _assets_Final_Illustration_test1_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/Final_Illustration_test1.png */ "./resources/assets/Final_Illustration_test1.png");
+/* harmony import */ var _assets_google_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/google.svg */ "./resources/assets/google.svg");
+/* harmony import */ var _assets_facebook_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/facebook.svg */ "./resources/assets/facebook.svg");
+
 
 
 
@@ -18440,7 +18448,11 @@ var _hoisted_1 = {
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "illustration"
-}, " Illustration goes here ", -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  "class": "header-illustration",
+  src: _assets_Final_Illustration_test1_png__WEBPACK_IMPORTED_MODULE_1__.default,
+  alt: ""
+})], -1
 /* HOISTED */
 );
 
@@ -18471,7 +18483,7 @@ var _hoisted_8 = {
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   "class": "mediaIconG",
-  src: _assets_google_svg__WEBPACK_IMPORTED_MODULE_1__.default,
+  src: _assets_google_svg__WEBPACK_IMPORTED_MODULE_2__.default,
   alt: ""
 }, null, -1
 /* HOISTED */
@@ -18481,7 +18493,7 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   "class": "mediaIconF",
-  src: _assets_facebook_svg__WEBPACK_IMPORTED_MODULE_2__.default,
+  src: _assets_facebook_svg__WEBPACK_IMPORTED_MODULE_3__.default,
   alt: ""
 }, null, -1
 /* HOISTED */
@@ -19355,7 +19367,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.login[data-v-12a98f72] {\r\n\r\n  margin-top: 60px;\n}\n.form-group[data-v-12a98f72] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    margin-top: 0.5rem;\n}\n.loginSection[data-v-12a98f72] {\r\n    display: flex;\r\n    flex-direction: row;\r\n   align-items: center;\r\n   justify-content: center;\n}\ninput[data-v-12a98f72] {\r\n    height: 35px;\r\n    border-radius: 6px;\r\n    width: 286px;\r\n    \r\n    margin: 0.5rem;\r\n    text-align: center;\n}\nh4[data-v-12a98f72] {\r\n    color: white;\r\n    text-align: center;\n}\n.mediaIconG[data-v-12a98f72] {\r\n    position:absolute;\r\n    height: 20px;\r\n    margin-left:-40px;\r\n    margin-top: -2px;\n}\n.mediaIconF[data-v-12a98f72] {\r\n    position: absolute;\r\n    height: 20px;\r\n    margin-left:-33px;\r\n    margin-top: -4px;\n}\n.mediaSection[data-v-12a98f72]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\n}\n.passwordForgot[data-v-12a98f72] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\n}\n.pwdF[data-v-12a98f72] {\r\n\r\n    color: #EB5876;\r\n    bottom: 50px;\r\n    margin-top: 3rem;\n}\n.illustration[data-v-12a98f72] {\r\n  color: white;\r\n  height: 200px;\r\n  width: 268px;\r\n  border:2px solid white;\r\n  justify-content: center;\r\n  margin:auto;\r\n  margin-top: 10px;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.login[data-v-12a98f72] {\r\n\r\n  margin-top: 60px;\n}\n.form-group[data-v-12a98f72] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    margin-top: 0.5rem;\n}\n.loginSection[data-v-12a98f72] {\r\n    display: flex;\r\n    flex-direction: row;\r\n   align-items: center;\r\n   justify-content: center;\n}\ninput[data-v-12a98f72] {\r\n    height: 35px;\r\n    border-radius: 6px;\r\n    width: 286px;\r\n    \r\n    margin: 0.5rem;\r\n    text-align: center;\n}\nh4[data-v-12a98f72] {\r\n    color: white;\r\n    text-align: center;\n}\n.mediaIconG[data-v-12a98f72] {\r\n    position:absolute;\r\n    height: 20px;\r\n    margin-left:-40px;\r\n    margin-top: -2px;\n}\n.mediaIconF[data-v-12a98f72] {\r\n    position: absolute;\r\n    height: 20px;\r\n    margin-left:-33px;\r\n    margin-top: -4px;\n}\n.mediaSection[data-v-12a98f72]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\n}\n.passwordForgot[data-v-12a98f72] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\n}\n.pwdF[data-v-12a98f72] {\r\n\r\n    color: #EB5876;\r\n    bottom: 50px;\r\n    margin-top: 3rem;\n}\n.header-illustration[data-v-12a98f72] {\r\n    width: 350px;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19379,7 +19391,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.register[data-v-7942be72] {\r\n    margin-top: 60px;\n}\n.loginSection[data-v-7942be72] {\r\n    display: flex;\r\n    flex-direction: row;\r\n   align-items: center;\r\n   justify-content: center;\n}\n.form-group[data-v-7942be72] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    margin-top: 0.5rem;\n}\ninput[data-v-7942be72] {\r\n    height: 35px;\r\n    border-radius: 6px;\r\n    width: 286px;\r\n    \r\n    margin: 0.5rem;\r\n    text-align: center;\n}\n.mediaIconG[data-v-7942be72] {\r\n    position:absolute;\r\n    height: 20px;\r\n    margin-left:-40px;\r\n    margin-top: -2px;\n}\n.mediaIconF[data-v-7942be72] {\r\n    position: absolute;\r\n    height: 20px;\r\n    margin-left:-33px;\r\n    margin-top: -4px;\n}\n.mediaSection[data-v-7942be72]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\n}\nh4[data-v-7942be72] {\r\n    color: white;\r\n    text-align: center;\n}\n.BTL[data-v-7942be72] {\r\n\r\n    color: #EB5876;\r\n    bottom: 50px;\r\n    margin-top: 1rem;\r\n    padding-right: 1rem;\n}\n.illustration[data-v-7942be72] {\r\n  color: white;\r\n  height: 200px;\r\n  width: 268px;\r\n  border:2px solid white;\r\n  justify-content: center;\r\n  margin:auto;\r\n  margin-top: 10px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.register[data-v-7942be72] {\r\n    margin-top: 60px;\n}\n.loginSection[data-v-7942be72] {\r\n    display: flex;\r\n    flex-direction: row;\r\n   align-items: center;\r\n   justify-content: center;\n}\n.form-group[data-v-7942be72] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    margin-top: 0.5rem;\n}\ninput[data-v-7942be72] {\r\n    height: 35px;\r\n    border-radius: 6px;\r\n    width: 286px;\r\n    \r\n    margin: 0.5rem;\r\n    text-align: center;\n}\n.mediaIconG[data-v-7942be72] {\r\n    position:absolute;\r\n    height: 20px;\r\n    margin-left:-40px;\r\n    margin-top: -2px;\n}\n.mediaIconF[data-v-7942be72] {\r\n    position: absolute;\r\n    height: 20px;\r\n    margin-left:-33px;\r\n    margin-top: -4px;\n}\n.mediaSection[data-v-7942be72]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\n}\nh4[data-v-7942be72] {\r\n    color: white;\r\n    text-align: center;\n}\n.BTL[data-v-7942be72] {\r\n\r\n    color: #EB5876;\r\n    bottom: 50px;\r\n    margin-top: 1rem;\r\n    padding-right: 1rem;\n}\n.header-illustration[data-v-7942be72] {\r\n    width: 350px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19575,6 +19587,21 @@ module.exports = function (url, options) {
 
   return url;
 };
+
+/***/ }),
+
+/***/ "./resources/assets/Final_Illustration_test1.png":
+/*!*******************************************************!*\
+  !*** ./resources/assets/Final_Illustration_test1.png ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/Final_Illustration_test1.png?6609e1e3ac55edad2df4afef7e804360");
 
 /***/ }),
 
