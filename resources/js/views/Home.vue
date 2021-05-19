@@ -1,6 +1,5 @@
 <template>
     <Carousel class="carousel"></Carousel>
-	<CarouselInfo></CarouselInfo>
 	<FeedNavigation></FeedNavigation>
 	<PostItem></PostItem>
 	<PostItem></PostItem>
@@ -36,7 +35,7 @@ export default {
             });
         }
 	},
-	mounted() {
+	created() {
 		this.checkIfLoggedIn();
 	}
 }
@@ -49,8 +48,8 @@ export default {
 }
 
 .carousel:after {
-	background: #252525;
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.0000), rgba(18, 20, 38, 1));
+	/*background: #252525;
+	/*background: linear-gradient(180deg, rgba(255, 255, 255, 0.0000), rgba(18, 20, 38, 1));*/
 	top: 50px;
 	left: 0;
 	right: 0;
@@ -58,6 +57,8 @@ export default {
 	content: " ";
 	position: absolute
 }
+
+
 
 button {
 			background-color: transparent;

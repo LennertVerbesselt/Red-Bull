@@ -63,7 +63,7 @@ body {
     margin: 0 10px;
 }
 .agile__dots {
-  bottom: -35px;
+  bottom: -10px;
 		left: 50%;
 		position: absolute;
 		transform: translateX(-50%);

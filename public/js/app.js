@@ -16863,6 +16863,11 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data.featuredevents);
         return response.data.featuredevents;
       });
+    },
+    getDatefromDatetime: function getDatefromDatetime(datetime) {
+      var phpdate = String(datetime);
+      var date = phpdate.substring(0, 10);
+      return date;
     }
   },
   created: function created() {
@@ -17373,7 +17378,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.checkIfLoggedIn();
   }
 });
@@ -17569,10 +17574,12 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "imgagebox"
 };
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, null, -1
-/* HOISTED */
-);
+var _hoisted_4 = {
+  "class": "EventName"
+};
+var _hoisted_5 = {
+  "class": "EventDate"
+};
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -17592,7 +17599,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
           alt: ""
         }, null, 8
         /* PROPS */
-        , ["src"])]), _hoisted_4])]);
+        , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.featuredevents[n - 1][0]['name']), 1
+        /* TEXT */
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getDatefromDatetime(_ctx.featuredevents[n - 1][0]['datetime'])), 1
+        /* TEXT */
+        )])])]);
       }), 64
       /* STABLE_FRAGMENT */
       ))];
@@ -18578,8 +18589,6 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Carousel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Carousel");
 
-  var _component_CarouselInfo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CarouselInfo");
-
   var _component_FeedNavigation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FeedNavigation");
 
   var _component_PostItem = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("PostItem");
@@ -18588,7 +18597,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Carousel, {
     "class": "carousel"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CarouselInfo), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FeedNavigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FeedNavigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
   /* STABLE_FRAGMENT */
   );
 });
@@ -18791,7 +18800,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Bold_otf__WEBPACK_IMPORTED_MODULE_3__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Light_otf__WEBPACK_IMPORTED_MODULE_4__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n  font-family: \"Akzidenz Regular\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Light\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ")format(\"opentype\");\n}\n#app {\r\n  font-family: \"Akzidenz Regular\", Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  background:#121426 ;\n}\nbody {\r\n  background:#121426 ;\r\n  margin: 0;\r\n  padding: 0;\n}\n.agile__dots button {\r\n    background-color: transparent;\r\n\t\t\tborder: 1px solid #fff;\r\n\t\t\tborder-radius: 100%;\r\n\t\t\tcursor: pointer;\r\n\t\t\tdisplay: block;\r\n\t\t\theight: 10px;\r\n\t\t\tfont-size: 0;\r\n\t\t\tline-height: 0;\r\n\t\t\tmargin: 0;\r\n\t\t\tpadding: 0;\r\n\t\t\ttransition-duration: .3s;\r\n\t\t\twidth: 10px;\n}\n.agile__dot {\r\n    margin: 0 10px;\n}\n.agile__dots {\r\n  bottom: -35px;\r\n\t\tleft: 50%;\r\n\t\tposition: absolute;\r\n\t\ttransform: translateX(-50%);\n}\n.agile__dot--current {\r\n  background-color: #fff;\r\n  border-radius: 100%;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n  font-family: \"Akzidenz Regular\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Light\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ")format(\"opentype\");\n}\n#app {\r\n  font-family: \"Akzidenz Regular\", Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  background:#121426 ;\n}\nbody {\r\n  background:#121426 ;\r\n  margin: 0;\r\n  padding: 0;\n}\n.agile__dots button {\r\n    background-color: transparent;\r\n\t\t\tborder: 1px solid #fff;\r\n\t\t\tborder-radius: 100%;\r\n\t\t\tcursor: pointer;\r\n\t\t\tdisplay: block;\r\n\t\t\theight: 10px;\r\n\t\t\tfont-size: 0;\r\n\t\t\tline-height: 0;\r\n\t\t\tmargin: 0;\r\n\t\t\tpadding: 0;\r\n\t\t\ttransition-duration: .3s;\r\n\t\t\twidth: 10px;\n}\n.agile__dot {\r\n    margin: 0 10px;\n}\n.agile__dots {\r\n  bottom: -10px;\r\n\t\tleft: 50%;\r\n\t\tposition: absolute;\r\n\t\ttransform: translateX(-50%);\n}\n.agile__dot--current {\r\n  background-color: #fff;\r\n  border-radius: 100%;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -18839,7 +18848,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.agile[data-v-fe98726a] {\r\n    width: 100%;\n}\n.slide[data-v-fe98726a] {\r\n    align-items: center;\r\n    display: flex;\r\n    height: 200px;\r\n    max-width: 100%;\r\n    justify-content: center;\r\n    margin: 0;\r\n    top: 0;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\n}\nimg[data-v-fe98726a] {\r\n    max-width: 100%;\r\n    margin: 0;\n}\n.imagebox[data-v-fe98726a] {\r\n    position: absolute;\r\n    background-color: rgba(255,255,255,0.5);\r\n       background: linear-gradient(to bottom, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%);\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.agile[data-v-fe98726a] {\r\n    width: 100%;\n}\n.slide[data-v-fe98726a] {\r\n    align-items: center;\r\n    display: flex;\r\n    height: 200px;\r\n    max-width: 100%;\r\n    justify-content: center;\r\n    margin: 0;\r\n    top: 0;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\n}\nimg[data-v-fe98726a] {\r\n    max-width: 100%;\r\n    margin: 0;\n}\n.imagebox[data-v-fe98726a] {\r\n    position: absolute;\r\n    background-color: rgba(255,255,255,0.5);\r\n       background: linear-gradient(to bottom, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%);\n}\n.EventName[data-v-fe98726a] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 20px;\r\n    color: white;\r\n\r\n    position: absolute;\r\n    top: 58%;\r\n    width:100%;\n}\n.EventDate[data-v-fe98726a] {\r\n    font-family: \"Akzidenz Light\";\r\n    font-size: 12px;\r\n    color: white;\r\n    position: absolute;\r\n    top: 74%;\r\n    width:100%;\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19247,7 +19256,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel[data-v-63cd6604] {\r\n    position: relative;\r\n    top: 0;\n}\n.carousel[data-v-63cd6604]:after {\r\n\tbackground: #252525;\r\n\tbackground: linear-gradient(180deg, rgba(255, 255, 255, 0.0000), rgba(18, 20, 38, 1));\r\n\ttop: 50px;\r\n\tleft: 0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n\tcontent: \" \";\r\n\tposition: absolute\n}\nbutton[data-v-63cd6604] {\r\n\t\t\tbackground-color: transparent;\r\n\t\t\tborder: 1px solid #fff;\r\n\t\t\tborder-radius: 50%;\r\n\t\t\tcursor: pointer;\r\n\t\t\tdisplay: block;\r\n\t\t\theight: 10px;\r\n\t\t\tfont-size: 0;\r\n\t\t\tline-height: 0;\r\n\t\t\tmargin: 0;\r\n\t\t\tpadding: 0;\r\n\t\t\ttransition-duration: .3s;\r\n\t\t\twidth: 10px;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel[data-v-63cd6604] {\r\n    position: relative;\r\n    top: 0;\n}\n.carousel[data-v-63cd6604]:after {\r\n\t/*background: #252525;\r\n\t/*background: linear-gradient(180deg, rgba(255, 255, 255, 0.0000), rgba(18, 20, 38, 1));*/\r\n\ttop: 50px;\r\n\tleft: 0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n\tcontent: \" \";\r\n\tposition: absolute\n}\nbutton[data-v-63cd6604] {\r\n\t\t\tbackground-color: transparent;\r\n\t\t\tborder: 1px solid #fff;\r\n\t\t\tborder-radius: 50%;\r\n\t\t\tcursor: pointer;\r\n\t\t\tdisplay: block;\r\n\t\t\theight: 10px;\r\n\t\t\tfont-size: 0;\r\n\t\t\tline-height: 0;\r\n\t\t\tmargin: 0;\r\n\t\t\tpadding: 0;\r\n\t\t\ttransition-duration: .3s;\r\n\t\t\twidth: 10px;\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

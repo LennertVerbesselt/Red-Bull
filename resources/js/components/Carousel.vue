@@ -6,8 +6,10 @@
             <div class="slide">
                 <div class="imgagebox">
                 <img :src="featuredevents[n-1][1]" alt="">
+                <h1 class="EventName">{{featuredevents[n-1][0]['name']}}</h1>
+                <h2 class="EventDate">{{getDatefromDatetime(featuredevents[n-1][0]['datetime'])}}</h2>
                 </div>
-                <p></p>
+                
             </div>
         </div>
         
@@ -61,6 +63,12 @@ export default {
                 console.log(response.data.featuredevents);
                 return response.data.featuredevents;
             });
+        },
+
+        getDatefromDatetime(datetime){
+            var phpdate = String(datetime);
+            var date = phpdate.substring(0,10);
+            return date;
         }
     },
     created() {
@@ -98,6 +106,26 @@ img {
     background-color: rgba(255,255,255,0.5);
        background: linear-gradient(to bottom, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%);
 }
+
+.EventName {
+    font-family: "Akzidenz Bold";
+    font-size: 20px;
+    color: white;
+
+    position: absolute;
+    top: 58%;
+    width:100%;
+}
+
+.EventDate {
+    font-family: "Akzidenz Light";
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    top: 74%;
+    width:100%;
+}
+
 
 
 </style>
