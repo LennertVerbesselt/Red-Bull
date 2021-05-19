@@ -1,6 +1,6 @@
 <template>
     <div class="feed-content">
-        <img src="../../../assets/GoalChallenge.jpg" alt="">
+        <img src="../../../assets/maxresdefault.jpg" alt="">
     </div>
 </template>
 

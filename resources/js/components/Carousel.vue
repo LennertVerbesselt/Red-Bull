@@ -6,6 +6,7 @@
             <div class="slide">
                 <div class="imgagebox">
                 <img :src="featuredevents[n-1][1]" alt="">
+                <img src="./../../assets/gradient.png" alt="" class="gradient">
                 <h1 class="EventName">{{featuredevents[n-1][0]['name']}}</h1>
                 <h2 class="EventDate">{{getDatefromDatetime(featuredevents[n-1][0]['datetime'])}}</h2>
                 </div>
@@ -126,6 +127,13 @@ img {
     width:100%;
 }
 
+.gradient {
+    width: 100%;
+    height: 200px;
+
+    position: absolute;
+    top:10px;
+}
 
 
 </style>

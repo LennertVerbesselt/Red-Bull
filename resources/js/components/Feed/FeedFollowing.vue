@@ -17,7 +17,7 @@ export default {
 <style scoped>
 .button {
     padding-top: 12.5px;
-    margin-right: 15px;
+    margin-right: 20px;
 }
 
 .fill {

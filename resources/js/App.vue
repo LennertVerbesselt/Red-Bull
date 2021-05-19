@@ -27,6 +27,16 @@ export default {
 }
 
 @font-face {
+  font-family: "Akzidenz Bold Extended";
+  src: url(../fonts/Berthold Akzidenz Grotesk Bold Extended.otf)format("opentype");
+}
+
+@font-face {
+  font-family: "Akzidenz Bold Extended Italic";
+  src: url(../fonts/Berthold Akzidenz Grotesk Bold Extended Italic.otf)format("opentype");
+}
+
+@font-face {
   font-family: "Akzidenz Light";
   src: url(../fonts/Berthold Akzidenz Grotesk Light.otf)format("opentype");
 }

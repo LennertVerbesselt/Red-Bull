@@ -44,11 +44,11 @@ export default {
 .post-container {
   width: 100%;
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 55px;
   padding-bottom: 15px;
   border-style: solid;
   border-color: rgba(255, 255, 255, .25);
-  border-width: 0px 0px 1px 0px;
+  border-width: 0px 0px 0px 0px;
 }
 .profile-container {
   display: flex;

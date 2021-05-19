@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .profile-container {
-    margin-left: 10px;
+    margin-left: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

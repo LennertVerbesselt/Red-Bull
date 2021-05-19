@@ -1,8 +1,6 @@
 <template>
     <Carousel class="carousel"></Carousel>
-	<FeedNavigation></FeedNavigation>
-	<PostItem></PostItem>
-	<PostItem></PostItem>
+	<FeedTotal></FeedTotal>
    <BottomMenu> </BottomMenu>
 
 </template>
@@ -14,6 +12,7 @@ import BottomMenu from '../components/BottomMenu'
 import FeedPost from '../components/Feed/FeedPost'
 import PostItem from '../components/Feed/PostItem'
 import FeedNavigation from '../components/Feed/FeedNavigation'
+import FeedTotal from '../components/Feed/FeedTotal'
 
 
 export default {
@@ -25,6 +24,7 @@ export default {
 		FeedPost,
 		PostItem,
 		FeedNavigation,
+		FeedTotal,
     },
 	methods: {
 		checkIfLoggedIn() {
