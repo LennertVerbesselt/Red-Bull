@@ -2,15 +2,15 @@
   <template>
     <div class="carousel">
     <agile :dots="true" :navButtons="false">
-        <div class="slide">
-            <div class="imgagebox">
-            <img src="../../assets/Neymar5.jpg" alt="">
+        <div v-for="n in 5" :key="n">
+            <div class="slide">
+                <div class="imgagebox">
+                <img :src="featuredevents[n-1][1]" alt="">
+                </div>
+                <p></p>
             </div>
         </div>
         
-        <div class="slide">
-            <img  src="../../assets/AirFlick.jpg" alt="">
-        </div>
     </agile>
     
     </div>
@@ -26,6 +26,45 @@ import { VueAgile } from 'vue-agile'
 export default { 
     components: {
         agile: VueAgile 
+    },
+    data: function () {
+        return {
+            featuredevents: {
+                0: {
+                    0: [],
+                    1: "",
+                },
+                1: {
+                    0: [],
+                    1: "",
+                },
+                2: {
+                    0: [],
+                    1: "",
+                },
+                3: {
+                    0: [],
+                    1: "",
+                },
+                4: {
+                    0: [],
+                    1: "",
+                },
+            },
+        }
+    },
+    methods: {
+        getFeaturedEvents(){
+            axios.get('api/getfeaturedevents').then(response => {
+                
+                this.featuredevents = response.data.featuredevents;
+                console.log(response.data.featuredevents);
+                return response.data.featuredevents;
+            });
+        }
+    },
+    created() {
+        this.getFeaturedEvents();
     }
 }
 </script>

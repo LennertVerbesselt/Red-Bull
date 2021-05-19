@@ -1,8 +1,17 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Register from "../components/RegisterForm.vue";
+
 import Login from "../components/LoginForm.vue";
+
+import Register from "../components/RegisterForm.vue";
+import UserInterestSurvey from "../views/UserInterestSurvey.vue";
+
 import Dashboard from "../views/Dashboard.vue";
 import Home from "../views/Home.vue";
+import Challenges from "../views/Challenges.vue";
+import Leaderboards from "../views/Leaderboards.vue";
+import QRScanner from "../views/QRScanner.vue";
+import Events from "../views/Events.vue";
+import Profile from "../views/Profile.vue";
 
 const routes = [
   {
@@ -24,6 +33,16 @@ const routes = [
     path: "/",
     name: "home",
     component: Home,
+  },
+  {
+    path: "/challenges",
+    name: "Challenges",
+    component: Challenges,
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
   },
   
 

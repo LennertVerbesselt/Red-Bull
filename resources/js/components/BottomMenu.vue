@@ -1,11 +1,11 @@
 <template>
     <div class="menu">
     <nav class="nav">
-        <HomeIcon></HomeIcon>
-        <TrophyIcon></TrophyIcon>
-        <QRIcon></QRIcon>
-        <CalendarIcon></CalendarIcon>
-        <ProfileIcon></ProfileIcon>
+        <router-link to="/"><HomeIcon></HomeIcon></router-link>
+        <router-link to="/challenges"><TrophyIcon></TrophyIcon></router-link>
+        <router-link to="/register"><QRIcon></QRIcon></router-link>
+        <router-link to="/register"><CalendarIcon></CalendarIcon></router-link>
+        <router-link to="/Profile"><ProfileIcon></ProfileIcon></router-link>
         
 
         
@@ -40,29 +40,38 @@ export default {
 body {
     margin: 0 0 55px 0;
 }
+.menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #121426;
+    border: 2px 0px 0px 0px solid white;
+     height: 45px;
+}
  .nav {
-     left: 0;
+     left: 3%;
+     right:3%;
      position: fixed;
      bottom: 0;
-     width: 100%;
-     height: 40px;
-     box-shadow: 0 0 3px rgba(44, 44, 44, 0.178);
-     background-color: #191d38;
+     width: 94%;
+     height: 44px;
+     background-color: #121426;
+
      display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     justify-content: space-between;
+     align-items: baseline;
+
      overflow-x: auto;
  }
  
- svg {
-     display: flex;
-     flex-grow: 1;
-     min-width: 20px;
-     overflow: hidden;
-     white-space: nowrap;
-     fill: rgb(85, 85, 85);
-     padding: 10px;
+.navicon{
+    width: 20px;
+    height:20px;
+    padding: 10px;
  }
 
- svg:hover{
-     fill: white;
- }
+ 
 </style>

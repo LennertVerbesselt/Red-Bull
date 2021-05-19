@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\RegisteredUserController;
 use App\Http\Controllers\API\AuthenticatedSessionController;
+use App\Http\Controllers\API\EventController;
 
 
 /*
@@ -34,3 +35,5 @@ Route::post('/register', [RegisteredUserController::class, 'store'])
 Route::get('/getsessiondata', [AuthenticatedSessionController::class, 'retrieveSessionData'])->name('getsessiondata');
 
 Route::get('/getprofilepicture', [AuthenticatedSessionController::class, 'retrieveProfilePicture'])->name('getprofilepicture');
+
+Route::get('/getfeaturedevents', [EventController::class, 'getFeaturedEvents'])->name('getfeaturedevents');
