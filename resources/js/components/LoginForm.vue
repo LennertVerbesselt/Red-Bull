@@ -1,8 +1,9 @@
 <template>
-    <div class="login">
- <div class="illustration">
+<div class="illustration">
     <img class="header-illustration" src="../../assets/Final_Illustration_test1.png" alt="">
   </div>
+    <div class="login">
+ 
     <form @submit.prevent="login">
         <div class="form-group">
             <input type="email" v-model="fields.email" class="" placeholder="Email">
@@ -59,7 +60,7 @@ export default {
 <style scoped>
 .login {
 
-  margin-top: 60px;
+  margin-top: 10px;
 
 }
 .form-group {
@@ -122,7 +123,8 @@ h4 {
 }
 
 .header-illustration {
-    width: 350px;
+    width: 100%;
+    margin-top: 5%;
 }
 
 </style>

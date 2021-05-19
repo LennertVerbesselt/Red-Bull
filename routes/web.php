@@ -25,6 +25,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', function () {
+    return view('welcome');
+});
+Route::get('/register', function () {
+    return view('welcome');
+});
+Route::get('/challenges', function () {
+    return view('welcome');
+});
+Route::get('/qrscanner', function () {
+    return view('welcome');
+});
+Route::get('/events', function () {
+    return view('welcome');
+});
+Route::get('/profile', function () {
+    return view('welcome');
+});
 
 //CMS Routes
 Route::get('/CMS', [OverviewController::class, 'index'])->name('overview');
