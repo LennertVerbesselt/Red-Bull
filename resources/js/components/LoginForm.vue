@@ -1,7 +1,7 @@
 <template>
     <div class="login">
  <div class="illustration">
-    Illustration goes here
+    <img class="header-illustration" src="../../assets/Final_Illustration_test1.png" alt="">
   </div>
     <form @submit.prevent="login">
         <div class="form-group">
@@ -121,14 +121,8 @@ h4 {
     margin-top: 3rem;
 }
 
-.illustration {
-  color: white;
-  height: 200px;
-  width: 268px;
-  border:2px solid white;
-  justify-content: center;
-  margin:auto;
-  margin-top: 10px;
+.header-illustration {
+    width: 350px;
 }
 
 </style>
