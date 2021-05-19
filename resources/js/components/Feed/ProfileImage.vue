@@ -1,7 +1,7 @@
 <template>
         
        
-             <img class="profile rounded-full" width="30" height="30" src="https://avatars0.githubusercontent.com/u/38799309?v=4" alt="" />
+             <img class="profile rounded-full" width="25" height="25" src="https://avatars0.githubusercontent.com/u/38799309?v=4" alt="" />
         
         
         
@@ -15,8 +15,8 @@ export default {
 
 <style scoped>
 .profile {
-    margin-right:15px;
-    margin-top: 10px;
+    margin-right:10px;
+    margin-top: 12.5px;
     border-radius: 50%;
 }
 </style>

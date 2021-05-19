@@ -25,7 +25,7 @@ export default {
     white-space: nowrap;
     text-align: justify;
     position: absolute;
-    left: 20px;
+    left: 12px;
     line-height: 15px;
 }
  body {

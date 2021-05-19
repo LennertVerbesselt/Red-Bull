@@ -31,7 +31,7 @@ export default {
     justify-content:space-between;
     padding: 0;
     margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 10px;
     margin-right: 20px;
 }
 .vote {
@@ -53,7 +53,7 @@ img {
 
 .upvotes, .downvotes {
     font-family: "Akzidenz Bold Extended Italic";
-    font-size: 10px;
+    font-size: 8px;
     color:white;
     opacity: 0.25;
     text-align: left;

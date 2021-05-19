@@ -1,4 +1,10 @@
 <template>
+    <FeedNavigation></FeedNavigation>
+	<PostItem></PostItem>
+	<PostItem></PostItem>
+	<PostItem></PostItem>
+	<PostItem></PostItem>
+	<PostItem></PostItem>
 	<PostItem></PostItem>
 	<PostItem></PostItem>
 

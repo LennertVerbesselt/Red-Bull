@@ -16972,7 +16972,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'FeedNavigation'
+  name: 'FeedNavigation',
+  data: function data() {
+    return {
+      isActiveFeatured: true,
+      isActiveFollowing: false
+    };
+  }
 });
 
 /***/ }),
@@ -17911,17 +17917,38 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-af2a8930");
 
 var _hoisted_1 = {
+  "class": "FeedNavigationBG"
+};
+var _hoisted_2 = {
   "class": "FeedNavigation"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Featured | Following", -1
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "line"
+}, "|", -1
 /* HOISTED */
 );
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+    "class": [_ctx.isActiveFeatured ? 'active' : 'inactive'],
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      _ctx.isActiveFeatured = !_ctx.isActiveFeatured;
+      _ctx.isActiveFollowing = !_ctx.isActiveFollowing;
+    })
+  }, "Featured", 2
+  /* CLASS */
+  ), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+    "class": [_ctx.isActiveFollowing ? 'active' : 'inactive'],
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      _ctx.isActiveFeatured = !_ctx.isActiveFeatured;
+      _ctx.isActiveFollowing = !_ctx.isActiveFollowing;
+    })
+  }, "Following", 2
+  /* CLASS */
+  )])]);
 });
 
 /***/ }),
@@ -18003,9 +18030,11 @@ __webpack_require__.r(__webpack_exports__);
 var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-c6c4c4c0");
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_FeedNavigation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FeedNavigation");
+
   var _component_PostItem = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("PostItem");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem)], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FeedNavigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem)], 64
   /* STABLE_FRAGMENT */
   );
 });
@@ -18121,8 +18150,8 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 
 var _hoisted_1 = {
   "class": "profile rounded-full",
-  width: "30",
-  height: "30",
+  width: "25",
+  height: "25",
   src: "https://avatars0.githubusercontent.com/u/38799309?v=4",
   alt: ""
 };
@@ -18995,7 +19024,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.buttons[data-v-22b48b46] {\r\n    display: flex;\r\n    justify-content:space-between;\r\n    padding: 0;\r\n    margin-top: 10px;\r\n    margin-left: 15px;\r\n    margin-right: 20px;\n}\n.vote[data-v-22b48b46] {\r\n    left:0;\n}\n.comment[data-v-22b48b46] {\r\n    right: 0;\n}\nbutton[data-v-22b48b46] {\r\n    background-color: transparent;\r\n    border: none;\n}\nimg[data-v-22b48b46] {\r\n    width: 20px;\r\n    padding: 0;\r\n    margin: 0;\n}\n.upvotes[data-v-22b48b46], .downvotes[data-v-22b48b46] {\r\n    font-family: \"Akzidenz Bold Extended Italic\";\r\n    font-size: 10px;\r\n    color:white;\r\n    opacity: 0.25;\r\n    text-align: left;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.buttons[data-v-22b48b46] {\r\n    display: flex;\r\n    justify-content:space-between;\r\n    padding: 0;\r\n    margin-top: 10px;\r\n    margin-left: 10px;\r\n    margin-right: 20px;\n}\n.vote[data-v-22b48b46] {\r\n    left:0;\n}\n.comment[data-v-22b48b46] {\r\n    right: 0;\n}\nbutton[data-v-22b48b46] {\r\n    background-color: transparent;\r\n    border: none;\n}\nimg[data-v-22b48b46] {\r\n    width: 20px;\r\n    padding: 0;\r\n    margin: 0;\n}\n.upvotes[data-v-22b48b46], .downvotes[data-v-22b48b46] {\r\n    font-family: \"Akzidenz Bold Extended Italic\";\r\n    font-size: 8px;\r\n    color:white;\r\n    opacity: 0.25;\r\n    text-align: left;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19043,7 +19072,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.post-description[data-v-658dc758] {\r\n    margin-top: 5px;\r\n    margin-bottom: 280px;\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    text-align: justify;\r\n    position: absolute;\r\n    left: 20px;\r\n    line-height: 15px;\n}\nbody[data-v-658dc758] {\r\n     color: white;\n}\n.username[data-v-658dc758] {\r\n     color: white;\r\n     font-family: \"Akzidenz Bold Extended\";\r\n     font-size: 12px;\r\n     display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\n}\n.caption[data-v-658dc758] {\r\n     color: white;\r\n     font-family: \"Akzidenz Regular\";\r\n     font-size: 12px;\r\n     display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    margin-left: 4px;\n}\n.comments[data-v-658dc758] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 12px;\r\n    clear: both;\r\n    overflow: hidden;\r\n\r\n    text-align: left;\r\n    padding-bottom: 20%;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.post-description[data-v-658dc758] {\r\n    margin-top: 5px;\r\n    margin-bottom: 280px;\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    text-align: justify;\r\n    position: absolute;\r\n    left: 12px;\r\n    line-height: 15px;\n}\nbody[data-v-658dc758] {\r\n     color: white;\n}\n.username[data-v-658dc758] {\r\n     color: white;\r\n     font-family: \"Akzidenz Bold Extended\";\r\n     font-size: 12px;\r\n     display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\n}\n.caption[data-v-658dc758] {\r\n     color: white;\r\n     font-family: \"Akzidenz Regular\";\r\n     font-size: 12px;\r\n     display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    margin-left: 4px;\n}\n.comments[data-v-658dc758] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 12px;\r\n    clear: both;\r\n    overflow: hidden;\r\n\r\n    text-align: left;\r\n    padding-bottom: 20%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19067,7 +19096,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.button[data-v-20c0c46d] {\r\n    padding-top: 12.5px;\r\n    margin-right: 20px;\n}\n.fill[data-v-20c0c46d] {\r\n    background-color: #EB5876;\r\n    color: white;\r\n    border-radius: 4px;\r\n    border: none;\r\n    font-size: 12px;\r\n    font-family: \"Akzidenz Bold\";\r\n    top:50%;\r\n    padding-top: 2px;\r\n\r\n    height: 25px;\r\n    width: 75px;\n}\n.clicked[data-v-20c0c46d] {\r\n    background-color: transparent;\r\n    border: 1px solid rgba(255, 255, 255, .85);\r\n    border-radius: 4px;\r\n    color: rgba(255, 255, 255, .75);\r\n\r\n    font-size: 12px;\r\n    font-family: \"Akzidenz Regular\";\r\n\r\n    height: 25px;\r\n    width: 75px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.button[data-v-20c0c46d] {\r\n    padding-top: 12.5px;\r\n    margin-right: 20px;\n}\n.fill[data-v-20c0c46d] {\r\n    background-color: #EB5876;\r\n    color: white;\r\n    border-radius: 4px;\r\n    border: none;\r\n    font-size: 12px;\r\n    font-family: \"Akzidenz Bold\";\r\n    text-align: center;\r\n    left: 50%;\r\n    top:50%;\r\n    padding-top: 2px;\r\n\r\n    height: 25px;\r\n    width: 75px;\n}\n.clicked[data-v-20c0c46d] {\r\n    background-color: transparent;\r\n    border: 1px solid rgba(255, 255, 255, .85);\r\n    border-radius: 4px;\r\n    color: rgba(255, 255, 255, .75);\r\n\r\n    font-size: 12px;\r\n    font-family: \"Akzidenz Regular\";\r\n    text-align: center;\r\n    left: 50%;\r\n    top:50%;\r\n\r\n    height: 25px;\r\n    width: 75px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19091,7 +19120,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.FeedNavigation[data-v-af2a8930] {\r\n    margin-left: 31%;\r\n    margin-right: 31%;\r\n    \r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    height: 30px;\r\n\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.FeedNavigationBG[data-v-af2a8930] {\r\n    width:100%;\r\n    height: 100px;\r\n    background: #252525;\r\n\tbackground: linear-gradient(180deg, rgba(18,20,38,1) 9%, rgba(18,20,38,0.9) 50%, rgba(18,20,38,0) 100%);\r\n\ttop: 0px;\r\n\tleft: 0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n    position: sticky;\r\n\r\n    margin-bottom: -30px;\r\n\r\n    z-index: 3;\n}\n.FeedNavigation[data-v-af2a8930] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    position: sticky;\r\n    top:0px;\r\n\r\n    margin-top: 30px;\r\n\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\r\n    z-index: 3;\n}\n.line[data-v-af2a8930] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    \r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n    z-index: 3;\n}\n.active[data-v-af2a8930] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    \r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    color: white;\r\n    z-index: 3;\n}\n.inactive[data-v-af2a8930] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\r\n    opacity: 0.25;\r\n    z-index: 3;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19139,7 +19168,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.profile-container[data-v-776ac5e3] {\r\n    margin-left: 20px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    height: 50px;\n}\n.profile-person[data-v-776ac5e3] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.profile-container[data-v-776ac5e3] {\r\n    margin-left: 10px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    height: 50px;\n}\n.profile-person[data-v-776ac5e3] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19163,7 +19192,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.post-container[data-v-90433a2e] {\r\n  width: 100%;\r\n  margin-top: 15px;\r\n  margin-bottom: 55px;\r\n  padding-bottom: 15px;\r\n  border-style: solid;\r\n  border-color: rgba(255, 255, 255, .25);\r\n  border-width: 0px 0px 0px 0px;\n}\n.profile-container[data-v-90433a2e] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\n}\n.profile-person[data-v-90433a2e] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\n}\r\n\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.post-container[data-v-90433a2e] {\r\n  width: 100%;\r\n  margin-bottom: 35px;\r\n  padding-bottom: 15px;\r\n  border-style: solid;\r\n  border-color: rgba(255, 255, 255, .25);\r\n  border-width: 0px 0px 0px 0px;\n}\n.profile-container[data-v-90433a2e] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\n}\n.profile-person[data-v-90433a2e] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\n}\r\n\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19187,7 +19216,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.profile[data-v-1ccb05c8] {\r\n    margin-right:15px;\r\n    margin-top: 10px;\r\n    border-radius: 50%;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.profile[data-v-1ccb05c8] {\r\n    margin-right:10px;\r\n    margin-top: 12.5px;\r\n    border-radius: 50%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

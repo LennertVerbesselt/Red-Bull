@@ -27,6 +27,8 @@ export default {
     border: none;
     font-size: 12px;
     font-family: "Akzidenz Bold";
+    text-align: center;
+    left: 50%;
     top:50%;
     padding-top: 2px;
 
@@ -42,6 +44,9 @@ export default {
 
     font-size: 12px;
     font-family: "Akzidenz Regular";
+    text-align: center;
+    left: 50%;
+    top:50%;
 
     height: 25px;
     width: 75px;
