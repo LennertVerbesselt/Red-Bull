@@ -16,6 +16,7 @@ import QrDropzone from '../components/QRComponents/QrDropzoneModule.vue'
 
 
 
+
 export default {
 	name: 'QRScanner', 
     components: {

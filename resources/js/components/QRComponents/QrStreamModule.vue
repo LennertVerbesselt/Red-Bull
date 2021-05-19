@@ -1,8 +1,10 @@
 <template>
    <div>
-    <p class="decode-result">Last result: <b>{{ result }}</b></p>
+    <h1 class="pagetitle">Looking for QR Code</h1>
 
-    <qr-stream :camera="camera" @decode="onDecode" @init="onInit">
+
+    <qr-stream class="QRScanner" :camera="camera" @decode="onDecode" @init="onInit">
+      
       <div v-if="validationSuccess" class="validation-success">
         This is a URL
       </div>
@@ -15,16 +17,21 @@
         Long validation in progress...
       </div>
     </qr-stream>
+    <p class="decode-result">Last result: <b>{{ result }}</b></p>
   </div>
 </template>
 
 <script lang="ts">
+
 import { defineComponent, reactive, toRefs } from 'vue';
 import { QrStream } from 'vue3-qr-reader'
+
+
 export default defineComponent({
   name: 'QrStreamModule',
   components: {
-    QrStream
+    QrStream,
+    
   },
   data () {
     return {
@@ -112,14 +119,23 @@ export default defineComponent({
   margin: auto;
 }
 
+.QRScanner {
+  width:80%;
+  height: 300px;
+  left: 10%;
+  border: 5px solid white;
+  border-radius: 5px; 
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;  
+  z-index: 2;
+}
+
 
 .validation-success,
 .validation-failure,
 .validation-pending {
   position: absolute;
   width: 100%;
-  height: 100%;
-
   background-color: rgba(255, 255, 255, .8);
   text-align: center;
   font-weight: bold;
@@ -129,12 +145,24 @@ export default defineComponent({
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  width:80%;
+  height: 300px;
+  left: 10%;
+  border: 2px solid white;
+  border-radius: 15px;
 }
 .validation-success {
   color: green;
 }
 .validation-failure {
   color: red;
+}
+
+.pagetitle {
+  font-family: "Akzidenz Bold Extended";
+  color:white;
+  font-size: 22px;
+  letter-spacing: 1px;
 }
 
 </style>

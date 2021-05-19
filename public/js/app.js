@@ -18740,46 +18740,52 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-69e2926a");
 
-var _hoisted_1 = {
-  "class": "decode-result"
-};
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", {
+  "class": "pagetitle"
+}, "Looking for QR Code", -1
+/* HOISTED */
+);
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Last result: ");
-
-var _hoisted_3 = {
+var _hoisted_2 = {
   key: 0,
   "class": "validation-success"
 };
-var _hoisted_4 = {
+var _hoisted_3 = {
   key: 1,
   "class": "validation-failure"
 };
-var _hoisted_5 = {
+var _hoisted_4 = {
   key: 2,
   "class": "validation-pending"
 };
+var _hoisted_5 = {
+  "class": "decode-result"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Last result: ");
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_qr_stream = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("qr-stream");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.result), 1
-  /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_qr_stream, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_qr_stream, {
+    "class": "QRScanner",
     camera: _ctx.camera,
     onDecode: _ctx.onDecode,
     onInit: _ctx.onInit
   }, {
     "default": _withId(function () {
-      return [_ctx.validationSuccess ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_3, " This is a URL ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.validationFailure ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, " This is NOT a URL! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.validationPending ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, " Long validation in progress... ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      return [_ctx.validationSuccess ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, " This is a URL ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.validationFailure ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_3, " This is NOT a URL! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.validationPending ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, " Long validation in progress... ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["camera", "onDecode", "onInit"])]);
+  , ["camera", "onDecode", "onInit"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.result), 1
+  /* TEXT */
+  )])]);
 });
 
 /***/ }),
@@ -19787,7 +19793,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.stream[data-v-69e2926a] {\r\n  max-height: 500px;\r\n  max-width: 500px;\r\n  margin: auto;\n}\n.frame[data-v-69e2926a] {\r\n  border-style: solid;\r\n  border-width: 2px;\r\n  border-color: red;\r\n  height: 200px;\r\n  width: 200px;\r\n  position: absolute;\r\n  top: 0px;\r\n  bottom: 0px;\r\n  right: 0px;\r\n  left: 0px;\r\n  margin: auto;\n}\n.validation-success[data-v-69e2926a],\r\n.validation-failure[data-v-69e2926a],\r\n.validation-pending[data-v-69e2926a] {\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n\r\n  background-color: rgba(255, 255, 255, .8);\r\n  text-align: center;\r\n  font-weight: bold;\r\n  font-size: 1.4rem;\r\n  padding: 10px;\r\n\r\n  display: flex;\r\n  flex-flow: column nowrap;\r\n  justify-content: center;\n}\n.validation-success[data-v-69e2926a] {\r\n  color: green;\n}\n.validation-failure[data-v-69e2926a] {\r\n  color: red;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.stream[data-v-69e2926a] {\r\n  max-height: 500px;\r\n  max-width: 500px;\r\n  margin: auto;\n}\n.frame[data-v-69e2926a] {\r\n  border-style: solid;\r\n  border-width: 2px;\r\n  border-color: red;\r\n  height: 200px;\r\n  width: 200px;\r\n  position: absolute;\r\n  top: 0px;\r\n  bottom: 0px;\r\n  right: 0px;\r\n  left: 0px;\r\n  margin: auto;\n}\n.QRScanner[data-v-69e2926a] {\r\n  width:80%;\r\n  height: 300px;\r\n  left: 10%;\r\n  border: 5px solid white;\r\n  border-radius: 5px; \r\n  -webkit-border-radius: 5px;\r\n  -moz-border-radius: 5px;  \r\n  z-index: 2;\n}\n.validation-success[data-v-69e2926a],\r\n.validation-failure[data-v-69e2926a],\r\n.validation-pending[data-v-69e2926a] {\r\n  position: absolute;\r\n  width: 100%;\r\n  background-color: rgba(255, 255, 255, .8);\r\n  text-align: center;\r\n  font-weight: bold;\r\n  font-size: 1.4rem;\r\n  padding: 10px;\r\n\r\n  display: flex;\r\n  flex-flow: column nowrap;\r\n  justify-content: center;\r\n  width:80%;\r\n  height: 300px;\r\n  left: 10%;\r\n  border: 2px solid white;\r\n  border-radius: 15px;\n}\n.validation-success[data-v-69e2926a] {\r\n  color: green;\n}\n.validation-failure[data-v-69e2926a] {\r\n  color: red;\n}\n.pagetitle[data-v-69e2926a] {\r\n  font-family: \"Akzidenz Bold Extended\";\r\n  color:white;\r\n  font-size: 22px;\r\n  letter-spacing: 1px;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
