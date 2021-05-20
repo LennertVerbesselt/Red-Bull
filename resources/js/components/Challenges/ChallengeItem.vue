@@ -29,7 +29,7 @@
     
     
     <div class="qr" v-if="ChallengeLocked">
-        <img class="qricon"  src="./../../../assets/challengeqrscannericon.png" />
+        <img class="qricon"  src="./../../../assets/ChallengeQRScannerIcon.png" />
         <div class="qrremaining">0/{{ChallengeCansNeeded}}</div>
     </div>
 </div>
