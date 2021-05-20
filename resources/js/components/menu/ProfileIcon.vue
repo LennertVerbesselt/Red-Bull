@@ -47,8 +47,6 @@ export default {
     width: 20px;
     height:20px;
     padding: 10px;
-    
-
  }
 
 </style>

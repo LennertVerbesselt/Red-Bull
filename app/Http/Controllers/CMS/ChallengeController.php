@@ -93,7 +93,7 @@ class ChallengeController extends Controller
          $badge = Challenge_Badge::create([
             'challenge_id' => $challenge->id,
             'filename' => 'default.svg',
-            'url' => 'https://redbullapp.s3.eu-west-2.amazonaws.com/ChallengeBadges/default.svg',
+            'url' => 'https://redbullapp.s3.eu-west-2.amazonaws.com/ChallengeBadges/default.png',
         ]);
 
         $events = Event::get();

@@ -17,6 +17,11 @@ export default {
 
 <style >
 @font-face {
+  font-family: "Akzidenz Light";
+  src: url(../fonts/Berthold Akzidenz Grotesk Light.otf)format("opentype");
+}
+
+@font-face {
   font-family: "Akzidenz Regular";
   src: url(../fonts/Berthold Akzidenz Grotesk Regular.otf)format("opentype");
 }

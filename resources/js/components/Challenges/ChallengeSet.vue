@@ -14,7 +14,7 @@
 </div>
 <div v-if="ChallengeSetShow">
     <li :key="challenge" v-for="challenge in Challenges">
-        <Challenge :ChallengeName="challenge.name" :ChallengeCansNeeded="challenge.cans_needed" :ChallengeDescription="challenge.description" :ChallengeDifficulty="challenge.difficulty" :ChallengeID="challenge.id" :ChallengePoints="challenge.points"></Challenge>
+        <Challenge :ChallengeName="challenge.name" :ChallengeCansNeeded="challenge.cans_needed_to_unlock" :ChallengeDescription="challenge.description" :ChallengeDifficulty="challenge.difficulty" :ChallengeID="challenge.id" :ChallengePoints="challenge.points"></Challenge>
     </li>
 </div>
     
@@ -101,7 +101,7 @@ export default {
     height: 8px;
 
     position: absolute;
-    right: 10%;
+    right: 8%;
     top: 0px;
 }
 

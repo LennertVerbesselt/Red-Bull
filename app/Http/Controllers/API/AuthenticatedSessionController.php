@@ -67,7 +67,7 @@ class AuthenticatedSessionController extends Controller
     }
 
     public function retrieveSessionData(){
-        dd(Auth::user()->name);
+        return Auth::user()->id;
     }
 
     public function retrieveProfilePicture(){

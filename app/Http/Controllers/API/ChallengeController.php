@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use App\Models\Category;
@@ -29,9 +30,25 @@ class ChallengeController extends Controller
         return['challenges' => $challenges];
     }
 
+    public function getChallenge(Request $request) {
+
+        $challengeid = $request->challengeid;
+        $challenge = Challenge::find($challengeid);
+        return['challenge' => $challenge];
+    }
+
     public function getChallengeBadge(Request $request){
         $challengeid = $request->challengeid;
         $badge = Challenge_Badge::wherechallenge_id($challengeid)->get();
         return ['badge' => $badge];
+    }
+
+    public function getChallengeProgression(Request $request) {
+        $challengeid = $request->challengeid;
+        $userid = Auth::user()->id;
+        
+
+        $progression = Challenge_Progression::where('challenge_id', $challengeid)->where('user_id', $userid)->get();
+        return['challengeprogression' => $progression];
     }
 }

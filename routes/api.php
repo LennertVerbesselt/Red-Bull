@@ -46,4 +46,8 @@ Route::get('/getchallengesets', [ChallengeController::class, 'getChallengeSets']
 
 Route::post('/getchallenges', [ChallengeController::class, 'getChallenges'])->name('getchallenges');
 
+Route::post('/getchallenge', [ChallengeController::class, 'getChallenge'])->name('getchallenge');
+
 Route::post('/getchallengebadge', [ChallengeController::class, 'getChallengeBadge'])->name('getchallengebadge');
+
+Route::post('/getchallengeprogression', [ChallengeController::class, 'getChallengeProgression'])->name('getchallengeprogression');
