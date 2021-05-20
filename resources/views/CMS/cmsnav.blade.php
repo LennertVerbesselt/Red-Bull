@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +25,13 @@
     </style>
 </head>
 <body class=" font-family-karla flex">
+    
+    @if(Auth::user()->admin == 0)
+    <script type="text/javascript">
+        window.location = "https://red-bull.herokuapp.com";
+    </script>
+    @endif
+    
     
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl border-r-4 border-color-yellow">
     <div class="p-6">
@@ -61,3 +69,4 @@
     </nav>
     
 </aside>
+
