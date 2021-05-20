@@ -77,6 +77,8 @@ Route::post('/CMS/add_qr_codes', [QRController::class, 'addQRCodes'])->name('add
 Route::get('/CMS/upload_profile_picture', [UserController::class, 'uploadProfilePicturePage'])->name('view_upload_profile_picture');
 Route::post('/CMS/upload_profile_picture', [UserController::class, 'uploadProfilePicture'])->name('upload_profile_picture');
 
+Route::get('/CMS/upload_challenge_badge', [ChallengeController::class, 'uploadChallengeBadgePage'])->name('view_upload_challenge_badge');
+Route::post('/CMS/upload_challenge_badge', [ChallengeController::class, 'uploadChallengeBadge'])->name('upload_challenge_badge');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

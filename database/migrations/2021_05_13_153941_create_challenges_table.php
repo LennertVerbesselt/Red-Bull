@@ -19,6 +19,7 @@ class CreateChallengesTable extends Migration
             $table->string('name');
             $table->integer('difficulty');
             $table->string('description');
+            $table->integer('points');
             $table->string('cans_needed_to_unlock');
             $table->string('upvote_ratio');
             $table->timestamps();

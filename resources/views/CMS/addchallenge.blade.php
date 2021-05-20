@@ -42,6 +42,11 @@
                                 </div>
 
                                 <div class="">
+                                    <label class="block text-sm text-gray-600" for="name">Points</label>
+                                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="points" name="points" type="text" required="" placeholder="Points" aria-label="Name">
+                                </div>
+
+                                <div class="">
                                     <label class="block text-sm text-gray-600" for="name">Cans Needed To Unlock</label>
                                     <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="cans_needed" name="cans_needed" type="text" required="" placeholder="Cans needed" aria-label="Name">
                                 </div>

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\RegisteredUserController;
 use App\Http\Controllers\API\AuthenticatedSessionController;
 use App\Http\Controllers\API\EventController;
+use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\ChallengeController;
 
 
 /*
@@ -37,3 +39,9 @@ Route::get('/getsessiondata', [AuthenticatedSessionController::class, 'retrieveS
 Route::get('/getprofilepicture', [AuthenticatedSessionController::class, 'retrieveProfilePicture'])->name('getprofilepicture');
 
 Route::get('/getfeaturedevents', [EventController::class, 'getFeaturedEvents'])->name('getfeaturedevents');
+
+Route::get('/getcategories', [CategoryController::class, 'getCategories'])->name('getcategories');
+
+Route::get('/getchallengesets', [ChallengeController::class, 'getChallengeSets'])->name('getchallengesets');
+
+Route::post('/getchallenges', [ChallengeController::class, 'getChallenges'])->name('getchallenges');

@@ -25,6 +25,7 @@
         "vue-loader": "^16.2.0"
     },
     "dependencies": {
+        "@fortawesome/vue-fontawesome": "^3.0.0-3",
         "vue-agile": "^1.1.3",
         "vue-router": "^4.0.8",
         "vue3-qr-reader": "0.0.3",

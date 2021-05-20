@@ -48,8 +48,15 @@ class RegisteredUserController extends Controller
         ]);
 
         //create a interests categories in the database && link it to the user
+        $categories = Category::get();
+        $favouritecategories = [];
+        foreach($categories as $category){
+            $a = [$category->favourites => 0];
+            array_push($favouritecategories, $a);
+        }
         $user_interests_categories = User_Interests_Categories::create([
             'user_id' => $user->id,
+            'favourites' => json_encode($favouritecategories),
         ]);
 
         //Initiate Profile statistics && link it to the user

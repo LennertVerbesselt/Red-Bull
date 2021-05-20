@@ -34,24 +34,34 @@ export default {
         return {
             featuredevents: {
                 0: {
-                    0: [],
-                    1: "",
+                    0: {
+                        name: "Loading"
+                    },
+                    1: "https://redbullapp.s3.eu-west-2.amazonaws.com/EventHeaders/default.jpg",
                 },
                 1: {
-                    0: [],
-                    1: "",
+                    0: {
+                        name: "Loading"
+                    },
+                    1: "https://redbullapp.s3.eu-west-2.amazonaws.com/EventHeaders/default.jpg",
                 },
                 2: {
-                    0: [],
-                    1: "",
+                    0: {
+                        name: "Loading"
+                    },
+                    1: "https://redbullapp.s3.eu-west-2.amazonaws.com/EventHeaders/default.jpg",
                 },
                 3: {
-                    0: [],
-                    1: "",
+                    0: {
+                        name: "Loading"
+                    },
+                    1: "https://redbullapp.s3.eu-west-2.amazonaws.com/EventHeaders/default.jpg",
                 },
                 4: {
-                    0: [],
-                    1: "",
+                    0: {
+                        name: "Loading"
+                    },
+                    1: "https://redbullapp.s3.eu-west-2.amazonaws.com/EventHeaders/default.jpg",
                 },
             },
         }

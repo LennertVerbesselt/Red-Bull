@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Currency_Points;
+use App\Models\User_Interests_Categories;
 
 
 class CategoryController extends Controller
@@ -40,6 +41,15 @@ class CategoryController extends Controller
         $currency->save();
       }
 
+      //Change every user interests item
+      $interests = User_Interests_Categories::get();
+      foreach($interests as $interest){
+        $a = json_decode($interest->favourites);
+        $b = [ $category->category_name => 0];
+        array_push($a, $b);
+        $interest->favourites = $a;
+        $interest->save();
+      }
       
       $categories = Category::get();
 

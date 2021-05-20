@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserInterestsCategoriesTable extends Migration
+class CreateChallengeBadgesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateUserInterestsCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user__interests__categories', function (Blueprint $table) {
+        Schema::create('challenge__badges', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
-            $table->json('favourites');
+            $table->unsignedInteger('challenge_id');
+            $table->string('filename');
+            $table->string('url');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateUserInterestsCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user__interests__categories');
+        Schema::dropIfExists('challenge__badges');
     }
 }

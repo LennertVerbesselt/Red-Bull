@@ -110,6 +110,10 @@
                             <tr>
                                 <th
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Challenge Badge
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Challenge Name
                                 </th>
                                 <th
@@ -119,6 +123,10 @@
                                 <th
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Challenge Description 
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Points
                                 </th>
                                 <th
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -139,8 +147,24 @@
 
                             @foreach ($challenges as $challenge)
                             @if ($challenge->challenge_set_id === $challenge_set->id)
+                            @php
+                                    foreach ($challengebadges as $a) {
+                                        if ($a->challenge_id === $challenge->id){
+                                            $current_challengebadge = $a;
+                                        };
+                                    }; 
+                                @endphp
                             
                                 <tr>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        
+                                        <img class="w-6/12 h-6/12"
+                                                    src="{{$current_challengebadge->url}}"
+                                                    alt="" />
+                                                    
+                                        <a href="{{route('view_upload_challenge_badge')}}"> <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded mt-6" type="submit">Upload Challenge Badge</button></a>
+                                    </td>
+                                    
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <div class="ml-3">
                                                 <p class="text-gray-900 whitespace-no-wrap">
@@ -154,6 +178,9 @@
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">{{$challenge->description}}</p>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">{{$challenge->points}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">{{$challenge->difficulty}}</p>

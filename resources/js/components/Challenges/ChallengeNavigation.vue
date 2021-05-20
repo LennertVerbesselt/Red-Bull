@@ -1,23 +1,28 @@
 <template>
-<div class="FeedNavigationBG">
-<div class="FeedNavigation">
-    <div :class="[isActiveFeatured ? 'active' : 'inactive']" @click="isActiveFeatured = !isActiveFeatured; isActiveFollowing = !isActiveFollowing">Featured</div>
+<div class="ChallengeNavigationBG">
+    
+<div class="ChallengeNavigation">
+    
+    <div :class="[isActiveChallenges ? 'active' : 'inactive']" @click="isActiveChallenges = !isActiveChallenges; isActiveLeaderboards = !isActiveLeaderboards">Challenges</div>
     <div class="line">|</div>
-    <div :class="[isActiveFollowing ? 'active' : 'inactive']" @click="isActiveFeatured = !isActiveFeatured; isActiveFollowing = !isActiveFollowing">Following</div>
+    <div :class="[isActiveLeaderboards ? 'active' : 'inactive']" @click="isActiveLeaderboards = !isActiveLeaderboards; isActiveChallenges = !isActiveChallenges">Leaderboards</div>
     
     
 </div>
 </div>
+<img v-if="isActiveFavourites" @click="isActiveFavourites = !isActiveFavourites" class="favourite" src="../../../assets/star-solid.svg" alt="">
+<img v-if="!isActiveFavourites" @click="isActiveFavourites = !isActiveFavourites" class="favourite" src="../../../assets/star-regular.svg" alt="">
     
 </template>
 
 <script>
 export default {
-    name: 'FeedNavigation',
+    name: 'ChallengeNavigation',
     data:function() {
         return {
-            isActiveFeatured: true,
-            isActiveFollowing: false,
+            isActiveChallenges: true,
+            isActiveLeaderboards: false,
+            isActiveFavourites: false,
         }
     },
 
@@ -26,7 +31,7 @@ export default {
 
 <style scoped>
 
-.FeedNavigationBG {
+.ChallengeNavigationBG {
     width:100%;
     height: 100px;
     background: #252525;
@@ -42,7 +47,7 @@ export default {
     z-index: 3;
 }
 
-.FeedNavigation {
+.ChallengeNavigation {
     display: inline-block;
     clear: both;
     overflow: hidden;
@@ -54,9 +59,19 @@ export default {
 
     font-family: "Akzidenz Regular";
     font-size: 14px;
-    letter-spacing: 2px;;
+    letter-spacing: 2px;
     color: white;
     z-index: 3;
+}
+
+.favourite {
+    height: 13px;
+    fill: white;
+
+    position: absolute;
+    left: 18%;
+    top: 30px;
+    z-index: 4;
 }
 
 .line {
