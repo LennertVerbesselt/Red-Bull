@@ -16976,25 +16976,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var _props;
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'ChallengeItem',
   components: {},
-  props: (_props = {
+  props: _defineProperty({
     ChallengeName: String,
     ChallengePoints: Number,
     ChallengeID: Number,
     ChallengeDifficulty: Number,
     ChallengeDescription: String,
     ChallengeCansNeeded: Number
-  }, _defineProperty(_props, "ChallengePoints", Number), _defineProperty(_props, "ChallengeBadge", String), _props),
+  }, "ChallengePoints", Number),
   data: function data() {
     return {
       ChallengeExpand: false,
-      ChallengeProgression: []
+      ChallengeProgression: [],
+      ChallengeBadge: ""
     };
   },
   methods: {
@@ -17006,9 +17005,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           console.log("Error, Challenge Sets not obtained");
       });*/
     },
-    getChallengeBadge: function getChallengeBadge() {}
+    getChallengeBadge: function getChallengeBadge() {
+      var _this = this;
+
+      axios.post('api/getchallengebadge', {
+        challengeid: this.ChallengeID
+      }).then(function (response) {
+        _this.ChallengeBadge = response.data.badge[0].url;
+        console.log(response.data.badge[0].url);
+        console.log("Challenge Badge Obtained");
+      })["catch"](function (error) {
+        console.log("Error, Challenge Badge not obtained");
+      });
+    }
   },
-  created: function created() {}
+  created: function created() {
+    this.getChallengeBadge();
+  }
 });
 
 /***/ }),
@@ -18350,7 +18363,12 @@ var _hoisted_2 = {
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeName), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+    src: _ctx.ChallengeBadge,
+    "class": "badge"
+  }, null, 8
+  /* PROPS */
+  , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeName), 1
   /* TEXT */
   )]);
 });
@@ -20134,7 +20152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.Challenge[data-v-1bb52e82] {\r\n    width: 80%;\r\n    height: 55px;\r\n    \r\n    position: relative;\r\n    left: 10%;\r\n    margin-top: 15px;\r\n\r\n    border: 1px solid white;\r\n    border-radius: 6px;\n}\n.ChallengeName[data-v-1bb52e82]  {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 12px;\r\n    letter-spacing: 2px;\r\n    color: white;\r\n\r\n    text-align: left;\r\n    position: absolute;\r\n    left: 15%;\r\n    top: 25px;\n}\n.categoryPoints[data-v-1bb52e82] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 13px;\r\n    letter-spacing: 2px;\r\n    color: white;\r\n    opacity: 0.5;\r\n\r\n    text-align: left;\r\n    position: absolute;\r\n    right: 25%;\r\n    top: 26px;\n}\n.favourite[data-v-1bb52e82] {\r\n    height: 15px;\r\n    fill: white;\r\n\r\n    position: absolute;\r\n    left: 5%;\r\n    top: 25px;\n}\n.dropdown[data-v-1bb52e82] {\r\n    background-color: transparent;\r\n    border: none;\n}\n.dropdownIcon[data-v-1bb52e82] {\r\n    height: 10px;\r\n\r\n    position: absolute;\r\n    right: 10%;\r\n    top: 28px;\n}\nli[data-v-1bb52e82] {\r\n    list-style-type: none;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.Challenge[data-v-1bb52e82] {\r\n    width: 80%;\r\n    height: 55px;\r\n    \r\n    position: relative;\r\n    left: 10%;\r\n    margin-top: 15px;\r\n\r\n    border: 1px solid white;\r\n    border-radius: 6px;\n}\n.ChallengeName[data-v-1bb52e82]  {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 12px;\r\n    letter-spacing: 2px;\r\n    color: white;\r\n\r\n    text-align: left;\r\n    position: absolute;\r\n    left: 15%;\r\n    top: 25px;\n}\n.categoryPoints[data-v-1bb52e82] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 13px;\r\n    letter-spacing: 2px;\r\n    color: white;\r\n    opacity: 0.5;\r\n\r\n    text-align: left;\r\n    position: absolute;\r\n    right: 25%;\r\n    top: 26px;\n}\n.favourite[data-v-1bb52e82] {\r\n    height: 15px;\r\n    fill: white;\r\n\r\n    position: absolute;\r\n    left: 5%;\r\n    top: 25px;\n}\n.dropdown[data-v-1bb52e82] {\r\n    background-color: transparent;\r\n    border: none;\n}\n.dropdownIcon[data-v-1bb52e82] {\r\n    height: 10px;\r\n\r\n    position: absolute;\r\n    right: 10%;\r\n    top: 28px;\n}\nli[data-v-1bb52e82] {\r\n    list-style-type: none;\n}\n.badge[data-v-1bb52e82] {\r\n    border-radius: 50%;\r\n    width: 40px;\r\n    height: 40px;\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

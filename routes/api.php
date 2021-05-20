@@ -45,3 +45,5 @@ Route::get('/getcategories', [CategoryController::class, 'getCategories'])->name
 Route::get('/getchallengesets', [ChallengeController::class, 'getChallengeSets'])->name('getchallengesets');
 
 Route::post('/getchallenges', [ChallengeController::class, 'getChallenges'])->name('getchallenges');
+
+Route::post('/getchallengebadge', [ChallengeController::class, 'getChallengeBadge'])->name('getchallengebadge');

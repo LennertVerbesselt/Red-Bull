@@ -1,6 +1,7 @@
 <template>
 
 <div class="Challenge">
+    <img :src="ChallengeBadge" class="badge" />
     <div class="ChallengeName">
         {{ChallengeName}}
     </div>
@@ -25,13 +26,14 @@ export default {
         ChallengeDescription: String,
         ChallengeCansNeeded: Number,
         ChallengePoints: Number,
-        ChallengeBadge: String,
+        
         
     },
     data:function() {
         return {
             ChallengeExpand: false,
             ChallengeProgression: [],
+            ChallengeBadge: "",
         }
     },
     methods: {
@@ -45,11 +47,17 @@ export default {
         },
 
         getChallengeBadge() {
-            
+            axios.post('api/getchallengebadge', {challengeid: this.ChallengeID}).then(response => {
+                this.ChallengeBadge=response.data.badge[0].url;
+                console.log(response.data.badge[0].url);
+                console.log("Challenge Badge Obtained");
+            }).catch(error => {
+                console.log("Error, Challenge Badge not obtained");
+            });
         }
     },
     created() {
-        
+        this.getChallengeBadge();
     }
     
 }
@@ -118,6 +126,12 @@ export default {
 li {
     list-style-type: none;
 }
+
+.badge {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+ }
 
 
 </style>
