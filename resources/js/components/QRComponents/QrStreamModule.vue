@@ -120,9 +120,9 @@ export default defineComponent({
 }
 
 .QRScanner {
-  width:80%;
-  height: 300px;
-  left: 10%;
+  width:100%;
+  height: 100%;
+  left: 0%;
   border: 5px solid white;
   border-radius: 5px; 
   -webkit-border-radius: 5px;
