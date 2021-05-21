@@ -39,7 +39,7 @@ export default {
 
  .username {
      color: white;
-     font-family: "Akzidenz Bold Extended";
+     font-family: "Akzidenz Bold";
      font-size: 12px;
      display: inline-block;
     clear: both;

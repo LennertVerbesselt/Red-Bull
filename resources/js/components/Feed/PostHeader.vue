@@ -5,7 +5,7 @@
             <ProfileName :User="User"></ProfileName>
         </div>
         <div class="follow">
-            <FollowButton :Following="Following"></FollowButton>
+            <FollowButton :Following="Following" :PostUserID="User.id" ></FollowButton>
         </div>
     </div>
 </template>

@@ -17267,12 +17267,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'FeedFollowing',
   props: {
-    Following: Boolean
+    Following: Boolean,
+    PostUserID: Number
   },
   data: function data() {
     return {
-      isActive: true
+      isFollowing: false
     };
+  },
+  methods: {
+    changeFollowStatus: function changeFollowStatus() {
+      var _this = this;
+
+      if (this.isFollowing) {
+        axios.post('api/unfollow', {
+          postuserid: this.PostUserID
+        }).then(function (response) {
+          _this.isFollowing = !_this.isFollowing;
+        })["catch"](function (error) {
+          console.log("Error, Unfollow failed");
+        });
+      } else {
+        axios.post('api/follow', {
+          postuserid: this.PostUserID
+        }).then(function (response) {
+          _this.isFollowing = !_this.isFollowing;
+        })["catch"](function (error) {
+          console.log("Error, Follow failed");
+        });
+      }
+    }
+  },
+  created: function created() {
+    this.isFollowing = this.Following;
   }
 });
 
@@ -17385,8 +17412,6 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this2.FeaturedPosts);
       })["catch"](function (error) {
         console.log("Error");
-
-        _this2.$router.push('/login');
       });
     }
   },
@@ -19040,11 +19065,11 @@ var _hoisted_1 = {
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-    "class": [$props.Following ? 'clicked' : 'fill'],
-    onClick: _cache[1] || (_cache[1] = function ($event) {
-      return $props.Following = !$props.Following;
+    "class": [_ctx.isFollowing ? 'clicked' : 'fill'],
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $options.changeFollowStatus && $options.changeFollowStatus.apply($options, arguments);
     })
-  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.Following ? 'Following' : 'Follow'), 3
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.isFollowing ? 'Following' : 'Follow'), 3
   /* TEXT, CLASS */
   )]);
 });
@@ -19250,10 +19275,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   }, null, 8
   /* PROPS */
   , ["User"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FollowButton, {
-    Following: $props.Following
+    Following: $props.Following,
+    PostUserID: $props.User.id
   }, null, 8
   /* PROPS */
-  , ["Following"])])]);
+  , ["Following", "PostUserID"])])]);
 });
 
 /***/ }),
@@ -20719,7 +20745,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.buttons[data-v-22b48b46] {\r\n    display: flex;\r\n    justify-content:space-between;\r\n    padding: 0;\r\n    margin-top: 10px;\r\n    margin-left: 10px;\r\n    margin-right: 20px;\n}\n.vote[data-v-22b48b46] {\r\n    left:0;\n}\n.comment[data-v-22b48b46] {\r\n    right: 0;\n}\nbutton[data-v-22b48b46] {\r\n    background-color: transparent;\r\n    border: none;\n}\nimg[data-v-22b48b46] {\r\n    width: 20px;\r\n    padding: 0;\r\n    margin: 0;\n}\n.upvotes[data-v-22b48b46], .downvotes[data-v-22b48b46] {\r\n    font-family: \"Akzidenz Bold Extended Italic\";\r\n    font-size: 8px;\r\n    color:white;\r\n    opacity: 0.25;\r\n    text-align: left;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.buttons[data-v-22b48b46] {\r\n    display: flex;\r\n    justify-content:space-between;\r\n    padding: 0;\r\n    margin-top: 10px;\r\n    margin-left: 10px;\r\n    margin-right: 20px;\n}\n.vote[data-v-22b48b46] {\r\n    left:0;\n}\n.comment[data-v-22b48b46] {\r\n    right: 0;\n}\nbutton[data-v-22b48b46] {\r\n    background-color: transparent;\r\n    border: none;\n}\nimg[data-v-22b48b46] {\r\n    width: 20px;\r\n    padding: 0;\r\n    margin: 0;\n}\n.upvotes[data-v-22b48b46], .downvotes[data-v-22b48b46] {\r\n    font-family: \"Akzidenz Bold Extended Italic\";\r\n    font-size: 8px;\r\n    color:white;\r\n    opacity: 0.25;\r\n    text-align: center;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20767,7 +20793,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.post-description[data-v-658dc758] {\r\n    margin-top: 5px;\r\n    margin-bottom: 280px;\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    text-align: justify;\r\n    position: absolute;\r\n    left: 12px;\r\n    line-height: 15px;\n}\nbody[data-v-658dc758] {\r\n     color: white;\n}\n.username[data-v-658dc758] {\r\n     color: white;\r\n     font-family: \"Akzidenz Bold Extended\";\r\n     font-size: 12px;\r\n     display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\n}\n.caption[data-v-658dc758] {\r\n     color: white;\r\n     font-family: \"Akzidenz Regular\";\r\n     font-size: 12px;\r\n     display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    margin-left: 4px;\n}\n.comments[data-v-658dc758] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 12px;\r\n    clear: both;\r\n    overflow: hidden;\r\n\r\n    text-align: left;\r\n    padding-bottom: 20%;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.post-description[data-v-658dc758] {\r\n    margin-top: 5px;\r\n    margin-bottom: 280px;\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    text-align: justify;\r\n    position: absolute;\r\n    left: 12px;\r\n    line-height: 15px;\n}\nbody[data-v-658dc758] {\r\n     color: white;\n}\n.username[data-v-658dc758] {\r\n     color: white;\r\n     font-family: \"Akzidenz Bold\";\r\n     font-size: 12px;\r\n     display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\n}\n.caption[data-v-658dc758] {\r\n     color: white;\r\n     font-family: \"Akzidenz Regular\";\r\n     font-size: 12px;\r\n     display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    margin-left: 4px;\n}\n.comments[data-v-658dc758] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 12px;\r\n    clear: both;\r\n    overflow: hidden;\r\n\r\n    text-align: left;\r\n    padding-bottom: 20%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20887,7 +20913,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.post-container[data-v-90433a2e] {\r\n  width: 100%;\r\n  margin-bottom: 35px;\r\n  padding-bottom: 15px;\r\n  border-style: solid;\r\n  border-color: rgba(255, 255, 255, .25);\r\n  border-width: 0px 0px 0px 0px;\n}\n.profile-container[data-v-90433a2e] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\n}\n.profile-person[data-v-90433a2e] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\n}\r\n\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.post-container[data-v-90433a2e] {\r\n  width: 100%;\r\n  margin-top: 15px;\r\n  margin-bottom: 35px;\r\n  padding-bottom: 15px;\r\n  border-style: solid;\r\n  border-color: rgba(255, 255, 255, .25);\r\n  border-width: 0px 0px 0px 0px;\n}\n.profile-container[data-v-90433a2e] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\n}\n.profile-person[data-v-90433a2e] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\n}\r\n\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -10,6 +10,8 @@ use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ChallengeController;
 use App\Http\Controllers\API\UploadController;
 use App\Http\Controllers\API\PostController;
+use App\Http\Controllers\API\UserController;
+
 
 
 /*
@@ -36,14 +38,18 @@ Route::post('/register', [RegisteredUserController::class, 'store'])
 
 //Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
 
+//Big Picture Stuff
 Route::get('/getsessiondata', [AuthenticatedSessionController::class, 'retrieveSessionData'])->name('getsessiondata');
 
 Route::get('/getprofilepicture', [AuthenticatedSessionController::class, 'retrieveProfilePicture'])->name('getprofilepicture');
 
+//Home Page Stuff
 Route::get('/getfeaturedevents', [EventController::class, 'getFeaturedEvents'])->name('getfeaturedevents');
 
 Route::get('/getfeaturedposts', [PostController::class, 'getFeaturedPosts'])->name('getfeaturedposts');
 
+
+//Challenges Page Stuff
 Route::get('/getcategories', [CategoryController::class, 'getCategories'])->name('getcategories');
 
 Route::get('/getchallengesets', [ChallengeController::class, 'getChallengeSets'])->name('getchallengesets');
@@ -57,3 +63,7 @@ Route::post('/getchallengebadge', [ChallengeController::class, 'getChallengeBadg
 Route::post('/getchallengeprogression', [ChallengeController::class, 'getChallengeProgression'])->name('getchallengeprogression');
 
 Route::post('/uploadpost', [UploadController::class, 'uploadPost'])->name('uploadpost');
+
+//Profile Stuff
+Route::post('/follow', [UserController::class, 'follow'])->name('follow');
+Route::post('/unfollow', [UserController::class, 'unfollow'])->name('unfollow');

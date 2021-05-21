@@ -61,6 +61,6 @@ img {
     font-size: 8px;
     color:white;
     opacity: 0.25;
-    text-align: left;
+    text-align: center;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="button">
-    <button :class="[Following ? 'clicked' : 'fill']" @click="Following = !Following" >{{Following ? 'Following' : 'Follow'}}</button>
+    <button :class="[isFollowing ? 'clicked' : 'fill']" @click="changeFollowStatus" >{{isFollowing ? 'Following' : 'Follow'}}</button>
     </div>
 </template>
 
@@ -9,11 +9,32 @@ export default {
     name: 'FeedFollowing',
     props: {
         Following: Boolean,
+        PostUserID: Number,
     },
     data:function() {
         return {
-            isActive: true
+            isFollowing: false,
         }
+    },
+    methods: {
+        changeFollowStatus(){
+            if(this.isFollowing){
+                axios.post('api/unfollow', {postuserid: this.PostUserID}).then(response => {
+				this.isFollowing = !this.isFollowing;
+            }).catch(error => {
+                console.log("Error, Unfollow failed");
+            });
+            } else {
+                axios.post('api/follow', {postuserid: this.PostUserID}).then(response => {
+                    this.isFollowing = !this.isFollowing;
+                }).catch(error => {
+                    console.log("Error, Follow failed");
+                });
+            }
+        }
+    },
+    created() {
+        this.isFollowing = this.Following;
     }
 }
 </script>

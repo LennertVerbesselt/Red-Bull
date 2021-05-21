@@ -46,6 +46,7 @@ export default {
 <style scoped>
 .post-container {
   width: 100%;
+  margin-top: 15px;
   margin-bottom: 35px;
   padding-bottom: 15px;
   border-style: solid;

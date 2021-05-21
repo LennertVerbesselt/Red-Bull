@@ -44,7 +44,6 @@ export default {
 				console.log(this.FeaturedPosts)
             }).catch(error => {
                 console.log("Error");
-				this.$router.push('/login');
             });
 		},
 	},
