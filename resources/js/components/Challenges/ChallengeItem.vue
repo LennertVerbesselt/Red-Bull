@@ -13,7 +13,7 @@
     <div v-if="ChallengeUnlocked" class="unlocked">
         <img :src="ChallengeBadge" class="greybadge" />
         <div class="ChallengeName">
-            {{ChallengeName}}: {{ChallengeDescription}}
+            {{ChallengeName}}
         </div>
         <router-link :to="{ name: 'Upload', params: { id: challenge_id } }"><img class="upload"  src="./../../../assets/cloud-upload-alt-solid.svg" /></router-link>
     </div>
