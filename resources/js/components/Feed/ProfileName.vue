@@ -1,10 +1,13 @@
 <template>
-  <h3>Uncle Bob</h3>
+  <h3>{{User.name}}</h3>
 </template>
 
 <script>
 export default {
-
+  name: 'ProfileName',
+  props: {
+    User: Object,
+  },
 }
 </script>
 

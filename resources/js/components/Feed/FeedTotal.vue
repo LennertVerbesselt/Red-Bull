@@ -1,12 +1,8 @@
 <template>
     <FeedNavigation></FeedNavigation>
-	<PostItem></PostItem>
-	<PostItem></PostItem>
-	<PostItem></PostItem>
-	<PostItem></PostItem>
-	<PostItem></PostItem>
-	<PostItem></PostItem>
-	<PostItem></PostItem>
+	<div :key="featuredpost" v-for="featuredpost in FeaturedPosts">
+		<PostItem :Post="featuredpost"></PostItem>
+	</div>
 
 </template>
 
@@ -25,15 +21,36 @@ export default {
 		PostItem,
 		FeedNavigation,
     },
+	props: {
+		
+	},
+	data:function() {
+        return {
+            FeaturedPosts: [],
+        }
+    },
 	methods: {
-		/*checkIfLoggedIn() {
+		checkIfLoggedIn() {
             axios.get('api/getsessiondata').then(response => {
             }).catch(error => {
                 console.log("Error");
 				this.$router.push('/login');
             });
-        }*/
+        },
+
+		getFeaturedPosts(){
+			axios.get('api/getfeaturedposts').then(response => {
+				this.FeaturedPosts = response.data.featuredposts;
+				console.log(this.FeaturedPosts)
+            }).catch(error => {
+                console.log("Error");
+				this.$router.push('/login');
+            });
+		},
 	},
+	created(){
+		this.getFeaturedPosts();
+	}
 }
 </script>
 

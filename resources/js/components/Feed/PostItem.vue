@@ -1,16 +1,16 @@
 <template>
     <div class="post-container">
 
-        <PostHeader></PostHeader>
+        <PostHeader :User="Post.user" :ProfilePicture="Post.profilepicture" :Following="Post.following"></PostHeader>
 
         <div class="feed-content">
-            <FeedContent></FeedContent>
+            <FeedContent :PostImage="Post.postimage"></FeedContent>
         </div>
         <div class="feed-button">
-            <FeedButtons></FeedButtons>
+            <FeedButtons :Upvotes="Post.post.upvotes" :Downvotes="Post.post.downvotes" ></FeedButtons>
         </div>
         <div class="feed-description">
-            <FeedDescription></FeedDescription>
+            <FeedDescription :User="Post.user" :Caption="Post.post.description" ></FeedDescription>
         </div>
         
     </div>
@@ -35,7 +35,10 @@ export default {
         FeedDescription,
         FeedButtons,
         FeedFollowing
-    }
+    },
+    props: {
+        Post: Object,
+    },
 
 }
 </script>

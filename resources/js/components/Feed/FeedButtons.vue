@@ -3,12 +3,12 @@
       <div class="vote">
           <button><img src="../../../assets/upvote.png" alt="">
           <div class="upvotes">
-              500
+              {{Upvotes}}
           </div>
           </button>
           <button><img src="../../../assets/downvote.png" alt="">
           <div class="downvotes">
-              500
+              {{Downvotes}}
           </div>
           </button>
       </div>
@@ -20,6 +20,11 @@
 
 <script>
 export default {
+    name: 'FeedButtons',
+    props: {
+        Upvotes: Number,
+        Downvotes: Number,
+    }
 
 }
 </script>

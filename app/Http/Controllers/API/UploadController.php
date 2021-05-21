@@ -28,7 +28,7 @@ class UploadController extends Controller
         $description = $request->description;
         $userid = Auth::user()->id;
         $user = User::find($userid);
-        $progression = Challenge_Progression::where('challenge_id', $challengeid)->where('user_id', $userid)->get();
+        $progression = Challenge_Progression::where('challenge_id', $challengeid)->where('user_id', $userid)->get()->first();
 
         //Create & Save new Post object
         $post = new Post;
@@ -41,6 +41,11 @@ class UploadController extends Controller
         $post->text = "";
         $post->datetime = date("Y-m-d H:i:s");
         $post->save();
+
+        //Change Challenge Progression to pending
+        $progression->unlocked = 0;
+        $progression->pending = 1;
+        $progression->save();
 
         $post = Post::latest()->first();
 

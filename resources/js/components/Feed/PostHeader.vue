@@ -1,11 +1,11 @@
 <template>
     <div class="profile-container">
         <div class="profile-person">
-            <ProfileImage></ProfileImage>
-            <ProfileName></ProfileName>
+            <ProfileImage :Url="ProfilePicture.url"></ProfileImage>
+            <ProfileName :User="User"></ProfileName>
         </div>
         <div class="follow">
-            <FollowButton></FollowButton>
+            <FollowButton :Following="Following"></FollowButton>
         </div>
     </div>
 </template>
@@ -17,10 +17,16 @@ import ProfileName from './ProfileName'
 import FollowButton from './FeedFollowing'
 
 export default {
+    name: 'PostHeader',
     components: {
         ProfileImage,
         ProfileName,
         FollowButton,
+    },
+    props: {
+        ProfilePicture: Object,
+        User: Object,
+        Following: Boolean,
     }
 
 }

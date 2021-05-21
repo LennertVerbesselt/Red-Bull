@@ -1,12 +1,15 @@
 <template>
     <div class="feed-content">
-        <img src="../../../assets/maxresdefault.jpg" alt="">
+        <img :src="PostImage.url" alt="">
     </div>
 </template>
 
 <script>
 export default {
-
+    name: 'FeedContent',
+    props: {
+        PostImage: Object,
+    }
 }
 </script>
 

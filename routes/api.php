@@ -9,6 +9,7 @@ use App\Http\Controllers\API\EventController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ChallengeController;
 use App\Http\Controllers\API\UploadController;
+use App\Http\Controllers\API\PostController;
 
 
 /*
@@ -40,6 +41,8 @@ Route::get('/getsessiondata', [AuthenticatedSessionController::class, 'retrieveS
 Route::get('/getprofilepicture', [AuthenticatedSessionController::class, 'retrieveProfilePicture'])->name('getprofilepicture');
 
 Route::get('/getfeaturedevents', [EventController::class, 'getFeaturedEvents'])->name('getfeaturedevents');
+
+Route::get('/getfeaturedposts', [PostController::class, 'getFeaturedPosts'])->name('getfeaturedposts');
 
 Route::get('/getcategories', [CategoryController::class, 'getCategories'])->name('getcategories');
 

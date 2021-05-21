@@ -88,15 +88,14 @@ export default {
                     'content-type': 'multipart/form-data'
                 }
             }
-
             let data = new FormData();
             data.append('file', this.file);
             data.append('description', this.caption);
             data.append('challengeid', this.ChallengeID);
             axios.post('api/uploadpost', data).then(response => {
-                console.log(response.data);
+                this.$router.push('/');
             }).catch(error => {
-                console.log("Error wowie");
+                this.$router.push('/');
             });
         }
 	},

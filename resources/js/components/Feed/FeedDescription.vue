@@ -1,8 +1,8 @@
 <template>
 
     <div class="post-description">
-            <div class="username">Uncle Bob</div> 
-            <div class="caption">Can't believe I hit this shot!!! #Neymar5</div>
+            <div class="username">{{User.name}}</div> 
+            <div class="caption">{{Caption}}</div>
             <div class="comments">View all 35 comments</div>
     </div>
     
@@ -11,6 +11,11 @@
 
 <script>
 export default {
+    name: 'FeedDescription',
+    props: {
+        User: Object,
+        Caption: String,
+    }
 
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
         
        
-             <img class="profile rounded-full" width="25" height="25" src="https://avatars0.githubusercontent.com/u/38799309?v=4" alt="" />
+             <img class="profile rounded-full" width="25" height="25" :src="Url" alt="" />
         
         
         
@@ -9,7 +9,10 @@
 
 <script>
 export default {
-
+    name: 'ProfileImage',
+    props: {
+        Url: String,
+    }
 }
 </script>
 

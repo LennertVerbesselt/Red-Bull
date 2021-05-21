@@ -1,11 +1,15 @@
 <template>
     <div class="button">
-    <button :class="[isActive ? 'fill' : 'clicked']" @click="isActive = !isActive" >{{isActive ? 'Follow' : 'Following'}}</button>
+    <button :class="[Following ? 'clicked' : 'fill']" @click="Following = !Following" >{{Following ? 'Following' : 'Follow'}}</button>
     </div>
 </template>
 
 <script>
 export default {
+    name: 'FeedFollowing',
+    props: {
+        Following: Boolean,
+    },
     data:function() {
         return {
             isActive: true
