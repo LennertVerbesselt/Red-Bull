@@ -141,6 +141,7 @@ export default defineComponent({
   justify-content: center;
   width:100%;
   height: 100%;
+  z-index: 3;
 }
 .validation-success {
   color: #FFF07C;
@@ -165,16 +166,20 @@ export default defineComponent({
 
 
 .pagetitle {
+  position: absolute;
   font-family: "Akzidenz Bold Extended";
   color:white;
-  font-size: 22px;
+  font-size: 18px;
   letter-spacing: 1px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: center;
 
- 
-
-  position: absolute;
-  top: 10%;
-  left: 15%;
+  width:100%;
+  height: 100%;
+  top: -30%;
+  
   z-index: 3;
 }
 
