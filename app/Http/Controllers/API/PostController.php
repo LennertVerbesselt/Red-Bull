@@ -47,7 +47,7 @@ class PostController extends Controller
             $featuredpost['profile'] = $profile;
 
             //add Post Image to featured post
-            $postimg = Post_Image::where('post_id', $post->id)->get();
+            $postimg = Post_Image::where('post_id', $post->id)->get()-first();
             $featuredpost['postimage'] = $postimg;
 
             //add Profile Picture to featured post
