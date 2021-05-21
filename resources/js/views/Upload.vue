@@ -6,7 +6,7 @@
     <div class="challenge">
         for the "{{Challenge.name}}" Challenge
     </div>
-    <form  @submit.prevent="register">
+    <form  @submit.prevent="uploadPost" enctype="multipart/form-data">
         <div class="form-group">
 
             <img class="preview" v-if="!url" src="http://placehold.it/180" alt="your image" />
@@ -14,12 +14,12 @@
             
 
             <div class="file-input">
-                <input @change="onFileChange" type="file" id="file" class="file">
+                <input @change="onFileChange" type="file" id="file" class="file" ref="file">
                 <label for="file">Choose your image</label>
             </div>
 
 
-            <textarea required rows="6" type="description"  class="caption" placeholder="Your caption" v-model="fields.description"/>
+            <textarea required rows="6" type="description"  class="caption" placeholder="Your caption" v-model="caption"/>
         </div>
         <div class="nav">
             <router-link to="/challenges"><form-button class="button" type="secondary">Back</form-button></router-link>
@@ -51,8 +51,9 @@ export default {
             return {
                 ChallengeID: 0,
                 Challenge: [],
-                fields: {},
+                caption: "",
                 url: null,
+                file: '',
             }
         },
 	methods: {
@@ -74,7 +75,30 @@ export default {
         onFileChange(e) {
             const file = e.target.files[0];
             this.url = URL.createObjectURL(file);
+
+              this.file = e.target.files[0];
         },
+
+        uploadPost(e){
+            e.preventDefault();
+            let existingObj = this;
+
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            }
+
+            let data = new FormData();
+            data.append('file', this.file);
+            data.append('description', this.caption);
+            data.append('challengeid', this.ChallengeID);
+            axios.post('api/uploadpost', data).then(response => {
+                console.log(response.data);
+            }).catch(error => {
+                console.log("Error wowie");
+            });
+        }
 	},
 	created() {
 		this.checkIfLoggedIn();

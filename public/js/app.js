@@ -17879,7 +17879,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  created: function created() {//this.checkIfLoggedIn();
+  created: function created() {
+    this.checkIfLoggedIn();
   }
 });
 
@@ -18084,8 +18085,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       ChallengeID: 0,
       Challenge: [],
-      fields: {},
-      url: null
+      caption: "",
+      url: null,
+      file: ''
     };
   },
   methods: {
@@ -18112,6 +18114,25 @@ __webpack_require__.r(__webpack_exports__);
     onFileChange: function onFileChange(e) {
       var file = e.target.files[0];
       this.url = URL.createObjectURL(file);
+      this.file = e.target.files[0];
+    },
+    uploadPost: function uploadPost(e) {
+      e.preventDefault();
+      var existingObj = this;
+      var config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      var data = new FormData();
+      data.append('file', this.file);
+      data.append('description', this.caption);
+      data.append('challengeid', this.ChallengeID);
+      axios.post('api/uploadpost', data).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log("Error wowie");
+      });
     }
   },
   created: function created() {
@@ -20110,8 +20131,9 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", {
     onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-      return _ctx.register && _ctx.register.apply(_ctx, arguments);
-    }, ["prevent"]))
+      return $options.uploadPost && $options.uploadPost.apply($options, arguments);
+    }, ["prevent"])),
+    enctype: "multipart/form-data"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [!$data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", _hoisted_4)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
     key: 1,
     "class": "preview",
@@ -20124,9 +20146,10 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     }),
     type: "file",
     id: "file",
-    "class": "file"
-  }, null, 32
-  /* HYDRATE_EVENTS */
+    "class": "file",
+    ref: "file"
+  }, null, 544
+  /* HYDRATE_EVENTS, NEED_PATCH */
   ), _hoisted_6]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("textarea", {
     required: "",
     rows: "6",
@@ -20134,11 +20157,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     "class": "caption",
     placeholder: "Your caption",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return $data.fields.description = $event;
+      return $data.caption = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.fields.description]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.caption]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/challenges"
   }, {
     "default": _withId(function () {

@@ -26,7 +26,7 @@
 </head>
 <body class=" font-family-karla flex">
     
-    @if(Auth::user()->admin == 0)
+    @if(!Auth::user() || Auth::user()->admin == 0)
     <script type="text/javascript">
         window.location = "https://red-bull.herokuapp.com";
     </script>

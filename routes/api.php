@@ -8,6 +8,7 @@ use App\Http\Controllers\API\AuthenticatedSessionController;
 use App\Http\Controllers\API\EventController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ChallengeController;
+use App\Http\Controllers\API\UploadController;
 
 
 /*
@@ -51,3 +52,5 @@ Route::post('/getchallenge', [ChallengeController::class, 'getChallenge'])->name
 Route::post('/getchallengebadge', [ChallengeController::class, 'getChallengeBadge'])->name('getchallengebadge');
 
 Route::post('/getchallengeprogression', [ChallengeController::class, 'getChallengeProgression'])->name('getchallengeprogression');
+
+Route::post('/uploadpost', [UploadController::class, 'uploadPost'])->name('uploadpost');

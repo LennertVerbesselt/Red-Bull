@@ -32,7 +32,7 @@ export default {
         }
 	},
 	created() {
-		//this.checkIfLoggedIn();
+		this.checkIfLoggedIn();
 	}
 }
 </script>
