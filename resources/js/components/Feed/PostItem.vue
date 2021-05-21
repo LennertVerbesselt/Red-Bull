@@ -7,7 +7,7 @@
             <FeedContent :PostImage="Post.postimage"></FeedContent>
         </div>
         <div class="feed-button">
-            <FeedButtons :Upvotes="Post.post.upvotes" :Downvotes="Post.post.downvotes" ></FeedButtons>
+            <FeedButtons :Upvoted="Post.upvoted" :Downvoted="Post.downvoted" :PostID="Post.post.id" :Upvotes="Post.post.upvotes" :Downvotes="Post.post.downvotes" ></FeedButtons>
         </div>
         <div class="feed-description">
             <FeedDescription :User="Post.user" :Caption="Post.post.description" ></FeedDescription>

@@ -48,6 +48,11 @@ Route::get('/getfeaturedevents', [EventController::class, 'getFeaturedEvents'])-
 
 Route::get('/getfeaturedposts', [PostController::class, 'getFeaturedPosts'])->name('getfeaturedposts');
 
+Route::post('/getvotes', [PostController::class, 'getVotes'])->name('getvotes');
+
+Route::post('/upvote', [PostController::class, 'upvote'])->name('upvote');
+Route::post('/downvote', [PostController::class, 'downvote'])->name('downvote');
+
 
 //Challenges Page Stuff
 Route::get('/getcategories', [CategoryController::class, 'getCategories'])->name('getcategories');

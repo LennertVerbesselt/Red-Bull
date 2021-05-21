@@ -1,14 +1,18 @@
 <template>
   <div class="buttons">
       <div class="vote">
-          <button><img src="../../../assets/upvote.png" alt="">
+          <button @click="upvote">
+              <img v-if="!upvoted" src="../../../assets/upvote.png" alt="">
+              <img v-if="upvoted" src="../../../assets/upvote-active.png" alt="">
           <div class="upvotes">
-              {{Upvotes}}
+              {{up}}
           </div>
           </button>
-          <button><img src="../../../assets/downvote.png" alt="">
+          <button @click="downvote">
+              <img v-if="!downvoted" src="../../../assets/downvote.png" alt="">
+              <img v-if="downvoted" src="../../../assets/downvote-active.png" alt="">
           <div class="downvotes">
-              {{Downvotes}}
+              {{down}}
           </div>
           </button>
       </div>
@@ -22,8 +26,66 @@
 export default {
     name: 'FeedButtons',
     props: {
+        PostID: Number,
         Upvotes: Number,
         Downvotes: Number,
+        Upvoted: Boolean,
+        Downvoted: Boolean,
+    },
+    data:function() {
+        return {
+            up: 0,
+            down: 0,
+            upvoted: false,
+            downvoted: false,
+        }
+    },
+    methods: {
+
+        getVotes(){
+            axios.post('api/getvotes', {postid: this.PostID}).then(response => {
+                this.up = response.data.upvotes;
+                this.down = response.data.downvotes;
+            }).catch(error => {
+                console.log("Error, get upvotes failed");
+            });
+        },
+
+        upvote(){
+            axios.post('api/upvote', {postid: this.PostID}).then(response => {
+                if(response.data.upvote != null) {
+                    this.upvoted = true;
+                    this.downvoted = false;
+                } else if(response.data.removedupvote != null) {
+                    this.upvoted = false;
+                    this.downvoted = false;
+                }
+                this.getVotes();
+            }).catch(error => {
+                console.log("Error, Upvote failed");
+            });
+        },
+        downvote(){
+            axios.post('api/downvote', {postid: this.PostID}).then(response => {
+				if(response.data.downvote != null) {
+                    this.upvoted = false;
+                    this.downvoted = true;
+                } else if(response.data.removeddownvote != null) {
+                    this.upvoted = false;
+                    this.downvoted = false;
+                }
+                
+                this.getVotes();
+            }).catch(error => {
+                console.log("Error, Upvote failed");
+            });
+        }
+    },
+    created() {
+        this.up = this.Upvotes;
+        this.down = this.Downvotes;
+        this.upvoted = this.Upvoted;
+        this.downvoted = this.Downvoted;
     }
 
 }

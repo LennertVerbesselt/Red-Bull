@@ -17205,8 +17205,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'FeedButtons',
   props: {
+    PostID: Number,
     Upvotes: Number,
-    Downvotes: Number
+    Downvotes: Number,
+    Upvoted: Boolean,
+    Downvoted: Boolean
+  },
+  data: function data() {
+    return {
+      up: 0,
+      down: 0,
+      upvoted: false,
+      downvoted: false
+    };
+  },
+  methods: {
+    getVotes: function getVotes() {
+      var _this = this;
+
+      axios.post('api/getvotes', {
+        postid: this.PostID
+      }).then(function (response) {
+        _this.up = response.data.upvotes;
+        _this.down = response.data.downvotes;
+      })["catch"](function (error) {
+        console.log("Error, get upvotes failed");
+      });
+    },
+    upvote: function upvote() {
+      var _this2 = this;
+
+      axios.post('api/upvote', {
+        postid: this.PostID
+      }).then(function (response) {
+        if (response.data.upvote != null) {
+          _this2.upvoted = true;
+          _this2.downvoted = false;
+        } else if (response.data.removedupvote != null) {
+          _this2.upvoted = false;
+          _this2.downvoted = false;
+        }
+
+        _this2.getVotes();
+      })["catch"](function (error) {
+        console.log("Error, Upvote failed");
+      });
+    },
+    downvote: function downvote() {
+      var _this3 = this;
+
+      axios.post('api/downvote', {
+        postid: this.PostID
+      }).then(function (response) {
+        if (response.data.downvote != null) {
+          _this3.upvoted = false;
+          _this3.downvoted = true;
+        } else if (response.data.removeddownvote != null) {
+          _this3.upvoted = false;
+          _this3.downvoted = false;
+        }
+
+        _this3.getVotes();
+      })["catch"](function (error) {
+        console.log("Error, Upvote failed");
+      });
+    }
+  },
+  created: function created() {
+    this.up = this.Upvotes;
+    this.down = this.Downvotes;
+    this.upvoted = this.Upvoted;
+    this.downvoted = this.Downvoted;
   }
 });
 
@@ -18897,8 +18966,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _assets_upvote_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../assets/upvote.png */ "./resources/assets/upvote.png");
-/* harmony import */ var _assets_downvote_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/downvote.png */ "./resources/assets/downvote.png");
-/* harmony import */ var _assets_comment_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../assets/comment.png */ "./resources/assets/comment.png");
+/* harmony import */ var _assets_upvote_active_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/upvote-active.png */ "./resources/assets/upvote-active.png");
+/* harmony import */ var _assets_downvote_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../assets/downvote.png */ "./resources/assets/downvote.png");
+/* harmony import */ var _assets_downvote_active_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/downvote-active.png */ "./resources/assets/downvote-active.png");
+/* harmony import */ var _assets_comment_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../assets/comment.png */ "./resources/assets/comment.png");
+
+
 
 
 
@@ -18914,33 +18987,37 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "vote"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+var _hoisted_3 = {
+  key: 0,
   src: _assets_upvote_png__WEBPACK_IMPORTED_MODULE_1__.default,
   alt: ""
-}, null, -1
-/* HOISTED */
-);
-
+};
 var _hoisted_4 = {
+  key: 1,
+  src: _assets_upvote_active_png__WEBPACK_IMPORTED_MODULE_2__.default,
+  alt: ""
+};
+var _hoisted_5 = {
   "class": "upvotes"
 };
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-  src: _assets_downvote_png__WEBPACK_IMPORTED_MODULE_2__.default,
-  alt: ""
-}, null, -1
-/* HOISTED */
-);
-
 var _hoisted_6 = {
+  key: 0,
+  src: _assets_downvote_png__WEBPACK_IMPORTED_MODULE_3__.default,
+  alt: ""
+};
+var _hoisted_7 = {
+  key: 1,
+  src: _assets_downvote_active_png__WEBPACK_IMPORTED_MODULE_4__.default,
+  alt: ""
+};
+var _hoisted_8 = {
   "class": "downvotes"
 };
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "comment"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-  src: _assets_comment_png__WEBPACK_IMPORTED_MODULE_3__.default,
+  src: _assets_comment_png__WEBPACK_IMPORTED_MODULE_5__.default,
   alt: ""
 })])], -1
 /* HOISTED */
@@ -18949,11 +19026,19 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", null, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.Upvotes), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $options.upvote && $options.upvote.apply($options, arguments);
+    })
+  }, [!_ctx.upvoted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", _hoisted_3)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.upvoted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", _hoisted_4)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.up), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", null, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.Downvotes), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+    onClick: _cache[2] || (_cache[2] = function () {
+      return $options.downvote && $options.downvote.apply($options, arguments);
+    })
+  }, [!_ctx.downvoted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", _hoisted_6)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.downvoted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", _hoisted_7)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.down), 1
   /* TEXT */
-  )])]), _hoisted_7]);
+  )])]), _hoisted_9]);
 });
 
 /***/ }),
@@ -19337,11 +19422,14 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   }, null, 8
   /* PROPS */
   , ["PostImage"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FeedButtons, {
+    Upvoted: $props.Post.upvoted,
+    Downvoted: $props.Post.downvoted,
+    PostID: $props.Post.post.id,
     Upvotes: $props.Post.post.upvotes,
     Downvotes: $props.Post.post.downvotes
   }, null, 8
   /* PROPS */
-  , ["Upvotes", "Downvotes"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FeedDescription, {
+  , ["Upvoted", "Downvoted", "PostID", "Upvotes", "Downvotes"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FeedDescription, {
     User: $props.Post.user,
     Caption: $props.Post.post.description
   }, null, 8
@@ -21379,6 +21467,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/downvote-active.png":
+/*!**********************************************!*\
+  !*** ./resources/assets/downvote-active.png ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/downvote-active.png?bfca77428c001cfa39e795ad1e67af0a");
+
+/***/ }),
+
 /***/ "./resources/assets/downvote.png":
 /*!***************************************!*\
   !*** ./resources/assets/downvote.png ***!
@@ -21390,7 +21493,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/downvote.png?faec9ff1272a8b4601a592e299883d09");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/downvote.png?0ed6e09e7188aaaeba5b79c9cd917199");
 
 /***/ }),
 
@@ -21529,6 +21632,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/upvote-active.png":
+/*!********************************************!*\
+  !*** ./resources/assets/upvote-active.png ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/upvote-active.png?192c3297163ba7fb633cfeccd77933af");
+
+/***/ }),
+
 /***/ "./resources/assets/upvote.png":
 /*!*************************************!*\
   !*** ./resources/assets/upvote.png ***!
@@ -21540,7 +21658,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/upvote.png?dca1eda36a27b6f32cf0c2d2b7108c82");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/upvote.png?388b4aaba175277cce8ae5c446c23a2e");
 
 /***/ }),
 
