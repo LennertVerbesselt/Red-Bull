@@ -1,23 +1,23 @@
 <template>
    <div>
-    <h1 class="pagetitle">Looking for QR Code</h1>
-
+    <div class="titleBG">
+      <h1 class="pagetitle">Looking for QR Code</h1>
+    </div>
 
     <qr-stream class="QRScanner" :camera="camera" @decode="onDecode" @init="onInit">
       
       <div v-if="validationSuccess" class="validation-success">
-        This is a URL
+        Succes
       </div>
 
       <div v-if="validationFailure" class="validation-failure">
-        This is NOT a URL!
+        Failure
       </div>
 
       <div v-if="validationPending" class="validation-pending">
-        Long validation in progress...
+        Verifying QR Code
       </div>
     </qr-stream>
-    <p class="decode-result">Last result: <b>{{ result }}</b></p>
   </div>
 </template>
 
@@ -72,7 +72,7 @@ export default defineComponent({
       this.turnCameraOff()
 
       // pretend it's taking really long
-      await this.timeout(1000)
+      await this.timeout(3000)
       this.isValid = content.startsWith('http')
 
       // some more delay, so users have time to read the message
@@ -101,16 +101,13 @@ export default defineComponent({
 
 <style scoped>
 .stream {
-  max-height: 500px;
-  max-width: 500px;
-  margin: auto;
+  height: 100vh;
+  width: 100vw;
 }
 .frame {
-  border-style: solid;
-  border-width: 2px;
-  border-color: red;
-  height: 200px;
-  width: 200px;
+  
+  height: 100vh;
+  width: 100vw;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -120,14 +117,10 @@ export default defineComponent({
 }
 
 .QRScanner {
-  width:80%;
-  height: 300px;
-  left: 10%;
-  border: 5px solid white;
-  border-radius: 5px; 
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;  
-  z-index: 2;
+  width:100vw;
+  height: 100vh;
+    
+  z-index: 1;
 }
 
 
@@ -136,33 +129,53 @@ export default defineComponent({
 .validation-pending {
   position: absolute;
   width: 100%;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(18, 20, 38, 0.8);
   text-align: center;
+  font-family: "Akzidenz Bold Extended";
   font-weight: bold;
-  font-size: 1.4rem;
-  padding: 10px;
+  font-size: 30px;
 
+  color: white;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  width:80%;
-  height: 300px;
-  left: 10%;
-  border: 2px solid white;
-  border-radius: 15px;
+  width:100%;
+  height: 100%;
 }
 .validation-success {
-  color: green;
+  color: #FFF07C;
 }
 .validation-failure {
-  color: red;
+  color: #EB5876;
 }
+
+.titleBG {
+  width:100%;
+  height: 300px;
+  background: #252525;
+	background: linear-gradient(180deg, rgba(18,20,38,1) 0%, rgba(18,20,38,0) 100%);
+	top: 0px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+  position: absolute;
+
+  z-index: 2;
+}
+
 
 .pagetitle {
   font-family: "Akzidenz Bold Extended";
   color:white;
   font-size: 22px;
   letter-spacing: 1px;
+
+ 
+
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  z-index: 3;
 }
 
 </style>

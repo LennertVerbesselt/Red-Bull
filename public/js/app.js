@@ -16976,11 +16976,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _ChallengeQRScanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChallengeQRScanner.vue */ "./resources/js/components/Challenges/ChallengeQRScanner.vue");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'ChallengeItem',
-  components: {},
+  components: {
+    QRScanner: _ChallengeQRScanner_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  },
   props: _defineProperty({
     ChallengeName: String,
     ChallengePoints: Number,
@@ -17022,14 +17026,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         challengeid: this.ChallengeID
       }).then(function (response) {
         _this2.ChallengeBadge = response.data.badge[0].url;
-        console.log("Challenge Badge Obtained");
       })["catch"](function (error) {
         console.log("Error, Challenge Badge not obtained");
       });
     },
     updateChallengeState: function updateChallengeState(progression) {
-      console.log(progression);
-
       if (progression.locked == 1) {
         this.ChallengeLocked = true;
         this.ChallengeUnlocked = false;
@@ -17090,6 +17091,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BottomMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../BottomMenu */ "./resources/js/components/BottomMenu.vue");
+/* harmony import */ var _QRComponents_QrCaptureModule_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../QRComponents/QrCaptureModule.vue */ "./resources/js/components/QRComponents/QrCaptureModule.vue");
+/* harmony import */ var _QRComponents_QrStreamModule_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../QRComponents/QrStreamModule.vue */ "./resources/js/components/QRComponents/QrStreamModule.vue");
+/* harmony import */ var _QRComponents_QrDropzoneModule_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../QRComponents/QrDropzoneModule.vue */ "./resources/js/components/QRComponents/QrDropzoneModule.vue");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'QRScanner',
+  components: {
+    BottomMenu: _BottomMenu__WEBPACK_IMPORTED_MODULE_0__.default,
+    QrStream: _QRComponents_QrStreamModule_vue__WEBPACK_IMPORTED_MODULE_2__.default,
+    QrCapture: _QRComponents_QrCaptureModule_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+    QrDropzone: _QRComponents_QrDropzoneModule_vue__WEBPACK_IMPORTED_MODULE_3__.default
+  },
+  props: {
+    id: Number
+  },
+  data: function data() {
+    return {
+      ChallengeID: 0
+    };
+  },
+  methods: {
+    checkIfLoggedIn: function checkIfLoggedIn() {
+      var _this = this;
+
+      axios.get('api/getsessiondata').then(function (response) {})["catch"](function (error) {
+        console.log("Error");
+
+        _this.$router.push('/login');
+      });
+    }
+  },
+  created: function created() {
+    if (this.id) {
+      this.ChallengeID = this.id;
+    }
+  },
+  mounted: function mounted() {
+    this.checkIfLoggedIn();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeSet.vue?vue&type=script&lang=js":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeSet.vue?vue&type=script&lang=js ***!
@@ -17132,7 +17191,6 @@ __webpack_require__.r(__webpack_exports__);
         challengesetid: this.ChallengeSetID
       }).then(function (response) {
         _this.Challenges = response.data.challenges;
-        console.log(response);
       })["catch"](function (error) {
         console.log("Error, Challenges not obtained");
       });
@@ -17849,7 +17907,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
                 _context.next = 4;
-                return _this.timeout(1000);
+                return _this.timeout(3000);
 
               case 4:
                 _this.isValid = content.startsWith('http'); // some more delay, so users have time to read the message
@@ -18742,7 +18800,7 @@ var _hoisted_12 = {
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_ctx.ChallengeLocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [_hoisted_3, _ctx.ChallengeLocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, " Challenge Locked: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeName), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_ctx.ChallengeLocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [_hoisted_3, _ctx.ChallengeLocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeName), 1
   /* TEXT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengeUnlocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
     src: _ctx.ChallengeBadge,
@@ -18772,9 +18830,25 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     "class": "badge"
   }, null, 8
   /* PROPS */
-  , ["src"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengeLocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, "0/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeCansNeeded), 1
-  /* TEXT */
-  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+  , ["src"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengeLocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: {
+      name: 'ChallengeQRScanner',
+      params: {
+        id: _ctx.challenge_id
+      }
+    }
+  }, {
+    "default": _withId(function () {
+      return [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, "0/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeCansNeeded), 1
+      /* TEXT */
+      )];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["to"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 });
 
 /***/ }),
@@ -18850,6 +18924,36 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     src: _assets_star_regular_svg__WEBPACK_IMPORTED_MODULE_2__.default,
     alt: ""
   })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
+  /* STABLE_FRAGMENT */
+  );
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=template&id=d735d644&scoped=true":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=template&id=d735d644&scoped=true ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-d735d644");
+
+var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_qr_stream = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("qr-stream");
+
+  var _component_BottomMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BottomMenu");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_qr_stream, {
+    "class": "pb"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
   /* STABLE_FRAGMENT */
   );
 });
@@ -19851,9 +19955,11 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-69e2926a");
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", {
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "titleBG"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", {
   "class": "pagetitle"
-}, "Looking for QR Code", -1
+}, "Looking for QR Code")], -1
 /* HOISTED */
 );
 
@@ -19869,11 +19975,6 @@ var _hoisted_4 = {
   key: 2,
   "class": "validation-pending"
 };
-var _hoisted_5 = {
-  "class": "decode-result"
-};
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Last result: ");
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -19887,16 +19988,14 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     onInit: _ctx.onInit
   }, {
     "default": _withId(function () {
-      return [_ctx.validationSuccess ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, " This is a URL ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.validationFailure ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_3, " This is NOT a URL! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.validationPending ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, " Long validation in progress... ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      return [_ctx.validationSuccess ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, " Succes ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.validationFailure ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_3, " Failure ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.validationPending ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, " Verifying QR Code ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["camera", "onDecode", "onInit"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.result), 1
-  /* TEXT */
-  )])]);
+  , ["camera", "onDecode", "onInit"])]);
 });
 
 /***/ }),
@@ -20330,13 +20429,9 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_qr_stream = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("qr-stream");
 
-  var _component_BottomMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BottomMenu");
-
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_qr_stream, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_qr_stream, {
     "class": "pb"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
-  /* STABLE_FRAGMENT */
-  );
+  });
 });
 
 /***/ }),
@@ -20543,7 +20638,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
 /* harmony import */ var _components_LoginForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/LoginForm.vue */ "./resources/js/components/LoginForm.vue");
 /* harmony import */ var _components_RegisterForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/RegisterForm.vue */ "./resources/js/components/RegisterForm.vue");
 /* harmony import */ var _views_UserInterestSurvey_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/UserInterestSurvey.vue */ "./resources/js/views/UserInterestSurvey.vue");
@@ -20555,6 +20650,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Events_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../views/Events.vue */ "./resources/js/views/Events.vue");
 /* harmony import */ var _views_Profile_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/Profile.vue */ "./resources/js/views/Profile.vue");
 /* harmony import */ var _views_Upload_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/Upload.vue */ "./resources/js/views/Upload.vue");
+/* harmony import */ var _components_Challenges_ChallengeQRScanner_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/Challenges/ChallengeQRScanner.vue */ "./resources/js/components/Challenges/ChallengeQRScanner.vue");
+
 
 
 
@@ -20600,9 +20697,14 @@ var routes = [{
   name: "Upload",
   component: _views_Upload_vue__WEBPACK_IMPORTED_MODULE_10__.default,
   props: true
+}, {
+  path: "/challengeqrscanner",
+  name: "ChallengeQRScanner",
+  component: _components_Challenges_ChallengeQRScanner_vue__WEBPACK_IMPORTED_MODULE_11__.default,
+  props: true
 }];
-var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_11__.createRouter)({
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_11__.createWebHistory)(),
+var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_12__.createRouter)({
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_12__.createWebHistory)(),
   routes: routes
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
@@ -21196,7 +21298,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.stream[data-v-69e2926a] {\r\n  max-height: 500px;\r\n  max-width: 500px;\r\n  margin: auto;\n}\n.frame[data-v-69e2926a] {\r\n  border-style: solid;\r\n  border-width: 2px;\r\n  border-color: red;\r\n  height: 200px;\r\n  width: 200px;\r\n  position: absolute;\r\n  top: 0px;\r\n  bottom: 0px;\r\n  right: 0px;\r\n  left: 0px;\r\n  margin: auto;\n}\n.QRScanner[data-v-69e2926a] {\r\n  width:80%;\r\n  height: 300px;\r\n  left: 10%;\r\n  border: 5px solid white;\r\n  border-radius: 5px; \r\n  -webkit-border-radius: 5px;\r\n  -moz-border-radius: 5px;  \r\n  z-index: 2;\n}\n.validation-success[data-v-69e2926a],\r\n.validation-failure[data-v-69e2926a],\r\n.validation-pending[data-v-69e2926a] {\r\n  position: absolute;\r\n  width: 100%;\r\n  background-color: rgba(255, 255, 255, .8);\r\n  text-align: center;\r\n  font-weight: bold;\r\n  font-size: 1.4rem;\r\n  padding: 10px;\r\n\r\n  display: flex;\r\n  flex-flow: column nowrap;\r\n  justify-content: center;\r\n  width:80%;\r\n  height: 300px;\r\n  left: 10%;\r\n  border: 2px solid white;\r\n  border-radius: 15px;\n}\n.validation-success[data-v-69e2926a] {\r\n  color: green;\n}\n.validation-failure[data-v-69e2926a] {\r\n  color: red;\n}\n.pagetitle[data-v-69e2926a] {\r\n  font-family: \"Akzidenz Bold Extended\";\r\n  color:white;\r\n  font-size: 22px;\r\n  letter-spacing: 1px;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.stream[data-v-69e2926a] {\r\n  height: 100vh;\r\n  width: 100vw;\n}\n.frame[data-v-69e2926a] {\r\n  \r\n  height: 100vh;\r\n  width: 100vw;\r\n  position: absolute;\r\n  top: 0px;\r\n  bottom: 0px;\r\n  right: 0px;\r\n  left: 0px;\r\n  margin: auto;\n}\n.QRScanner[data-v-69e2926a] {\r\n  width:100vw;\r\n  height: 100vh;\r\n    \r\n  z-index: 1;\n}\n.validation-success[data-v-69e2926a],\r\n.validation-failure[data-v-69e2926a],\r\n.validation-pending[data-v-69e2926a] {\r\n  position: absolute;\r\n  width: 100%;\r\n  background-color: rgba(18, 20, 38, 0.8);\r\n  text-align: center;\r\n  font-family: \"Akzidenz Bold Extended\";\r\n  font-weight: bold;\r\n  font-size: 30px;\r\n\r\n  color: white;\r\n  display: flex;\r\n  flex-flow: column nowrap;\r\n  justify-content: center;\r\n  width:100%;\r\n  height: 100%;\n}\n.validation-success[data-v-69e2926a] {\r\n  color: #FFF07C;\n}\n.validation-failure[data-v-69e2926a] {\r\n  color: #EB5876;\n}\n.titleBG[data-v-69e2926a] {\r\n  width:100%;\r\n  height: 300px;\r\n  background: #252525;\r\n\tbackground: linear-gradient(180deg, rgba(18,20,38,1) 0%, rgba(18,20,38,0) 100%);\r\n\ttop: 0px;\r\n\tleft: 0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n  position: absolute;\r\n\r\n  z-index: 2;\n}\n.pagetitle[data-v-69e2926a] {\r\n  font-family: \"Akzidenz Bold Extended\";\r\n  color:white;\r\n  font-size: 22px;\r\n  letter-spacing: 1px;\r\n\r\n \r\n\r\n  position: absolute;\r\n  top: 10%;\r\n  left: 15%;\r\n  z-index: 3;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -44084,6 +44186,33 @@ _ChallengeNavigation_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.de
 
 /***/ }),
 
+/***/ "./resources/js/components/Challenges/ChallengeQRScanner.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/Challenges/ChallengeQRScanner.vue ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ChallengeQRScanner_vue_vue_type_template_id_d735d644_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChallengeQRScanner.vue?vue&type=template&id=d735d644&scoped=true */ "./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=template&id=d735d644&scoped=true");
+/* harmony import */ var _ChallengeQRScanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChallengeQRScanner.vue?vue&type=script&lang=js */ "./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=script&lang=js");
+
+
+
+_ChallengeQRScanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ChallengeQRScanner_vue_vue_type_template_id_d735d644_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render
+_ChallengeQRScanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__scopeId = "data-v-d735d644"
+/* hot reload */
+if (false) {}
+
+_ChallengeQRScanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/components/Challenges/ChallengeQRScanner.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_ChallengeQRScanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
+
+/***/ }),
+
 /***/ "./resources/js/components/Challenges/ChallengeSet.vue":
 /*!*************************************************************!*\
   !*** ./resources/js/components/Challenges/ChallengeSet.vue ***!
@@ -45117,6 +45246,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeQRScanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeQRScanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChallengeQRScanner.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/Challenges/ChallengeSet.vue?vue&type=script&lang=js":
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/Challenges/ChallengeSet.vue?vue&type=script&lang=js ***!
@@ -45705,6 +45850,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeNavigation_vue_vue_type_template_id_4a5cf7c3_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeNavigation_vue_vue_type_template_id_4a5cf7c3_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChallengeNavigation.vue?vue&type=template&id=4a5cf7c3&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeNavigation.vue?vue&type=template&id=4a5cf7c3&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=template&id=d735d644&scoped=true":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=template&id=d735d644&scoped=true ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeQRScanner_vue_vue_type_template_id_d735d644_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeQRScanner_vue_vue_type_template_id_d735d644_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChallengeQRScanner.vue?vue&type=template&id=d735d644&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeQRScanner.vue?vue&type=template&id=d735d644&scoped=true");
 
 
 /***/ }),

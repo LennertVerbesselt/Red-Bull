@@ -5,7 +5,7 @@
     <div v-if="ChallengeLocked" class="locked">
         <img src="./../../../assets/lock-solid.svg" class="lock" />
         <div v-if="ChallengeLocked" class="ChallengeName">
-            Challenge Locked: {{ChallengeName}}
+            {{ChallengeName}}
         </div>
        
     </div>
@@ -29,21 +29,26 @@
     
     
     <div class="qr" v-if="ChallengeLocked">
-        <img class="qricon"  src="./../../../assets/ChallengeQRScannerIcon.png" />
-        <div class="qrremaining">0/{{ChallengeCansNeeded}}</div>
+        <router-link :to="{ name: 'ChallengeQRScanner', params: {id: challenge_id} }">
+            <img class="qricon"  src="./../../../assets/ChallengeQRScannerIcon.png" />
+            <div class="qrremaining">0/{{ChallengeCansNeeded}}</div>
+        </router-link>
     </div>
 </div>
+
+
 
     
 </template>
 
 <script>
 
-
+import QRScanner from './ChallengeQRScanner.vue'
 
 export default {
     name: 'ChallengeItem',
     components: {
+        QRScanner,
     },
     props: {
         ChallengeName: String,
@@ -81,14 +86,12 @@ export default {
         getChallengeBadge() {
             axios.post('api/getchallengebadge', {challengeid: this.ChallengeID}).then(response => {
                 this.ChallengeBadge=response.data.badge[0].url;
-                console.log("Challenge Badge Obtained");
             }).catch(error => {
                 console.log("Error, Challenge Badge not obtained");
             });
         },
 
         updateChallengeState(progression){
-            console.log(progression);
             if(progression.locked == 1){
                 this.ChallengeLocked = true;
                 this.ChallengeUnlocked = false;

@@ -2,16 +2,17 @@
    
   <qr-stream class="pb"></qr-stream>
 
+   <BottomMenu> </BottomMenu>
 
 </template>
 
 <script>
 
-import BottomMenu from '../components/BottomMenu'
+import BottomMenu from '../BottomMenu'
 
-import QrCapture from '../components/QRComponents/QrCaptureModule.vue'
-import QrStream from '../components/QRComponents/QrStreamModule.vue'
-import QrDropzone from '../components/QRComponents/QrDropzoneModule.vue'
+import QrCapture from '../QRComponents/QrCaptureModule.vue'
+import QrStream from '../QRComponents/QrStreamModule.vue'
+import QrDropzone from '../QRComponents/QrDropzoneModule.vue'
 
 
 
@@ -25,6 +26,15 @@ export default {
         QrDropzone,
         
     },
+    props: {
+        id: Number,
+    },
+    data:function() {
+        return {
+            ChallengeID: 0,
+        }
+    },
+    
     
 	methods: {
 		checkIfLoggedIn() {
@@ -36,6 +46,11 @@ export default {
 
         },
 	},
+    created(){
+        if(this.id){
+            this.ChallengeID = this.id;
+        }
+    },
 	mounted() {
 		this.checkIfLoggedIn();
 	}

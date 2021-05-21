@@ -51,7 +51,6 @@ export default {
         getChallenges(){
             axios.post('api/getchallenges', {challengesetid: this.ChallengeSetID }).then(response => {
                 this.Challenges=response.data.challenges;
-                console.log(response);
             }).catch(error => {
                 console.log("Error, Challenges not obtained");
             });

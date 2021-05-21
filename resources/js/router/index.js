@@ -14,6 +14,8 @@ import Events from "../views/Events.vue";
 import Profile from "../views/Profile.vue";
 
 import Upload from "../views/Upload.vue";
+import ChallengeQRScanner from "../components/Challenges/ChallengeQRScanner.vue";
+
 
 const routes = [
   {
@@ -57,6 +59,14 @@ const routes = [
     component: Upload,
     props: true,
   },
+
+  {
+    path: "/challengeqrscanner",
+    name: "ChallengeQRScanner",
+    component: ChallengeQRScanner,
+    props: true,
+  },
+  
   
 
 
