@@ -17392,6 +17392,13 @@ __webpack_require__.r(__webpack_exports__);
       isActiveFeatured: true,
       isActiveFollowing: false
     };
+  },
+  methods: {
+    change: function change() {
+      this.$emit('change');
+      this.isActiveFeatured = !this.isActiveFeatured;
+      this.isActiveFollowing = !this.isActiveFollowing;
+    }
   }
 });
 
@@ -17460,7 +17467,9 @@ __webpack_require__.r(__webpack_exports__);
   props: {},
   data: function data() {
     return {
-      FeaturedPosts: []
+      FeaturedPosts: [],
+      FollowingPosts: [],
+      featured: true
     };
   },
   methods: {
@@ -17473,12 +17482,31 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push('/login');
       });
     },
+    changePage: function changePage() {
+      this.featured = !this.featured;
+
+      if (this.featured) {
+        this.getFeaturedPosts();
+      } else {
+        this.getFollowingPosts();
+      }
+    },
     getFeaturedPosts: function getFeaturedPosts() {
       var _this2 = this;
 
       axios.get('api/getfeaturedposts').then(function (response) {
         _this2.FeaturedPosts = response.data.featuredposts;
         console.log(_this2.FeaturedPosts);
+      })["catch"](function (error) {
+        console.log("Error");
+      });
+    },
+    getFollowingPosts: function getFollowingPosts() {
+      var _this3 = this;
+
+      axios.get('api/getfollowingposts').then(function (response) {
+        _this3.FollowingPosts = response.data.followingposts;
+        console.log(_this3.FollowingPosts);
       })["catch"](function (error) {
         console.log("Error");
       });
@@ -19197,17 +19225,15 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
     "class": [_ctx.isActiveFeatured ? 'active' : 'inactive'],
-    onClick: _cache[1] || (_cache[1] = function ($event) {
-      _ctx.isActiveFeatured = !_ctx.isActiveFeatured;
-      _ctx.isActiveFollowing = !_ctx.isActiveFollowing;
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $options.change && $options.change.apply($options, arguments);
     })
   }, "Featured", 2
   /* CLASS */
   ), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
     "class": [_ctx.isActiveFollowing ? 'active' : 'inactive'],
-    onClick: _cache[2] || (_cache[2] = function ($event) {
-      _ctx.isActiveFeatured = !_ctx.isActiveFeatured;
-      _ctx.isActiveFollowing = !_ctx.isActiveFollowing;
+    onClick: _cache[2] || (_cache[2] = function () {
+      return $options.change && $options.change.apply($options, arguments);
     })
   }, "Following", 2
   /* CLASS */
@@ -19292,12 +19318,27 @@ __webpack_require__.r(__webpack_exports__);
 
 var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-c6c4c4c0");
 
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-c6c4c4c0");
+
+var _hoisted_1 = {
+  key: 0
+};
+var _hoisted_2 = {
+  key: 1
+};
+
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
+
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_FeedNavigation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FeedNavigation");
 
   var _component_PostItem = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("PostItem");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FeedNavigation), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.FeaturedPosts, function (featuredpost) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FeedNavigation, {
+    onChange: $options.changePage
+  }, null, 8
+  /* PROPS */
+  , ["onChange"]), _ctx.featured ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.FeaturedPosts, function (featuredpost) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
       key: featuredpost
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem, {
@@ -19307,7 +19348,17 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     , ["Post"])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))], 64
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !_ctx.featured ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.FollowingPosts, function (followingpost) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+      key: followingpost
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PostItem, {
+      Post: followingpost
+    }, null, 8
+    /* PROPS */
+    , ["Post"])]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
   /* STABLE_FRAGMENT */
   );
 });
@@ -20617,7 +20668,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Bold_Extended_otf__WEBPACK_IMPORTED_MODULE_5__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Bold_Extended_Italic_otf__WEBPACK_IMPORTED_MODULE_6__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n  font-family: \"Akzidenz Light\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Regular\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold Extended\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold Extended Italic\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Light\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ")format(\"opentype\");\n}\n#app {\r\n  font-family: \"Akzidenz Regular\", Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  background:#121426 ;\n}\nbody {\r\n  background:#121426 ;\r\n  margin: 0;\r\n  padding: 0;\n}\n.agile__dots button {\r\n    background-color: transparent;\r\n\t\t\tborder: 1px solid #fff;\r\n\t\t\tborder-radius: 100%;\r\n\t\t\tcursor: pointer;\r\n\t\t\tdisplay: block;\r\n\t\t\theight: 10px;\r\n\t\t\tfont-size: 0;\r\n\t\t\tline-height: 0;\r\n\t\t\tmargin: 0;\r\n\t\t\tpadding: 0;\r\n\t\t\ttransition-duration: .3s;\r\n\t\t\twidth: 10px;\n}\n.agile__dot {\r\n    margin: 0 10px;\n}\n.agile__dots {\r\n  bottom: -10px;\r\n\t\tleft: 50%;\r\n\t\tposition: absolute;\r\n\t\ttransform: translateX(-50%);\n}\n.agile__dot--current {\r\n  background-color: #fff;\r\n  border-radius: 100%;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n  font-family: \"Akzidenz Light\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Regular\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold Extended\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold Extended Italic\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Light\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ")format(\"opentype\");\n}\n#app {\r\n  font-family: \"Akzidenz Regular\", Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  background:#121426 ;\n}\nbody {\r\n  background:#121426 ;\r\n  margin: 0;\r\n  padding: 0;\r\n  overflow-y: hidden; /* Hide vertical scrollbar */\r\n  overflow-x: hidden; /* Hide horizontal scrollbar */\n}\n.agile__dots button {\r\n    background-color: transparent;\r\n\t\t\tborder: 1px solid #fff;\r\n\t\t\tborder-radius: 100%;\r\n\t\t\tcursor: pointer;\r\n\t\t\tdisplay: block;\r\n\t\t\theight: 10px;\r\n\t\t\tfont-size: 0;\r\n\t\t\tline-height: 0;\r\n\t\t\tmargin: 0;\r\n\t\t\tpadding: 0;\r\n\t\t\ttransition-duration: .3s;\r\n\t\t\twidth: 10px;\n}\n.agile__dot {\r\n    margin: 0 10px;\n}\n.agile__dots {\r\n  bottom: -10px;\r\n\t\tleft: 50%;\r\n\t\tposition: absolute;\r\n\t\ttransform: translateX(-50%);\n}\n.agile__dot--current {\r\n  background-color: #fff;\r\n  border-radius: 100%;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

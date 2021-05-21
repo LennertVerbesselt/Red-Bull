@@ -25,7 +25,7 @@ use App\Models\Follower;
 class PostController extends Controller
 {
     public function getFeaturedPosts(){
-        $posts = Post::get();
+        $posts = Post::orderBy('created_at', 'DESC')->get();
         $postimg = Post_Image::get();
         $users = User::get();
         $profiles = Profile::get();
@@ -84,6 +84,75 @@ class PostController extends Controller
         }
 
         return ['featuredposts' => $featuredposts];
+    }
+
+    public function getFollowingPosts(){
+        $posts = Post::orderBy('created_at', 'DESC')->get();
+        $postimg = Post_Image::get();
+        $users = User::get();
+        $profiles = Profile::get();
+        $profilepictures = Profile_Picture::get();
+        $following = Follower::get();
+
+        $featuredposts = [];
+        $featuredpost = [];
+        
+        foreach($posts as $post){
+
+            //Check if following
+            $following = Follower::where('followed', $post->user_id)->where('following', Auth::user()->id)->get()->first();
+            if($following != null){
+            
+                $featuredpost['following'] = True;
+            
+                //add post Item to featured post
+                $featuredpost['post'] = $post;
+
+                //add User to featured post
+                $user = User::find($post->user_id);
+                $featuredpost['user'] = $user;
+
+                //add Profile to featured post
+                $profile = Profile::where('user_id', $user->id)->get();
+                $featuredpost['profile'] = $profile;
+
+                //add Post Image to featured post
+                $postimg = Post_Image::where('post_id', $post->id)->get()->first();
+                $featuredpost['postimage'] = $postimg;
+
+                //add Profile Picture to featured post
+                $profilepicture = Profile_Picture::where('user_id', $user->id)->where('active', 1)->get()->first();
+                $featuredpost['profilepicture'] = $profilepicture;
+
+                //Check if following
+                $following = Follower::where('followed', $post->user_id)->where('following', Auth::user()->id)->get()->first();
+                if($following === null){
+                    $featuredpost['following'] = False;
+                } else {
+                    $featuredpost['following'] = True;
+                }
+
+                //Check if user has already upvoted
+                $upvoted = Post_Upvotes::where('post_id', $post->id)->where('user_id', Auth::user()->id)->get()->first();
+                if($upvoted === null) {
+                    $featuredpost['upvoted'] = False;
+                } else {
+                    $featuredpost['upvoted'] = True;
+                }
+
+                //Check if user has already downvoted
+                $downvoted = Post_Downvotes::where('post_id', $post->id)->where('user_id', Auth::user()->id)->get()->first();
+                if($downvoted === null) {
+                    $featuredpost['downvoted'] = False;
+                } else {
+                    $featuredpost['downvoted'] = True;
+                }
+
+                array_push($featuredposts, $featuredpost);
+            }
+        }
+
+        return ['followingposts' => $featuredposts];
     }
 
     public function getVotes(Request $request){

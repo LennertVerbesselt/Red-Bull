@@ -1,9 +1,9 @@
 <template>
 <div class="FeedNavigationBG">
 <div class="FeedNavigation">
-    <div :class="[isActiveFeatured ? 'active' : 'inactive']" @click="isActiveFeatured = !isActiveFeatured; isActiveFollowing = !isActiveFollowing">Featured</div>
+    <div :class="[isActiveFeatured ? 'active' : 'inactive']" @click="change">Featured</div>
     <div class="line">|</div>
-    <div :class="[isActiveFollowing ? 'active' : 'inactive']" @click="isActiveFeatured = !isActiveFeatured; isActiveFollowing = !isActiveFollowing">Following</div>
+    <div :class="[isActiveFollowing ? 'active' : 'inactive']" @click="change">Following</div>
     
     
 </div>
@@ -20,6 +20,14 @@ export default {
             isActiveFollowing: false,
         }
     },
+    methods: {
+        change(){
+            this.$emit('change');
+            this.isActiveFeatured = !this.isActiveFeatured; 
+            this.isActiveFollowing = !this.isActiveFollowing;
+            
+        }
+    }
 
 }
 </script>

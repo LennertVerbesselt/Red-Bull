@@ -59,6 +59,8 @@ body {
   background:#121426 ;
   margin: 0;
   padding: 0;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 .agile__dots button {
     background-color: transparent;

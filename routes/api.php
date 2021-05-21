@@ -47,6 +47,7 @@ Route::get('/getprofilepicture', [AuthenticatedSessionController::class, 'retrie
 Route::get('/getfeaturedevents', [EventController::class, 'getFeaturedEvents'])->name('getfeaturedevents');
 
 Route::get('/getfeaturedposts', [PostController::class, 'getFeaturedPosts'])->name('getfeaturedposts');
+Route::get('/getfollowingposts', [PostController::class, 'getFollowingPosts'])->name('getfollowingposts');
 
 Route::post('/getvotes', [PostController::class, 'getVotes'])->name('getvotes');
 
