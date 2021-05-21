@@ -64,7 +64,7 @@ class UploadController extends Controller
          Storage::disk('s3')->setVisibility($path, 'public');
  
          //Create & Save new Post Image object
-         $img = new Profile_Picture;
+         $img = new Post_Image;
          $img->post_id = $post->id;
          $img->filename = $path;
          $img->url = Storage::disk('s3')->url($path);
