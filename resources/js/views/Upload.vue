@@ -1,9 +1,9 @@
 <template>
 
     <div class="pagetitle">
-        Post Submission
+        Upload Post
     </div>
-    <div class="challenge">
+    <div v-if="fromChallenge" class="challenge">
         for the "{{Challenge.name}}" Challenge
     </div>
     <form  @submit.prevent="uploadPost" enctype="multipart/form-data">
@@ -54,6 +54,7 @@ export default {
                 caption: "",
                 url: null,
                 file: '',
+                fromChallenge: true,
             }
         },
 	methods: {
@@ -103,6 +104,8 @@ export default {
 		this.checkIfLoggedIn();
         if(this.id){
             this.ChallengeID = this.id;
+        } else {
+            this.fromChallenge = false;
         }
         this.getChallenge();
 	},

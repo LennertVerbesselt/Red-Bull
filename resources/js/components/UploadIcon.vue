@@ -1,6 +1,6 @@
 <template>
 <div class="UploadButton">
-    <router-link :to="{ name: 'Upload', params: { id: challenge_id } }"> 
+    <router-link :to="{ name: 'Upload'}">
         <svg class="svg-circleplus" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="50" fill="#EB5876" stroke-width="0" ></circle>
                 <line x1="32.5" y1="50" x2="67.5" y2="50" stroke-width="5"></line>
@@ -9,17 +9,17 @@
         </svg>
     </router-link>
 </div>
-
-<div class="UploadPage">
-
-</div>
     
 </template>
 
 <script>
 export default {
     name: 'UploadIcon',
-
+    data:function() {
+        return {
+            upload: false,
+        }
+    }
 }
 </script>
 

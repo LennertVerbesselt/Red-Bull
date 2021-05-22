@@ -17994,7 +17994,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'UploadIcon'
+  name: 'UploadIcon',
+  data: function data() {
+    return {
+      upload: false
+    };
+  }
 });
 
 /***/ }),
@@ -18350,7 +18355,8 @@ __webpack_require__.r(__webpack_exports__);
       Challenge: [],
       caption: "",
       url: null,
-      file: ''
+      file: '',
+      fromChallenge: true
     };
   },
   methods: {
@@ -18405,6 +18411,8 @@ __webpack_require__.r(__webpack_exports__);
 
     if (this.id) {
       this.ChallengeID = this.id;
+    } else {
+      this.fromChallenge = false;
     }
 
     this.getChallenge();
@@ -20247,23 +20255,14 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "UploadPage"
-}, null, -1
-/* HOISTED */
-);
-
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
-      name: 'Upload',
-      params: {
-        id: _ctx.challenge_id
-      }
+      name: 'Upload'
     }
   }, {
     "default": _withId(function () {
@@ -20272,11 +20271,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     _: 1
     /* STABLE */
 
-  }, 8
-  /* PROPS */
-  , ["to"])]), _hoisted_3], 64
-  /* STABLE_FRAGMENT */
-  );
+  })]);
 });
 
 /***/ }),
@@ -20566,11 +20561,12 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "pagetitle"
-}, " Post Submission ", -1
+}, " Upload Post ", -1
 /* HOISTED */
 );
 
 var _hoisted_2 = {
+  key: 0,
   "class": "challenge"
 };
 var _hoisted_3 = {
@@ -20609,9 +20605,9 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   var _component_BottomMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BottomMenu");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, " for the \"" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.Challenge.name) + "\" Challenge ", 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, $data.fromChallenge ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, " for the \"" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.Challenge.name) + "\" Challenge ", 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", {
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", {
     onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.uploadPost && $options.uploadPost.apply($options, arguments);
     }, ["prevent"])),
