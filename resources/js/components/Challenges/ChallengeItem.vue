@@ -19,11 +19,17 @@
     </div>
 
     <div v-if="ChallengePending" class="pending">
-
+        <img :src="ChallengeBadge" class="greybadge" />
+        <div class="ChallengeName">
+            {{ChallengeName}}: Pending
+        </div>
     </div>
 
     <div v-if="ChallengeComplete" class="complete">
         <img  :src="ChallengeBadge" class="badge" />
+        <div class="ChallengeName">
+            {{ChallengeName}}: Complete
+        </div>
     </div>
     
     

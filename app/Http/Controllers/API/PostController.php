@@ -162,6 +162,43 @@ class PostController extends Controller
         $upvotes = $post->upvotes;
         $downvotes = $post->downvotes;
 
+        if($post->challenge_id == 0){
+            
+        } else {
+                $challenge = Challenge::find($post->challenge_id);
+
+                $upvotes = $post->upvotes;
+                $downvotes = $post->downvotes;
+
+                $ratio = $challenge->upvote_ratio;
+
+                $minimumtotal = 1;
+
+                $totalvotes = $upvotes + $downvotes;
+
+                if($totalvotes == $minimumtotal){
+                    if(($downvotes * $ratio) < $upvotes){
+                        $progression = Challenge_Progression::where('user_id', $post->user_id)->where('challenge_id', $post->challenge_id)->get()->first();
+
+                        $progression->pending = 0;
+                        $progression->complete = 1;
+                        $progression->save();
+                        
+                    } else {
+                        $progression = Challenge_Progression::where('user_id', $post->user_id)->where('challenge_id', $post->challenge_id)->get()>first();
+
+                        $progression->pending = 0;
+                        $progression->unlocked = 1;
+                        $progression->save();
+                        
+                    }
+                }
+
+
+                
+
+            }
+
         return ['upvotes' => $upvotes, 'downvotes' =>$downvotes];
     }
 
@@ -219,11 +256,54 @@ class PostController extends Controller
                 $post->decrement('upvotes');
             }
 
+            
+
             return['downvote' => $post];
         } else {
             $alreadydownvoted->delete();
             $post->decrement('downvotes');
             return['removeddownvote' => $alreadydownvoted];
+        }
+    }
+
+    public function checkRatio($postid) {
+        $post = Post::find($postid);
+
+        if($post->challenge_id == 0){
+            return false;
+        } else {
+            $challenge = Challenge::find($post->challengeid);
+
+            $upvotes = $post->upvotes;
+            $downvotes = $post->downvotes;
+
+            $ratio = $challenge->upvote_ratio;
+
+            $minimumtotal = 1;
+
+            $totalvotes = $upvotes + $downvotes;
+
+            if($totalvotes == $minimumtotal){
+                if(($downvotes * $ratio) < $upvotes){
+                    $progression = Challenge_Progression::where('user_id', $post->user_id)->where('challenge_id', $post->challenge_id)->get()>first();
+
+                    $progression->pending = 0;
+                    $progression->complete = 1;
+                    $progression->save();
+                    return true;
+                } else {
+                    $progression = Challenge_Progression::where('user_id', $post->user_id)->where('challenge_id', $post->challenge_id)->get()>first();
+
+                    $progression->pending = 0;
+                    $progression->unlocked = 1;
+                    $progression->save();
+                    return true;
+                }
+            }
+
+
+            
+
         }
     }
 }

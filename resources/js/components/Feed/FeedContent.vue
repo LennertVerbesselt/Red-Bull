@@ -20,6 +20,7 @@ export default {
         object-fit: cover;
     }
     .feed-content img {
-        max-width: 100%;
+        width: 100%;
+        max-height: 500px;
     }
 </style>
