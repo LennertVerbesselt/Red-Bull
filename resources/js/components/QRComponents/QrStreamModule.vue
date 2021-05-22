@@ -86,12 +86,13 @@ export default defineComponent({
                    
                 } else {
                   this.isValid = false;
+                  this.turnCameraOn()
                 }
             }).catch(error => {
                 console.log("Error");
             });
 
-      this.turnCameraOn()
+      
     },
 
     async handleValidQRCode(c) {

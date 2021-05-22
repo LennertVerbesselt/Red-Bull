@@ -17923,14 +17923,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this.handleValidQRCode(response.data.challengedefined);
                   } else {
                     _this.isValid = false;
+
+                    _this.turnCameraOn();
                   }
                 })["catch"](function (error) {
                   console.log("Error");
                 });
 
-                _this.turnCameraOn();
-
-              case 8:
+              case 7:
               case "end":
                 return _context.stop();
             }
