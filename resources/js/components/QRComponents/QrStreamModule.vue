@@ -103,11 +103,13 @@ export default defineComponent({
 .stream {
   height: 100vh;
   width: 100vw;
+  max-width: 400px;
 }
 .frame {
   
   height: 100vh;
   width: 100vw;
+  max-width: 400px;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -119,6 +121,7 @@ export default defineComponent({
 .QRScanner {
   width:100vw;
   height: 100vh;
+  max-width: 400px;
     
   z-index: 1;
 }

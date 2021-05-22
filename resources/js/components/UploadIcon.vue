@@ -25,10 +25,24 @@ export default {
 
 <style scoped>
 
-.svg-circleplus{
+.UploadButton {
+    width: 100vw;
+    max-width: 400px;
     position: fixed;
-    right: 8%;
-    bottom: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    
+    bottom: 60px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.svg-circleplus{
+    position: absolute;
+    right: -150px;
     width: 40px;
     height: 40px;
 
@@ -37,7 +51,7 @@ export default {
 }
 
 .svg-circleplus circle  { 
-    position: fixed;
+    position: absolute;
     right: 8%;
     bottom: 8%;
     width: 40px;

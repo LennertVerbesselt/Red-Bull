@@ -1,6 +1,7 @@
 <template>
-
+    <div class="application">
         <router-view></router-view>
+    </div>
 </template>
 
 <script>
@@ -53,12 +54,25 @@ export default {
   text-align: center;
   color: #2c3e50;
   background:#121426 ;
+  max-width: 400px;
   
 }
+
+.application {
+  max-width: 400px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
 body {
   background:#121426 ;
   margin: 0;
   padding: 0;
+  max-width: 400px;
   /*overflow-y: hidden; /* Hide vertical scrollbar */
   /*overflow-x: hidden; /* Hide horizontal scrollbar */
 }

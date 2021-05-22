@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=400px">
     <title>Red Bull CMS</title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">

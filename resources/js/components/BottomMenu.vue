@@ -42,9 +42,15 @@ body {
 }
 .menu {
     position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
+    max-width: 400px;
     background-color: #121426;
     border: 2px 0px 0px 0px solid white;
      height: 45px;
@@ -52,7 +58,7 @@ body {
  .nav {
      left: 3%;
      right:3%;
-     position: fixed;
+     position: absolute;
      bottom: 0;
      width: 94%;
      height: 44px;
