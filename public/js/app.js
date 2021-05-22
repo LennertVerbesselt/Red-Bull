@@ -18398,7 +18398,7 @@ __webpack_require__.r(__webpack_exports__);
       Challenge: [],
       caption: "",
       url: null,
-      file: '',
+      file: null,
       fromChallenge: true
     };
   },
@@ -20683,7 +20683,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     id: "file",
     "class": "file",
     ref: "file",
-    capture: "camera"
+    capture: ""
   }, null, 544
   /* HYDRATE_EVENTS, NEED_PATCH */
   ), _hoisted_8])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("textarea", {

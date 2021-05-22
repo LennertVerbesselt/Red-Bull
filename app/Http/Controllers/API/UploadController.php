@@ -19,6 +19,7 @@ class UploadController extends Controller
 {
     public function uploadPost(Request $request){
 
+        
 
         if($request->challengeid){
 
@@ -122,7 +123,7 @@ class UploadController extends Controller
             $imageName = Auth::user()->id . "-" . Auth::user()->name . "-" . $post->id . "-" . $fileName . ".jpg";
     
             //Save image to AWS
-            $path = Storage::disk('s3')->putFileAs('/Posts',$request->url,$imageName);
+            $path = Storage::disk('s3')->putFileAs('/Posts',$request->file,$imageName);
     
             //Set image on AWS public
             Storage::disk('s3')->setVisibility($path, 'public');

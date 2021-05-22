@@ -18,7 +18,7 @@
             
             <div class="inputs">
                 <div class="file-input">
-                    <input @change="onFileChange" type="file" id="file" class="file" ref="file" capture="camera">
+                    <input @change="onFileChange" type="file" id="file" class="file" ref="file" capture>
                     <label for="file">Choose your image</label>
                 </div>
                     
@@ -60,7 +60,7 @@ export default {
                 Challenge: [],
                 caption: "",
                 url: null,
-                file: '',
+                file: null,
                 fromChallenge: true,
             }
         },
