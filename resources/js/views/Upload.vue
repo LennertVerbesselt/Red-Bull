@@ -18,7 +18,6 @@
             
             <div class="inputs">
                 <div class="file-input">
-                    <input @change="onFileChange" type="file" id="file" class="file" ref="file">
                     <input @change="onFileChange" type="file" id="file" class="file" ref="file" capture="camera">
                     <label for="file">Choose your image</label>
                 </div>
