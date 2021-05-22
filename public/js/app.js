@@ -20574,51 +20574,57 @@ var _hoisted_3 = {
 };
 var _hoisted_4 = {
   key: 0,
-  "class": "preview",
-  src: "http://placehold.it/180",
-  alt: "your image"
+  "class": "preview"
 };
-var _hoisted_5 = {
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "placeholder"
+}, " Your Image ", -1
+/* HOISTED */
+);
+
+var _hoisted_6 = {
+  "class": "inputs"
+};
+var _hoisted_7 = {
   "class": "file-input"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
   "for": "file"
 }, "Choose your image", -1
 /* HOISTED */
 );
 
-var _hoisted_7 = {
+var _hoisted_9 = {
   "class": "nav"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Back");
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Back");
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Post");
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Post");
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_form_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("form-button");
 
-  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-
   var _component_BottomMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BottomMenu");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, $data.fromChallenge ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, " for the \"" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.Challenge.name) + "\" Challenge ", 1
   /* TEXT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", {
-    onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.uploadPost && $options.uploadPost.apply($options, arguments);
     }, ["prevent"])),
     enctype: "multipart/form-data"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [!$data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", _hoisted_4)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [!$data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, [_hoisted_5])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
     key: 1,
     "class": "preview",
     src: $data.url
   }, null, 8
   /* PROPS */
-  , ["src"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  , ["src"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
     onChange: _cache[1] || (_cache[1] = function () {
       return $options.onFileChange && $options.onFileChange.apply($options, arguments);
     }),
@@ -20628,32 +20634,37 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     ref: "file"
   }, null, 544
   /* HYDRATE_EVENTS, NEED_PATCH */
-  ), _hoisted_6]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("textarea", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    onChange: _cache[2] || (_cache[2] = function () {
+      return $options.onFileChange && $options.onFileChange.apply($options, arguments);
+    }),
+    type: "file",
+    id: "file",
+    "class": "file",
+    ref: "file",
+    capture: "camera"
+  }, null, 544
+  /* HYDRATE_EVENTS, NEED_PATCH */
+  ), _hoisted_8])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("textarea", {
     required: "",
     rows: "6",
     type: "description",
     "class": "caption",
     placeholder: "Your caption",
-    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.caption = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.caption]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/challenges"
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.caption]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_button, {
+    onClick: _cache[4] || (_cache[4] = function ($event) {
+      return _ctx.$router.go(-1);
+    }),
+    "class": "button",
+    type: "secondary"
   }, {
     "default": _withId(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_button, {
-        "class": "button",
-        type: "secondary"
-      }, {
-        "default": _withId(function () {
-          return [_hoisted_8];
-        }),
-        _: 1
-        /* STABLE */
-
-      })];
+      return [_hoisted_10];
     }),
     _: 1
     /* STABLE */
@@ -20663,7 +20674,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     type: "primary submit"
   }, {
     "default": _withId(function () {
-      return [_hoisted_9];
+      return [_hoisted_11];
     }),
     _: 1
     /* STABLE */
@@ -21548,7 +21559,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.pagetitle[data-v-b0004140] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 26px;\r\n    color:white;\r\n    letter-spacing: 2px;\r\n\r\n    margin-top: 10%;\n}\n.challenge[data-v-b0004140] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 14px;\r\n    color:white;\r\n    letter-spacing: 2px;\r\n    margin-top: 2%;\n}\n.preview[data-v-b0004140] {\r\n    margin-top: 5%;\r\n    border-radius: 6px;\r\n    width: 70%;\r\n    left: 15%;\n}\n.caption[data-v-b0004140] {\r\n    margin-top: 20px;\r\n    width: 80%;\r\n    left: 10%;\r\n    color: #121426;\r\n\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n\r\n    border-radius: 6px;\r\n    outline: none;\r\n    overflow: auto;\n}\ntextarea[data-v-b0004140] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\n}\n.nav[data-v-b0004140] {\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\n}\n.button[data-v-b0004140] {\r\n    margin-left: 15px;\r\n    margin-right: 15px;\n}\n.file[data-v-b0004140] {\r\n  opacity: 0;\r\n  width: 0.1px;\r\n  height: 0.1px;\r\n  position: absolute;\n}\n.file-input label[data-v-b0004140] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    color: #EB5876;\r\n    border: 2px solid #EB5876 ;\r\n    height: 100px;\r\n    width: 135px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    margin-right: 10px;\r\n    padding-top: 2%;\r\n    padding-bottom: 2%;\r\n    border:none;\n}\n.file-input[data-v-b0004140] {\r\n    border: 2px solid #EB5876;\r\n    border-radius: 6px;\r\n    position: relative;\r\n    width: 50%;\r\n    left: 25%;\r\n    padding-top: 2%;\r\n    padding-bottom: 2%;\r\n    margin-top: 5%;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.pagetitle[data-v-b0004140] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 26px;\r\n    color:white;\r\n    letter-spacing: 2px;\r\n\r\n    margin-top: 10%;\n}\n.challenge[data-v-b0004140] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 14px;\r\n    color:white;\r\n    letter-spacing: 2px;\r\n    margin-top: 2%;\n}\n.preview[data-v-b0004140] {\r\n    margin-top: 5%;\r\n    border-radius: 6px;\r\n    width: 70%;\r\n    max-height: 450px;\r\n    left: 15%;\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: center;\r\n    text-align: center;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n\r\n    border: 2px solid #EB5876;\r\n    border-radius: 6px;\n}\n.preview img[data-v-b0004140] {\r\n    width: 100%;\r\n    height: 100%;\n}\n.placeholder[data-v-b0004140] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 30px;\r\n    color: white;\r\n    opacity: 0.1;\r\n\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: center;\r\n    text-align: center;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n\r\n    width: 100%;\r\n    height: 300px;\n}\n.caption[data-v-b0004140] {\r\n    margin-top: 20px;\r\n    width: 80%;\r\n    left: 10%;\r\n    color: #121426;\r\n\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n\r\n    border-radius: 6px;\r\n    outline: none;\r\n    overflow: auto;\n}\ntextarea[data-v-b0004140] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\n}\n.nav[data-v-b0004140] {\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\n}\n.button[data-v-b0004140] {\r\n    margin-left: 15px;\r\n    margin-right: 15px;\n}\n.file[data-v-b0004140] {\r\n  opacity: 0;\r\n  width: 0.1px;\r\n  height: 0.1px;\r\n  position: absolute;\n}\n.file-input label[data-v-b0004140] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    color: #EB5876;\r\n    border: 2px solid #EB5876 ;\r\n    height: 100px;\r\n    width: 135px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    margin-right: 10px;\r\n    padding-top: 2%;\r\n    padding-bottom: 2%;\r\n    border:none;\n}\n.file-input[data-v-b0004140] {\r\n    border: 2px solid #EB5876;\r\n    border-radius: 6px;\r\n    position: relative;\r\n    width: 50%;\r\n    left: 25%;\r\n    padding-top: 2%;\r\n    padding-bottom: 2%;\r\n    margin-top: 5%;\n}\n.inputs[data-v-b0004140] {\r\n    display: flex;\r\n  flex-flow: column nowrap;\r\n  justify-content: center;\r\n  text-align: center;\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

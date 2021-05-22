@@ -9,20 +9,28 @@
     <form  @submit.prevent="uploadPost" enctype="multipart/form-data">
         <div class="form-group">
 
-            <img class="preview" v-if="!url" src="http://placehold.it/180" alt="your image" />
+            <div class="preview" v-if="!url">
+                <div class="placeholder">
+                    Your Image
+                </div>
+            </div>
             <img class="preview" v-if="url" :src="url" />
             
-
-            <div class="file-input">
-                <input @change="onFileChange" type="file" id="file" class="file" ref="file">
-                <label for="file">Choose your image</label>
+            <div class="inputs">
+                <div class="file-input">
+                    <input @change="onFileChange" type="file" id="file" class="file" ref="file">
+                    <input @change="onFileChange" type="file" id="file" class="file" ref="file" capture="camera">
+                    <label for="file">Choose your image</label>
+                </div>
+                    
             </div>
+            
 
 
             <textarea required rows="6" type="description"  class="caption" placeholder="Your caption" v-model="caption"/>
         </div>
         <div class="nav">
-            <router-link to="/challenges"><form-button class="button" type="secondary">Back</form-button></router-link>
+            <form-button @click="$router.go(-1)" class="button" type="secondary">Back</form-button>
            <form-button class="button" type="primary submit">Post</form-button>
         </div>
         
@@ -137,7 +145,42 @@ export default {
     margin-top: 5%;
     border-radius: 6px;
     width: 70%;
+    max-height: 450px;
     left: 15%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 2px solid #EB5876;
+    border-radius: 6px;
+}
+
+.preview img {
+    width: 100%;
+    height: 100%;
+}
+
+.placeholder {
+    font-family: "Akzidenz Bold Extended";
+    font-size: 30px;
+    color: white;
+    opacity: 0.1;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 100%;
+    height: 300px;
+    
+
+    
 }
 
 .caption {
@@ -200,6 +243,13 @@ textarea {
     padding-top: 2%;
     padding-bottom: 2%;
     margin-top: 5%;
+}
+
+.inputs {
+    display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: center;
 }
 
 
