@@ -16956,10 +16956,25 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log("Error, Challenge Sets not obtained");
       });
+    },
+    setFavourite: function setFavourite() {
+      var _this2 = this;
+
+      axios.post('api/setfavourite', {
+        categoryname: this.CategoryName
+      }).then(function (response) {
+        _this2.CategoryFavourite = !_this2.CategoryFavourite;
+      })["catch"](function (error) {
+        console.log("Error, Category not set as favourite");
+      });
     }
   },
   created: function created() {
     this.getChallengeSets();
+
+    if (this.CategoryFavourites[this.CategoryName]) {
+      this.CategoryFavourite = true;
+    }
   }
 });
 
@@ -17083,6 +17098,12 @@ __webpack_require__.r(__webpack_exports__);
       isActiveLeaderboards: false,
       isActiveFavourites: false
     };
+  },
+  methods: {
+    changeFavourites: function changeFavourites() {
+      this.isActiveFavourites = !this.isActiveFavourites;
+      this.$emit('change-favourites');
+    }
   }
 });
 
@@ -17213,18 +17234,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _ChallengeCategory_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChallengeCategory.vue */ "./resources/js/components/Challenges/ChallengeCategory.vue");
+/* harmony import */ var _ChallengeNavigation_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChallengeNavigation.vue */ "./resources/js/components/Challenges/ChallengeNavigation.vue");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'ChallengeTotal',
   components: {
-    ChallengeCategory: _ChallengeCategory_vue__WEBPACK_IMPORTED_MODULE_0__.default
+    ChallengeCategory: _ChallengeCategory_vue__WEBPACK_IMPORTED_MODULE_0__.default,
+    ChallengesNavigation: _ChallengeNavigation_vue__WEBPACK_IMPORTED_MODULE_1__.default
   },
   props: {},
   data: function data() {
     return {
       Category: "Football",
       Points: 56,
-      Categories: []
+      Categories: [],
+      FavouriteCategories: [],
+      Favourites: [],
+      FavouritesActive: false
     };
   },
   methods: {
@@ -17233,10 +17260,16 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('api/getcategories').then(function (response) {
         _this.Categories = response.data.categories;
+        _this.Favourites = response.data.favourites;
+        _this.FavouriteCategories = response.data.favouritecategories;
         console.log("Categories Obtained");
       })["catch"](function (error) {
         console.log("Error, categories not obtained");
       });
+    },
+    changeFavourites: function changeFavourites() {
+      this.FavouritesActive = !this.FavouritesActive;
+      this.getCategories();
     }
   },
   created: function created() {
@@ -18164,17 +18197,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_BottomMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/BottomMenu */ "./resources/js/components/BottomMenu.vue");
-/* harmony import */ var _components_Challenges_ChallengeNavigation_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Challenges/ChallengeNavigation.vue */ "./resources/js/components/Challenges/ChallengeNavigation.vue");
-/* harmony import */ var _components_Challenges_ChallengesTotal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Challenges/ChallengesTotal.vue */ "./resources/js/components/Challenges/ChallengesTotal.vue");
-
+/* harmony import */ var _components_Challenges_ChallengesTotal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Challenges/ChallengesTotal.vue */ "./resources/js/components/Challenges/ChallengesTotal.vue");
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Home',
   components: {
     BottomMenu: _components_BottomMenu__WEBPACK_IMPORTED_MODULE_0__.default,
-    ChallengesNavigation: _components_Challenges_ChallengeNavigation_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    ChallengesTotal: _components_Challenges_ChallengesTotal_vue__WEBPACK_IMPORTED_MODULE_2__.default
+    ChallengesTotal: _components_Challenges_ChallengesTotal_vue__WEBPACK_IMPORTED_MODULE_1__.default
   },
   methods: {
     checkIfLoggedIn: function checkIfLoggedIn() {
@@ -18775,8 +18805,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _assets_star_regular_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../assets/star-regular.svg */ "./resources/assets/star-regular.svg");
-/* harmony import */ var _assets_downvote_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/downvote.png */ "./resources/assets/downvote.png");
-/* harmony import */ var _assets_upvote_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../assets/upvote.png */ "./resources/assets/upvote.png");
+/* harmony import */ var _assets_star_solid_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/star-solid.svg */ "./resources/assets/star-solid.svg");
+/* harmony import */ var _assets_downvote_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../assets/downvote.png */ "./resources/assets/downvote.png");
+/* harmony import */ var _assets_upvote_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/upvote.png */ "./resources/assets/upvote.png");
+
 
 
 
@@ -18790,21 +18822,15 @@ var _hoisted_1 = {
   "class": "category"
 };
 var _hoisted_2 = {
-  key: 0,
-  "class": "favourite",
-  src: _assets_star_regular_svg__WEBPACK_IMPORTED_MODULE_1__.default,
-  alt: ""
-};
-var _hoisted_3 = {
   "class": "categoryName"
 };
-var _hoisted_4 = {
+var _hoisted_3 = {
   "class": "dropdown"
 };
-var _hoisted_5 = {
+var _hoisted_4 = {
   key: 0
 };
-var _hoisted_6 = {
+var _hoisted_5 = {
   key: 0
 };
 
@@ -18813,29 +18839,45 @@ var _hoisted_6 = {
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_ChallengeSet = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ChallengeSet");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [!_ctx.CategoryFavourite ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", _hoisted_2)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.CategoryName), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [!_ctx.CategoryFavourite ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+    key: 0,
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $options.setFavourite && $options.setFavourite.apply($options, arguments);
+    }),
+    "class": "favourite",
+    src: _assets_star_regular_svg__WEBPACK_IMPORTED_MODULE_1__.default,
+    alt: ""
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.CategoryFavourite ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+    key: 1,
+    onClick: _cache[2] || (_cache[2] = function () {
+      return $options.setFavourite && $options.setFavourite.apply($options, arguments);
+    }),
+    "class": "favourite",
+    src: _assets_star_solid_svg__WEBPACK_IMPORTED_MODULE_2__.default,
+    alt: ""
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.CategoryName), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<div class=\"categoryPoints\">\r\n        {{CategoryPoints}}\r\n    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", _hoisted_4, [_ctx.ShowCategory ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<div class=\"categoryPoints\">\r\n        {{CategoryPoints}}\r\n    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", _hoisted_3, [_ctx.ShowCategory ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
     key: 0,
     "class": "dropdownIcon",
-    onClick: _cache[1] || (_cache[1] = function ($event) {
+    onClick: _cache[3] || (_cache[3] = function ($event) {
       return _ctx.ShowCategory = !_ctx.ShowCategory;
     }),
-    src: _assets_downvote_png__WEBPACK_IMPORTED_MODULE_2__.default,
+    src: _assets_downvote_png__WEBPACK_IMPORTED_MODULE_3__.default,
     alt: ""
   })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !_ctx.ShowCategory ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
     key: 1,
     "class": "dropdownIcon",
-    onClick: _cache[2] || (_cache[2] = function ($event) {
+    onClick: _cache[4] || (_cache[4] = function ($event) {
       return _ctx.ShowCategory = !_ctx.ShowCategory;
     }),
-    src: _assets_upvote_png__WEBPACK_IMPORTED_MODULE_3__.default,
+    src: _assets_upvote_png__WEBPACK_IMPORTED_MODULE_4__.default,
     alt: ""
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), _ctx.ShowCategory ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.ChallengeSets, function (challengeset) {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), _ctx.ShowCategory ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.ChallengeSets, function (challengeset) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       "class": "ChallengeSet",
       key: challengeset
-    }, [$props.CategoryID == challengeset.category_id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeSet, {
+    }, [$props.CategoryID == challengeset.category_id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeSet, {
       ChallengeSetName: challengeset.name,
       ChallengeSetID: challengeset.id
     }, null, 8
@@ -19034,9 +19076,7 @@ var _hoisted_2 = {
   "class": "ChallengeNavigation"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Challenges ");
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "line"
 }, "|", -1
 /* HOISTED */
@@ -19047,29 +19087,29 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
     "class": [_ctx.isActiveChallenges ? 'active' : 'inactive'],
-    onClick: _cache[3] || (_cache[3] = function ($event) {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
       _ctx.isActiveChallenges = !_ctx.isActiveChallenges;
       _ctx.isActiveLeaderboards = !_ctx.isActiveLeaderboards;
     })
-  }, [_ctx.isActiveFavourites ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+  }, " Challenges ", 2
+  /* CLASS */
+  ), _ctx.isActiveFavourites ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
     key: 0,
-    onClick: _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.isActiveFavourites = !_ctx.isActiveFavourites;
+    onClick: _cache[2] || (_cache[2] = function () {
+      return $options.changeFavourites && $options.changeFavourites.apply($options, arguments);
     }),
     "class": "favourite",
     src: _assets_star_solid_svg__WEBPACK_IMPORTED_MODULE_1__.default,
     alt: ""
   })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !_ctx.isActiveFavourites ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
     key: 1,
-    onClick: _cache[2] || (_cache[2] = function ($event) {
-      return _ctx.isActiveFavourites = !_ctx.isActiveFavourites;
+    onClick: _cache[3] || (_cache[3] = function () {
+      return $options.changeFavourites && $options.changeFavourites.apply($options, arguments);
     }),
     "class": "favourite",
     src: _assets_star_regular_svg__WEBPACK_IMPORTED_MODULE_2__.default,
     alt: ""
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_3], 2
-  /* CLASS */
-  ), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
     "class": [_ctx.isActiveLeaderboards ? 'active' : 'inactive'],
     onClick: _cache[4] || (_cache[4] = function ($event) {
       _ctx.isActiveLeaderboards = !_ctx.isActiveLeaderboards;
@@ -19218,10 +19258,27 @@ __webpack_require__.r(__webpack_exports__);
 
 var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-6613e920");
 
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-6613e920");
+
+var _hoisted_1 = {
+  key: 0
+};
+var _hoisted_2 = {
+  key: 1
+};
+
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
+
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_challenges_navigation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("challenges-navigation");
+
   var _component_ChallengeCategory = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ChallengeCategory");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.Categories, function (category) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_challenges_navigation, {
+    onChangeFavourites: $options.changeFavourites
+  }, null, 8
+  /* PROPS */
+  , ["onChangeFavourites"]), !_ctx.FavouritesActive ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.Categories, function (category) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       "class": "category",
       key: category
@@ -19235,6 +19292,22 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     , ["CategoryFavourites", "CategoryID", "CategoryName", "CategoryPoints"])])]);
   }), 128
   /* KEYED_FRAGMENT */
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.FavouritesActive ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.FavouriteCategories, function (category) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
+      "class": "category",
+      key: category
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeCategory, {
+      CategoryFavourites: _ctx.Favourites,
+      CategoryID: category.category_id,
+      CategoryName: category.category_name,
+      CategoryPoints: _ctx.Points
+    }, null, 8
+    /* PROPS */
+    , ["CategoryFavourites", "CategoryID", "CategoryName", "CategoryPoints"])])]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
+  /* STABLE_FRAGMENT */
   );
 });
 
@@ -20547,13 +20620,11 @@ __webpack_require__.r(__webpack_exports__);
 var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-4b0916cf");
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_challenges_navigation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("challenges-navigation");
-
   var _component_challenges_total = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("challenges-total");
 
   var _component_BottomMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BottomMenu");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_challenges_navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_challenges_total), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_challenges_total), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
   /* STABLE_FRAGMENT */
   );
 });
@@ -21240,7 +21311,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.ChallengeNavigationBG[data-v-4a5cf7c3] {\r\n    width:100%;\r\n    height: 100px;\r\n    background: #252525;\r\n\tbackground: linear-gradient(180deg, rgba(18,20,38,1) 9%, rgba(18,20,38,0.9) 50%, rgba(18,20,38,0) 100%);\r\n\ttop: 0px;\r\n\tleft: 0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n    position: sticky;\r\n\r\n    margin-bottom: -30px;\r\n\r\n    z-index: 3;\n}\n.ChallengeNavigation[data-v-4a5cf7c3] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    position: sticky;\r\n    top:0px;\r\n\r\n    margin-top: 30px;\r\n\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    letter-spacing: 2px;\r\n    color: white;\r\n    z-index: 3;\n}\n.favourite[data-v-4a5cf7c3] {\r\n    height: 13px;\r\n    fill: white;\r\n\r\n    position: relative;\r\n    \r\n    z-index: 4;\n}\n.line[data-v-4a5cf7c3] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    \r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n    z-index: 3;\n}\n.active[data-v-4a5cf7c3] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    \r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    color: white;\r\n    z-index: 3;\n}\n.inactive[data-v-4a5cf7c3] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\r\n    opacity: 0.25;\r\n    z-index: 3;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.ChallengeNavigationBG[data-v-4a5cf7c3] {\r\n    width:100%;\r\n    height: 100px;\r\n    background: #252525;\r\n\tbackground: linear-gradient(180deg, rgba(18,20,38,1) 9%, rgba(18,20,38,0.9) 50%, rgba(18,20,38,0) 100%);\r\n\ttop: 0px;\r\n\tleft: 0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n    position: sticky;\r\n\r\n    margin-bottom: -30px;\r\n\r\n    z-index: 3;\n}\n.ChallengeNavigation[data-v-4a5cf7c3] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    position: sticky;\r\n    top:0px;\r\n\r\n    margin-top: 30px;\r\n\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    letter-spacing: 2px;\r\n    color: white;\r\n    z-index: 3;\n}\n.favourite[data-v-4a5cf7c3] {\r\n    height: 13px;\r\n    fill: white;\r\n    margin-left: 6px;\r\n    margin-right: 6px;\r\n\r\n    position: relative;\r\n    top: -3px;\r\n    \r\n    z-index: 4;\n}\n.line[data-v-4a5cf7c3] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    \r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n    z-index: 3;\n}\n.active[data-v-4a5cf7c3] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    \r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    color: white;\r\n    z-index: 3;\n}\n.inactive[data-v-4a5cf7c3] {\r\n    display: inline-block;\r\n    clear: both;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\r\n    opacity: 0.25;\r\n    z-index: 3;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

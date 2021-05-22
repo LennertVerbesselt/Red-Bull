@@ -16,7 +16,17 @@ class CategoryController extends Controller
     public function getCategories() {
 
         $categories = Category::get();
-        return ['categories' => $categories];
+        $favourites = (array) json_decode(User_interests_Categories::where('user_id', Auth::user()->id)->get()->first()->favourites);
+        
+        $FavouriteCategories = [];
+
+        foreach($categories as $category) {
+            if($favourites[$category->category_name]){
+                array_push($FavouriteCategories, $category);
+            }
+        }
+
+        return ['categories' => $categories, 'favourites' => $favourites, 'favouritecategories' => $FavouriteCategories];
     }
 
     public function updateInterests(Request $request) {
@@ -36,5 +46,22 @@ class CategoryController extends Controller
         $i->favourites = json_encode($interests);
         $i->save();
 
+    }
+
+    public function setFavourite(Request $request) {
+        $category = $request->categoryname;
+
+        $userid = Auth::user()->id;
+        $user = User::find($userid);
+
+        $i = User_Interests_Categories::where('user_id', $user->id)->get()->first();
+        $interests = (array) json_decode($i->favourites);
+
+        $interests[$category] = !$interests[$category];
+
+        $i->favourites = json_encode($interests);
+        $i->save();
+
+        return ['interests', $i];
     }
 }

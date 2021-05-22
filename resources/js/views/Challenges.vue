@@ -1,5 +1,5 @@
 <template>
-    <challenges-navigation></challenges-navigation>
+    
     <challenges-total></challenges-total>
    <BottomMenu> </BottomMenu>
 
@@ -8,7 +8,7 @@
 <script>
 
 import BottomMenu from '../components/BottomMenu'
-import ChallengesNavigation from '../components/Challenges/ChallengeNavigation.vue'
+
 import ChallengesTotal from '../components/Challenges/ChallengesTotal.vue'
 
 
@@ -18,7 +18,7 @@ export default {
 	name: 'Home', 
     components: {
         BottomMenu,
-        ChallengesNavigation,
+        
         ChallengesTotal
         
     },

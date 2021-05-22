@@ -1,7 +1,8 @@
 <template>
 
 <div class="category">
-    <img v-if="!CategoryFavourite" class="favourite" src="../../../assets/star-regular.svg" alt="">
+    <img @click="setFavourite" v-if="!CategoryFavourite" class="favourite" src="../../../assets/star-regular.svg" alt="">
+    <img @click="setFavourite" v-if="CategoryFavourite" class="favourite" src="../../../assets/star-solid.svg" alt="">
     <div class="categoryName">
         {{CategoryName}}
     </div>
@@ -38,7 +39,6 @@ export default {
         CategoryPoints: Number,
         CategoryID: Number,
         CategoryFavourites: Array,
-
         
     },
     data:function() {
@@ -56,10 +56,21 @@ export default {
             }).catch(error => {
                 console.log("Error, Challenge Sets not obtained");
             });
+        },
+
+        setFavourite(){
+            axios.post('api/setfavourite', {categoryname: this.CategoryName}).then(response => {
+                this.CategoryFavourite = !this.CategoryFavourite;
+            }).catch(error => {
+                console.log("Error, Category not set as favourite");
+            });
         }
     },
     created() {
         this.getChallengeSets();
+        if(this.CategoryFavourites[this.CategoryName]){
+            this.CategoryFavourite = true;
+        }
     }
     
 }

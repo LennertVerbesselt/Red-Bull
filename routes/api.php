@@ -78,3 +78,4 @@ Route::post('/follow', [UserController::class, 'follow'])->name('follow');
 Route::post('/unfollow', [UserController::class, 'unfollow'])->name('unfollow');
 
 Route::post('/updateinterests', [CategoryController::class, 'updateInterests'])->name('updateinterests');
+Route::post('/setfavourite', [CategoryController::class, 'setFavourite'])->name('setfavourite');

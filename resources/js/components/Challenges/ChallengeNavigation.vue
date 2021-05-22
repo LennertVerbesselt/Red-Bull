@@ -3,11 +3,13 @@
     
 <div class="ChallengeNavigation">
     
+
     <div :class="[isActiveChallenges ? 'active' : 'inactive']" @click="isActiveChallenges = !isActiveChallenges; isActiveLeaderboards = !isActiveLeaderboards">
-        <img v-if="isActiveFavourites" @click="isActiveFavourites = !isActiveFavourites" class="favourite" src="../../../assets/star-solid.svg" alt="">
-        <img v-if="!isActiveFavourites" @click="isActiveFavourites = !isActiveFavourites" class="favourite" src="../../../assets/star-regular.svg" alt="">
+        
         Challenges
     </div>
+    <img v-if="isActiveFavourites" @click="changeFavourites" class="favourite" src="../../../assets/star-solid.svg" alt="">
+    <img v-if="!isActiveFavourites" @click="changeFavourites" class="favourite" src="../../../assets/star-regular.svg" alt="">
     <div class="line">|</div>
     <div :class="[isActiveLeaderboards ? 'active' : 'inactive']" @click="isActiveLeaderboards = !isActiveLeaderboards; isActiveChallenges = !isActiveChallenges">Leaderboards</div>
     
@@ -29,6 +31,13 @@ export default {
             isActiveFavourites: false,
         }
     },
+    methods: {
+        changeFavourites(){
+            
+            this.isActiveFavourites = !this.isActiveFavourites;
+            this.$emit('change-favourites');
+        }
+    }
 
 }
 </script>
@@ -71,8 +80,11 @@ export default {
 .favourite {
     height: 13px;
     fill: white;
+    margin-left: 6px;
+    margin-right: 6px;
 
     position: relative;
+    top: -3px;
     
     z-index: 4;
 }
