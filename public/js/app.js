@@ -18424,8 +18424,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     onFileChange: function onFileChange(e) {
-      var file = e.target.files[0];
-      this.url = URL.createObjectURL(file);
+      this.file = e.target.files[0];
+      this.url = URL.createObjectURL(this.file);
       this.file = e.target.files[0];
     },
     uploadPost: function uploadPost(e) {

@@ -81,8 +81,8 @@ export default {
 
         },
         onFileChange(e) {
-            const file = e.target.files[0];
-            this.url = URL.createObjectURL(file);
+            this.file = e.target.files[0];
+            this.url = URL.createObjectURL(this.file);
 
               this.file = e.target.files[0];
         },
