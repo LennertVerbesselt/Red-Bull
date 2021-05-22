@@ -17012,7 +17012,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.post('api/getchallengeprogression', {
         challengeid: this.ChallengeID
       }).then(function (response) {
-        _this.ChallengeProgression = response.data.challengeprogression;
+        _this.ChallengeProgression = response.data.challengeprogression[0];
 
         _this.updateChallengeState(response.data.challengeprogression[0]);
       })["catch"](function (error) {
@@ -17059,10 +17059,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getChallengeBadge();
     this.challenge_id = this.ChallengeID;
   },
-  mounted: function mounted() {
-    this.getChallengeBadge();
-    this.getChallengeProgression();
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -17868,11 +17865,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   components: {
     QrStream: vue3_qr_reader__WEBPACK_IMPORTED_MODULE_2__.QrStream
   },
+  props: {
+    ChallengeID: Number
+  },
   data: function data() {
     return {
       isValid: undefined,
       camera: 'auto',
-      result: null
+      result: null,
+      id: null
     };
   },
   computed: {
@@ -17902,20 +17903,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _this.result = content;
+                console.log(_this.result);
 
-                _this.turnCameraOff(); // pretend it's taking really long
+                _this.turnCameraOff();
 
-
-                _context.next = 4;
-                return _this.timeout(3000);
-
-              case 4:
-                _this.isValid = content.startsWith('http'); // some more delay, so users have time to read the message
-
-                _context.next = 7;
+                _this.isValid = undefined;
+                _context.next = 6;
                 return _this.timeout(2000);
 
-              case 7:
+              case 6:
+                // Check backend
+                axios.post('api/checkqrcode', {
+                  qrcode: _this.result,
+                  challengeid: _this.id
+                }).then(function (response) {
+                  if (response.data.status) {
+                    _this.isValid = true;
+
+                    _this.timeout(2000);
+
+                    if (response.data.challengedefined) {
+                      _this.$router.push('/challenges');
+                    } else {
+                      console.log("On your left");
+                    }
+                  } else {
+                    _this.isValid = false;
+                  }
+                })["catch"](function (error) {
+                  console.log("Error");
+                });
+
                 _this.turnCameraOn();
 
               case 8:
@@ -17936,6 +17954,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return new Promise(function (resolve) {
         window.setTimeout(resolve, ms);
       });
+    }
+  },
+  created: function created() {
+    if (this.ChallengeID) {
+      this.id = this.ChallengeID;
     }
   }
 }));
@@ -18870,7 +18893,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     }
   }, {
     "default": _withId(function () {
-      return [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, "0/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeCansNeeded), 1
+      return [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengeProgression.cans_scanned) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeCansNeeded), 1
       /* TEXT */
       )];
     }),
@@ -18983,8 +19006,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   var _component_BottomMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BottomMenu");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_qr_stream, {
+    ChallengeID: _ctx.ChallengeID,
     "class": "pb"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
+  }, null, 8
+  /* PROPS */
+  , ["ChallengeID"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
   /* STABLE_FRAGMENT */
   );
 });
@@ -21466,7 +21492,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.UploadButton[data-v-3fdae5c5] {\r\n    width: 100vw;\r\n    max-width: 400px;\r\n    position: fixed;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    left: 0;\r\n    right: 0;\r\n    \r\n    bottom: 60px;\r\n    width: 40px;\r\n    height: 40px;\r\n    text-align: center;\n}\n.svg-circleplus[data-v-3fdae5c5]{\r\n    position: absolute;\r\n    right: -150px;\r\n    width: 40px;\r\n    height: 40px;\r\n\r\n    box-shadow:0px 0px 30px #EB5876;\r\n    border-radius:100%;\n}\n.svg-circleplus circle[data-v-3fdae5c5]  { \r\n    position: absolute;\r\n    right: 8%;\r\n    bottom: 8%;\r\n    width: 40px;\r\n    height: 40px;\r\n    \r\n    z-index: 5;\n}\n.svg-circleplus line[data-v-3fdae5c5] {\r\n    z-index: 5; \r\n    stroke: white;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.UploadButton[data-v-3fdae5c5] {\r\n    width: 100vw;\r\n    max-width: 400px;\r\n    position: fixed;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    left: 0;\r\n    right: 0;\r\n    \r\n    bottom: 60px;\r\n    width: 40px;\r\n    height: 40px;\r\n    text-align: center;\n}\n.svg-circleplus[data-v-3fdae5c5]{\r\n    position: absolute;\r\n    right: -150px;\r\n    width: 40px;\r\n    height: 40px;\r\n\r\n    box-shadow:0px 0px 15px #EB5876;\r\n    border-radius:100%;\n}\n.svg-circleplus circle[data-v-3fdae5c5]  { \r\n    position: absolute;\r\n    right: 8%;\r\n    bottom: 8%;\r\n    width: 40px;\r\n    height: 40px;\r\n    \r\n    z-index: 5;\n}\n.svg-circleplus line[data-v-3fdae5c5] {\r\n    z-index: 5; \r\n    stroke: white;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -33,11 +33,15 @@ export default defineComponent({
     QrStream,
     
   },
+  props: {
+    ChallengeID: Number,
+  },
   data () {
     return {
       isValid: undefined,
       camera: 'auto',
       result: null,
+      id: null,
     }
   },
   computed: {
@@ -69,15 +73,29 @@ export default defineComponent({
 
     async onDecode (content) {
       this.result = content
-      this.turnCameraOff()
+      console.log(this.result);
+      this.turnCameraOff();
+      this.isValid = undefined;
+      await this.timeout(2000);
 
-      // pretend it's taking really long
-      await this.timeout(3000)
-      this.isValid = content.startsWith('http')
-
-      // some more delay, so users have time to read the message
-      await this.timeout(2000)
-
+      // Check backend
+      axios.post('api/checkqrcode', {qrcode: this.result, challengeid: this.id}).then(response => {
+                if(response.data.status) {
+                  this.isValid = true;
+                  this.timeout(2000);
+                  if(response.data.challengedefined){
+                    this.$router.push('/challenges');
+                  }
+                  else {
+                    console.log("On your left");
+                  }
+                } else {
+                  this.isValid = false;
+                }
+            }).catch(error => {
+                console.log("Error");
+            });
+            
       this.turnCameraOn()
     },
 
@@ -94,7 +112,12 @@ export default defineComponent({
         window.setTimeout(resolve, ms)
       })
     }
-  }
+  },
+  created(){
+        if(this.ChallengeID){
+            this.id = this.ChallengeID;
+        }
+    },
 
 });
 </script>

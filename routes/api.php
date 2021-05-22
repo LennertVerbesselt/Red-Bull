@@ -70,6 +70,9 @@ Route::post('/getchallengeprogression', [ChallengeController::class, 'getChallen
 
 Route::post('/uploadpost', [UploadController::class, 'uploadPost'])->name('uploadpost');
 
+//QR Code Stuff
+Route::post('/checkqrcode', [ChallengeController::class, 'checkQRCode'])->name('checkqrcode');
+
 //Profile Stuff
 Route::post('/follow', [UserController::class, 'follow'])->name('follow');
 Route::post('/unfollow', [UserController::class, 'unfollow'])->name('unfollow');

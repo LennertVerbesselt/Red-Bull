@@ -1,6 +1,6 @@
 <template>
    
-  <qr-stream class="pb"></qr-stream>
+  <qr-stream :ChallengeID="ChallengeID" class="pb"></qr-stream>
 
    <BottomMenu> </BottomMenu>
 

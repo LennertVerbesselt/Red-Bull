@@ -46,7 +46,7 @@ export default {
     width: 40px;
     height: 40px;
 
-    box-shadow:0px 0px 30px #EB5876;
+    box-shadow:0px 0px 15px #EB5876;
     border-radius:100%;
 }
 

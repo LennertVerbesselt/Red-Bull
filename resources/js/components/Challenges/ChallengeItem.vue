@@ -31,7 +31,7 @@
     <div class="qr" v-if="ChallengeLocked">
         <router-link :to="{ name: 'ChallengeQRScanner', params: {id: challenge_id} }">
             <img class="qricon"  src="./../../../assets/ChallengeQRScannerIcon.png" />
-            <div class="qrremaining">0/{{ChallengeCansNeeded}}</div>
+            <div class="qrremaining">{{ChallengeProgression.cans_scanned}}/{{ChallengeCansNeeded}}</div>
         </router-link>
     </div>
 </div>
@@ -76,7 +76,7 @@ export default {
     methods: {
         getChallengeProgression(){
             axios.post('api/getchallengeprogression', {challengeid: this.ChallengeID}).then(response => {
-                this.ChallengeProgression = response.data.challengeprogression;
+                this.ChallengeProgression = response.data.challengeprogression[0];
                 this.updateChallengeState(response.data.challengeprogression[0]);
             }).catch(error => {
                 console.log("Error, Challenge Sets not obtained");
@@ -123,8 +123,7 @@ export default {
         
     },
     mounted() {
-        this.getChallengeBadge();
-        this.getChallengeProgression();
+        
     }
     
 }
