@@ -19,9 +19,12 @@ class UploadController extends Controller
 {
     public function uploadPost(Request $request){
 
+
         if($request->challengeid){
 
-            
+            $request->validate([
+                'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf'
+            ]);
 
             $challengeid = $request->challengeid;
             $challenge = Challenge::find($challengeid);
@@ -82,7 +85,9 @@ class UploadController extends Controller
         
         else {
 
-            
+            $request->validate([
+                'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf'
+            ]);
 
             $description = $request->description;
             $userid = Auth::user()->id;
@@ -117,7 +122,7 @@ class UploadController extends Controller
             $imageName = Auth::user()->id . "-" . Auth::user()->name . "-" . $post->id . "-" . $fileName . ".jpg";
     
             //Save image to AWS
-            $path = Storage::disk('s3')->putFileAs('/Posts',$request->file,$imageName);
+            $path = Storage::disk('s3')->putFileAs('/Posts',$request->url,$imageName);
     
             //Set image on AWS public
             Storage::disk('s3')->setVisibility($path, 'public');

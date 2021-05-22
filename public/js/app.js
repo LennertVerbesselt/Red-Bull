@@ -18442,6 +18442,8 @@ __webpack_require__.r(__webpack_exports__);
       data.append('file', this.file);
       data.append('description', this.caption);
       data.append('challengeid', this.ChallengeID);
+      data.append('url', this.url);
+      console.log(data);
       axios.post('api/uploadpost', data).then(function (response) {
         _this3.$router.push('/');
       })["catch"](function (error) {

@@ -100,6 +100,8 @@ export default {
             data.append('file', this.file);
             data.append('description', this.caption);
             data.append('challengeid', this.ChallengeID);
+            data.append('url', this.url);
+            console.log(data);
             axios.post('api/uploadpost', data).then(response => {
                 this.$router.push('/');
             }).catch(error => {
