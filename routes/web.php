@@ -31,6 +31,9 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('welcome');
 });
+Route::get('/survey', function () {
+    return view('welcome');
+});
 Route::get('/challenges', function () {
     return view('welcome');
 });

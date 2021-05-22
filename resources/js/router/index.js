@@ -3,7 +3,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Login from "../components/LoginForm.vue";
 
 import Register from "../components/RegisterForm.vue";
-import UserInterestSurvey from "../views/UserInterestSurvey.vue";
+import Survey from "../views/Survey.vue";
 
 import Dashboard from "../views/Dashboard.vue";
 import Home from "../views/Home.vue";
@@ -65,6 +65,12 @@ const routes = [
     name: "ChallengeQRScanner",
     component: ChallengeQRScanner,
     props: true,
+  },
+
+  {
+    path: "/survey",
+    name: "Survey",
+    component: Survey,
   },
   
   

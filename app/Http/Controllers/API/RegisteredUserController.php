@@ -51,8 +51,7 @@ class RegisteredUserController extends Controller
         $categories = Category::get();
         $favouritecategories = [];
         foreach($categories as $category){
-            $a = [$category->favourites => 0];
-            array_push($favouritecategories, $a);
+            $favouritecategories[$category->category_name] = 0;
         }
         $user_interests_categories = User_Interests_Categories::create([
             'user_id' => $user->id,

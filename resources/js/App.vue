@@ -47,6 +47,11 @@ export default {
   src: url(../fonts/Berthold Akzidenz Grotesk Light.otf)format("opentype");
 }
 
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  src: url(../fonts/Font Awesome 5 Free-Solid-900.otf)format("opentype");
+}
+
 #app {
   font-family: "Akzidenz Regular", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

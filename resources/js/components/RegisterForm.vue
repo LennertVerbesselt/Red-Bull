@@ -41,7 +41,7 @@ export default {
         register() {
             axios.post('api/register', this.fields).then(response => {
                 this.fields={};
-                this.$router.push('/');
+                this.$router.push('/survey');
             }).catch(error => {
                 console.log("Error");
             });

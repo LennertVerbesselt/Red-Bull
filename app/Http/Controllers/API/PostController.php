@@ -177,9 +177,11 @@ class PostController extends Controller
                 $totalvotes = $upvotes + $downvotes;
 
                 if($totalvotes == $minimumtotal){
-                    if(($downvotes * $ratio) < $upvotes){
+                    if(($downvotes * $ratio) <= $upvotes){
                         $progression = Challenge_Progression::where('user_id', $post->user_id)->where('challenge_id', $post->challenge_id)->get()->first();
 
+                        $progression->locked = 0;
+                        $progression->unlocked = 0;
                         $progression->pending = 0;
                         $progression->complete = 1;
                         $progression->save();
@@ -187,8 +189,10 @@ class PostController extends Controller
                     } else {
                         $progression = Challenge_Progression::where('user_id', $post->user_id)->where('challenge_id', $post->challenge_id)->get()>first();
 
+                        $progression->locked = 0;
                         $progression->pending = 0;
                         $progression->unlocked = 1;
+                        $progression->complete = 0;
                         $progression->save();
                         
                     }
