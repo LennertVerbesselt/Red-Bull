@@ -82,21 +82,26 @@ export default defineComponent({
       axios.post('api/checkqrcode', {qrcode: this.result, challengeid: this.id}).then(response => {
                 if(response.data.status) {
                   this.isValid = true;
-                  this.timeout(2000);
-                  if(response.data.challengedefined){
-                    this.$router.push('/challenges');
-                  }
-                  else {
-                    console.log("On your left");
-                  }
+                  this.handleValidQRCode(response.data.challengedefined);
+                   
                 } else {
                   this.isValid = false;
                 }
             }).catch(error => {
                 console.log("Error");
             });
-            
+
       this.turnCameraOn()
+    },
+
+    async handleValidQRCode(c) {
+      await this.timeout(2000);
+        if(c){
+          this.$router.push('/challenges');
+        }
+        else {
+          console.log("On your left");
+        }
     },
 
     turnCameraOn () {
