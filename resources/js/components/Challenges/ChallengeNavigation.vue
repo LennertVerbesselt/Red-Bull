@@ -3,15 +3,19 @@
     
 <div class="ChallengeNavigation">
     
-    <div :class="[isActiveChallenges ? 'active' : 'inactive']" @click="isActiveChallenges = !isActiveChallenges; isActiveLeaderboards = !isActiveLeaderboards">Challenges</div>
+    <div :class="[isActiveChallenges ? 'active' : 'inactive']" @click="isActiveChallenges = !isActiveChallenges; isActiveLeaderboards = !isActiveLeaderboards">
+        <img v-if="isActiveFavourites" @click="isActiveFavourites = !isActiveFavourites" class="favourite" src="../../../assets/star-solid.svg" alt="">
+        <img v-if="!isActiveFavourites" @click="isActiveFavourites = !isActiveFavourites" class="favourite" src="../../../assets/star-regular.svg" alt="">
+        Challenges
+    </div>
     <div class="line">|</div>
     <div :class="[isActiveLeaderboards ? 'active' : 'inactive']" @click="isActiveLeaderboards = !isActiveLeaderboards; isActiveChallenges = !isActiveChallenges">Leaderboards</div>
     
     
 </div>
+
 </div>
-<img v-if="isActiveFavourites" @click="isActiveFavourites = !isActiveFavourites" class="favourite" src="../../../assets/star-solid.svg" alt="">
-<img v-if="!isActiveFavourites" @click="isActiveFavourites = !isActiveFavourites" class="favourite" src="../../../assets/star-regular.svg" alt="">
+
     
 </template>
 
@@ -68,9 +72,8 @@ export default {
     height: 13px;
     fill: white;
 
-    position: absolute;
-    left: 18%;
-    top: 30px;
+    position: relative;
+    
     z-index: 4;
 }
 

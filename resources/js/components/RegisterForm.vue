@@ -12,8 +12,8 @@
             <input type="password"  class="" placeholder="Confirm password" v-model="fields.password_confirmation">
         </div>
         <div class="loginSection">
-           <form-button type="secondary submit">Register</form-button>
-           <router-link to="/login"><a class="BTL">Back to Login</a></router-link>
+           <router-link to="/login"><form-button class="button" type="secondary">Back</form-button></router-link>
+           <form-button class="button" type="primary submit">Register</form-button>
         </div>
         <h4 class="text-center">or use one of the following methods:</h4>
         <div class="mediaSection">
@@ -110,6 +110,17 @@ h4 {
     bottom: 50px;
     margin-top: 1rem;
     padding-right: 1rem;
+}
+
+.loginSection {
+    position: relative;
+    width: 90%;
+    left: 5%;
+}
+
+.button {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 

@@ -1,6 +1,7 @@
 <template>
     <Carousel class="carousel"></Carousel>
 	<FeedTotal></FeedTotal>
+	<UploadIcon></UploadIcon>
    <BottomMenu> </BottomMenu>
 
 </template>
@@ -13,6 +14,7 @@ import FeedPost from '../components/Feed/FeedPost'
 import PostItem from '../components/Feed/PostItem'
 import FeedNavigation from '../components/Feed/FeedNavigation'
 import FeedTotal from '../components/Feed/FeedTotal'
+import UploadIcon from '../components/UploadIcon.vue'
 
 
 export default {
@@ -25,6 +27,7 @@ export default {
 		PostItem,
 		FeedNavigation,
 		FeedTotal,
+		UploadIcon,
     },
 	methods: {
 		checkIfLoggedIn() {
