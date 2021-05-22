@@ -85,7 +85,7 @@ class UploadController extends Controller
         else {
 
             $request->validate([
-                'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf'
+                'file' => 'required'
             ]);
 
             $description = $request->description;
