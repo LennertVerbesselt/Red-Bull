@@ -4,8 +4,8 @@
         <router-link to="/"><HomeIcon></HomeIcon></router-link>
         <router-link to="/challenges"><TrophyIcon></TrophyIcon></router-link>
         <router-link to="/qrscanner"><QRIcon></QRIcon></router-link>
-        <router-link to="/register"><CalendarIcon></CalendarIcon></router-link>
-        <router-link to="/Profile"><ProfileIcon></ProfileIcon></router-link>
+        <router-link to="/events"><CalendarIcon></CalendarIcon></router-link>
+        <router-link to="/profile"><ProfileIcon></ProfileIcon></router-link>
         
 
         

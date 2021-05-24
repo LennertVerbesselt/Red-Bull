@@ -49,6 +49,11 @@ const routes = [
     component: QRScanner,
   },
   {
+    path: "/events",
+    name: "Events",
+    component: Events,
+  },
+  {
     path: "/profile",
     name: "Profile",
     component: Profile,
