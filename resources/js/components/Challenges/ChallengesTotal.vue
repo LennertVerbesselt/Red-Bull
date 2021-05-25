@@ -1,17 +1,17 @@
 <template>
 <challenges-navigation @change-favourites="changeFavourites"></challenges-navigation>
 <div v-if="!FavouritesActive">
-<li  class="category" :key="category" v-for="category in Categories">
+<li  class="category" :key="category" v-for="category in ChallengesPage">
     <div>
-    <ChallengeCategory :CategoryFavourites="Favourites" :CategoryID="category.category_id" :CategoryName="category.category_name" :CategoryPoints="Points"></ChallengeCategory>
+    <ChallengeCategory :CategoryFavourites="Favourites" :CategoryID="category.category_id" :CategoryName="category.category_name" :Category="category"></ChallengeCategory>
     </div>
 </li>
 </div>
 
 <div v-if="FavouritesActive">
-<li  class="category" :key="category" v-for="category in FavouriteCategories">
-    <div>
-    <ChallengeCategory :CategoryFavourites="Favourites" :CategoryID="category.category_id" :CategoryName="category.category_name" :CategoryPoints="Points"></ChallengeCategory>
+<li  class="category" :key="category" v-for="category in ChallengesPage">
+    <div v-if="FavouriteCategories[category.category_name]">
+    <ChallengeCategory :CategoryFavourites="Favourites" :CategoryID="category.category_id" :CategoryName="category.category_name" :Category="category"></ChallengeCategory>
     </div>
 </li>
 </div>
@@ -39,6 +39,7 @@ export default {
             FavouriteCategories: [],
             Favourites: [],
             FavouritesActive: false,
+            ChallengesPage: [],
         }
     },
     methods: {
@@ -53,15 +54,30 @@ export default {
             });
         },
 
+        getChallengesPage() {
+            axios.get('api/getchallengespage').then(response => {
+                console.log(response.data);
+                this.ChallengesPage = response.data.challengespage;
+                this.FavouriteCategories = response.data.favouritecategories;
+
+                console.log("All Challenges Obtained");
+            }).catch(error => {
+                console.log("Error, All challenges not obtained");
+            });
+        },
+
         changeFavourites() {
             this.FavouritesActive = !this.FavouritesActive;
             this.getCategories();
+            this.getChallengesPage();
+            
         }
          
 
     },
     created() {
         this.getCategories();
+        this.getChallengesPage();
     }
     
 }

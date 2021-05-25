@@ -56,6 +56,9 @@ Route::post('/downvote', [PostController::class, 'downvote'])->name('downvote');
 
 
 //Challenges Page Stuff
+
+Route::get('/getchallengespage', [ChallengeController::class, 'getChallengesPage'])->name('getchallengespage');
+
 Route::get('/getcategories', [CategoryController::class, 'getCategories'])->name('getcategories');
 
 Route::get('/getchallengesets', [ChallengeController::class, 'getChallengeSets'])->name('getchallengesets');

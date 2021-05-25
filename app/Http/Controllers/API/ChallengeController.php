@@ -14,6 +14,7 @@ use App\Models\Challenge;
 use App\Models\Challenge_Progression;
 use App\Models\Challenge_Badge;
 use App\Models\QR;
+use App\Models\User_Interests_Categories;
 
 
 
@@ -91,5 +92,87 @@ class ChallengeController extends Controller
         }
 
         //return['status' => $status, 'challengedefined' => $challengedefined];
+    }
+
+    public function getChallengesPage(){
+
+        $categories = Category::get();
+        $challengesets = Challenge_Set::get();
+        $challenges = Challenge::get();
+        $challengebadges = Challenge_Badge::get();
+        $challengeprogressions = Challenge_Progression::where('user_id', Auth::user()->id)->get();
+
+        $challengespage = [];
+
+        foreach($categories as $category){
+            $categorysub = [];
+
+            $categorysub['category_id'] = $category->category_id;
+            $categorysub['category_name'] = $category->category_name;
+
+            foreach($challengesets as $challengeset){
+
+                if($challengeset->category_id == $category->category_id){
+                    $challengesubset = [];
+
+                    $challengesubset['id'] = $challengeset->id;
+                    $challengesubset['event_id'] = $challengeset->event_id;
+                    $challengesubset['category_id'] = $challengeset->category_id;
+                    $challengesubset['name'] = $challengeset->name;
+                    $challengesubset['length'] = $challengeset->length;
+                    $challengesubset['difficulty'] = $challengeset->difficulty;
+                    $challengesubset['active_untill'] = $challengeset->active_untill;
+
+                    foreach($challenges as $challenge){
+
+                        if($challenge->challenge_set_id === $challengeset->id){
+                            $challengesub = [];
+
+                            $challengesub['id'] = $challenge->id;
+                            $challengesub['challenge_set_id'] = $challenge->challenge_set_id;
+                            $challengesub['name'] = $challenge->name;
+                            $challengesub['difficulty'] = $challenge->difficulty;
+                            $challengesub['description'] = $challenge->description;
+                            $challengesub['points'] = $challenge->points;
+                            $challengesub['cans_needed_to_unlock'] = $challenge->cans_needed_to_unlock;
+                            $challengesub['upvote_ratio'] = $challenge->upvote_ratio;
+
+                            foreach($challengebadges as $challengebadge){
+                                if($challengebadge->challenge_id == $challenge->id){
+                                    $challengesub['badge'] = $challengebadge->url;
+                                }
+                            }
+                            foreach($challengeprogressions as $challengeprogression){
+                                if($challengeprogression->challenge_id == $challenge->id){
+                                    $challengesub['progression'] = $challengeprogression;
+                                }
+                            }
+
+                            $challengesubset['challenges'][$challenge->id] = $challengesub;
+                        }
+                    }
+
+                    $categorysub['challengesets'][$challengeset->id] = $challengesubset;
+
+                }
+            }
+
+            array_push($challengespage, $categorysub);
+        }
+
+
+
+
+        $favourites = (array) json_decode(User_interests_Categories::where('user_id', Auth::user()->id)->get()->first()->favourites);
+        
+        $FavouriteCategories = [];
+
+        foreach($categories as $category) {
+            if($favourites[$category->category_name]){
+                array_push($FavouriteCategories, $category);
+            }
+        }
+
+        return ['challengespage' => $challengespage, 'favouritecategories' => $favourites];
     }
 }

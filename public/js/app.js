@@ -16937,7 +16937,8 @@ __webpack_require__.r(__webpack_exports__);
     CategoryName: String,
     CategoryPoints: Number,
     CategoryID: Number,
-    CategoryFavourites: Array
+    CategoryFavourites: Object,
+    Category: Object
   },
   data: function data() {
     return {
@@ -16970,11 +16971,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    this.getChallengeSets();
-
     if (this.CategoryFavourites[this.CategoryName]) {
       this.CategoryFavourite = true;
     }
+
+    this.ChallengeSets = this.Category['challengesets'];
   }
 });
 
@@ -16992,6 +16993,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _ChallengeQRScanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChallengeQRScanner.vue */ "./resources/js/components/Challenges/ChallengeQRScanner.vue");
+var _props;
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -17000,19 +17003,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     QRScanner: _ChallengeQRScanner_vue__WEBPACK_IMPORTED_MODULE_0__.default
   },
-  props: _defineProperty({
+  props: (_props = {
     ChallengeName: String,
     ChallengePoints: Number,
     ChallengeID: Number,
     ChallengeDifficulty: Number,
     ChallengeDescription: String,
     ChallengeCansNeeded: String
-  }, "ChallengePoints", Number),
+  }, _defineProperty(_props, "ChallengePoints", Number), _defineProperty(_props, "ChallengeProgression", Object), _defineProperty(_props, "ChallengeBadge", String), _props),
   data: function data() {
     return {
       ChallengeExpand: false,
-      ChallengeProgression: [],
-      ChallengeBadge: "",
       ChallengeLocked: true,
       ChallengeUnlocked: false,
       ChallengePending: false,
@@ -17070,9 +17071,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   created: function created() {
-    this.getChallengeProgression();
-    this.getChallengeBadge();
-    this.challenge_id = this.ChallengeID;
+    this.updateChallengeState(this.ChallengeProgression);
   },
   mounted: function mounted() {}
 });
@@ -17193,12 +17192,12 @@ __webpack_require__.r(__webpack_exports__);
     ChallengeSetName: String,
     ChallengeSetEventID: Number,
     ChallengeSetLength: Number,
-    ChallengeSetDifficulty: Number
+    ChallengeSetDifficulty: Number,
+    Challenges: Object
   },
   data: function data() {
     return {
-      ChallengeSetShow: true,
-      Challenges: []
+      ChallengeSetShow: true
     };
   },
   methods: {
@@ -17215,9 +17214,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {},
-  mounted: function mounted() {
-    this.getChallenges();
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -17251,7 +17248,8 @@ __webpack_require__.r(__webpack_exports__);
       Categories: [],
       FavouriteCategories: [],
       Favourites: [],
-      FavouritesActive: false
+      FavouritesActive: false,
+      ChallengesPage: []
     };
   },
   methods: {
@@ -17267,13 +17265,27 @@ __webpack_require__.r(__webpack_exports__);
         console.log("Error, categories not obtained");
       });
     },
+    getChallengesPage: function getChallengesPage() {
+      var _this2 = this;
+
+      axios.get('api/getchallengespage').then(function (response) {
+        console.log(response.data);
+        _this2.ChallengesPage = response.data.challengespage;
+        _this2.FavouriteCategories = response.data.favouritecategories;
+        console.log("All Challenges Obtained");
+      })["catch"](function (error) {
+        console.log("Error, All challenges not obtained");
+      });
+    },
     changeFavourites: function changeFavourites() {
       this.FavouritesActive = !this.FavouritesActive;
       this.getCategories();
+      this.getChallengesPage();
     }
   },
   created: function created() {
     this.getCategories();
+    this.getChallengesPage();
   }
 });
 
@@ -18881,9 +18893,6 @@ var _hoisted_3 = {
 var _hoisted_4 = {
   key: 0
 };
-var _hoisted_5 = {
-  key: 0
-};
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -18928,12 +18937,13 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       "class": "ChallengeSet",
       key: challengeset
-    }, [$props.CategoryID == challengeset.category_id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeSet, {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeSet, {
       ChallengeSetName: challengeset.name,
-      ChallengeSetID: challengeset.id
+      ChallengeSetID: challengeset.id,
+      Challenges: challengeset.challenges
     }, null, 8
     /* PROPS */
-    , ["ChallengeSetName", "ChallengeSetID"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+    , ["ChallengeSetName", "ChallengeSetID", "Challenges"])]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
@@ -19039,7 +19049,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_ctx.ChallengeLocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [_hoisted_3, _ctx.ChallengeLocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeName), 1
   /* TEXT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengeUnlocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-    src: _ctx.ChallengeBadge,
+    src: $props.ChallengeBadge,
     "class": "greybadge"
   }, null, 8
   /* PROPS */
@@ -19062,14 +19072,14 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   }, 8
   /* PROPS */
   , ["to"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePending ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-    src: _ctx.ChallengeBadge,
+    src: $props.ChallengeBadge,
     "class": "greybadge"
   }, null, 8
   /* PROPS */
   , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeName) + ": Pending ", 1
   /* TEXT */
   )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengeComplete ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-    src: _ctx.ChallengeBadge,
+    src: $props.ChallengeBadge,
     "class": "badge"
   }, null, 8
   /* PROPS */
@@ -19084,7 +19094,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     }
   }, {
     "default": _withId(function () {
-      return [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengeProgression.cans_scanned) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeCansNeeded), 1
+      return [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeProgression.cans_scanned) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeCansNeeded), 1
       /* TEXT */
       )];
     }),
@@ -19271,7 +19281,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     }),
     src: _assets_upvote_png__WEBPACK_IMPORTED_MODULE_2__.default,
     alt: ""
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), _ctx.ChallengeSetShow ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.Challenges, function (challenge) {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), _ctx.ChallengeSetShow ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.Challenges, function (challenge) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       key: challenge
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Challenge, {
@@ -19280,10 +19290,12 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       ChallengeDescription: challenge.description,
       ChallengeDifficulty: challenge.difficulty,
       ChallengeID: challenge.id,
-      ChallengePoints: challenge.points
+      ChallengePoints: challenge.points,
+      ChallengeBadge: challenge.badge,
+      ChallengeProgression: challenge.progression
     }, null, 8
     /* PROPS */
-    , ["ChallengeName", "ChallengeCansNeeded", "ChallengeDescription", "ChallengeDifficulty", "ChallengeID", "ChallengePoints"])]);
+    , ["ChallengeName", "ChallengeCansNeeded", "ChallengeDescription", "ChallengeDifficulty", "ChallengeID", "ChallengePoints", "ChallengeBadge", "ChallengeProgression"])]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
@@ -19317,6 +19329,9 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   key: 1
 };
+var _hoisted_3 = {
+  key: 0
+};
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -19329,7 +19344,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     onChangeFavourites: $options.changeFavourites
   }, null, 8
   /* PROPS */
-  , ["onChangeFavourites"]), !_ctx.FavouritesActive ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.Categories, function (category) {
+  , ["onChangeFavourites"]), !_ctx.FavouritesActive ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.ChallengesPage, function (category) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       "class": "category",
       key: category
@@ -19337,24 +19352,24 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       CategoryFavourites: _ctx.Favourites,
       CategoryID: category.category_id,
       CategoryName: category.category_name,
-      CategoryPoints: _ctx.Points
+      Category: category
     }, null, 8
     /* PROPS */
-    , ["CategoryFavourites", "CategoryID", "CategoryName", "CategoryPoints"])])]);
+    , ["CategoryFavourites", "CategoryID", "CategoryName", "Category"])])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.FavouritesActive ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.FavouriteCategories, function (category) {
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.FavouritesActive ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.ChallengesPage, function (category) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       "class": "category",
       key: category
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeCategory, {
+    }, [_ctx.FavouriteCategories[category.category_name] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeCategory, {
       CategoryFavourites: _ctx.Favourites,
       CategoryID: category.category_id,
       CategoryName: category.category_name,
-      CategoryPoints: _ctx.Points
+      Category: category
     }, null, 8
     /* PROPS */
-    , ["CategoryFavourites", "CategoryID", "CategoryName", "CategoryPoints"])])]);
+    , ["CategoryFavourites", "CategoryID", "CategoryName", "Category"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64

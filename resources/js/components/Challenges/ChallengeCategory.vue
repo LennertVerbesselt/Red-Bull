@@ -17,9 +17,7 @@
 </div>
 <div v-if="ShowCategory">
     <li class="ChallengeSet" :key="challengeset" v-for="challengeset in ChallengeSets">
-        <div v-if="CategoryID == challengeset.category_id">
-            <ChallengeSet :ChallengeSetName="challengeset.name" :ChallengeSetID="challengeset.id"></ChallengeSet>
-        </div>
+            <ChallengeSet :ChallengeSetName="challengeset.name" :ChallengeSetID="challengeset.id" :Challenges="challengeset.challenges" ></ChallengeSet>
     </li>
 </div>
     
@@ -38,7 +36,8 @@ export default {
         CategoryName: String,
         CategoryPoints: Number,
         CategoryID: Number,
-        CategoryFavourites: Array,
+        CategoryFavourites: Object,
+        Category: Object,
         
     },
     data:function() {
@@ -67,10 +66,10 @@ export default {
         }
     },
     created() {
-        this.getChallengeSets();
         if(this.CategoryFavourites[this.CategoryName]){
             this.CategoryFavourite = true;
         }
+        this.ChallengeSets = this.Category['challengesets'];
     }
     
 }

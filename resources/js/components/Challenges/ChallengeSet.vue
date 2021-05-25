@@ -14,7 +14,7 @@
 </div>
 <div v-if="ChallengeSetShow">
     <li :key="challenge" v-for="challenge in Challenges">
-        <Challenge :ChallengeName="challenge.name" :ChallengeCansNeeded="challenge.cans_needed_to_unlock" :ChallengeDescription="challenge.description" :ChallengeDifficulty="challenge.difficulty" :ChallengeID="challenge.id" :ChallengePoints="challenge.points"></Challenge>
+        <Challenge :ChallengeName="challenge.name" :ChallengeCansNeeded="challenge.cans_needed_to_unlock" :ChallengeDescription="challenge.description" :ChallengeDifficulty="challenge.difficulty" :ChallengeID="challenge.id" :ChallengePoints="challenge.points" :ChallengeBadge="challenge.badge" :ChallengeProgression="challenge.progression" ></Challenge>
     </li>
 </div>
     
@@ -39,12 +39,13 @@ export default {
         ChallengeSetEventID: Number,
         ChallengeSetLength: Number,
         ChallengeSetDifficulty: Number,
+        Challenges: Object,
 
     },
     data:function() {
         return {
             ChallengeSetShow: true,
-            Challenges: [],
+            
         }
     },
     methods: {
@@ -60,7 +61,7 @@ export default {
         
     },
     mounted() {
-        this.getChallenges();
+        
     }
     
 }

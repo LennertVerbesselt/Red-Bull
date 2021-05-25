@@ -64,14 +64,14 @@ export default {
         ChallengeDescription: String,
         ChallengeCansNeeded: String,
         ChallengePoints: Number,
+        ChallengeProgression: Object,
+        ChallengeBadge: String,
         
         
     },
     data:function() {
         return {
             ChallengeExpand: false,
-            ChallengeProgression: [],
-            ChallengeBadge: "",
             ChallengeLocked: true,
             ChallengeUnlocked: false,
             ChallengePending: false,
@@ -122,9 +122,7 @@ export default {
         }
     },
     created() {
-        this.getChallengeProgression();
-        this.getChallengeBadge();
-        this.challenge_id = this.ChallengeID;
+        this.updateChallengeState(this.ChallengeProgression);
         
         
     },
