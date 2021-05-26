@@ -68,7 +68,6 @@ export default {
 
         changeFavourites() {
             this.FavouritesActive = !this.FavouritesActive;
-            this.getCategories();
             this.getChallengesPage();
             
         }
@@ -76,7 +75,6 @@ export default {
 
     },
     created() {
-        this.getCategories();
         this.getChallengesPage();
     }
     
