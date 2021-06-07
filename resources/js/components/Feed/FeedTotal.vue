@@ -1,15 +1,18 @@
 <template>
     <FeedNavigation @change="changePage"></FeedNavigation>
-	<div v-if="featured">
-		<div :key="featuredpost" v-for="featuredpost in FeaturedPosts">
-			<PostItem :Post="featuredpost"></PostItem>
+	<transition name="featured" mode="out-in">
+		<div v-if="featured">
+			<div :key="featuredpost" v-for="featuredpost in FeaturedPosts">
+				<PostItem :Post="featuredpost"></PostItem>
+			</div>
 		</div>
-	</div>
-	<div v-if="!featured">
-		<div :key="followingpost" v-for="followingpost in FollowingPosts">
-			<PostItem :Post="followingpost"></PostItem>
+	
+		<div v-else>
+			<div :key="followingpost" v-for="followingpost in FollowingPosts">
+				<PostItem :Post="followingpost"></PostItem>
+			</div>
 		</div>
-	</div>
+	</transition>
 
 </template>
 
@@ -36,6 +39,7 @@ export default {
             FeaturedPosts: [],
 			FollowingPosts: [],
 			featured: true,
+			following: false,
         }
     },
 	methods: {
@@ -49,6 +53,7 @@ export default {
 
 		changePage(){
 			this.featured = !this.featured;
+			this.following = !this.following;
 			if(this.featured){
 				this.getFeaturedPosts();
 			} else {
@@ -76,6 +81,7 @@ export default {
 	},
 	created(){
 		this.getFeaturedPosts();
+		this.getFollowingPosts();
 	}
 }
 </script>
@@ -83,5 +89,18 @@ export default {
 <style scoped>
 
 
+.featured-enter-active,  .featured-leave-active{
+	transition: all 0.3s ease-out;
+}
+
+.featured-enter-from {
+	transform: translateX(100%);
+	opacity:0;
+}
+
+.featured-leave-to {
+	transform: translateX(-100%);
+	opacity:0;
+}
 
 </style>
