@@ -1,16 +1,17 @@
 <template>
 
-<h1 class="pagetitle">What do you find interesting?</h1>
-<div class="instructions">Select all that apply:</div>
 
-<form  @submit.prevent="updateInterests">
-    <div class="container">
-    <ul class="ks-cboxtags" :key="category" v-for="category in Categories">
-        <li><input v-model="fields[category.category_name]" class="box" type="checkbox" :id="category.category_id" value="{{category.category_id}}"><label :for="category.category_id">{{category.category_name}}</label></li>
-    </ul>
-    </div>
-    <form-button class="button" type="primary submit">I'm done!</form-button>
-</form>
+    <h1 class="pagetitle">What do you find interesting?</h1>
+    <div class="instructions">Select all that apply:</div>
+
+    <form  @submit.prevent="updateInterests">
+        <div class="container">
+        <ul class="ks-cboxtags" :key="category" v-for="category in Categories">
+            <li><input v-model="fields[category.category_name]" class="box" type="checkbox" :id="category.category_id" value="{{category.category_id}}"><label :for="category.category_id">{{category.category_name}}</label></li>
+        </ul>
+        </div>
+        <form-button class="button" type="primary submit">I'm done!</form-button>
+    </form>
     
 </template>
 

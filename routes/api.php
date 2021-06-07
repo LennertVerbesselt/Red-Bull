@@ -11,6 +11,7 @@ use App\Http\Controllers\API\ChallengeController;
 use App\Http\Controllers\API\UploadController;
 use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\ProfileController;
 
 
 
@@ -82,3 +83,5 @@ Route::post('/unfollow', [UserController::class, 'unfollow'])->name('unfollow');
 
 Route::post('/updateinterests', [CategoryController::class, 'updateInterests'])->name('updateinterests');
 Route::post('/setfavourite', [CategoryController::class, 'setFavourite'])->name('setfavourite');
+
+Route::get('/getprofiledata', [ProfileController::class, 'getProfileData'])->name('getprofiledata');

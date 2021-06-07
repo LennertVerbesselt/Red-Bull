@@ -94,12 +94,12 @@ export default {
 }
 
 .featured-enter-from {
-	transform: translateX(100%);
+	
 	opacity:0;
 }
 
 .featured-leave-to {
-	transform: translateX(-100%);
+	
 	opacity:0;
 }
 
