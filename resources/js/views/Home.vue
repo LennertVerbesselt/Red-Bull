@@ -1,7 +1,7 @@
 <template>
     <Carousel class="carousel"></Carousel>
 	<FeedTotal></FeedTotal>
-	<!--<UploadIcon></UploadIcon>-->
+	<UploadIcon></UploadIcon>
    <BottomMenu> </BottomMenu>
 
 </template>
