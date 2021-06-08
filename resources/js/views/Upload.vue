@@ -62,6 +62,7 @@ export default {
                 url: null,
                 file: null,
                 fromChallenge: true,
+                fileName: "",
             }
         },
 	methods: {
@@ -85,6 +86,8 @@ export default {
             this.url = URL.createObjectURL(this.file);
 
               this.file = e.target.files[0];
+              this.fileName = e.target.files[0].name;
+              console.log(this.fileName);
         },
 
         uploadPost(e){
@@ -101,6 +104,7 @@ export default {
             data.append('description', this.caption);
             data.append('challengeid', this.ChallengeID);
             data.append('url', this.url);
+            data.append('filename', this.fileName);
             console.log(data);
             axios.post('api/uploadpost', data).then(response => {
                 this.$router.push('/');

@@ -18673,7 +18673,8 @@ __webpack_require__.r(__webpack_exports__);
       caption: "",
       url: null,
       file: null,
-      fromChallenge: true
+      fromChallenge: true,
+      fileName: ""
     };
   },
   methods: {
@@ -18701,6 +18702,8 @@ __webpack_require__.r(__webpack_exports__);
       this.file = e.target.files[0];
       this.url = URL.createObjectURL(this.file);
       this.file = e.target.files[0];
+      this.fileName = e.target.files[0].name;
+      console.log(this.fileName);
     },
     uploadPost: function uploadPost(e) {
       var _this3 = this;
@@ -18717,6 +18720,7 @@ __webpack_require__.r(__webpack_exports__);
       data.append('description', this.caption);
       data.append('challengeid', this.ChallengeID);
       data.append('url', this.url);
+      data.append('filename', this.fileName);
       console.log(data);
       axios.post('api/uploadpost', data).then(function (response) {
         _this3.$router.push('/');

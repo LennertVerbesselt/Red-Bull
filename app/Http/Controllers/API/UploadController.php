@@ -90,6 +90,8 @@ class UploadController extends Controller
                 'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf'
             ]);*/
 
+            //Get current file extension
+
             $description = $request->description;
             $userid = Auth::user()->id;
             $user = User::find($userid);
@@ -119,11 +121,10 @@ class UploadController extends Controller
                 $fileName .= $character;
             }
 
-            //Get current file extension
-            $ext = parse_url($request->file)['path'];
+            
     
             //Compile image name with generated name and readable data for debugging
-            $imageName = Auth::user()->id . "-" . Auth::user()->name . "-" . $post->id . "-" . $fileName . $ext;
+            $imageName = Auth::user()->id . "-" . Auth::user()->name . "-" . $post->id . "-" . $fileName . $request->filename;
     
             //Save image to AWS
             $path = Storage::disk('s3')->putFileAs('/Posts',$request->file,$imageName);
