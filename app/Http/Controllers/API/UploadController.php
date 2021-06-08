@@ -120,7 +120,7 @@ class UploadController extends Controller
             }
 
             //Get current file extension
-            $ext = parse_url($url)['path'];
+            $ext = parse_url($request->file)['path'];
     
             //Compile image name with generated name and readable data for debugging
             $imageName = Auth::user()->id . "-" . Auth::user()->name . "-" . $post->id . "-" . $fileName . $ext;
