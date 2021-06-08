@@ -14,10 +14,9 @@
 
 
   <div class="main-profile-header">
-      
-      <!--<div class="background-username">
-      {{Profile['first_name'].toUpperCase()}}
-    </div>-->
+    
+
+    
     <div class="avatar">
         
             
@@ -216,9 +215,10 @@ export default {
   height: 150px;
   
   position: absolute;
-  width:450px;
+  width:100%;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 /*remove p*/
