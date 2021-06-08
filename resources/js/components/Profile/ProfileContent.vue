@@ -76,7 +76,9 @@ export default {
 .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
 .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
 .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
-  display: block;
+  display:flex;
+    justify-content: left;
+    width: 100vw;
 }
 
 /*
@@ -101,7 +103,7 @@ export default {
   left: 0px;
   bottom: 1px;
   width: 100%;
-  height: 2px;
+  height: 4px;
   background: white;
 }
 
@@ -124,6 +126,10 @@ export default {
 }
 
 .tab-panel {
+    display:flex;
+    justify-content: left;
+    width: 100vw;
+    margin-top: 0;
 }
 
 .tabset {
@@ -131,15 +137,20 @@ export default {
     margin-top: 25px;
     width: 100%;
     display: inline-flex;
+    flex-wrap: wrap;
     
 }
 
 .all-posts {
-    display:block;
+    
+
 }
 
 .all-posts img {
-    width: 0px;
+    display: block;
+    max-width:50%;
+    height:200px;
+    object-fit: cover;
 }
 
 </style>
