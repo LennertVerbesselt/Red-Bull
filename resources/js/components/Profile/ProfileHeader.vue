@@ -6,7 +6,7 @@
   <div class="main-profile-header">
     <div class="avatar">
         
-            <svg class="avatar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.44 14.78"><defs></defs><g id="Layer_2" data-name="Layer 2"><g id="Profile"><path class="cls-1" d="M13.59,1.36A2.3,2.3,0,0,0,12.54,1c-.31,0-.62.08-.93.09C10.59,1.19,9,.05,8.89,0s-.17.06-.14.15a7.43,7.43,0,0,0,.73,1.12,2.21,2.21,0,0,0,.84.52c.69.28,1.43.41,2.13.68a1.61,1.61,0,0,1,.7.44,1.25,1.25,0,0,1-.06,1.45,3.41,3.41,0,0,1-.6.6.94.94,0,0,1-.67,0l0,.06a5.64,5.64,0,0,0-8,0L3.91,5a1,1,0,0,1-.65.06,2.75,2.75,0,0,1-.91-.71A1.26,1.26,0,0,1,2.3,2.93,1.66,1.66,0,0,1,3,2.48c.7-.26,1.44-.39,2.14-.67A2.15,2.15,0,0,0,6,1.28,6.48,6.48,0,0,0,6.73.16c0-.11,0-.19-.19-.15S4.86,1.19,3.83,1.13C3.52,1.12,3.22,1,2.9,1a2.26,2.26,0,0,0-1,.32A3.59,3.59,0,0,0,.29,5.92a4.23,4.23,0,0,0,1.6,1.8,1.56,1.56,0,0,1,.32.76,5.68,5.68,0,0,0,11.21,1.75,7.21,7.21,0,0,0,.11-1.13,6.83,6.83,0,0,0-.06-.79v0a1.62,1.62,0,0,1,.34-.79h0a4.18,4.18,0,0,0,1.37-1.63A3.58,3.58,0,0,0,13.59,1.36Z"/></g></g></svg>
+            
         <div class="avatar-profile-picture">
             <img :src="ProfilePicture['url']" />
         </div>
@@ -15,21 +15,21 @@
         </div>
 
     </div>
-    <div class="Stats">
+    
         <div class="posts-amount">
-            <span></span>
-            <span>Posts</span>
+            <span class="amount-number">{{ProfileStatistics['amount_of_posts']}}</span>
+            <span class="posts-amount-text">Posts</span>
         </div>
         <div class="followers-amount">
-            <span></span>
+            <span class="amount-number">{{ProfileStatistics['followers']}}</span>
             <span>Followers</span>
         </div>
         <div class="following-amount">
-            <span></span>
+            <span class="amount-number">{{ProfileStatistics['following']}}</span>
             <span>Following</span>
         </div>
 
-    </div>
+    
   </div>
   <div class="points">
       </div>
@@ -91,7 +91,7 @@ export default {
 .main-profile-header {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 100px;
 
     display: flex;
     justify-content: flex-start;
@@ -101,6 +101,7 @@ export default {
 .avatar {
     position: relative;
     margin-left: 1rem;
+    margin-right: 1rem;
     width: 30%;
     display: flex;
     justify-content: center;
@@ -114,18 +115,63 @@ export default {
 }
 
 .avatar-profile-picture img {
-    width: 65%;
+    width: 55px;
     border-radius: 50%;
+    border: 3px solid white;
 }
 
 .avatar-profile-picture {
-    position: absolute;
-    bottom: 1%;
-    left: 3%;
+    position: relative;
 }
 
 .stats {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.posts-amount {
+    font-family: "Akzidenz Medium Condensed";
+    font-size: 24px;
+    color: white;
+
+    width: 21%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.followers-amount {
+    font-family: "Akzidenz Medium Condensed";
+    font-size: 24px;
+    color: white;
+
+    width: 21%;
+    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.following-amount {
+    font-family: "Akzidenz Medium Condensed";
+    font-size: 24px;
+    color: white;
+
+    width: 21%;
+    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.amount-number {
+    font-family: "Akzidenz Medium";
+    font-size: 22px;
+    color: white;
 }
 
 

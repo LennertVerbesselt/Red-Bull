@@ -1,5 +1,5 @@
 <template>
-<ProfileHeader :Profile="ProfileData['profile']" :ProfilePicture="ProfileData['profilepicture']" :ProfileStatistics="['profilestatistics']" :User="ProfileData['user']"></ProfileHeader>
+<ProfileHeader :Profile="ProfileData['profile']" :ProfilePicture="ProfileData['profilepicture']" :ProfileStatistics="ProfileData['profilestatistics']" :User="ProfileData['user']"></ProfileHeader>
   <div class="content">
     <div class="posts">
 
@@ -29,7 +29,11 @@ export default {
     },
     data:function() {
       return {
-        ProfileData: {},
+        ProfileData: {
+          profilepicture: {
+            url: "https://redbullapp.s3.eu-west-2.amazonaws.com/ProfilePictures/default.jpg"
+          }
+        },
       }
     },
 	methods: {
@@ -51,9 +55,11 @@ export default {
     },
 	},
 	created() {
-		this.checkIfLoggedIn();
     this.getProfileData();
-	}
+		this.checkIfLoggedIn();
+	},
+  mounted() {
+  }
 }
 </script>
 

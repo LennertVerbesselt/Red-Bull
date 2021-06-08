@@ -50,6 +50,16 @@ export default {
 }
 
 @font-face {
+  font-family: "Akzidenz Medium";
+  src: url(../fonts/Berthold Akzidenz Grotesk Medium.otf)format("opentype");
+}
+
+@font-face {
+  font-family: "Akzidenz Medium Condensed";
+  src: url(../fonts/Berthold Akzidenz Grotesk Medium Condensed.otf)format("opentype");
+}
+
+@font-face {
   font-family: "Font Awesome 5 Free";
   src: url(../fonts/Font Awesome 5 Free-Solid-900.otf)format("opentype");
 }
