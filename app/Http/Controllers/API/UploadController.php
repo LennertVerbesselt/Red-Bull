@@ -118,9 +118,12 @@ class UploadController extends Controller
                 $character = base_convert($number, 10, 36);
                 $fileName .= $character;
             }
+
+            //Get current file extension
+            $ext = parse_url($url)['path'];
     
             //Compile image name with generated name and readable data for debugging
-            $imageName = Auth::user()->id . "-" . Auth::user()->name . "-" . $post->id . "-" . $fileName . ".jpg";
+            $imageName = Auth::user()->id . "-" . Auth::user()->name . "-" . $post->id . "-" . $fileName . $ext;
     
             //Save image to AWS
             $path = Storage::disk('s3')->putFileAs('/Posts',$request->file,$imageName);
