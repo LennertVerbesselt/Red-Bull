@@ -23,9 +23,9 @@ class UploadController extends Controller
 
         if($request->challengeid){
 
-            $request->validate([
+            /*$request->validate([
                 'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf'
-            ]);
+            ]);*/
 
             $challengeid = $request->challengeid;
             $challenge = Challenge::find($challengeid);
@@ -86,9 +86,9 @@ class UploadController extends Controller
         
         else {
 
-            $request->validate([
+            /*$request->validate([
                 'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf'
-            ]);
+            ]);*/
 
             $description = $request->description;
             $userid = Auth::user()->id;
