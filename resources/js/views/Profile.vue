@@ -32,6 +32,17 @@ export default {
         ProfileData: {
           profilepicture: {
             url: "https://redbullapp.s3.eu-west-2.amazonaws.com/ProfilePictures/default.jpg"
+          },
+          profilestatistics: {
+            amount_of_posts: 0,
+            followers: 0,
+            following: 0,
+          },
+          user: {
+            name: "LOADING",
+          },
+          profile: {
+            first_name: "LOADING",
           }
         },
       }

@@ -18421,6 +18421,17 @@ __webpack_require__.r(__webpack_exports__);
       ProfileData: {
         profilepicture: {
           url: "https://redbullapp.s3.eu-west-2.amazonaws.com/ProfilePictures/default.jpg"
+        },
+        profilestatistics: {
+          amount_of_posts: 0,
+          followers: 0,
+          following: 0
+        },
+        user: {
+          name: "LOADING"
+        },
+        profile: {
+          first_name: "LOADING"
         }
       }
     };
@@ -20226,76 +20237,86 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 );
 
 var _hoisted_2 = {
-  "class": "main-profile-header"
+  id: "rssBlock"
 };
 var _hoisted_3 = {
-  "class": "avatar"
+  "class": "cnnContents"
 };
 var _hoisted_4 = {
+  "class": "marqueeStyle"
+};
+var _hoisted_5 = {
+  "class": "marqueeStyle2"
+};
+var _hoisted_6 = {
+  "class": "main-profile-header"
+};
+var _hoisted_7 = {
+  "class": "avatar"
+};
+var _hoisted_8 = {
   "class": "avatar-profile-picture"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "edit-profile"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_6 = {
+var _hoisted_10 = {
   "class": "posts-amount"
 };
-var _hoisted_7 = {
+var _hoisted_11 = {
   "class": "amount-number"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
   "class": "posts-amount-text"
 }, "Posts", -1
 /* HOISTED */
 );
 
-var _hoisted_9 = {
+var _hoisted_13 = {
   "class": "followers-amount"
 };
-var _hoisted_10 = {
+var _hoisted_14 = {
   "class": "amount-number"
 };
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Followers", -1
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Followers", -1
 /* HOISTED */
 );
 
-var _hoisted_12 = {
+var _hoisted_16 = {
   "class": "following-amount"
 };
-var _hoisted_13 = {
+var _hoisted_17 = {
   "class": "amount-number"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Following", -1
-/* HOISTED */
-);
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "points"
-}, null, -1
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Following", -1
 /* HOISTED */
 );
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_4, " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.User['name'].toUpperCase()), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_5, " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.User['name'].toUpperCase()) + " ", 1
+  /* TEXT */
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<div class=\"background-username\">\r\n      {{Profile['first_name'].toUpperCase()}}\r\n    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
     src: $props.ProfilePicture['url']
   }, null, 8
   /* PROPS */
-  , ["src"])]), _hoisted_5]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['amount_of_posts']), 1
+  , ["src"])]), _hoisted_9]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['amount_of_posts']), 1
   /* TEXT */
-  ), _hoisted_8]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['followers']), 1
+  ), _hoisted_12]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['followers']), 1
   /* TEXT */
-  ), _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['following']), 1
+  ), _hoisted_15]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['following']), 1
   /* TEXT */
-  ), _hoisted_14])]), _hoisted_15], 64
+  ), _hoisted_18])])], 64
   /* STABLE_FRAGMENT */
   );
 });
@@ -21445,12 +21466,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Light_otf__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Light.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Light.otf");
 /* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Regular_otf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Regular.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Regular.otf");
 /* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Bold_otf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Bold.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Bold.otf");
-/* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Bold_Extended_otf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Bold Extended.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Bold Extended.otf");
-/* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Bold_Extended_Italic_otf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Bold Extended Italic.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Bold Extended Italic.otf");
-/* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Medium_otf__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Medium.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Medium.otf");
-/* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Medium_Condensed_otf__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Medium Condensed.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Medium Condensed.otf");
-/* harmony import */ var _fonts_Font_Awesome_5_Free_Solid_900_otf__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../fonts/Font Awesome 5 Free-Solid-900.otf */ "./resources/fonts/Font Awesome 5 Free-Solid-900.otf");
+/* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Bold_Condensed_otf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Bold Condensed.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Bold Condensed.otf");
+/* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Bold_Extended_otf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Bold Extended.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Bold Extended.otf");
+/* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Bold_Extended_Italic_otf__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Bold Extended Italic.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Bold Extended Italic.otf");
+/* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Medium_otf__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Medium.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Medium.otf");
+/* harmony import */ var _fonts_Berthold_Akzidenz_Grotesk_Medium_Condensed_otf__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../fonts/Berthold Akzidenz Grotesk Medium Condensed.otf */ "./resources/fonts/Berthold Akzidenz Grotesk Medium Condensed.otf");
+/* harmony import */ var _fonts_Font_Awesome_5_Free_Solid_900_otf__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../fonts/Font Awesome 5 Free-Solid-900.otf */ "./resources/fonts/Font Awesome 5 Free-Solid-900.otf");
 // Imports
+
 
 
 
@@ -21465,13 +21488,14 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Light_otf__WEBPACK_IMPORTED_MODULE_2__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Regular_otf__WEBPACK_IMPORTED_MODULE_3__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Bold_otf__WEBPACK_IMPORTED_MODULE_4__.default);
-var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Bold_Extended_otf__WEBPACK_IMPORTED_MODULE_5__.default);
-var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Bold_Extended_Italic_otf__WEBPACK_IMPORTED_MODULE_6__.default);
-var ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Medium_otf__WEBPACK_IMPORTED_MODULE_7__.default);
-var ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Medium_Condensed_otf__WEBPACK_IMPORTED_MODULE_8__.default);
-var ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Font_Awesome_5_Free_Solid_900_otf__WEBPACK_IMPORTED_MODULE_9__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Bold_Condensed_otf__WEBPACK_IMPORTED_MODULE_5__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Bold_Extended_otf__WEBPACK_IMPORTED_MODULE_6__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Bold_Extended_Italic_otf__WEBPACK_IMPORTED_MODULE_7__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Medium_otf__WEBPACK_IMPORTED_MODULE_8__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Berthold_Akzidenz_Grotesk_Medium_Condensed_otf__WEBPACK_IMPORTED_MODULE_9__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_8___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Font_Awesome_5_Free_Solid_900_otf__WEBPACK_IMPORTED_MODULE_10__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n  font-family: \"Akzidenz Light\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Regular\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold Extended\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold Extended Italic\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Light\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Medium\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Medium Condensed\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Font Awesome 5 Free\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ")format(\"opentype\");\n}\n#app {\r\n  font-family: \"Akzidenz Regular\", Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  background:#121426 ;\r\n  max-width: 450px;\n}\n.application {\r\n  max-width: 400px;\r\n  position: absolute;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  left: 0;\r\n  right: 0;\r\n  text-align: center;\n}\nbody {\r\n  background:#121426 ;\r\n  margin: 0;\r\n  padding: 0;\r\n  max-width: 400px;\r\n  /*overflow-y: hidden; /* Hide vertical scrollbar */\r\n  /*overflow-x: hidden; /* Hide horizontal scrollbar */\n}\n.agile__dots button {\r\n    background-color: transparent;\r\n\t\t\tborder: 1px solid #fff;\r\n\t\t\tborder-radius: 100%;\r\n\t\t\tcursor: pointer;\r\n\t\t\tdisplay: block;\r\n\t\t\theight: 10px;\r\n\t\t\tfont-size: 0;\r\n\t\t\tline-height: 0;\r\n\t\t\tmargin: 0;\r\n\t\t\tpadding: 0;\r\n\t\t\ttransition-duration: .3s;\r\n\t\t\twidth: 10px;\n}\n.agile__dot {\r\n    margin: 0 10px;\n}\n.agile__dots {\r\n  bottom: -10px;\r\n\t\tleft: 50%;\r\n\t\tposition: absolute;\r\n\t\ttransform: translateX(-50%);\n}\n.agile__dot--current {\r\n  background-color: #fff;\r\n  border-radius: 100%;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n  font-family: \"Akzidenz Light\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Regular\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold Condensed\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold Extended\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Bold Extended Italic\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Light\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Medium\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Akzidenz Medium Condensed\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ")format(\"opentype\");\n}\n@font-face {\r\n  font-family: \"Font Awesome 5 Free\";\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ")format(\"opentype\");\n}\n#app {\r\n  font-family: \"Akzidenz Regular\", Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  background:#121426 ;\r\n  max-width: 450px;\n}\n.application {\r\n  max-width: 400px;\r\n  position: absolute;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  left: 0;\r\n  right: 0;\r\n  text-align: center;\n}\nbody {\r\n  background:#121426 ;\r\n  margin: 0;\r\n  padding: 0;\r\n  max-width: 400px;\r\n  /*overflow-y: hidden; /* Hide vertical scrollbar */\r\n  /*overflow-x: hidden; /* Hide horizontal scrollbar */\n}\n.agile__dots button {\r\n    background-color: transparent;\r\n\t\t\tborder: 1px solid #fff;\r\n\t\t\tborder-radius: 100%;\r\n\t\t\tcursor: pointer;\r\n\t\t\tdisplay: block;\r\n\t\t\theight: 10px;\r\n\t\t\tfont-size: 0;\r\n\t\t\tline-height: 0;\r\n\t\t\tmargin: 0;\r\n\t\t\tpadding: 0;\r\n\t\t\ttransition-duration: .3s;\r\n\t\t\twidth: 10px;\n}\n.agile__dot {\r\n    margin: 0 10px;\n}\n.agile__dots {\r\n  bottom: -10px;\r\n\t\tleft: 50%;\r\n\t\tposition: absolute;\r\n\t\ttransform: translateX(-50%);\n}\n.agile__dot--current {\r\n  background-color: #fff;\r\n  border-radius: 100%;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21999,7 +22023,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.settings[data-v-2d1b6396] {\r\n  position: relative;\r\n  top:0;\r\n  width: 100%;\r\n  height: 50px;\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  align-items: center;\n}\n.settings-icon[data-v-2d1b6396] {\r\n  width: 25px;\r\n  height: 25px;\r\n\r\n  margin-right: 2%;\r\n\r\n  fill: white;\n}\n.settings-icon[data-v-2d1b6396]:hover {\r\n    fill: #EB5876;\n}\n.main-profile-header[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\r\n    height: 100px;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\n}\n.avatar[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 30%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.avatar-icon[data-v-2d1b6396] {\r\n    width: 100%;\r\n    fill: white;\n}\n.avatar-profile-picture img[data-v-2d1b6396] {\r\n    width: 55px;\r\n    border-radius: 50%;\r\n    border: 3px solid white;\n}\n.avatar-profile-picture[data-v-2d1b6396] {\r\n    position: relative;\n}\n.stats[data-v-2d1b6396] {\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.posts-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.followers-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.following-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.amount-number[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 22px;\r\n    color: white;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.settings[data-v-2d1b6396] {\r\n  position: relative;\r\n  top:0;\r\n  width: 100%;\r\n  height: 50px;\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  align-items: center;\n}\n.settings-icon[data-v-2d1b6396] {\r\n  width: 20px;\r\n  height: 20px;\r\n\r\n  margin-right: 5%;\r\n\r\n  fill: white;\n}\n.settings-icon[data-v-2d1b6396]:hover {\r\n    fill: #EB5876;\n}\n.main-profile-header[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\r\n    height: 100px;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\n}\n.avatar[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 30%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.avatar-icon[data-v-2d1b6396] {\r\n    width: 100%;\r\n    fill: white;\n}\n.avatar-profile-picture img[data-v-2d1b6396] {\r\n    width: 55px;\r\n    border-radius: 50%;\r\n    border: 3px solid white;\n}\n.avatar-profile-picture[data-v-2d1b6396] {\r\n    position: relative;\n}\n.stats[data-v-2d1b6396] {\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.posts-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.followers-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.following-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.amount-number[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 22px;\r\n    color: white;\n}\n.background-username[data-v-2d1b6396] {\r\n    position: absolute;\r\n    width: 100%;\r\n    left:-5%;\r\n    top:0;\r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 120px;\r\n    text-align: center;\r\n    color:white;\r\n    opacity: 0.1;\n}\n#rssBlock[data-v-2d1b6396]{\r\n  left:0px;\r\n  height: 100px;\r\n  top: 50px;\r\n  \r\n  position: absolute;\r\n  width:100%;\r\n  overflow: hidden;\n}\r\n\r\n/*remove p*/\n.cnnContents[data-v-2d1b6396] {\r\n  width:100%;\r\n  margin:0 auto;\r\n  font-size: 100px;\r\n  \r\n  white-space: nowrap;\r\n  text-transform: uppercase;\r\n  font-family: 'Museo';\r\n  font-weight: 300;\r\n  align-items: center;\n}\n.marqueeStyle[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n  Color: white;\r\n  opacity: 0.1;\r\n  text-align: center;\r\n  display:inline-block;\r\n  /* Apply animation to this element */\r\n  -webkit-animation: scrolling-left1-2d1b6396 40s linear infinite;\r\n  animation: scrolling-left1-2d1b6396 40s linear infinite;\n}\n.marqueeStyle2[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n  Color: white;\r\n  opacity: 0.1;\r\n  text-align: center;\r\n  display:inline-block;\r\n  /* Apply animation to this element */\r\n  -webkit-animation: scrolling-left2-2d1b6396 40s linear infinite;\r\n  animation: scrolling-left2-2d1b6396 40s linear infinite;\r\n  -webkit-animation-delay: 20s;\r\n          animation-delay: 20s;\n}\r\n/* scrolling-left is continuous/repeatly text */\n@keyframes scrolling-left1-2d1b6396 {\n0% {transform: translateX(100%);\r\n        -webkit-transform: translateX(100%);}\n100% {transform: translateX(-100%);\r\n          -webkit-transform: translateX(-100%);}\n}\n@keyframes scrolling-left2-2d1b6396 {\n0% {transform: translateX(0%);\r\n        -webkit-transform: translateX(0%);}\n100% {transform: translateX(-200%);\r\n          -webkit-transform: translateX(-200%);}\n}\n@-webkit-keyframes scrolling-left1-2d1b6396 {\n0% {-webkit-transform: translateX(100%);}\n100% {-webkit-transform: translateX(-100%);}\n}\n@-webkit-keyframes scrolling-left2-2d1b6396 {\n0% {-webkit-transform: translateX(0%);}\n100% {-webkit-transform: translateX(-200%);}\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22633,6 +22657,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/upvote.png?388b4aaba175277cce8ae5c446c23a2e");
+
+/***/ }),
+
+/***/ "./resources/fonts/Berthold Akzidenz Grotesk Bold Condensed.otf":
+/*!**********************************************************************!*\
+  !*** ./resources/fonts/Berthold Akzidenz Grotesk Bold Condensed.otf ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/Berthold Akzidenz Grotesk Bold Condensed.otf?7976d9a94941181484ed233b701a8873");
 
 /***/ }),
 
