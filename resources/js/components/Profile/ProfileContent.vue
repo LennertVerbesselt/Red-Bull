@@ -127,6 +127,7 @@ export default {
 .tab-panel {
     display:flex;
     justify-content: left;
+    flex-wrap: wrap;
     width: 100vw;
     margin-top: 0;
 }

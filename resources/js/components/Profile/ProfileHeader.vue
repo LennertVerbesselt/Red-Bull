@@ -2,7 +2,7 @@
 
 <div id='rssBlock'>
    <p class="cnnContents">
-       <span class="marqueeStyle">&nbsp;{{User['name'].toUpperCase()}} </span>
+       <span class="marqueeStyle">&nbsp;{{User['name'].toUpperCase()}}&nbsp; </span>
         <span class="marqueeStyle2">&nbsp;{{User['name'].toUpperCase()}}&nbsp;</span>
       </p>
       </div>
@@ -236,6 +236,7 @@ export default {
     font-family: "Akzidenz Bold Extended";
   Color: white;
   opacity: 0.1;
+  white-space: nowrap;
   
   display:inline-block;
   /* Apply animation to this element */
@@ -247,6 +248,9 @@ export default {
     font-family: "Akzidenz Bold Extended";
   Color: white;
   opacity: 0.1;
+  white-space: nowrap;
+
+  
   
   display:inline-block;
   /* Apply animation to this element */
