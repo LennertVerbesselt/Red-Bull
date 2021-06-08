@@ -46,10 +46,24 @@ class ProfileController extends Controller
 
         $profilestatistics = Profile_Statistics::where('user_id', $user->id)->get()->first();
 
+        $currencypoints = Currency_Points::where('user_id', $user->id)->orderby('points', 'DESC')->get();
+
+        $categories = Category::get();
+
+        foreach($currencypoints as $cu) {
+            foreach($categories as $ca) {
+                if($cu->category_id === $ca->category_id){
+                    $cu['category_name'] = $ca->category_name;
+                }
+            }
+        }
+
         $profiledata['user'] = $user;
         $profiledata['profile'] = $profile;
         $profiledata['profilepicture'] = $profilepicture;
         $profiledata['profilestatistics'] = $profilestatistics;
+        $profiledata['currencypoints'] = $currencypoints;
+        $profiledata['categories'] = $categories;
 
 
         return ['profiledata' => $profiledata];

@@ -1,5 +1,5 @@
 <template>
-<ProfileHeader :Profile="ProfileData['profile']" :ProfilePicture="ProfileData['profilepicture']" :ProfileStatistics="ProfileData['profilestatistics']" :User="ProfileData['user']"></ProfileHeader>
+<ProfileHeader :Profile="ProfileData['profile']" :ProfilePicture="ProfileData['profilepicture']" :ProfileStatistics="ProfileData['profilestatistics']" :User="ProfileData['user']"  :CurrencyPoints="ProfileData['currencypoints']" :Categories="ProfileData['categories']"></ProfileHeader>
   <div class="content">
     <div class="posts">
 
@@ -43,7 +43,13 @@ export default {
           },
           profile: {
             first_name: "LOADING",
-          }
+          }, 
+          currencypoints: {
+
+          },
+          categories: {
+
+          },
         },
       }
     },

@@ -1,15 +1,17 @@
 <template>
 
-  <div class="settings">
-    <svg class="settings-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.14 14.73"><defs></defs><g id="Layer_2" data-name="Layer 2"><g id="Settings"><path class="cls-1" d="M1.17,8.65l-.9.52a.55.55,0,0,0-.2.75l1.29,2.23a.55.55,0,0,0,.75.2L3,11.82a1.46,1.46,0,0,1,1.46,0h0a1.46,1.46,0,0,1,.74,1.27v1.09a.55.55,0,0,0,.55.54H8.37a.54.54,0,0,0,.54-.54V13.1a1.46,1.46,0,0,1,.74-1.27h0a1.48,1.48,0,0,1,1.47,0l.9.53a.55.55,0,0,0,.75-.2L14,10.08a.73.73,0,0,0-.27-1h0L13,8.65a1.46,1.46,0,0,1-.73-1.28h0A1.47,1.47,0,0,1,13,6.08l.91-.52a.54.54,0,0,0,.19-.74L12.78,2.59a.55.55,0,0,0-.75-.2l-.91.52a1.46,1.46,0,0,1-1.46,0h0a1.45,1.45,0,0,1-.74-1.27V.55A.54.54,0,0,0,8.36,0H5.77a.54.54,0,0,0-.54.55V1.69a1.37,1.37,0,0,1-.69,1.18l-.11.07a1.39,1.39,0,0,1-1.37,0l-1-.55a.54.54,0,0,0-.75.2L.07,4.82a.54.54,0,0,0,.2.74l.9.52a1.48,1.48,0,0,1,.74,1.28v0A1.46,1.46,0,0,1,1.17,8.65Zm5.9-3.49A2.21,2.21,0,1,1,4.86,7.37,2.21,2.21,0,0,1,7.07,5.16Z"/></g></g></svg>
-  </div>
-  
 <div id='rssBlock'>
    <p class="cnnContents">
        <span class="marqueeStyle">&nbsp;{{User['name'].toUpperCase()}} </span>
         <span class="marqueeStyle2">&nbsp;{{User['name'].toUpperCase()}}&nbsp;</span>
       </p>
       </div>
+
+  <div class="settings">
+    <svg class="settings-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.14 14.73"><defs></defs><g id="Layer_2" data-name="Layer 2"><g id="Settings"><path class="cls-1" d="M1.17,8.65l-.9.52a.55.55,0,0,0-.2.75l1.29,2.23a.55.55,0,0,0,.75.2L3,11.82a1.46,1.46,0,0,1,1.46,0h0a1.46,1.46,0,0,1,.74,1.27v1.09a.55.55,0,0,0,.55.54H8.37a.54.54,0,0,0,.54-.54V13.1a1.46,1.46,0,0,1,.74-1.27h0a1.48,1.48,0,0,1,1.47,0l.9.53a.55.55,0,0,0,.75-.2L14,10.08a.73.73,0,0,0-.27-1h0L13,8.65a1.46,1.46,0,0,1-.73-1.28h0A1.47,1.47,0,0,1,13,6.08l.91-.52a.54.54,0,0,0,.19-.74L12.78,2.59a.55.55,0,0,0-.75-.2l-.91.52a1.46,1.46,0,0,1-1.46,0h0a1.45,1.45,0,0,1-.74-1.27V.55A.54.54,0,0,0,8.36,0H5.77a.54.54,0,0,0-.54.55V1.69a1.37,1.37,0,0,1-.69,1.18l-.11.07a1.39,1.39,0,0,1-1.37,0l-1-.55a.54.54,0,0,0-.75.2L.07,4.82a.54.54,0,0,0,.2.74l.9.52a1.48,1.48,0,0,1,.74,1.28v0A1.46,1.46,0,0,1,1.17,8.65Zm5.9-3.49A2.21,2.21,0,1,1,4.86,7.37,2.21,2.21,0,0,1,7.07,5.16Z"/></g></g></svg>
+  </div>
+  
+
 
   <div class="main-profile-header">
       
@@ -45,6 +47,8 @@
 
     
   </div>
+
+  <ProfileSubHeader :CurrencyPoints="CurrencyPoints" ></ProfileSubHeader>
   
 
   
@@ -53,17 +57,20 @@
 
 <script>
 
+import ProfileSubHeader from './ProfileSubHeader.vue'
 
 export default {
 	name: 'ProfileHeader', 
     components: {
-        
+        ProfileSubHeader,
     },
     props: {
         User: Object,
         ProfilePicture: Object,
         Profile: Object,
         ProfileStatistics: Object,
+        CurrencyPoints: Object,
+        Categories: Object,
     },
     data:function() {
         return {
@@ -209,7 +216,7 @@ export default {
   height: 150px;
   
   position: absolute;
-  width:100%;
+  width:450px;
   display: flex;
   align-items: center;
 }
@@ -229,7 +236,7 @@ export default {
     font-family: "Akzidenz Bold Extended";
   Color: white;
   opacity: 0.1;
-  text-align: center;
+  
   display:inline-block;
   /* Apply animation to this element */
   -webkit-animation: scrolling-left1 20s linear infinite;
@@ -240,7 +247,7 @@ export default {
     font-family: "Akzidenz Bold Extended";
   Color: white;
   opacity: 0.1;
-  text-align: center;
+  
   display:inline-block;
   /* Apply animation to this element */
   -webkit-animation: scrolling-left2 20s linear infinite;
