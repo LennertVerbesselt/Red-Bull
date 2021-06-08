@@ -55,7 +55,7 @@
 
 
 export default {
-	name: 'Home', 
+	name: 'ProfileHeader', 
     components: {
         
     },
@@ -207,11 +207,9 @@ export default {
 #rssBlock{
   left:0px;
   height: 150px;
-  top: 10px;
   
   position: absolute;
   width:100%;
-  overflow: hidden;
   display: flex;
   align-items: center;
 }

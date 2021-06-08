@@ -22,7 +22,7 @@ import ProfileHeader from "./../components/Profile/ProfileHeader.vue"
 
 
 export default {
-	name: 'Home', 
+	name: 'Profile', 
     components: {
         BottomMenu,
         ProfileHeader,

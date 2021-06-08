@@ -46,7 +46,7 @@ import FormButton from '../components/FormButton.vue'
 
 
 export default {
-	name: 'Home', 
+	name: 'Upload', 
     components: {
         BottomMenu, 
         FormButton,

@@ -15,7 +15,7 @@ import ChallengesTotal from '../components/Challenges/ChallengesTotal.vue'
 
 
 export default {
-	name: 'Home', 
+	name: 'Challenges', 
     components: {
         BottomMenu,
         

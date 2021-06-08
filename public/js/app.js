@@ -17806,7 +17806,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Home',
+  name: 'ProfileHeader',
   components: {},
   props: {
     User: Object,
@@ -18243,7 +18243,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Home',
+  name: 'Challenges',
   components: {
     BottomMenu: _components_BottomMenu__WEBPACK_IMPORTED_MODULE_0__.default,
     ChallengesTotal: _components_Challenges_ChallengesTotal_vue__WEBPACK_IMPORTED_MODULE_1__.default
@@ -18311,7 +18311,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Home',
+  name: 'Events',
   components: {
     BottomMenu: _components_BottomMenu__WEBPACK_IMPORTED_MODULE_2__.default,
     Carousel: _components_Carousel__WEBPACK_IMPORTED_MODULE_0__.default,
@@ -18411,7 +18411,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Home',
+  name: 'Profile',
   components: {
     BottomMenu: _components_BottomMenu_vue__WEBPACK_IMPORTED_MODULE_0__.default,
     ProfileHeader: _components_Profile_ProfileHeader_vue__WEBPACK_IMPORTED_MODULE_1__.default
@@ -18589,7 +18589,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Home',
+  name: 'Upload',
   components: {
     BottomMenu: _components_BottomMenu__WEBPACK_IMPORTED_MODULE_0__.default,
     FormButton: _components_FormButton_vue__WEBPACK_IMPORTED_MODULE_1__.default
@@ -22023,7 +22023,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.settings[data-v-2d1b6396] {\r\n  position: absolute;\r\n  top:0;\r\n  width: 100%;\r\n  height: 50px;\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  align-items: center;\n}\n.settings-icon[data-v-2d1b6396] {\r\n  width: 15px;\r\n  height: 15px;\r\n\r\n  margin-right: 5%;\r\n\r\n  fill: white;\n}\n.settings-icon[data-v-2d1b6396]:hover {\r\n    fill: #EB5876;\n}\n.main-profile-header[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\r\n    height: 150px;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\n}\n.avatar[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 30%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.avatar-icon[data-v-2d1b6396] {\r\n    width: 100%;\r\n    fill: white;\n}\n.avatar-profile-picture img[data-v-2d1b6396] {\r\n    width: 55px;\r\n    border-radius: 50%;\r\n    border: 3px solid white;\n}\n.avatar-profile-picture[data-v-2d1b6396] {\r\n    position: relative;\n}\n.stats[data-v-2d1b6396] {\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.posts-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.followers-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.following-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.amount-number[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 22px;\r\n    color: white;\n}\n.background-username[data-v-2d1b6396] {\r\n    position: absolute;\r\n    width: 100%;\r\n    left:-5%;\r\n    top:0;\r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 120px;\r\n    text-align: center;\r\n    color:white;\r\n    opacity: 0.1;\n}\n#rssBlock[data-v-2d1b6396]{\r\n  left:0px;\r\n  height: 150px;\r\n  top: 10px;\r\n  \r\n  position: absolute;\r\n  width:100%;\r\n  overflow: hidden;\r\n  display: flex;\r\n  align-items: center;\n}\r\n\r\n/*remove p*/\n.cnnContents[data-v-2d1b6396] {\r\n  width:450px;\r\n  margin:0 auto;\r\n  font-size: 120px;\r\n  \r\n  white-space: nowrap;\r\n  text-transform: uppercase;\n}\n.marqueeStyle[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n  Color: white;\r\n  opacity: 0.1;\r\n  text-align: center;\r\n  display:inline-block;\r\n  /* Apply animation to this element */\r\n  -webkit-animation: scrolling-left1-2d1b6396 20s linear infinite;\r\n  animation: scrolling-left1-2d1b6396 20s linear infinite;\n}\n.marqueeStyle2[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n  Color: white;\r\n  opacity: 0.1;\r\n  text-align: center;\r\n  display:inline-block;\r\n  /* Apply animation to this element */\r\n  -webkit-animation: scrolling-left2-2d1b6396 20s linear infinite;\r\n  animation: scrolling-left2-2d1b6396 20s linear infinite;\r\n  -webkit-animation-delay: 10s;\r\n          animation-delay: 10s;\n}\r\n/* scrolling-left is continuous/repeatly text */\n@keyframes scrolling-left1-2d1b6396 {\n0% {transform: translateX(100%);\r\n        -webkit-transform: translateX(100%);}\n100% {transform: translateX(-100%);\r\n          -webkit-transform: translateX(-100%);}\n}\n@keyframes scrolling-left2-2d1b6396 {\n0% {transform: translateX(0%);\r\n        -webkit-transform: translateX(0%);}\n100% {transform: translateX(-200%);\r\n          -webkit-transform: translateX(-200%);}\n}\n@-webkit-keyframes scrolling-left1-2d1b6396 {\n0% {-webkit-transform: translateX(100%);}\n100% {-webkit-transform: translateX(-100%);}\n}\n@-webkit-keyframes scrolling-left2-2d1b6396 {\n0% {-webkit-transform: translateX(0%);}\n100% {-webkit-transform: translateX(-200%);}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.settings[data-v-2d1b6396] {\r\n  position: absolute;\r\n  top:0;\r\n  width: 100%;\r\n  height: 50px;\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  align-items: center;\n}\n.settings-icon[data-v-2d1b6396] {\r\n  width: 15px;\r\n  height: 15px;\r\n\r\n  margin-right: 5%;\r\n\r\n  fill: white;\n}\n.settings-icon[data-v-2d1b6396]:hover {\r\n    fill: #EB5876;\n}\n.main-profile-header[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\r\n    height: 150px;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\n}\n.avatar[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 30%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.avatar-icon[data-v-2d1b6396] {\r\n    width: 100%;\r\n    fill: white;\n}\n.avatar-profile-picture img[data-v-2d1b6396] {\r\n    width: 55px;\r\n    border-radius: 50%;\r\n    border: 3px solid white;\n}\n.avatar-profile-picture[data-v-2d1b6396] {\r\n    position: relative;\n}\n.stats[data-v-2d1b6396] {\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.posts-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.followers-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.following-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 16px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.amount-number[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 22px;\r\n    color: white;\n}\n.background-username[data-v-2d1b6396] {\r\n    position: absolute;\r\n    width: 100%;\r\n    left:-5%;\r\n    top:0;\r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 120px;\r\n    text-align: center;\r\n    color:white;\r\n    opacity: 0.1;\n}\n#rssBlock[data-v-2d1b6396]{\r\n  left:0px;\r\n  height: 150px;\r\n  \r\n  position: absolute;\r\n  width:100%;\r\n  display: flex;\r\n  align-items: center;\n}\r\n\r\n/*remove p*/\n.cnnContents[data-v-2d1b6396] {\r\n  width:450px;\r\n  margin:0 auto;\r\n  font-size: 120px;\r\n  \r\n  white-space: nowrap;\r\n  text-transform: uppercase;\n}\n.marqueeStyle[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n  Color: white;\r\n  opacity: 0.1;\r\n  text-align: center;\r\n  display:inline-block;\r\n  /* Apply animation to this element */\r\n  -webkit-animation: scrolling-left1-2d1b6396 20s linear infinite;\r\n  animation: scrolling-left1-2d1b6396 20s linear infinite;\n}\n.marqueeStyle2[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n  Color: white;\r\n  opacity: 0.1;\r\n  text-align: center;\r\n  display:inline-block;\r\n  /* Apply animation to this element */\r\n  -webkit-animation: scrolling-left2-2d1b6396 20s linear infinite;\r\n  animation: scrolling-left2-2d1b6396 20s linear infinite;\r\n  -webkit-animation-delay: 10s;\r\n          animation-delay: 10s;\n}\r\n/* scrolling-left is continuous/repeatly text */\n@keyframes scrolling-left1-2d1b6396 {\n0% {transform: translateX(100%);\r\n        -webkit-transform: translateX(100%);}\n100% {transform: translateX(-100%);\r\n          -webkit-transform: translateX(-100%);}\n}\n@keyframes scrolling-left2-2d1b6396 {\n0% {transform: translateX(0%);\r\n        -webkit-transform: translateX(0%);}\n100% {transform: translateX(-200%);\r\n          -webkit-transform: translateX(-200%);}\n}\n@-webkit-keyframes scrolling-left1-2d1b6396 {\n0% {-webkit-transform: translateX(100%);}\n100% {-webkit-transform: translateX(-100%);}\n}\n@-webkit-keyframes scrolling-left2-2d1b6396 {\n0% {-webkit-transform: translateX(0%);}\n100% {-webkit-transform: translateX(-200%);}\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -18,7 +18,7 @@ import FeedNavigation from '../components/Feed/FeedNavigation'
 
 
 export default {
-	name: 'Home', 
+	name: 'Events', 
     components: {
         BottomMenu,
         Carousel,
