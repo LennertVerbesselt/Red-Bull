@@ -90,18 +90,17 @@ export default {
 
 .main-profile-header {
     position: relative;
-    width: 100%;
+    width: 90%;
+    left: 5%;
     height: 100px;
 
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
 }
 
 .avatar {
     position: relative;
-    margin-left: 1rem;
-    margin-right: 1rem;
     width: 30%;
     display: flex;
     justify-content: center;
@@ -131,8 +130,8 @@ export default {
 }
 
 .posts-amount {
-    font-family: "Akzidenz Medium Condensed";
-    font-size: 24px;
+    font-family: "Akzidenz Regular";
+    font-size: 16px;
     color: white;
 
     width: 21%;
@@ -143,8 +142,8 @@ export default {
 }
 
 .followers-amount {
-    font-family: "Akzidenz Medium Condensed";
-    font-size: 24px;
+    font-family: "Akzidenz Regular";
+    font-size: 16px;
     color: white;
 
     width: 21%;
@@ -156,8 +155,8 @@ export default {
 }
 
 .following-amount {
-    font-family: "Akzidenz Medium Condensed";
-    font-size: 24px;
+    font-family: "Akzidenz Regular";
+    font-size: 16px;
     color: white;
 
     width: 21%;

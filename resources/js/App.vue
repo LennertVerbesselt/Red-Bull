@@ -64,6 +64,8 @@ export default {
   src: url(../fonts/Font Awesome 5 Free-Solid-900.otf)format("opentype");
 }
 
+
+
 #app {
   font-family: "Akzidenz Regular", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -71,7 +73,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   background:#121426 ;
-  max-width: 400px;
+  max-width: 450px;
+  
   
 }
 
