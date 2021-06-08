@@ -1,16 +1,7 @@
 <template>
 <ProfileHeader :Profile="ProfileData['profile']" :ProfilePicture="ProfileData['profilepicture']" :ProfileStatistics="ProfileData['profilestatistics']" :User="ProfileData['user']"  :CurrencyPoints="ProfileData['currencypoints']" :Categories="ProfileData['categories']"></ProfileHeader>
-  <div class="content">
-    <div class="posts">
-
-    </div>
-    <div class="categories">
-
-    </div>
-    <div class="tickets">
-
-    </div>
-  </div>
+  
+  <ProfileContent :Posts="ProfileData['posts']"></ProfileContent>
     
    <BottomMenu> </BottomMenu>
 
@@ -19,6 +10,7 @@
 <script>
 import BottomMenu from "./../components/BottomMenu.vue"
 import ProfileHeader from "./../components/Profile/ProfileHeader.vue"
+import ProfileContent from "./../components/Profile/ProfileContent.vue"
 
 
 export default {
@@ -26,12 +18,13 @@ export default {
     components: {
         BottomMenu,
         ProfileHeader,
+        ProfileContent,
     },
     data:function() {
       return {
         ProfileData: {
           profilepicture: {
-            url: "https://redbullapp.s3.eu-west-2.amazonaws.com/ProfilePictures/default.jpg"
+            url: "https://redbullapp.s3.eu-west-2.amazonaws.com/ProfilePictures/default.jpg",
           },
           profilestatistics: {
             amount_of_posts: 0,
@@ -50,6 +43,9 @@ export default {
           categories: {
 
           },
+          posts: {
+            url: "https://redbullapp.s3.eu-west-2.amazonaws.com/ProfilePictures/default.jpg",
+          }
         },
       }
     },

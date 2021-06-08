@@ -58,12 +58,24 @@ class ProfileController extends Controller
             }
         }
 
+        $posts = Post::where('user_id', $user->id)->get();
+        $postimages = Post_Image::get();
+
+        foreach($posts as $p) {
+            foreach($postimages as $pi) {
+                if($p->id === $pi->post_id){
+                    $p['url'] = $pi->url;
+                }
+            }
+        }
+
         $profiledata['user'] = $user;
         $profiledata['profile'] = $profile;
         $profiledata['profilepicture'] = $profilepicture;
         $profiledata['profilestatistics'] = $profilestatistics;
         $profiledata['currencypoints'] = $currencypoints;
         $profiledata['categories'] = $categories;
+        $profiledata['posts'] = $posts;
 
 
         return ['profiledata' => $profiledata];

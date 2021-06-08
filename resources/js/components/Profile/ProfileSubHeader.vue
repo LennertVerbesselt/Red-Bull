@@ -44,7 +44,7 @@ export default {
 
 .profile-sub-header {
     width: 100%;
-    height: 100px;
+    height: 80px;
     position: relative;
 
     display: flex;
@@ -60,7 +60,7 @@ export default {
     width: 100px;
 
     font-family: "Akzidenz Medium";
-    font-size: 18px;
+    font-size: 14px;
     color:white;
 }
 
