@@ -13,12 +13,12 @@
 
   
   <div class="tab-panels">
-    <section id="posts" class="tab-panel all-posts" :key="post" v-for="post in Posts">
-        
+    <section id="posts" class="tab-panel all-posts" >
+        <div class="all-posts" :key="post" v-for="post in Posts">
             
                 <img class="single-post" :src=post.url alt="">
             
-        
+        </div>
      
   </section>
     <section id="badges" class="tab-panel">
@@ -92,7 +92,6 @@ export default {
     font-size: 16px;
     position: relative;
     border-bottom: 0;
-    cursor: pointer;
     height: 40px;
     width:33.3333%;
 }
@@ -142,14 +141,14 @@ export default {
 }
 
 .all-posts {
-    
+    width: 33.33333%;
 
 }
 
 .all-posts img {
     display: block;
-    max-width:50%;
-    height:200px;
+    max-width: 100%;
+    height:130px;
     object-fit: cover;
 }
 
