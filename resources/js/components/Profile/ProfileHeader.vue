@@ -80,7 +80,7 @@ export default {
 <style scoped>
 
 .settings {
-  position: relative;
+  position: absolute;
   top:0;
   width: 100%;
   height: 50px;
@@ -90,8 +90,8 @@ export default {
 }
 
 .settings-icon {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 
   margin-right: 5%;
 
@@ -106,7 +106,7 @@ export default {
     position: relative;
     width: 90%;
     left: 5%;
-    height: 100px;
+    height: 150px;
 
     display: flex;
     justify-content: space-around;
@@ -206,25 +206,25 @@ export default {
 
 #rssBlock{
   left:0px;
-  height: 100px;
-  top: 50px;
+  height: 150px;
+  top: 10px;
   
   position: absolute;
   width:100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 /*remove p*/
 .cnnContents {
-  width:100%;
+  width:450px;
   margin:0 auto;
-  font-size: 100px;
+  font-size: 120px;
   
   white-space: nowrap;
   text-transform: uppercase;
-  font-family: 'Museo';
-  font-weight: 300;
-  align-items: center;
+  
 }
 
 .marqueeStyle {
@@ -234,8 +234,8 @@ export default {
   text-align: center;
   display:inline-block;
   /* Apply animation to this element */
-  -webkit-animation: scrolling-left1 40s linear infinite;
-  animation: scrolling-left1 40s linear infinite;
+  -webkit-animation: scrolling-left1 20s linear infinite;
+  animation: scrolling-left1 20s linear infinite;
 }
 
 .marqueeStyle2 {
@@ -245,9 +245,9 @@ export default {
   text-align: center;
   display:inline-block;
   /* Apply animation to this element */
-  -webkit-animation: scrolling-left2 40s linear infinite;
-  animation: scrolling-left2 40s linear infinite;
-  animation-delay: 20s;
+  -webkit-animation: scrolling-left2 20s linear infinite;
+  animation: scrolling-left2 20s linear infinite;
+  animation-delay: 10s;
 }
 /* scrolling-left is continuous/repeatly text */
 @keyframes scrolling-left1 {
