@@ -20394,8 +20394,41 @@ var _hoisted_7 = {
 var _hoisted_8 = {
   "class": "progress-text"
 };
+var _hoisted_9 = {
+  key: 1,
+  "class": "progress-done",
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "25",
+  height: "25",
+  viewBox: "0 0 25 25"
+};
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("g", {
+  id: "Confirm",
+  transform: "translate(-383 -557)"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+  id: "Rectangle_156",
+  "data-name": "Rectangle 156",
+  width: "25",
+  height: "25",
+  rx: "12",
+  transform: "translate(383 557)",
+  fill: "#58EB71"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
+  id: "Icon_feather-check",
+  "data-name": "Icon feather-check",
+  d: "M14.817,9,8.755,15.062,6,12.306",
+  transform: "translate(385.092 557.469)",
+  fill: "none",
+  stroke: "#fff",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  "stroke-width": "2"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "progress-bar"
 }, null, -1
 /* HOISTED */
@@ -20421,7 +20454,8 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
         src: challengeset.icon
       }, null, 8
       /* PROPS */
-      , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ve_progress, (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
+      , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [challengeset.percentage != 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ve_progress, (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
+        key: 0,
         progress: challengeset.percentage,
         determinate: _ctx.determinate
       }, _ctx.options, {
@@ -20438,7 +20472,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
       }, 1040
       /* FULL_PROPS, DYNAMIC_SLOTS */
-      , ["progress", "determinate", "loading", "no-data"])]), _hoisted_9])]);
+      , ["progress", "determinate", "loading", "no-data"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), challengeset.percentage == 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", _hoisted_9, [_hoisted_10])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_11])]);
     }), 128
     /* KEYED_FRAGMENT */
     ))])])]);
@@ -22467,7 +22501,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.categories[data-v-95e78950]{\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\n}\n.category[data-v-95e78950] {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\n}\n.category-header[data-v-95e78950] {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: left;\r\n    align-items:center;\r\n    height: 50px;\n}\n.category-name[data-v-95e78950] {\r\n    align-items:center;\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 18px;\r\n    color: white;\n}\r\n\r\n/*.category-line {\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n    height: 2px;\r\n    background-color: white;\r\n}*/\n.challengesets[data-v-95e78950] {\r\n    width: 100%;\r\n    height: 170px;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    overflow-x: auto;\r\n    overflow-y: hidden;\r\n    -webkit-overflow-scrolling: touch;\n}\n.challengeset[data-v-95e78950] {\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n    width: 130px;\r\n\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\n}\n.challengeset-icon-container[data-v-95e78950] {\r\n    width: 100%;\r\n    max-width: 115px;\r\n    height: 170px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.challengeset-icon[data-v-95e78950] {\r\n    max-height: 140px;\r\n    max-width: 140px;\n}\n.challengeset-name[data-v-95e78950] {\r\n     font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color:white;\r\n    opacity: 0.4;\r\n    white-space: nowrap;\r\n  overflow: hidden;\n}\n.progress-bar[data-v-95e78950] {\r\n    position: relative;\r\n    height: 75px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    flex-direction: column;\n}\n.progress-gauge[data-v-95e78950] {\r\n    position: absolute;\r\n    width:130px;\r\n    bottom:0;\n}\n.progress-text[data-v-95e78950] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    color:#ffffff;\n}\n.ep-circle--progress__fill[data-v-95e78950] {\r\n    box-shadow: 0px 0px 5px #EB5876;\n}\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.categories[data-v-95e78950]{\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\n}\n.category[data-v-95e78950] {\r\n    margin-top: 15px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\n}\n.category-header[data-v-95e78950] {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: left;\r\n    align-items:center;\r\n    height: 30px;\n}\n.category-name[data-v-95e78950] {\r\n    align-items:center;\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 18px;\r\n    color: white;\n}\r\n\r\n/*.category-line {\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n    height: 2px;\r\n    background-color: white;\r\n}*/\n.challengesets[data-v-95e78950] {\r\n    width: 100%;\r\n    height: 170px;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    overflow-x: auto;\r\n    overflow-y: hidden;\r\n    -webkit-overflow-scrolling: touch;\n}\n.challengeset[data-v-95e78950] {\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n    width: 130px;\r\n\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\n}\n.challengeset-icon-container[data-v-95e78950] {\r\n    width: 100%;\r\n    max-width: 115px;\r\n    height: 170px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.challengeset-icon[data-v-95e78950] {\r\n    max-height: 140px;\r\n    max-width: 140px;\n}\n.challengeset-name[data-v-95e78950] {\r\n     font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color:white;\r\n    opacity: 0.4;\r\n    white-space: nowrap;\r\n  overflow: hidden;\n}\n.progress-bar[data-v-95e78950] {\r\n    position: relative;\r\n    height: 75px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    flex-direction: column;\n}\n.progress-gauge[data-v-95e78950] {\r\n    position: absolute;\r\n    width:130px;\r\n    bottom:0;\n}\n.progress-text[data-v-95e78950] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    color:#ffffff;\n}\n.ep-circle--progress__fill[data-v-95e78950] {\r\n    box-shadow: 0px 0px 5px #EB5876;\n}\n.progress-done[data-v-95e78950] {\r\n    width: 30px;\r\n    height: 30px;\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -13,7 +13,7 @@
                 <div class="challengeset-icon-container">
                 <img class="challengeset-icon" :src="challengeset.icon" />
                 <div class="progress-gauge">
-                <ve-progress 
+                <ve-progress  v-if="challengeset.percentage != 100"
                         :progress="challengeset.percentage"
                         :determinate="determinate"
                         v-bind="options"
@@ -22,6 +22,13 @@
                     >
                     <span class="progress-text">{{challengeset.completed}}/{{challengeset.total}}</span>
                     </ve-progress>
+                    <svg v-if="challengeset.percentage == 100" class="progress-done" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                        <g id="Confirm" transform="translate(-383 -557)">
+                            <rect id="Rectangle_156" data-name="Rectangle 156" width="25" height="25" rx="12" transform="translate(383 557)" fill="#58EB71"/>
+                            <path id="Icon_feather-check" data-name="Icon feather-check" d="M14.817,9,8.755,15.062,6,12.306" transform="translate(385.092 557.469)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        </g>
+                    </svg>
+
                 </div>
                
                 <div class="progress-bar">
@@ -79,11 +86,13 @@ export default {
     position: relative;
     width: 90%;
     left: 5%;
+    
 
 
 }
 
 .category {
+    margin-top: 15px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -94,12 +103,12 @@ export default {
     display: flex;
     justify-content: left;
     align-items:center;
-    height: 50px;
+    height: 30px;
 }
 
 .category-name {
     align-items:center;
-    font-family: "Akzidenz Medium";
+    font-family: "Akzidenz Bold Extended";
     font-size: 18px;
     color: white;
 }
@@ -182,6 +191,11 @@ export default {
 
 .ep-circle--progress__fill {
     box-shadow: 0px 0px 5px #EB5876;
+}
+
+.progress-done {
+    width: 30px;
+    height: 30px;
 }
 
 
