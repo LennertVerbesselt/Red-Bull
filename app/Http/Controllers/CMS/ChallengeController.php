@@ -12,6 +12,7 @@ use App\Models\Challenge_Set;
 use App\Models\Challenge;
 use App\Models\Challenge_Progression;
 use App\Models\Challenge_Badge;
+use App\Models\Challenge_sets_Icon;
 
 
 
@@ -24,8 +25,9 @@ class ChallengeController extends Controller
         $categories = Category::get();
         $challenges = Challenge::get();
         $challengebadges = Challenge_Badge::get();
+        $icons = Challenge_sets_Icon::get();
 
-        return view('CMS/challenges', [ 'challenges' => $challenges, 'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges]);
+        return view('CMS/challenges', ['challenges' => $challenges, 'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges, 'challengeseticons' => $icons]);
     }
 
     public function addChallengeSetPage()
@@ -48,13 +50,23 @@ class ChallengeController extends Controller
         $challengeSet->active_untill = $request->active_untill;
         $challengeSet->save();
 
+        $newset = Challenge_Set::latest()->first();
+
+        //Set default icon for challenge
+        $icon = Challenge_sets_Icon::create([
+            'challenge_set_id' => $newset->id,
+            'filename' => 'default.svg',
+            'url' => 'https://redbullapp.s3.eu-west-2.amazonaws.com/ChallengeSetIcons/default.png',
+        ]);
+
         $challengeSets = Challenge_Set::get();
         $events = Event::get();
         $categories = Category::get();
         $challenges = Challenge::get();
         $challengebadges = Challenge_Badge::get();
+        $icons = Challenge_sets_Icon::get();
 
-        return view('CMS/challenges', ['challenges' => $challenges, 'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges]);
+        return view('CMS/challenges', ['challenges' => $challenges, 'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges, 'challengeseticons' => $icons]);
     }
 
     public function addChallengePage()
@@ -101,8 +113,9 @@ class ChallengeController extends Controller
         $categories = Category::get();
         $challengeSets = Challenge_Set::get();
         $challengebadges = Challenge_Badge::get();
+        $icons = Challenge_sets_Icon::get();
 
-        return view('CMS/challenges', ['challenges' => $challenges,  'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges]);
+        return view('CMS/challenges', ['challenges' => $challenges, 'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges, 'challengeseticons' => $icons]);
     }
 
     public function uploadChallengeBadgePage(){
@@ -111,8 +124,9 @@ class ChallengeController extends Controller
         $categories = Category::get();
         $challengeSets = Challenge_Set::get();
         $challengebadges = Challenge_Badge::get();
+        $icons = Challenge_sets_Icon::get();
 
-        return view('CMS/uploadchallengebadge', ['challenges' => $challenges,  'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges]);
+        return view('CMS/challenges', ['challenges' => $challenges, 'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges, 'challengeseticons' => $icons]);
     }
 
     public function uploadChallengeBadge(Request $request) {
@@ -160,10 +174,68 @@ class ChallengeController extends Controller
         $categories = Category::get();
         $challengeSets = Challenge_Set::get();
         $challengebadges = Challenge_Badge::get();
+        $icons = Challenge_sets_Icon::get();
 
-        return view('CMS/challenges', ['challenges' => $challenges,  'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges]);
+        return view('CMS/challenges', ['challenges' => $challenges, 'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges, 'challengeseticons' => $icons]);
     }
 
+    public function uploadChallengeSetIconPage()
+    {
+        $c = Challenge_Set::get();
+
+        return view('CMS/uploadchallengeseticon', ['challengesets' => $c]);
+    }
+
+    public function uploadChallengeSetIcon(Request $request){
+
+        $challengesetid = $request->challenge_set_id;
+        $challengeset = Challenge_Set::find($challengesetid);
+        
+        //Generate Filename
+        $FileNameValueLength = 40;
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $fileName = '';
+        for($i = 0; $i < $FileNameValueLength; $i++) {
+            $number = random_int(0, 36);
+            $character = base_convert($number, 10, 36);
+            $fileName .= $character;
+        }
+
+        //Compile image name with generated name and readable data for debugging
+        $imageName = $challengeset->id . "-" . $challengeset->name . "-" . $fileName . ".png";
+
+        //Save image to AWS
+        $path = Storage::disk('s3')->putFileAs('/ChallengeSetIcons',$request->image,$imageName);
+
+        //Set image on AWS public
+        Storage::disk('s3')->setVisibility($path, 'public');
+
+        //Create & Save new Challenge Badge object
+        $i = new Challenge_sets_Icon;
+        $i->challenge_set_id = $challengeset->id;
+        $i->filename = $path;
+        $i->url = Storage::disk('s3')->url($path);
+        $i->save();
+
+        //Remove previous header image unless it is the placeholder image
+        $alli = Challenge_sets_Icon::get();
+        $lasti = Challenge_sets_Icon::latest()->first();
+        foreach($alli as $i){
+            if($i->challenge_set_id == $challengeset->id && $i->id != $lasti->id && $i->filename != "default.png"){
+                
+                Storage::disk('s3')->delete($i->filename);
+            } 
+        }
+
+        $events = Event::get();
+        $challenges = Challenge::get();
+        $categories = Category::get();
+        $challengeSets = Challenge_Set::get();
+        $challengebadges = Challenge_Badge::get();
+        $icons = Challenge_sets_Icon::get();
+
+        return view('CMS/challenges', ['challenges' => $challenges, 'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges, 'challengeseticons' => $icons]);
+    }
 
 
 

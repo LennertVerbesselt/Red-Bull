@@ -87,6 +87,9 @@ Route::post('/CMS/upload_profile_picture', [UserController::class, 'uploadProfil
 Route::get('/CMS/upload_challenge_badge', [ChallengeController::class, 'uploadChallengeBadgePage'])->name('view_upload_challenge_badge');
 Route::post('/CMS/upload_challenge_badge', [ChallengeController::class, 'uploadChallengeBadge'])->name('upload_challenge_badge');
 
+Route::get('/CMS/upload_challenge_set_icon', [ChallengeController::class, 'uploadChallengeSetIconPage'])->name('view_upload_challenge_set_icon');
+Route::post('/CMS/upload_challenge_set_icon', [ChallengeController::class, 'uploadChallengeSetIcon'])->name('upload_challenge_set_icon');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

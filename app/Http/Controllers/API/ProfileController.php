@@ -58,7 +58,7 @@ class ProfileController extends Controller
             }
         }
 
-        $posts = Post::where('user_id', $user->id)->get();
+        $posts = Post::where('user_id', $user->id)->orderby('created_at', 'DESC')->get();
         $postimages = Post_Image::get();
 
         foreach($posts as $p) {
@@ -68,6 +68,9 @@ class ProfileController extends Controller
                 }
             }
         }
+
+        $challengesets = Challenge_Sets::get();
+        $challengeprogressions = Challenge_Progression::where('user_id', $user->id)->get();
 
         $profiledata['user'] = $user;
         $profiledata['profile'] = $profile;

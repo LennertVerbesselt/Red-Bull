@@ -45,6 +45,7 @@ import BottomMenu from '../components/BottomMenu'
 import FormButton from '../components/FormButton.vue'
 
 import imageCompression from 'browser-image-compression';
+import { createCommentVNode } from '@vue/runtime-core';
 
 
 export default {
@@ -66,6 +67,7 @@ export default {
                 file: null,
                 fromChallenge: true,
                 fileName: "",
+                compressedfile: null,
             }
         },
 	methods: {
@@ -103,8 +105,9 @@ export default {
                 console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
                 console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
 
-                this.file = compressedFile;
+                
                 this.url = URL.createObjectURL(this.file);
+                this.compressedfile = compressedFile;
                 })
                 .catch(function (error) {
                 console.log(error.message);
@@ -126,6 +129,7 @@ export default {
             data.append('challengeid', this.ChallengeID);
             data.append('url', this.url);
             data.append('filename', this.fileName);
+            data.append('compressedfile', this.compressedfile);
             console.log(data);
             axios.post('api/uploadpost', data).then(response => {
                 this.$router.push('/');

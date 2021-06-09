@@ -1,7 +1,7 @@
 <template>
 <ProfileHeader :Profile="ProfileData['profile']" :ProfilePicture="ProfileData['profilepicture']" :ProfileStatistics="ProfileData['profilestatistics']" :User="ProfileData['user']"  :CurrencyPoints="ProfileData['currencypoints']" :Categories="ProfileData['categories']"></ProfileHeader>
   
-  <ProfileContent :Posts="ProfileData['posts']"></ProfileContent>
+  <ProfileContent :Posts="ProfileData['posts']" :Categories="ProfileData['categories']" :ChallengeSets="ProfileData['challengesets']" :ChallengeProgressions="ProfileData['challengeprogressions']"></ProfileContent>
     
    <BottomMenu> </BottomMenu>
 

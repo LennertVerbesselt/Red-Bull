@@ -18,6 +18,10 @@
                             <tr>
                                 <th
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Challenge Set Icon
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Challenge Set id
                                 </th>
                                 <th
@@ -50,8 +54,24 @@
                         <tbody>
 
                             @foreach ($challenge_sets as $challenge_set)
+                           
+                            @php
+                                    foreach ($challengeseticons as $a) {
+                                        if ($a->challenge_set_id === $challenge_set->id){
+                                            $current_icon = $a;
+                                        };
+                                    }; 
+                                @endphp
                             
                                 <tr>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        
+                                        <img class="w-6/12 h-6/12"
+                                                    src="{{$current_icon->url}}"
+                                                    alt="" />
+                                                    
+                                        <a href="{{route('view_upload_challenge_set_icon')}}"> <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded mt-6" type="submit">Upload Challenge Set Icon</button></a>
+                                    </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <div class="ml-3">
                                                 <p class="text-gray-900 whitespace-no-wrap">

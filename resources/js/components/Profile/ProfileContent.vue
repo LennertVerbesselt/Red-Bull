@@ -22,7 +22,7 @@
      
   </section>
     <section id="badges" class="tab-panel">
-      
+        <ProfileBadges :Categories="Categories" :ChallengeSets="ChallengeSets" :ChallengeProgressions="ChallengeProgressions"></ProfileBadges>
     </section>
     <section id="tickets" class="tab-panel">
       
@@ -36,16 +36,20 @@
 
 <script>
 
+import ProfileBadges from './ProfileBadges.vue'
 
 export default {
 	name: 'ProfileContent', 
     components: {
-        
+        ProfileBadges,
     },
     props: {
         Posts: Object,
         Badges: Object,
         Tickets: Object,
+        Categories: Object,
+        ChallengeSets: Object,
+        ChallengeProgressions: Object,
     },
     data:function() {
         return {
