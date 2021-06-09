@@ -18710,7 +18710,7 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log("originalFile size ".concat(this.file.size / 1024 / 1024, " MB"));
       var options = {
-        maxSizeMB: 4,
+        maxSizeMB: 1,
         maxWidthOrHeight: 400
       };
       (0,browser_image_compression__WEBPACK_IMPORTED_MODULE_2__.default)(imageFile, options).then(function (compressedFile) {
@@ -18719,6 +18719,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log("compressedFile size ".concat(compressedFile.size / 1024 / 1024, " MB")); // smaller than maxSizeMB
 
         this.file = compressedFile;
+        this.url = URL.createObjectURL(this.file);
       })["catch"](function (error) {
         console.log(error.message);
       });

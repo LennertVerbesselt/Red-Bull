@@ -136,7 +136,6 @@ class UploadController extends Controller
     
             //Save image to AWS
             
-
             $path = Storage::disk('s3')->putFileAs('/Posts',$request->file,$imageName);
     
             //Set image on AWS public

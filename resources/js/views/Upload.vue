@@ -94,7 +94,7 @@ export default {
             console.log(`originalFile size ${this.file.size / 1024 / 1024} MB`);
 
             var options = {
-                maxSizeMB: 4,
+                maxSizeMB: 1,
                 maxWidthOrHeight: 400,
             }
             
@@ -104,6 +104,7 @@ export default {
                 console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
 
                 this.file = compressedFile;
+                this.url = URL.createObjectURL(this.file);
                 })
                 .catch(function (error) {
                 console.log(error.message);
