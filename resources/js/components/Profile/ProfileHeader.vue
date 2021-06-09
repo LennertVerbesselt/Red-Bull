@@ -44,6 +44,8 @@
 
         
 
+        
+
     
   </div>
 
@@ -135,6 +137,7 @@ export default {
 
 .avatar-profile-picture img {
     width: 55px;
+    height: 55px;
     border-radius: 50%;
     border: 3px solid white;
 }
@@ -151,7 +154,7 @@ export default {
 
 .posts-amount {
     font-family: "Akzidenz Regular";
-    font-size: 16px;
+    font-size: 14px;
     color: white;
 
     width: 21%;
@@ -163,7 +166,7 @@ export default {
 
 .followers-amount {
     font-family: "Akzidenz Regular";
-    font-size: 16px;
+    font-size: 14px;
     color: white;
 
     width: 21%;
@@ -176,7 +179,7 @@ export default {
 
 .following-amount {
     font-family: "Akzidenz Regular";
-    font-size: 16px;
+    font-size: 14px;
     color: white;
 
     width: 21%;
@@ -189,7 +192,7 @@ export default {
 
 .amount-number {
     font-family: "Akzidenz Medium";
-    font-size: 22px;
+    font-size: 18px;
     color: white;
 }
 

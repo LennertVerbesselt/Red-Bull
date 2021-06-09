@@ -288,7 +288,7 @@ class PostController extends Controller
             $totalvotes = $upvotes + $downvotes;
 
             if($totalvotes == $minimumtotal){
-                if(($downvotes * $ratio) < $upvotes){
+                if(($downvotes * $ratio) <= $upvotes){
                     $progression = Challenge_Progression::where('user_id', $post->user_id)->where('challenge_id', $post->challenge_id)->get()>first();
 
                     $progression->pending = 0;

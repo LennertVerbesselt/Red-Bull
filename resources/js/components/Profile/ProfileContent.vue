@@ -95,7 +95,7 @@ export default {
 
     font-family: "Akzidenz Medium";
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     position: relative;
     border-bottom: 0;
     height: 40px;
@@ -114,6 +114,10 @@ export default {
 
 .tabset > label:hover,
 .tabset > input:focus + label {
+  color: #EB5876;
+}
+
+.tabset > label:checked{
   color: #EB5876;
 }
 
