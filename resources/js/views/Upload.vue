@@ -44,12 +44,15 @@
 import BottomMenu from '../components/BottomMenu'
 import FormButton from '../components/FormButton.vue'
 
+import imageCompression from 'browser-image-compression';
+
 
 export default {
 	name: 'Upload', 
     components: {
         BottomMenu, 
         FormButton,
+        imageCompression,
     },
     props: {
         id: String,
@@ -83,11 +86,28 @@ export default {
         },
         onFileChange(e) {
             this.file = e.target.files[0];
+            this.fileName = e.target.files[0].name;
             this.url = URL.createObjectURL(this.file);
 
-              this.file = e.target.files[0];
-              this.fileName = e.target.files[0].name;
-              console.log(this.fileName);
+            var imageFile = event.target.files[0];
+            console.log('originalFile instanceof Blob', this.file instanceof Blob); // true
+            console.log(`originalFile size ${this.file.size / 1024 / 1024} MB`);
+
+            var options = {
+                maxSizeMB: 4,
+                maxWidthOrHeight: 400,
+            }
+            
+             imageCompression(imageFile, options)
+                .then(function (compressedFile) {
+                console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+                console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+
+                this.file = compressedFile;
+                })
+                .catch(function (error) {
+                console.log(error.message);
+                });
         },
 
         uploadPost(e){

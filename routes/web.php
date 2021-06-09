@@ -46,6 +46,9 @@ Route::get('/events', function () {
 Route::get('/profile', function () {
     return view('welcome');
 });
+Route::get('/upload', function () {
+    return view('welcome');
+});
 
 
 //CMS Routes

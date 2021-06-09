@@ -135,11 +135,9 @@ class UploadController extends Controller
             $imageName = Auth::user()->id . "-" . Auth::user()->name . "-" . $post->id . "-" . $fileName;
     
             //Save image to AWS
-            $path = Storage::disk('s3')->putFileAs('/Posts',$request->file,$imageName, [
-                "Metadata" => [
-                    "Content-MD5" => base64_encode($request->file)
-                ]
-            ]);
+            
+
+            $path = Storage::disk('s3')->putFileAs('/Posts',$request->file,$imageName);
     
             //Set image on AWS public
             Storage::disk('s3')->setVisibility($path, 'public');
