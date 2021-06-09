@@ -4,7 +4,7 @@
     <div class="category">
         <div class="challengesets">
             <div class="challengeset">
-                
+                {{ChallengesInfo}}
             </div>
         </div>
     </div>
@@ -20,6 +20,7 @@ export default {
         Categories: Object,
         ChallengeSets: Object,
         ChallengeProgressions: Object,
+        ChallengesInfo: Object,
     },
     data:function() {
         return {

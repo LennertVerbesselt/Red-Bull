@@ -22,7 +22,7 @@
      
   </section>
     <section id="badges" class="tab-panel">
-        <ProfileBadges :Categories="Categories" :ChallengeSets="ChallengeSets" :ChallengeProgressions="ChallengeProgressions"></ProfileBadges>
+        <ProfileBadges :Categories="Categories" :ChallengeSets="ChallengeSets" :ChallengeProgressions="ChallengeProgressions" :ChallengesInfo="ChallengesInfo"></ProfileBadges>
     </section>
     <section id="tickets" class="tab-panel">
       
@@ -50,6 +50,7 @@ export default {
         Categories: Object,
         ChallengeSets: Object,
         ChallengeProgressions: Object,
+        ChallengesInfo: Object,
     },
     data:function() {
         return {

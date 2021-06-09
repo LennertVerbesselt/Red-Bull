@@ -19,6 +19,7 @@ use App\Models\Challenge;
 use App\Models\Challenge_Progression;
 use App\Models\Challenge_Badge;
 use App\Models\Challenge_Set;
+use App\Models\Challenge_sets_Icon;
 
 
 use App\Models\Event;
@@ -69,9 +70,79 @@ class ProfileController extends Controller
             }
         }
 
-        $challengesets = Challenge_Sets::get();
-        $challengeprogressions = Challenge_Progression::where('user_id', $user->id)->get();
+        $categories = Category::get();
+        $challengesets = Challenge_Set::get();
+        $challenges = Challenge::get();
+        $challengebadges = Challenge_Badge::get();
+        $challengeprogressions = Challenge_Progression::where('user_id', Auth::user()->id)->get();
+        $icons = Challenge_sets_Icon::get();
 
+        $challengesinfo = [];
+
+        foreach($categories as $category){
+            $categorysub = [];
+
+            $categorysub['category_id'] = $category->category_id;
+            $categorysub['category_name'] = $category->category_name;
+
+            foreach($challengesets as $challengeset){
+
+                if($challengeset->category_id == $category->category_id){
+                    $challengesubset = [];
+
+                    $challengesubset['id'] = $challengeset->id;
+                    $challengesubset['event_id'] = $challengeset->event_id;
+                    $challengesubset['category_id'] = $challengeset->category_id;
+                    $challengesubset['name'] = $challengeset->name;
+                    $challengesubset['length'] = $challengeset->length;
+                    $challengesubset['difficulty'] = $challengeset->difficulty;
+                    $challengesubset['active_untill'] = $challengeset->active_untill;
+
+                    foreach($icons as $icon){
+                        if($icon->challenge_set_id === $challengeset->id){
+                            $challengesubset['icon'] = $icon->url;
+                        }
+                    }
+
+                    foreach($challenges as $challenge){
+
+                        if($challenge->challenge_set_id === $challengeset->id){
+                            $challengesub = [];
+
+                            $challengesub['id'] = $challenge->id;
+                            $challengesub['challenge_set_id'] = $challenge->challenge_set_id;
+                            $challengesub['name'] = $challenge->name;
+                            $challengesub['difficulty'] = $challenge->difficulty;
+                            $challengesub['description'] = $challenge->description;
+                            $challengesub['points'] = $challenge->points;
+                            $challengesub['cans_needed_to_unlock'] = $challenge->cans_needed_to_unlock;
+                            $challengesub['upvote_ratio'] = $challenge->upvote_ratio;
+
+                            foreach($challengebadges as $challengebadge){
+                                if($challengebadge->challenge_id == $challenge->id){
+                                    $challengesub['badge'] = $challengebadge->url;
+                                }
+                            }
+                            foreach($challengeprogressions as $challengeprogression){
+                                if($challengeprogression->challenge_id == $challenge->id){
+                                    $challengesub['progression'] = $challengeprogression;
+                                }
+                            }
+
+                            $challengesubset['challenges'][$challenge->id] = $challengesub;
+                        }
+                    }
+
+                    $categorysub['challengesets'][$challengeset->id] = $challengesubset;
+
+                }
+            }
+
+            array_push($challengesinfo, $categorysub);
+        }
+
+        
+        $profiledata['challengesinfo'] = $challengesinfo;
         $profiledata['user'] = $user;
         $profiledata['profile'] = $profile;
         $profiledata['profilepicture'] = $profilepicture;
@@ -79,6 +150,7 @@ class ProfileController extends Controller
         $profiledata['currencypoints'] = $currencypoints;
         $profiledata['categories'] = $categories;
         $profiledata['posts'] = $posts;
+        
 
 
         return ['profiledata' => $profiledata];

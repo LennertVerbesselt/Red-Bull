@@ -17810,7 +17810,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     Categories: Object,
     ChallengeSets: Object,
-    ChallengeProgressions: Object
+    ChallengeProgressions: Object,
+    ChallengesInfo: Object
   },
   data: function data() {
     return {
@@ -17845,7 +17846,8 @@ __webpack_require__.r(__webpack_exports__);
     Tickets: Object,
     Categories: Object,
     ChallengeSets: Object,
-    ChallengeProgressions: Object
+    ChallengeProgressions: Object,
+    ChallengesInfo: Object
   },
   data: function data() {
     return {};
@@ -18555,7 +18557,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('api/getprofiledata').then(function (response) {
         //Do smth
         _this2.ProfileData = response.data.profiledata;
-        console.log(response.data.profiledata.profilepicture);
+        console.log(response.data.profiledata);
       })["catch"](function (error) {
         console.log("Something went wrong, whoops");
       });
@@ -20350,21 +20352,22 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 var _hoisted_1 = {
   "class": "categories"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_2 = {
   "class": "category"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+};
+var _hoisted_3 = {
   "class": "challengesets"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+};
+var _hoisted_4 = {
   "class": "challengeset"
-})])], -1
-/* HOISTED */
-);
+};
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengesInfo), 1
+  /* TEXT */
+  )])])]);
 });
 
 /***/ }),
@@ -20477,10 +20480,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("section", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ProfileBadges, {
     Categories: $props.Categories,
     ChallengeSets: $props.ChallengeSets,
-    ChallengeProgressions: $props.ChallengeProgressions
+    ChallengeProgressions: $props.ChallengeProgressions,
+    ChallengesInfo: $props.ChallengesInfo
   }, null, 8
   /* PROPS */
-  , ["Categories", "ChallengeSets", "ChallengeProgressions"])]), _hoisted_11])]);
+  , ["Categories", "ChallengeSets", "ChallengeProgressions", "ChallengesInfo"])]), _hoisted_11])]);
 });
 
 /***/ }),
@@ -21352,10 +21356,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     Posts: _ctx.ProfileData['posts'],
     Categories: _ctx.ProfileData['categories'],
     ChallengeSets: _ctx.ProfileData['challengesets'],
-    ChallengeProgressions: _ctx.ProfileData['challengeprogressions']
+    ChallengeProgressions: _ctx.ProfileData['challengeprogressions'],
+    ChallengesInfo: _ctx.ProfileData['challengesinfo']
   }, null, 8
   /* PROPS */
-  , ["Posts", "Categories", "ChallengeSets", "ChallengeProgressions"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
+  , ["Posts", "Categories", "ChallengeSets", "ChallengeProgressions", "ChallengesInfo"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
   /* STABLE_FRAGMENT */
   );
 });

@@ -1,7 +1,7 @@
 <template>
 <ProfileHeader :Profile="ProfileData['profile']" :ProfilePicture="ProfileData['profilepicture']" :ProfileStatistics="ProfileData['profilestatistics']" :User="ProfileData['user']"  :CurrencyPoints="ProfileData['currencypoints']" :Categories="ProfileData['categories']"></ProfileHeader>
   
-  <ProfileContent :Posts="ProfileData['posts']" :Categories="ProfileData['categories']" :ChallengeSets="ProfileData['challengesets']" :ChallengeProgressions="ProfileData['challengeprogressions']"></ProfileContent>
+  <ProfileContent :Posts="ProfileData['posts']" :Categories="ProfileData['categories']" :ChallengeSets="ProfileData['challengesets']" :ChallengeProgressions="ProfileData['challengeprogressions']" :ChallengesInfo="ProfileData['challengesinfo']"></ProfileContent>
     
    <BottomMenu> </BottomMenu>
 
@@ -61,7 +61,7 @@ export default {
       axios.get('api/getprofiledata').then(response => {
         //Do smth
         this.ProfileData = response.data.profiledata;
-        console.log(response.data.profiledata.profilepicture);
+        console.log(response.data.profiledata);
       }).catch(error => {
         console.log("Something went wrong, whoops");
       });
