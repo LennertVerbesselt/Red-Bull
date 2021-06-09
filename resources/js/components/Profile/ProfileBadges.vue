@@ -10,10 +10,9 @@
         <div class="challengesets" >
             <div class="challengeset" :key="challengeset" v-for="challengeset in category.challengesets">
 
+                <div class="challengeset-icon-container">
                 <img class="challengeset-icon" :src="challengeset.icon" />
-               
-                <div class="progress-bar">
-                    <div class="progress-gauge">
+                <div class="progress-gauge">
                 <ve-progress 
                         :progress="challengeset.percentage"
                         :determinate="determinate"
@@ -22,8 +21,12 @@
                         :no-data="noData"
                     >
                     <span class="progress-text">{{challengeset.completed}}/{{challengeset.total}}</span>
-                    </ve-progress></div>
-                    <span class="challengeset-name"> {{challengeset.name}}</span>
+                    </ve-progress>
+                </div>
+               
+                <div class="progress-bar">
+                    </div>
+                    
                 </div>
 
                 
@@ -54,13 +57,17 @@ export default {
     data: () => ({
     options: {
       color: "#EB5876",
+      colorFill: "#121426",
+            
       emptyThickness:"0%",
-      size: 45,
-      thickness: 5,
-      "empty-thickness": .5,
+      size: 40,
+      thickness: 3,
+      "empty-thickness": 0.5,
       animation: "rs 700 1000",
-      half: true,
-      angle: 0,
+      half: false,
+      angle: 90,
+      line: "round",
+      
     },
   }),
 }
@@ -107,7 +114,7 @@ export default {
 
 .challengesets {
     width: 100%;
-    height: 165px;
+    height: 170px;
     position: relative;
 
     display: flex;
@@ -118,19 +125,27 @@ export default {
 }
 
 .challengeset {
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 25%;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 130px;
 
     font-family: "Akzidenz Medium";
     font-size: 14px;
     color:white;
 }
 
+.challengeset-icon-container {
+    width: 100%;
+    max-width: 115px;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .challengeset-icon {
-    
-    max-height: 65%;
-    
+    max-height: 140px;
+    max-width: 140px;
 }
 
 .challengeset-name {
@@ -154,15 +169,19 @@ export default {
 
 .progress-gauge {
     position: absolute;
-    width:100%;
-    top: 0;
+    width:130px;
+    bottom:0;
+    
 }
 
 .progress-text {
     font-family: "Akzidenz Bold";
-    font-size: 13px;
-    color:white;
-    bottom: 5px;
+    font-size: 14px;
+    color:#ffffff;
+}
+
+.ep-circle--progress__fill {
+    box-shadow: 0px 0px 5px #EB5876;
 }
 
 
