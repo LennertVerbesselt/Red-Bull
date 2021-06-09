@@ -86,7 +86,7 @@ class ChallengeController extends Controller
                 }
 
                 $qrcodeexists->available = 0;
-                $qrcodeexists->save();
+                //$qrcodeexists->save();
                 return ['status' => true, 'challengedefined' => true];
             }
         }
