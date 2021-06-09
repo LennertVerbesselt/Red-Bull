@@ -92,6 +92,8 @@ class UploadController extends Controller
 
             //Get current file extension
 
+            
+
             $description = $request->description;
             $userid = Auth::user()->id;
             $user = User::find($userid);
@@ -121,13 +123,23 @@ class UploadController extends Controller
                 $fileName .= $character;
             }
 
+            $fileName.= $request->filename;
+
             
-    
+            //Sha256 Calculation
+            //$sha256 = hash_file("sha256", $request->url);
+            
+            //dd($sha256);
+
             //Compile image name with generated name and readable data for debugging
-            $imageName = Auth::user()->id . "-" . Auth::user()->name . "-" . $post->id . "-" . $fileName . $request->filename;
+            $imageName = Auth::user()->id . "-" . Auth::user()->name . "-" . $post->id . "-" . $fileName;
     
             //Save image to AWS
-            $path = Storage::disk('s3')->putFileAs('/Posts',$request->file,$imageName);
+            $path = Storage::disk('s3')->putFileAs('/Posts',$request->file,$imageName, [
+                "Metadata" => [
+                    "Content-MD5" => base64_encode($request->file)
+                ]
+            ]);
     
             //Set image on AWS public
             Storage::disk('s3')->setVisibility($path, 'public');
