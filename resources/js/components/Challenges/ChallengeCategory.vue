@@ -1,8 +1,8 @@
 <template>
 
 <div class="category">
-    <img @click="setFavourite" v-if="!CategoryFavourite" class="favourite" src="../../../assets/star-regular.svg" alt="">
-    <img @click="setFavourite" v-if="CategoryFavourite" class="favourite" src="../../../assets/star-solid.svg" alt="">
+    <img @click="setFavourite" v-if="!categoryfavourite" class="favourite" src="../../../assets/star-regular.svg" alt="">
+    <img @click="setFavourite" v-if="categoryfavourite" class="favourite" src="../../../assets/star-solid.svg" alt="">
     <div class="categoryName">
         {{CategoryName}}
     </div>
@@ -36,7 +36,7 @@ export default {
         CategoryName: String,
         CategoryPoints: Number,
         CategoryID: Number,
-        CategoryFavourites: Object,
+        CategoryFavourite: Boolean,
         Category: Object,
         
     },
@@ -44,7 +44,8 @@ export default {
         return {
             ShowCategory: true,
             ChallengeSets: [],
-            CategoryFavourite: false,
+            categoryfavourite: false,
+            
         }
     },
     methods: {
@@ -59,16 +60,14 @@ export default {
 
         setFavourite(){
             axios.post('api/setfavourite', {categoryname: this.CategoryName}).then(response => {
-                this.CategoryFavourite = !this.CategoryFavourite;
+                this.categoryfavourite = !this.categoryfavourite;
             }).catch(error => {
                 console.log("Error, Category not set as favourite");
             });
         }
     },
     created() {
-        if(this.CategoryFavourites[this.CategoryName]){
-            this.CategoryFavourite = true;
-        }
+        this.categoryfavourite = this.CategoryFavourite;
         this.ChallengeSets = this.Category['challengesets'];
     }
     

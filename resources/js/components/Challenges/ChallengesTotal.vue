@@ -3,7 +3,7 @@
 <div v-if="!FavouritesActive">
 <li  class="category" :key="category" v-for="category in ChallengesPage">
     <div>
-    <ChallengeCategory :CategoryFavourites="Favourites" :CategoryID="category.category_id" :CategoryName="category.category_name" :Category="category"></ChallengeCategory>
+    <ChallengeCategory :CategoryFavourite="category.favourite" :CategoryID="category.category_id" :CategoryName="category.category_name" :Category="category"></ChallengeCategory>
     </div>
 </li>
 </div>
@@ -11,7 +11,7 @@
 <div v-if="FavouritesActive">
 <li  class="category" :key="category" v-for="category in ChallengesPage">
     <div v-if="FavouriteCategories[category.category_name]">
-    <ChallengeCategory :CategoryFavourites="Favourites" :CategoryID="category.category_id" :CategoryName="category.category_name" :Category="category"></ChallengeCategory>
+    <ChallengeCategory :CategoryFavourite="category.favourite" :CategoryID="category.category_id" :CategoryName="category.category_name" :Category="category"></ChallengeCategory>
     </div>
 </li>
 </div>

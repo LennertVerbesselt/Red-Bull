@@ -16937,14 +16937,14 @@ __webpack_require__.r(__webpack_exports__);
     CategoryName: String,
     CategoryPoints: Number,
     CategoryID: Number,
-    CategoryFavourites: Object,
+    CategoryFavourite: Boolean,
     Category: Object
   },
   data: function data() {
     return {
       ShowCategory: true,
       ChallengeSets: [],
-      CategoryFavourite: false
+      categoryfavourite: false
     };
   },
   methods: {
@@ -16964,17 +16964,14 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('api/setfavourite', {
         categoryname: this.CategoryName
       }).then(function (response) {
-        _this2.CategoryFavourite = !_this2.CategoryFavourite;
+        _this2.categoryfavourite = !_this2.categoryfavourite;
       })["catch"](function (error) {
         console.log("Error, Category not set as favourite");
       });
     }
   },
   created: function created() {
-    if (this.CategoryFavourites[this.CategoryName]) {
-      this.CategoryFavourite = true;
-    }
-
+    this.categoryfavourite = this.CategoryFavourite;
     this.ChallengeSets = this.Category['challengesets'];
   }
 });
@@ -19098,7 +19095,7 @@ var _hoisted_4 = {
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_ChallengeSet = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ChallengeSet");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [!_ctx.CategoryFavourite ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [!_ctx.categoryfavourite ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
     key: 0,
     onClick: _cache[1] || (_cache[1] = function () {
       return $options.setFavourite && $options.setFavourite.apply($options, arguments);
@@ -19106,7 +19103,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     "class": "favourite",
     src: _assets_star_regular_svg__WEBPACK_IMPORTED_MODULE_1__.default,
     alt: ""
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.CategoryFavourite ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.categoryfavourite ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
     key: 1,
     onClick: _cache[2] || (_cache[2] = function () {
       return $options.setFavourite && $options.setFavourite.apply($options, arguments);
@@ -19288,7 +19285,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     to: {
       name: 'ChallengeQRScanner',
       params: {
-        id: _ctx.challenge_id
+        id: $props.ChallengeID
       }
     }
   }, {
@@ -19548,13 +19545,13 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       "class": "category",
       key: category
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeCategory, {
-      CategoryFavourites: _ctx.Favourites,
+      CategoryFavourite: category.favourite,
       CategoryID: category.category_id,
       CategoryName: category.category_name,
       Category: category
     }, null, 8
     /* PROPS */
-    , ["CategoryFavourites", "CategoryID", "CategoryName", "Category"])])]);
+    , ["CategoryFavourite", "CategoryID", "CategoryName", "Category"])])]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.FavouritesActive ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.ChallengesPage, function (category) {
@@ -19562,13 +19559,13 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       "class": "category",
       key: category
     }, [_ctx.FavouriteCategories[category.category_name] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeCategory, {
-      CategoryFavourites: _ctx.Favourites,
+      CategoryFavourite: category.favourite,
       CategoryID: category.category_id,
       CategoryName: category.category_name,
       Category: category
     }, null, 8
     /* PROPS */
-    , ["CategoryFavourites", "CategoryID", "CategoryName", "Category"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+    , ["CategoryFavourite", "CategoryID", "CategoryName", "Category"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64

@@ -35,7 +35,7 @@
     
     
     <div class="qr" v-if="ChallengeLocked">
-        <router-link :to="{ name: 'ChallengeQRScanner', params: {id: challenge_id} }">
+        <router-link :to="{ name: 'ChallengeQRScanner', params: {id: ChallengeID} }">
             <img class="qricon"  src="./../../../assets/ChallengeQRScannerIcon.png" />
             <div class="qrremaining">{{ChallengeProgression.cans_scanned}}/{{ChallengeCansNeeded}}</div>
         </router-link>

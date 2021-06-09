@@ -75,7 +75,7 @@ class ChallengeController extends Controller
 
                 $challenge = Challenge::find($challengeid);
 
-                $progression = Challenge_Progression::where('challenge_id', $challengeid)->where('user_id', $userid)->get()->first();
+                $progression = Challenge_Progression::where('challenge_id', $challengeid)->where('user_id', $user->id)->get()->first();
                 $progression->increment('cans_scanned');
                 $progression->save();
 
@@ -101,6 +101,7 @@ class ChallengeController extends Controller
         $challenges = Challenge::get();
         $challengebadges = Challenge_Badge::get();
         $challengeprogressions = Challenge_Progression::where('user_id', Auth::user()->id)->get();
+        $favourites = (array) json_decode(User_interests_Categories::where('user_id', Auth::user()->id)->get()->first()->favourites);
 
         $challengespage = [];
 
@@ -109,6 +110,12 @@ class ChallengeController extends Controller
 
             $categorysub['category_id'] = $category->category_id;
             $categorysub['category_name'] = $category->category_name;
+
+            if($favourites[$category->category_name]){
+                $categorysub['favourite'] = true;
+            } else {
+                $categorysub['favourite'] = false;
+            }
 
             foreach($challengesets as $challengeset){
 
