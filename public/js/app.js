@@ -19255,7 +19255,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     to: {
       name: 'Upload',
       params: {
-        id: _ctx.challenge_id
+        id: $props.ChallengeID
       }
     }
   }, {

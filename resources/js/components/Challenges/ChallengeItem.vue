@@ -15,7 +15,7 @@
         <div class="ChallengeName">
             {{ChallengeName}}
         </div>
-        <router-link :to="{ name: 'Upload', params: { id: challenge_id } }"><img class="upload"  src="./../../../assets/cloud-upload-alt-solid.svg" /></router-link>
+        <router-link :to="{ name: 'Upload', params: { id: ChallengeID } }"><img class="upload"  src="./../../../assets/cloud-upload-alt-solid.svg" /></router-link>
     </div>
 
     <div v-if="ChallengePending" class="pending">
