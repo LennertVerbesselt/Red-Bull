@@ -78,6 +78,7 @@ class ProfileController extends Controller
         $icons = Challenge_sets_Icon::get();
 
         $challengesinfo = [];
+        
 
         foreach($categories as $category){
             $categorysub = [];
@@ -89,6 +90,8 @@ class ProfileController extends Controller
 
                 if($challengeset->category_id == $category->category_id){
                     $challengesubset = [];
+                    $completed = 0;
+                    $total = 0;
 
                     $challengesubset['id'] = $challengeset->id;
                     $challengesubset['event_id'] = $challengeset->event_id;
@@ -126,8 +129,19 @@ class ProfileController extends Controller
                             foreach($challengeprogressions as $challengeprogression){
                                 if($challengeprogression->challenge_id == $challenge->id){
                                     $challengesub['progression'] = $challengeprogression;
+                                    if($challengeprogression->complete){
+                                        $completed++;
+                                    }
+                                    $total++;
                                 }
                             }
+
+                            $percentage = $completed/$total * 100;
+
+                            $challengesubset['percentage'] = $percentage;
+                            $challengesubset['completed'] = $completed;
+                            $challengesubset['total'] = $total;
+
 
                             $challengesubset['challenges'][$challenge->id] = $challengesub;
                         }
