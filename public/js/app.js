@@ -20817,7 +20817,8 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
   type: "radio",
   name: "tabset",
   id: "tab1",
-  "aria-controls": "posts"
+  "aria-controls": "posts",
+  checked: ""
 }, null, -1
 /* HOISTED */
 );
@@ -20832,8 +20833,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
   type: "radio",
   name: "tabset",
   id: "tab2",
-  "aria-controls": "badges",
-  checked: ""
+  "aria-controls": "badges"
 }, null, -1
 /* HOISTED */
 );
