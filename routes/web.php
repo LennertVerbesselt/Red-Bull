@@ -49,7 +49,12 @@ Route::get('/profile', function () {
 Route::get('/upload', function () {
     return view('welcome');
 });
-
+Route::get('/AllBadges', function () {
+    return view('welcome');
+});
+Route::get('/ProfileStatistics', function () {
+    return view('welcome');
+});
 
 //CMS Routes
 Route::get('/CMS', [OverviewController::class, 'index'])->name('overview');

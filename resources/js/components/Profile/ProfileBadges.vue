@@ -1,12 +1,13 @@
 <template>
 
 <div class="all-badges-and-statistics">
-    <div class="all-badges">
+   <router-link to="AllBadges"> <div class="all-badges">
         <div class="all-badges-title">All Badges</div>
-    </div>
+    </div></router-link>
+    <router-link to="ProfileStatistics">
     <div class="statistics">
         <div class="statistics-title">Profile Statistics</div>
-    </div>
+    </div></router-link>
 </div>
 
 <div class="categories" :key="category" v-for="category in ChallengesInfo">
@@ -247,6 +248,7 @@ export default {
     font-family: "Akzidenz Medium";
     font-size: 14px;
     color: #121426;
+    text-decoration: none;
 }
 
 .statistics {
@@ -271,6 +273,11 @@ export default {
     font-family: "Akzidenz Medium";
     font-size: 14px;
     color: #121426;
+    text-decoration: none;
+}
+
+.router-link {
+    text-decoration: none;
 }
 
 

@@ -13,6 +13,9 @@ import QRScanner from "../views/QRScanner.vue";
 import Events from "../views/Events.vue";
 import Profile from "../views/Profile.vue";
 
+import AllBadges from "../components/Profile/AllBadges.vue";
+import ProfileStatistics from "../components/Profile/ProfileStatistics.vue";
+
 import Upload from "../views/Upload.vue";
 import ChallengeQRScanner from "../components/Challenges/ChallengeQRScanner.vue";
 
@@ -57,6 +60,16 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile,
+  },
+  {
+    path: "/allbadges",
+    name: "AllBadges",
+    component: AllBadges,
+  },
+  {
+    path: "/profilestatistics",
+    name: "ProfileStatistics",
+    component: ProfileStatistics,
   },
   {
     path: "/upload",

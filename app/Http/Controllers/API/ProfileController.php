@@ -156,6 +156,23 @@ class ProfileController extends Controller
         }
 
         
+        $progressions = Challenge_Progression::where('user_id', $user->id)->where('complete', 1)->get();
+
+        $allbadges = [];
+
+        foreach($progressions as $p) {
+            
+                $badge = Challenge_Badge::where('challenge_id', $p->challenge_id)->get()->first();
+                $challenge = Challenge::where('id', $p->challenge_id)->get()->first();
+
+                $p['badge'] = $badge->url;
+                $p['name'] = $challenge->name;
+
+                $allbadges[$p->challenge_id] = $p;
+            
+        }
+
+        
         $profiledata['challengesinfo'] = $challengesinfo;
         $profiledata['user'] = $user;
         $profiledata['profile'] = $profile;
@@ -164,6 +181,7 @@ class ProfileController extends Controller
         $profiledata['currencypoints'] = $currencypoints;
         $profiledata['categories'] = $categories;
         $profiledata['posts'] = $posts;
+        $profiledata['allbadges'] = $allbadges;
         
 
 
