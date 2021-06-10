@@ -2,10 +2,10 @@
 
  <div class="tabset">
   <!-- Tab 1 -->
-  <input type="radio" name="tabset" id="tab1" aria-controls="posts" checked>
+  <input type="radio" name="tabset" id="tab1" aria-controls="posts" >
   <label for="tab1">Posts</label>
   <!-- Tab 2 -->
-  <input type="radio" name="tabset" id="tab2" aria-controls="badges" >
+  <input type="radio" name="tabset" id="tab2" aria-controls="badges" checked>
   <label for="tab2">Badges</label>
   <!-- Tab 3 -->
   <input type="radio" name="tabset" id="tab3" aria-controls="tickets">
@@ -126,7 +126,9 @@ export default {
 .tabset > input:checked + label::after {
   background: #EB5876;
   color: #EB5876;
+  box-shadow: 0px -5px 10px #EB5876;
 }
+
 
 .tabset > input:checked + label {
   border-color: white;

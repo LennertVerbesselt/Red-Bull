@@ -1,5 +1,14 @@
 <template>
 
+<div class="all-badges-and-statistics">
+    <div class="all-badges">
+        <div class="all-badges-title">All Badges</div>
+    </div>
+    <div class="statistics">
+        <div class="statistics-title">Profile Statistics</div>
+    </div>
+</div>
+
 <div class="categories" :key="category" v-for="category in ChallengesInfo">
     <div class="category">
         <div class="category-header">
@@ -196,6 +205,72 @@ export default {
 .progress-done {
     width: 30px;
     height: 30px;
+}
+
+.all-badges-and-statistics {
+    position: relative;
+    width: 100%;
+    top: -1px;
+    left: 0%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    border-radius: 0px 0px 10px 10px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #EB5876;
+    box-shadow: 0px 5px 10px #EB5876;
+}
+
+.all-badges {
+    width: 160px;
+    height: 30px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    background-color: #FFF07C;
+
+    border: 2px solid #FFF07C;
+    border-radius: 6px;
+    box-shadow: 0px 0px 3px #FFF07C;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-badges-title {
+    font-family: "Akzidenz Medium";
+    font-size: 14px;
+    color: #121426;
+}
+
+.statistics {
+    width: 160px;
+    height: 30px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    background-color: #FFF07C;
+
+    border: 2px solid #FFF07C;
+    border-radius: 6px;
+    box-shadow: 0px 0px 3px #FFF07C;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.statistics-title {
+    font-family: "Akzidenz Medium";
+    font-size: 14px;
+    color: #121426;
 }
 
 

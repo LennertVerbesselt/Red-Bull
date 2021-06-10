@@ -20363,35 +20363,37 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-95e78950");
 
-var _hoisted_1 = {
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"all-badges-and-statistics\" data-v-95e78950><div class=\"all-badges\" data-v-95e78950><div class=\"all-badges-title\" data-v-95e78950>All Badges</div></div><div class=\"statistics\" data-v-95e78950><div class=\"statistics-title\" data-v-95e78950>Profile Statistics</div></div></div>", 1);
+
+var _hoisted_2 = {
   "class": "category"
 };
-var _hoisted_2 = {
+var _hoisted_3 = {
   "class": "category-header"
 };
-var _hoisted_3 = {
+var _hoisted_4 = {
   "class": "category-name"
 };
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
   "class": "category-line"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_5 = {
+var _hoisted_6 = {
   "class": "challengesets"
 };
-var _hoisted_6 = {
+var _hoisted_7 = {
   "class": "challengeset-icon-container"
 };
-var _hoisted_7 = {
+var _hoisted_8 = {
   "class": "progress-gauge"
 };
-var _hoisted_8 = {
+var _hoisted_9 = {
   "class": "progress-text"
 };
-var _hoisted_9 = {
+var _hoisted_10 = {
   key: 1,
   "class": "progress-done",
   xmlns: "http://www.w3.org/2000/svg",
@@ -20400,7 +20402,7 @@ var _hoisted_9 = {
   viewBox: "0 0 25 25"
 };
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("g", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("g", {
   id: "Confirm",
   transform: "translate(-383 -557)"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
@@ -20425,7 +20427,7 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "progress-bar"
 }, null, -1
 /* HOISTED */
@@ -20436,22 +20438,22 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_ve_progress = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ve-progress");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.ChallengesInfo, function (category) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.ChallengesInfo, function (category) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
       "class": "categories",
       key: category
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.category_name), 1
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.category_name), 1
     /* TEXT */
-    ), _hoisted_4]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(category.challengesets, function (challengeset) {
+    ), _hoisted_5]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(category.challengesets, function (challengeset) {
       return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
         "class": "challengeset",
         key: challengeset
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
         "class": "challengeset-icon",
         src: challengeset.icon
       }, null, 8
       /* PROPS */
-      , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [challengeset.percentage != 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ve_progress, (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
+      , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [challengeset.percentage != 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ve_progress, (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
         key: 0,
         progress: challengeset.percentage,
         determinate: _ctx.determinate
@@ -20460,7 +20462,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
         "no-data": _ctx.noData
       }), {
         "default": _withId(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(challengeset.completed) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(challengeset.total), 1
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(challengeset.completed) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(challengeset.total), 1
           /* TEXT */
           )];
         }),
@@ -20469,12 +20471,14 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
       }, 1040
       /* FULL_PROPS, DYNAMIC_SLOTS */
-      , ["progress", "determinate", "loading", "no-data"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), challengeset.percentage == 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", _hoisted_9, [_hoisted_10])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_11])]);
+      , ["progress", "determinate", "loading", "no-data"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), challengeset.percentage == 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", _hoisted_10, [_hoisted_11])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_12])]);
     }), 128
     /* KEYED_FRAGMENT */
     ))])])]);
   }), 128
   /* KEYED_FRAGMENT */
+  ))], 64
+  /* STABLE_FRAGMENT */
   );
 });
 
@@ -20506,8 +20510,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
   type: "radio",
   name: "tabset",
   id: "tab1",
-  "aria-controls": "posts",
-  checked: ""
+  "aria-controls": "posts"
 }, null, -1
 /* HOISTED */
 );
@@ -20522,7 +20525,8 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
   type: "radio",
   name: "tabset",
   id: "tab2",
-  "aria-controls": "badges"
+  "aria-controls": "badges",
+  checked: ""
 }, null, -1
 /* HOISTED */
 );
@@ -20652,48 +20656,75 @@ var _hoisted_6 = {
 var _hoisted_7 = {
   "class": "avatar"
 };
-var _hoisted_8 = {
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
+  "class": "avatar-horns",
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "116.617",
+  height: "63.827",
+  viewBox: "0 0 116.617 63.827"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("g", {
+  id: "Group_56",
+  "data-name": "Group 56",
+  transform: "translate(-1180.355 -521.241)"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
+  id: "Path_30",
+  "data-name": "Path 30",
+  d: "M129.887,47.044c-3.485-2.129-8.761-4.353-11.063-7.736a9.94,9.94,0,0,1-.434-11.45,12.563,12.563,0,0,1,5.488-3.525c5.5-2.129,11.371-3.138,16.843-5.307a17.009,17.009,0,0,0,6.584-4.163,52.735,52.735,0,0,0,6.024-8.824c.276-.938-.276-1.53-1.514-1.222s-13.24,9.313-21.322,8.855c-2.452-.142-4.857-.765-7.31-.71a18.123,18.123,0,0,0-8.272,2.484A28.306,28.306,0,0,0,102.588,51.42,33.011,33.011,0,0,0,121.15,68.563",
+  transform: "translate(1080.077 516.505)",
+  fill: "#fff"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
+  id: "Path_31",
+  "data-name": "Path 31",
+  d: "M133.967,46.969a29.178,29.178,0,0,0,9.384-7.736,9.968,9.968,0,0,0,.434-11.442,12.6,12.6,0,0,0-5.5-3.533c-5.5-2.121-11.371-3.13-16.835-5.3a16.86,16.86,0,0,1-6.584-4.163A53.171,53.171,0,0,1,109.1,6.021c-.221-.718-.079-1.482,1.088-1.222s13.4,9.257,21.48,8.8c2.444-.142,4.865-.765,7.318-.71a18.121,18.121,0,0,1,8.264,2.484,28.294,28.294,0,0,1,12.325,35.965,33.021,33.021,0,0,1-18.554,17.143",
+  transform: "translate(1135.084 516.58)",
+  fill: "#fff"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_9 = {
   "class": "avatar-profile-picture"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "edit-profile"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_10 = {
+var _hoisted_11 = {
   "class": "posts-amount"
 };
-var _hoisted_11 = {
+var _hoisted_12 = {
   "class": "amount-number"
 };
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
   "class": "posts-amount-text"
 }, "Posts", -1
 /* HOISTED */
 );
 
-var _hoisted_13 = {
+var _hoisted_14 = {
   "class": "followers-amount"
 };
-var _hoisted_14 = {
+var _hoisted_15 = {
   "class": "amount-number"
 };
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Followers", -1
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Followers", -1
 /* HOISTED */
 );
 
-var _hoisted_16 = {
+var _hoisted_17 = {
   "class": "following-amount"
 };
-var _hoisted_17 = {
+var _hoisted_18 = {
   "class": "amount-number"
 };
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Following", -1
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Following", -1
 /* HOISTED */
 );
 
@@ -20706,17 +20737,17 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_4, " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.User['name'].toUpperCase()) + " ", 1
   /* TEXT */
-  )])]), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  )])]), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
     src: $props.ProfilePicture['url']
   }, null, 8
   /* PROPS */
-  , ["src"])]), _hoisted_9]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['amount_of_posts']), 1
+  , ["src"])]), _hoisted_10]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['amount_of_posts']), 1
   /* TEXT */
-  ), _hoisted_12]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['followers']), 1
+  ), _hoisted_13]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['followers']), 1
   /* TEXT */
-  ), _hoisted_15]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['following']), 1
+  ), _hoisted_16]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ProfileStatistics['following']), 1
   /* TEXT */
-  ), _hoisted_18])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ProfileSubHeader, {
+  ), _hoisted_19])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ProfileSubHeader, {
     CurrencyPoints: $props.CurrencyPoints
   }, null, 8
   /* PROPS */
@@ -22498,7 +22529,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.categories[data-v-95e78950]{\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\n}\n.category[data-v-95e78950] {\r\n    margin-top: 15px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\n}\n.category-header[data-v-95e78950] {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: left;\r\n    align-items:center;\r\n    height: 30px;\n}\n.category-name[data-v-95e78950] {\r\n    align-items:center;\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 18px;\r\n    color: white;\n}\r\n\r\n/*.category-line {\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n    height: 2px;\r\n    background-color: white;\r\n}*/\n.challengesets[data-v-95e78950] {\r\n    width: 100%;\r\n    height: 170px;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    overflow-x: auto;\r\n    overflow-y: hidden;\r\n    -webkit-overflow-scrolling: touch;\n}\n.challengeset[data-v-95e78950] {\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n    width: 130px;\r\n\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\n}\n.challengeset-icon-container[data-v-95e78950] {\r\n    width: 100%;\r\n    max-width: 115px;\r\n    height: 170px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.challengeset-icon[data-v-95e78950] {\r\n    max-height: 140px;\r\n    max-width: 140px;\n}\n.challengeset-name[data-v-95e78950] {\r\n     font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color:white;\r\n    opacity: 0.4;\r\n    white-space: nowrap;\r\n  overflow: hidden;\n}\n.progress-bar[data-v-95e78950] {\r\n    position: relative;\r\n    height: 75px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    flex-direction: column;\n}\n.progress-gauge[data-v-95e78950] {\r\n    position: absolute;\r\n    width:130px;\r\n    bottom:0;\n}\n.progress-text[data-v-95e78950] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    color:#ffffff;\n}\n.ep-circle--progress__fill[data-v-95e78950] {\r\n    box-shadow: 0px 0px 5px #EB5876;\n}\n.progress-done[data-v-95e78950] {\r\n    width: 30px;\r\n    height: 30px;\n}\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.categories[data-v-95e78950]{\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\n}\n.category[data-v-95e78950] {\r\n    margin-top: 15px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\n}\n.category-header[data-v-95e78950] {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: left;\r\n    align-items:center;\r\n    height: 30px;\n}\n.category-name[data-v-95e78950] {\r\n    align-items:center;\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 18px;\r\n    color: white;\n}\r\n\r\n/*.category-line {\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n    height: 2px;\r\n    background-color: white;\r\n}*/\n.challengesets[data-v-95e78950] {\r\n    width: 100%;\r\n    height: 170px;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    overflow-x: auto;\r\n    overflow-y: hidden;\r\n    -webkit-overflow-scrolling: touch;\n}\n.challengeset[data-v-95e78950] {\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n    width: 130px;\r\n\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\n}\n.challengeset-icon-container[data-v-95e78950] {\r\n    width: 100%;\r\n    max-width: 115px;\r\n    height: 170px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.challengeset-icon[data-v-95e78950] {\r\n    max-height: 140px;\r\n    max-width: 140px;\n}\n.challengeset-name[data-v-95e78950] {\r\n     font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color:white;\r\n    opacity: 0.4;\r\n    white-space: nowrap;\r\n  overflow: hidden;\n}\n.progress-bar[data-v-95e78950] {\r\n    position: relative;\r\n    height: 75px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    flex-direction: column;\n}\n.progress-gauge[data-v-95e78950] {\r\n    position: absolute;\r\n    width:130px;\r\n    bottom:0;\n}\n.progress-text[data-v-95e78950] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    color:#ffffff;\n}\n.ep-circle--progress__fill[data-v-95e78950] {\r\n    box-shadow: 0px 0px 5px #EB5876;\n}\n.progress-done[data-v-95e78950] {\r\n    width: 30px;\r\n    height: 30px;\n}\n.all-badges-and-statistics[data-v-95e78950] {\r\n    position: relative;\r\n    width: 100%;\r\n    top: -1px;\r\n    left: 0%;\r\n    padding-top: 20px;\r\n    padding-bottom: 20px;\r\n\r\n    border-radius: 0px 0px 10px 10px;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    background-color: #EB5876;\r\n    box-shadow: 0px 5px 10px #EB5876;\n}\n.all-badges[data-v-95e78950] {\r\n    width: 160px;\r\n    height: 30px;\r\n\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    background-color: #FFF07C;\r\n\r\n    border: 2px solid #FFF07C;\r\n    border-radius: 6px;\r\n    box-shadow: 0px 0px 3px #FFF07C;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.all-badges-title[data-v-95e78950] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color: #121426;\n}\n.statistics[data-v-95e78950] {\r\n    width: 160px;\r\n    height: 30px;\r\n\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    background-color: #FFF07C;\r\n\r\n    border: 2px solid #FFF07C;\r\n    border-radius: 6px;\r\n    box-shadow: 0px 0px 3px #FFF07C;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.statistics-title[data-v-95e78950] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color: #121426;\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22522,7 +22553,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.tabset > input[type=\"radio\"][data-v-2c9da5fe] {\r\n  position: absolute;\r\n  left: -200vw;\n}\n.tabset .tab-panel[data-v-2c9da5fe] {\r\n  display: none;\n}\n.tabset > input:first-child:checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:first-child,\r\n.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:nth-child(2),\r\n.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:nth-child(3),\r\n.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:nth-child(4),\r\n.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:nth-child(5),\r\n.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:nth-child(6) {\r\n  display:flex;\r\n    justify-content: left;\r\n    width: 100vw;\r\n    max-width: 400px;\n}\r\n\r\n/*\r\n Styling\r\n*/\n.tabset > label[data-v-2c9da5fe] {\r\n\r\n    font-family: \"Akzidenz Medium\";\r\n    color: white;\r\n    font-size: 14px;\r\n    position: relative;\r\n    border-bottom: 0;\r\n    height: 40px;\r\n    width:33.3333%;\n}\n.tabset > label[data-v-2c9da5fe]::after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: 0px;\r\n  bottom: 1px;\r\n  width: 100%;\r\n  height: 4px;\r\n  background: white;\n}\n.tabset > label[data-v-2c9da5fe]:hover,\r\n.tabset > input:focus + label[data-v-2c9da5fe] {\r\n  color: #EB5876;\n}\n.tabset > label[data-v-2c9da5fe]:checked{\r\n  color: #EB5876;\n}\n.tabset > label[data-v-2c9da5fe]:hover::after,\r\n.tabset > input:focus + label[data-v-2c9da5fe]::after,\r\n.tabset > input:checked + label[data-v-2c9da5fe]::after {\r\n  background: #EB5876;\r\n  color: #EB5876;\n}\n.tabset > input:checked + label[data-v-2c9da5fe] {\r\n  border-color: white;\r\n  \r\n  margin-bottom: -1px;\n}\n.tab-panel[data-v-2c9da5fe] {\r\n    display:flex;\r\n    justify-content: left;\r\n    flex-wrap: wrap;\r\n    width: 100vw;\r\n    margin-top: 0;\n}\n.tabset[data-v-2c9da5fe] {\r\n    position: relative;\r\n    margin-top: 25px;\r\n    width: 100%;\r\n    display: inline-flex;\r\n    flex-wrap: wrap;\n}\n.all-posts[data-v-2c9da5fe] {\r\n    width: 33.33333%;\n}\n.all-posts img[data-v-2c9da5fe] {\r\n    display: block;\r\n    max-width: 100%;\r\n    height:130px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tabset > input[type=\"radio\"][data-v-2c9da5fe] {\r\n  position: absolute;\r\n  left: -200vw;\n}\n.tabset .tab-panel[data-v-2c9da5fe] {\r\n  display: none;\n}\n.tabset > input:first-child:checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:first-child,\r\n.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:nth-child(2),\r\n.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:nth-child(3),\r\n.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:nth-child(4),\r\n.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:nth-child(5),\r\n.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel[data-v-2c9da5fe]:nth-child(6) {\r\n  display:flex;\r\n    justify-content: left;\r\n    width: 100vw;\r\n    max-width: 400px;\n}\r\n\r\n/*\r\n Styling\r\n*/\n.tabset > label[data-v-2c9da5fe] {\r\n\r\n    font-family: \"Akzidenz Medium\";\r\n    color: white;\r\n    font-size: 14px;\r\n    position: relative;\r\n    border-bottom: 0;\r\n    height: 40px;\r\n    width:33.3333%;\n}\n.tabset > label[data-v-2c9da5fe]::after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: 0px;\r\n  bottom: 1px;\r\n  width: 100%;\r\n  height: 4px;\r\n  background: white;\n}\n.tabset > label[data-v-2c9da5fe]:hover,\r\n.tabset > input:focus + label[data-v-2c9da5fe] {\r\n  color: #EB5876;\n}\n.tabset > label[data-v-2c9da5fe]:checked{\r\n  color: #EB5876;\n}\n.tabset > label[data-v-2c9da5fe]:hover::after,\r\n.tabset > input:focus + label[data-v-2c9da5fe]::after,\r\n.tabset > input:checked + label[data-v-2c9da5fe]::after {\r\n  background: #EB5876;\r\n  color: #EB5876;\r\n  box-shadow: 0px -5px 10px #EB5876;\n}\n.tabset > input:checked + label[data-v-2c9da5fe] {\r\n  border-color: white;\r\n  \r\n  margin-bottom: -1px;\n}\n.tab-panel[data-v-2c9da5fe] {\r\n    display:flex;\r\n    justify-content: left;\r\n    flex-wrap: wrap;\r\n    width: 100vw;\r\n    margin-top: 0;\n}\n.tabset[data-v-2c9da5fe] {\r\n    position: relative;\r\n    margin-top: 25px;\r\n    width: 100%;\r\n    display: inline-flex;\r\n    flex-wrap: wrap;\n}\n.all-posts[data-v-2c9da5fe] {\r\n    width: 33.33333%;\n}\n.all-posts img[data-v-2c9da5fe] {\r\n    display: block;\r\n    max-width: 100%;\r\n    height:130px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22546,7 +22577,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.settings[data-v-2d1b6396] {\r\n  position: absolute;\r\n  top:0;\r\n  width: 100%;\r\n  height: 50px;\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  align-items: center;\n}\n.settings-icon[data-v-2d1b6396] {\r\n  width: 15px;\r\n  height: 15px;\r\n\r\n  margin-right: 5%;\r\n\r\n  fill: white;\n}\n.settings-icon[data-v-2d1b6396]:hover {\r\n    fill: #EB5876;\n}\n.main-profile-header[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\r\n    height: 150px;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\n}\n.avatar[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 30%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.avatar-icon[data-v-2d1b6396] {\r\n    width: 100%;\r\n    fill: white;\n}\n.avatar-profile-picture img[data-v-2d1b6396] {\r\n    width: 55px;\r\n    height: 55px;\r\n    border-radius: 50%;\r\n    border: 3px solid white;\n}\n.avatar-profile-picture[data-v-2d1b6396] {\r\n    position: relative;\n}\n.stats[data-v-2d1b6396] {\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.posts-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.followers-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.following-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.amount-number[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 18px;\r\n    color: white;\n}\n.background-username[data-v-2d1b6396] {\r\n    position: absolute;\r\n    width: 100%;\r\n    left:-5%;\r\n    top:0;\r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 120px;\r\n    text-align: center;\r\n    color:white;\r\n    opacity: 0.1;\n}\n#rssBlock[data-v-2d1b6396]{\r\n  left:0px;\r\n  height: 150px;\r\n  \r\n  position: absolute;\r\n  width:100%;\r\n  display: flex;\r\n  align-items: center;\r\n  overflow-x: hidden;\n}\r\n\r\n/*remove p*/\n.cnnContents[data-v-2d1b6396] {\r\n  width:450px;\r\n  margin:0 auto;\r\n  font-size: 120px;\r\n  \r\n  white-space: nowrap;\r\n  text-transform: uppercase;\n}\n.marqueeStyle[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n  Color: white;\r\n  opacity: 0.1;\r\n  white-space: nowrap;\r\n  \r\n  display:inline-block;\r\n  /* Apply animation to this element */\r\n  -webkit-animation: scrolling-left1-2d1b6396 20s linear infinite;\r\n  animation: scrolling-left1-2d1b6396 20s linear infinite;\n}\n.marqueeStyle2[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n  Color: white;\r\n  opacity: 0.1;\r\n  white-space: nowrap;\r\n\r\n  \r\n  \r\n  display:inline-block;\r\n  /* Apply animation to this element */\r\n  -webkit-animation: scrolling-left2-2d1b6396 20s linear infinite;\r\n  animation: scrolling-left2-2d1b6396 20s linear infinite;\r\n  -webkit-animation-delay: 10s;\r\n          animation-delay: 10s;\n}\r\n/* scrolling-left is continuous/repeatly text */\n@keyframes scrolling-left1-2d1b6396 {\n0% {transform: translateX(100%);\r\n        -webkit-transform: translateX(100%);}\n100% {transform: translateX(-100%);\r\n          -webkit-transform: translateX(-100%);}\n}\n@keyframes scrolling-left2-2d1b6396 {\n0% {transform: translateX(0%);\r\n        -webkit-transform: translateX(0%);}\n100% {transform: translateX(-200%);\r\n          -webkit-transform: translateX(-200%);}\n}\n@-webkit-keyframes scrolling-left1-2d1b6396 {\n0% {-webkit-transform: translateX(100%);}\n100% {-webkit-transform: translateX(-100%);}\n}\n@-webkit-keyframes scrolling-left2-2d1b6396 {\n0% {-webkit-transform: translateX(0%);}\n100% {-webkit-transform: translateX(-200%);}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.settings[data-v-2d1b6396] {\r\n  position: relative;\r\n  top:0;\r\n  width: 100%;\r\n  height: 0px;\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  align-items: center;\r\n  z-index: 2;\n}\n.settings-icon[data-v-2d1b6396] {\r\n  width: 15px;\r\n  height: 15px;\r\n\r\n  margin-right: 5%;\r\n  padding-top: 45px;\r\n\r\n  fill: white;\n}\n.settings-icon[data-v-2d1b6396]:hover {\r\n    fill: #EB5876;\n}\n.main-profile-header[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\r\n    height: 150px;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\n}\n.avatar[data-v-2d1b6396] {\r\n    position: relative;\r\n    width: 30%;\r\n    height:150px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.avatar-icon[data-v-2d1b6396] {\r\n    width: 100%;\r\n    fill: white;\n}\n.avatar-profile-picture img[data-v-2d1b6396] {\r\n    width: 55px;\r\n    height: 55px;\r\n    border-radius: 50%;\r\n    border: 3px solid white;\n}\n.avatar-profile-picture[data-v-2d1b6396] {\r\n    position: relative;\n}\n.avatar-horns[data-v-2d1b6396]{\r\n    position: absolute;\r\n    width: 90px;\r\n    top: 15px;\r\n    left: 9px;\n}\n.stats[data-v-2d1b6396] {\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.posts-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.followers-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.following-amount[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color: white;\r\n\r\n    width: 21%;\r\n    display: inline-flex;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n.amount-number[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 18px;\r\n    color: white;\n}\n.background-username[data-v-2d1b6396] {\r\n    position: absolute;\r\n    width: 100%;\r\n    left:-5%;\r\n    top:0;\r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 120px;\r\n    text-align: center;\r\n    color:white;\r\n    opacity: 0.1;\n}\n#rssBlock[data-v-2d1b6396]{\r\n  left:0px;\r\n  height: 150px;\r\n  \r\n  position: absolute;\r\n  width:100%;\r\n  display: flex;\r\n  align-items: center;\r\n  overflow-x: hidden;\n}\r\n\r\n/*remove p*/\n.cnnContents[data-v-2d1b6396] {\r\n  width:450px;\r\n  margin:0 auto;\r\n  font-size: 120px;\r\n  \r\n  white-space: nowrap;\r\n  text-transform: uppercase;\n}\n.marqueeStyle[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n  Color: white;\r\n  opacity: 0.1;\r\n  white-space: nowrap;\r\n  \r\n  display:inline-block;\r\n  /* Apply animation to this element */\r\n  -webkit-animation: scrolling-left1-2d1b6396 20s linear infinite;\r\n  animation: scrolling-left1-2d1b6396 20s linear infinite;\n}\n.marqueeStyle2[data-v-2d1b6396] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n  Color: white;\r\n  opacity: 0.1;\r\n  white-space: nowrap;\r\n\r\n  \r\n  \r\n  display:inline-block;\r\n  /* Apply animation to this element */\r\n  -webkit-animation: scrolling-left2-2d1b6396 20s linear infinite;\r\n  animation: scrolling-left2-2d1b6396 20s linear infinite;\r\n  -webkit-animation-delay: 10s;\r\n          animation-delay: 10s;\n}\r\n/* scrolling-left is continuous/repeatly text */\n@keyframes scrolling-left1-2d1b6396 {\n0% {transform: translateX(100%);\r\n        -webkit-transform: translateX(100%);}\n100% {transform: translateX(-100%);\r\n          -webkit-transform: translateX(-100%);}\n}\n@keyframes scrolling-left2-2d1b6396 {\n0% {transform: translateX(0%);\r\n        -webkit-transform: translateX(0%);}\n100% {transform: translateX(-200%);\r\n          -webkit-transform: translateX(-200%);}\n}\n@-webkit-keyframes scrolling-left1-2d1b6396 {\n0% {-webkit-transform: translateX(100%);}\n100% {-webkit-transform: translateX(-100%);}\n}\n@-webkit-keyframes scrolling-left2-2d1b6396 {\n0% {-webkit-transform: translateX(0%);}\n100% {-webkit-transform: translateX(-200%);}\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

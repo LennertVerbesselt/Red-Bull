@@ -18,9 +18,17 @@
 
     
     <div class="avatar">
+
+        <svg class="avatar-horns" xmlns="http://www.w3.org/2000/svg" width="116.617" height="63.827" viewBox="0 0 116.617 63.827">
+            <g id="Group_56" data-name="Group 56" transform="translate(-1180.355 -521.241)">
+                <path id="Path_30" data-name="Path 30" d="M129.887,47.044c-3.485-2.129-8.761-4.353-11.063-7.736a9.94,9.94,0,0,1-.434-11.45,12.563,12.563,0,0,1,5.488-3.525c5.5-2.129,11.371-3.138,16.843-5.307a17.009,17.009,0,0,0,6.584-4.163,52.735,52.735,0,0,0,6.024-8.824c.276-.938-.276-1.53-1.514-1.222s-13.24,9.313-21.322,8.855c-2.452-.142-4.857-.765-7.31-.71a18.123,18.123,0,0,0-8.272,2.484A28.306,28.306,0,0,0,102.588,51.42,33.011,33.011,0,0,0,121.15,68.563" transform="translate(1080.077 516.505)" fill="#fff"/>
+                <path id="Path_31" data-name="Path 31" d="M133.967,46.969a29.178,29.178,0,0,0,9.384-7.736,9.968,9.968,0,0,0,.434-11.442,12.6,12.6,0,0,0-5.5-3.533c-5.5-2.121-11.371-3.13-16.835-5.3a16.86,16.86,0,0,1-6.584-4.163A53.171,53.171,0,0,1,109.1,6.021c-.221-.718-.079-1.482,1.088-1.222s13.4,9.257,21.48,8.8c2.444-.142,4.865-.765,7.318-.71a18.121,18.121,0,0,1,8.264,2.484,28.294,28.294,0,0,1,12.325,35.965,33.021,33.021,0,0,1-18.554,17.143" transform="translate(1135.084 516.58)" fill="#fff"/>
+            </g>
+        </svg>
         
             
         <div class="avatar-profile-picture">
+            
             <img :src="ProfilePicture['url']" />
         </div>
         <div class="edit-profile">
@@ -88,13 +96,14 @@ export default {
 <style scoped>
 
 .settings {
-  position: absolute;
+  position: relative;
   top:0;
   width: 100%;
-  height: 50px;
+  height: 0px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  z-index: 2;
 }
 
 .settings-icon {
@@ -102,6 +111,7 @@ export default {
   height: 15px;
 
   margin-right: 5%;
+  padding-top: 45px;
 
   fill: white;
 }
@@ -124,6 +134,7 @@ export default {
 .avatar {
     position: relative;
     width: 30%;
+    height:150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,6 +155,13 @@ export default {
 
 .avatar-profile-picture {
     position: relative;
+}
+
+.avatar-horns{
+    position: absolute;
+    width: 90px;
+    top: 15px;
+    left: 9px;
 }
 
 .stats {
