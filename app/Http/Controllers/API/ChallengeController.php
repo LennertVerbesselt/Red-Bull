@@ -15,6 +15,7 @@ use App\Models\Challenge_Progression;
 use App\Models\Challenge_Badge;
 use App\Models\QR;
 use App\Models\User_Interests_Categories;
+use App\Models\Challenge_sets_Icon;
 
 
 
@@ -102,6 +103,7 @@ class ChallengeController extends Controller
         $challengebadges = Challenge_Badge::get();
         $challengeprogressions = Challenge_Progression::where('user_id', Auth::user()->id)->get();
         $favourites = (array) json_decode(User_interests_Categories::where('user_id', Auth::user()->id)->get()->first()->favourites);
+        $icons = Challenge_sets_Icon::get();
 
         $challengespage = [];
 
@@ -131,6 +133,12 @@ class ChallengeController extends Controller
                     $challengesubset['length'] = $challengeset->length;
                     $challengesubset['difficulty'] = $challengeset->difficulty;
                     $challengesubset['active_untill'] = $challengeset->active_untill;
+
+                    foreach($icons as $icon){
+                        if($icon->challenge_set_id === $challengeset->id){
+                            $challengesubset['icon'] = $icon->url;
+                        }
+                    }
 
                     foreach($challenges as $challenge){
 

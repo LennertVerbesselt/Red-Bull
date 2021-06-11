@@ -165,6 +165,10 @@ export default {
 .challengeset-icon {
     max-height: 140px;
     max-width: 140px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .challengeset-name {
@@ -211,10 +215,10 @@ export default {
 .all-badges-and-statistics {
     position: relative;
     width: 100%;
-    top: -1px;
+    top: 5px;
     left: 0%;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 
     border-radius: 0px 0px 10px 10px;
 
@@ -222,8 +226,7 @@ export default {
     justify-content: space-around;
     align-items: center;
 
-    background-color: #EB5876;
-    box-shadow: 0px 5px 10px #EB5876;
+    
 }
 
 .all-badges {
@@ -233,22 +236,29 @@ export default {
     margin-left: 10px;
     margin-right: 10px;
 
-    background-color: #FFF07C;
+    background-color: #EB5876;
 
-    border: 2px solid #FFF07C;
-    border-radius: 6px;
-    box-shadow: 0px 0px 3px #FFF07C;
+    
+    box-shadow: 0px 0px 3px #EB5876;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    -ms-transform: skewX(-30deg);
+    -webkit-transform: skewX(-30deg);
+    transform: skewX(-30deg);
 }
 
 .all-badges-title {
     font-family: "Akzidenz Medium";
     font-size: 14px;
-    color: #121426;
+    color: white;
     text-decoration: none;
+    -ms-transform: skewX(30deg);
+    -webkit-transform: skewX(30deg);
+    transform: skewX(30deg); 
+    
 }
 
 .statistics {
@@ -258,25 +268,35 @@ export default {
     margin-left: 10px;
     margin-right: 10px;
 
-    background-color: #FFF07C;
+    background-color: #EB5876;
 
-    border: 2px solid #FFF07C;
-    border-radius: 6px;
-    box-shadow: 0px 0px 3px #FFF07C;
+    
+    box-shadow: 0px 0px 3px #EB5876;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    -ms-transform: skewX(-30deg);
+    -webkit-transform: skewX(-30deg);
+    transform: skewX(-30deg);
 }
 
 .statistics-title {
     font-family: "Akzidenz Medium";
     font-size: 14px;
-    color: #121426;
+    color: white;
     text-decoration: none;
+    -ms-transform: skewX(30deg);
+    -webkit-transform: skewX(30deg);
+    transform: skewX(30deg); 
 }
 
 .router-link {
+    text-decoration: none;
+}
+
+.all-badges-and-statistics a {
     text-decoration: none;
 }
 

@@ -19,6 +19,9 @@ import ProfileStatistics from "../components/Profile/ProfileStatistics.vue";
 import Upload from "../views/Upload.vue";
 import ChallengeQRScanner from "../components/Challenges/ChallengeQRScanner.vue";
 
+import Explanation from "../views/Explanation.vue";
+import Introduction from "../views/Introduction.vue";
+
 
 const routes = [
   {
@@ -89,6 +92,16 @@ const routes = [
     path: "/survey",
     name: "Survey",
     component: Survey,
+  },
+  {
+    path: "/introduction",
+    name: "Introduction",
+    component: Introduction,
+  },
+  {
+    path: "/explanation",
+    name: "Explanation",
+    component: Explanation,
   },
   
   

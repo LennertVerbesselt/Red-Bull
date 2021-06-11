@@ -17,7 +17,7 @@
 </div>
 <div v-if="ShowCategory">
     <li class="ChallengeSet" :key="challengeset" v-for="challengeset in ChallengeSets">
-            <ChallengeSet :ChallengeSetName="challengeset.name" :ChallengeSetID="challengeset.id" :Challenges="challengeset.challenges" ></ChallengeSet>
+            <ChallengeSet :ChallengeSetName="challengeset.name" :ChallengeSetID="challengeset.id" :Challenges="challengeset.challenges" :ChallengeSetIcon="challengeset.icon" :ChallengeSet="challengeset"></ChallengeSet>
     </li>
 </div>
     
