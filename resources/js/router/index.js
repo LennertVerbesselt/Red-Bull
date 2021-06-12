@@ -51,14 +51,10 @@ const routes = [
     component: Challenges,
   },
   {
-    path: "/challengeset",
-    name: "ChallengeSet",
+    path: "/challengesetoverview",
+    name: "ChallengeSetOverview",
     component: ChallengeSetOverview,
     props: true,
-    meta: {
-      enterClass: 'animate__animated animate__fadeInLeft',
-      leaveClass: 'animate__animated animate__fadeOutRight'
-    }
   },
   {
     path: "/qrscanner",

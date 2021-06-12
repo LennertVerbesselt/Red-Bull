@@ -17,6 +17,7 @@ use App\Models\QR;
 use App\Models\User_Interests_Categories;
 use App\Models\Challenge_sets_Icon;
 use App\Models\Currency_Points;
+use App\Models\Event_Header;
 
 
 
@@ -32,7 +33,39 @@ class ChallengeController extends Controller
 
         $challenge_set_id = $request->challengesetid;
         $challenges = Challenge::wherechallenge_set_id($challenge_set_id)->get();
-        return['challenges' => $challenges];
+
+        $challengeset = Challenge_Set::where('id', $challenge_set_id)->get()->first();
+        $icon = Challenge_sets_Icon::where('challenge_set_id', $challenge_set_id)->get()->last();
+
+        $category = Category::where('category_id', $challengeset->category_id)->get()->first();
+
+        $totalpoints = 0;
+        $obtainedpoints = 0;
+
+        foreach($challenges as $c) {
+            $badge = Challenge_Badge::wherechallenge_id($c->id)->get()->last();
+            $c["badge"] = $badge->url;
+
+            $progression = Challenge_Progression::where('challenge_id', $c->id)->where('user_id', Auth::user()->id)->get()->last();
+            $c["progression"] = $progression;
+
+            if($progression->complete == 1){
+                $obtainedpoints += $c->points;
+            }
+
+            $totalpoints += $c->points;
+        }
+
+        $event = Event::find($challengeset->category_id);
+        $eventheader = Event_Header::where('event_id', $event->id)->get()->last();
+        $event["header"] = $eventheader->url;
+
+        $challengeset["icon"] = $icon->url;
+        $challengeset["categoryname"] = $category->category_name;
+        $challengeset["totalpoints"] = $totalpoints;
+        $challengeset["obtainedpoints"] = $obtainedpoints;
+
+        return['challengeset' => $challengeset, 'challenges' => $challenges, 'event' => $event, 'category' =>$category];
     }
 
     public function getChallenge(Request $request) {

@@ -1,5 +1,5 @@
 <template>
-
+<router-link :to="{ name: 'ChallengeSetOverview', params: {ChallengeSetID: ChallengeSetID, ChallengeSetName: ChallengeSetName, ChallengeSetDifficulty: ChallengeSetDifficulty, Challenges: Challenges, CategoryName: CategoryName, CategoryPoints:CategoryPoints, CategoryIcon: CategoryIcon} }">
 <div class="ChallengeSet" v-if="ChallengeSet.percentage != 100" @click="ChallengeSetShow = !ChallengeSetShow">
 
     <div class="challengeseticon ">
@@ -48,14 +48,7 @@
                 </div>
     
 </div>
-
-
-    <transition name="set" mode="out-in">
-        <div class="transition-wrapper" v-if="ChallengeSetShow">
-                <ChallengeSetOverview></ChallengeSetOverview>
-        </div>
-    </transition>
-
+</router-link>
     
 </template>
 
@@ -78,6 +71,7 @@ export default {
         CategoryName: String,
         CategoryPoints: Number,
         CategoryID: Number,
+        CategoryIcon: String,
 
         ChallengeSetID: Number,
         ChallengeSetName: String,
@@ -217,18 +211,6 @@ export default {
     color: white;
 }
 
-.set-enter-active,  .set-leave-active{
-	transition: all 0.3s ease-out;
-}
 
-.set-enter-from {
-	
-	opacity:0;
-}
-
-.set-leave-to {
-	
-	opacity:0;
-}
 
 </style>

@@ -37,6 +37,9 @@ Route::get('/survey', function () {
 Route::get('/challenges', function () {
     return view('welcome');
 });
+Route::get('/challengesetoverview', function () {
+    return view('welcome');
+});
 Route::get('/qrscanner', function () {
     return view('welcome');
 });

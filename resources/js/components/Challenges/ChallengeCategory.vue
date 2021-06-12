@@ -23,7 +23,7 @@
 </div>
 <div v-if="ShowCategory">
     <li class="ChallengeSet" :key="challengeset" v-for="challengeset in ChallengeSets"><div v-if="challengeset.percentage != 100">
-            <ChallengeSet :ChallengeSetName="challengeset.name" :ChallengeSetID="challengeset.id" :Challenges="challengeset.challenges" :ChallengeSetIcon="challengeset.icon" :ChallengeSet="challengeset"></ChallengeSet></div>
+            <ChallengeSet :ChallengeSetName="challengeset.name" :ChallengeSetID="challengeset.id" :Challenges="challengeset.challenges" :ChallengeSetIcon="challengeset.icon" :ChallengeSet="challengeset" :CategoryIcon="Category.icon"></ChallengeSet></div>
     </li>
     <li class="ChallengeSet" :key="challengeset" v-for="challengeset in ChallengeSets"><div v-if="challengeset.percentage == 100">
             <ChallengeSet :ChallengeSetName="challengeset.name" :ChallengeSetID="challengeset.id" :Challenges="challengeset.challenges" :ChallengeSetIcon="challengeset.icon" :ChallengeSet="challengeset"></ChallengeSet></div>

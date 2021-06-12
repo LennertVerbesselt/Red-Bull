@@ -17195,6 +17195,7 @@ __webpack_require__.r(__webpack_exports__);
     CategoryName: String,
     CategoryPoints: Number,
     CategoryID: Number,
+    CategoryIcon: String,
     ChallengeSetID: Number,
     ChallengeSetName: String,
     ChallengeSetEventID: Number,
@@ -17246,15 +17247,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'AllBadges',
+  name: 'ChallengeSetOverview',
   components: {},
-  props: {},
-  data: function data() {
-    return {};
+  props: {
+    ChallengeSetID: Number
   },
-  methods: {},
-  created: function created() {},
-  mounted: function mounted() {}
+  data: function data() {
+    return {
+      id: 13,
+      ChallengeSet: [],
+      Challenges: [],
+      Event: [],
+      Category: []
+    };
+  },
+  methods: {
+    getChallenges: function getChallenges() {
+      var _this = this;
+
+      axios.post('api/getchallenges', {
+        challengesetid: this.id
+      }).then(function (response) {
+        _this.ChallengeSet = response.data.challengeset;
+        _this.Challenges = response.data.challenges;
+        _this.Event = response.data.event;
+        _this.Category = response.data.category;
+        console.log(response);
+      })["catch"](function (error) {
+        console.log("Error, Challenges not obtained");
+      });
+    }
+  },
+  created: function created() {
+    if (this.ChallengeSetID) {
+      this.id = this.ChallengeSetID;
+    }
+  },
+  mounted: function mounted() {
+    this.getChallenges();
+  }
 });
 
 /***/ }),
@@ -19405,10 +19436,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       ChallengeSetID: challengeset.id,
       Challenges: challengeset.challenges,
       ChallengeSetIcon: challengeset.icon,
-      ChallengeSet: challengeset
+      ChallengeSet: challengeset,
+      CategoryIcon: $props.Category.icon
     }, null, 8
     /* PROPS */
-    , ["ChallengeSetName", "ChallengeSetID", "Challenges", "ChallengeSetIcon", "ChallengeSet"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+    , ["ChallengeSetName", "ChallengeSetID", "Challenges", "ChallengeSetIcon", "ChallengeSet", "CategoryIcon"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
   }), 128
   /* KEYED_FRAGMENT */
   )), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.ChallengeSets, function (challengeset) {
@@ -19769,73 +19801,78 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_10 = {
-  key: 0,
-  "class": "transition-wrapper"
-};
-
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_ve_progress = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ve-progress");
 
-  var _component_ChallengeSetOverview = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ChallengeSetOverview");
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [$props.ChallengeSet.percentage != 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
-    key: 0,
-    "class": "ChallengeSet",
-    onClick: _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.ChallengeSetShow = !_ctx.ChallengeSetShow;
-    })
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-    src: $props.ChallengeSetIcon
-  }, null, 8
-  /* PROPS */
-  , ["src"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeSetName), 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [$props.ChallengeSet.percentage != 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ve_progress, (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
-    key: 0,
-    progress: $props.ChallengeSet.percentage,
-    determinate: _ctx.determinate
-  }, _ctx.options, {
-    loading: _ctx.loading,
-    "no-data": _ctx.noData
-  }), {
-    "default": _withId(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeSet.completed) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeSet.total), 1
-      /* TEXT */
-      )];
-    }),
-    _: 1
-    /* STABLE */
-
-  }, 16
-  /* FULL_PROPS */
-  , ["progress", "determinate", "loading", "no-data"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.ChallengeSet.percentage == 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
-    key: 1,
-    "class": "challengeset completed",
-    click: $options.changeShow
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-    src: $props.ChallengeSetIcon
-  }, null, 8
-  /* PROPS */
-  , ["src"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeSetName), 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [$props.ChallengeSet.percentage == 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", _hoisted_8, [_hoisted_9])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 8
-  /* PROPS */
-  , ["click"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
-    name: "set",
-    mode: "out-in"
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
+    to: {
+      name: 'ChallengeSetOverview',
+      params: {
+        ChallengeSetID: $props.ChallengeSetID,
+        ChallengeSetName: $props.ChallengeSetName,
+        ChallengeSetDifficulty: $props.ChallengeSetDifficulty,
+        Challenges: $props.Challenges,
+        CategoryName: $props.CategoryName,
+        CategoryPoints: $props.CategoryPoints,
+        CategoryIcon: $props.CategoryIcon
+      }
+    }
   }, {
     "default": _withId(function () {
-      return [_ctx.ChallengeSetShow ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeSetOverview)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      return [$props.ChallengeSet.percentage != 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+        key: 0,
+        "class": "ChallengeSet",
+        onClick: _cache[1] || (_cache[1] = function ($event) {
+          return _ctx.ChallengeSetShow = !_ctx.ChallengeSetShow;
+        })
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+        src: $props.ChallengeSetIcon
+      }, null, 8
+      /* PROPS */
+      , ["src"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeSetName), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [$props.ChallengeSet.percentage != 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ve_progress, (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
+        key: 0,
+        progress: $props.ChallengeSet.percentage,
+        determinate: _ctx.determinate
+      }, _ctx.options, {
+        loading: _ctx.loading,
+        "no-data": _ctx.noData
+      }), {
+        "default": _withId(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeSet.completed) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeSet.total), 1
+          /* TEXT */
+          )];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 16
+      /* FULL_PROPS */
+      , ["progress", "determinate", "loading", "no-data"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.ChallengeSet.percentage == 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+        key: 1,
+        "class": "challengeset completed",
+        click: $options.changeShow
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+        src: $props.ChallengeSetIcon
+      }, null, 8
+      /* PROPS */
+      , ["src"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ChallengeSetName), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [$props.ChallengeSet.percentage == 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", _hoisted_8, [_hoisted_9])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 8
+      /* PROPS */
+      , ["click"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
 
-  })], 64
-  /* STABLE_FRAGMENT */
-  );
+  }, 8
+  /* PROPS */
+  , ["to"]);
 });
 
 /***/ }),
@@ -19852,12 +19889,127 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _assets_gradient_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../assets/gradient.png */ "./resources/assets/gradient.png");
+
 
 
 var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-048706dc");
 
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-048706dc");
+
+var _hoisted_1 = {
+  "class": "wrapper"
+};
+var _hoisted_2 = {
+  "class": "back"
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "back-text"
+}, " Back ", -1
+/* HOISTED */
+);
+
+var _hoisted_4 = {
+  "class": "set-header"
+};
+var _hoisted_5 = {
+  "class": "header-background"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _assets_gradient_png__WEBPACK_IMPORTED_MODULE_1__.default,
+  alt: "",
+  "class": "gradient"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_7 = {
+  "class": "icon"
+};
+var _hoisted_8 = {
+  "class": "set-name"
+};
+var _hoisted_9 = {
+  "class": "set-description"
+};
+var _hoisted_10 = {
+  "class": "points"
+};
+var _hoisted_11 = {
+  "class": "points-text"
+};
+var _hoisted_12 = {
+  "class": "points-icon"
+};
+var _hoisted_13 = {
+  "class": "set-body"
+};
+var _hoisted_14 = {
+  "class": "badge"
+};
+var _hoisted_15 = {
+  "class": "title"
+};
+
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
+
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return null;
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+    name: "slide",
+    appear: ""
+  }, {
+    "default": _withId(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+        to: "/challenges"
+      }, {
+        "default": _withId(function () {
+          return [_hoisted_3];
+        }),
+        _: 1
+        /* STABLE */
+
+      })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+        src: _ctx.Event.header,
+        "class": "header-img"
+      }, null, 8
+      /* PROPS */
+      , ["src"]), _hoisted_6]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+        src: _ctx.ChallengeSet.icon
+      }, null, 8
+      /* PROPS */
+      , ["src"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengeSet.name), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.Event.description), 1
+      /* TEXT */
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengeSet.obtainedpoints) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengeSet.totalpoints), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+        src: _ctx.Category.icon
+      }, null, 8
+      /* PROPS */
+      , ["src"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.Challenges, function (challenge) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+          "class": "challenge-item",
+          key: challenge
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+          src: challenge.badge
+        }, null, 8
+        /* PROPS */
+        , ["src"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(challenge.name), 1
+        /* TEXT */
+        )]);
+      }), 128
+      /* KEYED_FRAGMENT */
+      ))])])];
+    }),
+    _: 1
+    /* STABLE */
+
+  });
 });
 
 /***/ }),
@@ -22579,14 +22731,10 @@ var routes = [{
   name: "Challenges",
   component: _views_Challenges_vue__WEBPACK_IMPORTED_MODULE_5__.default
 }, {
-  path: "/challengeset",
-  name: "ChallengeSet",
+  path: "/challengesetoverview",
+  name: "ChallengeSetOverview",
   component: _components_Challenges_ChallengeSetOverview_vue__WEBPACK_IMPORTED_MODULE_14__.default,
-  props: true,
-  meta: {
-    enterClass: 'animate__animated animate__fadeInLeft',
-    leaveClass: 'animate__animated animate__fadeOutRight'
-  }
+  props: true
 }, {
   path: "/qrscanner",
   name: "QRScanner",
@@ -22901,7 +23049,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.ChallengeSet[data-v-c3a8f67a] {\r\n    width: 86%;\r\n    height: 100px;\r\n    \r\n    position: relative;\r\n    left: 7%;\r\n    margin-top: 15px;\r\n    margin-bottom: 5px;\r\n\r\n    display: flex;\r\n    justify-content: left;\r\n    align-items: center;\r\n\r\n    border-bottom: 1px solid white;\r\n    border-top: 1px solid white;\n}\n.ChallengeSetName[data-v-c3a8f67a]  {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 18px;\r\n    color: white;\n}\n.dropdown[data-v-c3a8f67a] {\r\n    background-color: transparent;\r\n    border: none;\n}\n.dropdownIcon[data-v-c3a8f67a] {\r\n    height: 8px;\r\n\r\n    position: absolute;\r\n    right: 8%;\r\n    top: 0px;\n}\n.challengeseticon[data-v-c3a8f67a] {\r\n    position: relative;\r\n    width: 25%;\r\n    display:flex;\r\n    justify-content: left;\n}\n.challengeseticon img[data-v-c3a8f67a] {\r\n    \r\n    max-width: 75px;\r\n    \r\n    max-height: 75px;\n}\n.progress-text[data-v-c3a8f67a] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 10px;\r\n    color:#ffffff;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.completed[data-v-c3a8f67a] {\r\n    position: relative;\r\n    width: 86%;\r\n    left:7%;\r\n    height: 45px;\r\n\r\n    display: flex;\r\n    justify-content: left;\r\n    align-items: center;\n}\n.icon-completed[data-v-c3a8f67a] {\r\n    width: 40px;\n}\n.icon-completed img[data-v-c3a8f67a] {\r\n    max-width: 25px;\r\n    max-height: 25px;\n}\n.progress-gauge[data-v-c3a8f67a] {\r\n    margin-left: auto;\n}\n.ChallengeSetNameCompleted[data-v-c3a8f67a]  {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    letter-spacing: 2px;\r\n    color: white;\n}\n.set-enter-active[data-v-c3a8f67a],  .set-leave-active[data-v-c3a8f67a]{\r\n\ttransition: all 0.3s ease-out;\n}\n.set-enter-from[data-v-c3a8f67a] {\r\n\t\r\n\topacity:0;\n}\n.set-leave-to[data-v-c3a8f67a] {\r\n\t\r\n\topacity:0;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.ChallengeSet[data-v-c3a8f67a] {\r\n    width: 86%;\r\n    height: 100px;\r\n    \r\n    position: relative;\r\n    left: 7%;\r\n    margin-top: 15px;\r\n    margin-bottom: 5px;\r\n\r\n    display: flex;\r\n    justify-content: left;\r\n    align-items: center;\r\n\r\n    border-bottom: 1px solid white;\r\n    border-top: 1px solid white;\n}\n.ChallengeSetName[data-v-c3a8f67a]  {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 18px;\r\n    color: white;\n}\n.dropdown[data-v-c3a8f67a] {\r\n    background-color: transparent;\r\n    border: none;\n}\n.dropdownIcon[data-v-c3a8f67a] {\r\n    height: 8px;\r\n\r\n    position: absolute;\r\n    right: 8%;\r\n    top: 0px;\n}\n.challengeseticon[data-v-c3a8f67a] {\r\n    position: relative;\r\n    width: 25%;\r\n    display:flex;\r\n    justify-content: left;\n}\n.challengeseticon img[data-v-c3a8f67a] {\r\n    \r\n    max-width: 75px;\r\n    \r\n    max-height: 75px;\n}\n.progress-text[data-v-c3a8f67a] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 10px;\r\n    color:#ffffff;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.completed[data-v-c3a8f67a] {\r\n    position: relative;\r\n    width: 86%;\r\n    left:7%;\r\n    height: 45px;\r\n\r\n    display: flex;\r\n    justify-content: left;\r\n    align-items: center;\n}\n.icon-completed[data-v-c3a8f67a] {\r\n    width: 40px;\n}\n.icon-completed img[data-v-c3a8f67a] {\r\n    max-width: 25px;\r\n    max-height: 25px;\n}\n.progress-gauge[data-v-c3a8f67a] {\r\n    margin-left: auto;\n}\n.ChallengeSetNameCompleted[data-v-c3a8f67a]  {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    letter-spacing: 2px;\r\n    color: white;\n}\r\n\r\n\r\n\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.wrapper[data-v-048706dc]{\r\n    position: absolute;\r\n    top:0;\r\n    left:0;\r\n    width: 100vw;\r\n    height: 100%;\r\n\r\n    color: white;\r\n    z-index: 5;\n}\n.slide-enter-active[data-v-048706dc],\r\n.slide-leave-active[data-v-048706dc] {\r\n  transition: all 0.75s ease-out;\n}\n.slide-enter-from[data-v-048706dc] {\r\n  opacity: 0;\n}\n.slide-leave-to[data-v-048706dc] {\r\n  opacity: 0;\n}\n.back-text[data-v-048706dc] {\r\n    position: fixed;\r\n    top: 15px;\r\n    left: 25px;\r\n    z-index: 3; \r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 16px;\r\n    color: #123456;\n}\n.set-header[data-v-048706dc] {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 350px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-flow: column;\n}\n.header-background[data-v-048706dc] {\r\n    height: 100%;\r\n    width: 100%;\r\n    position: absolute;\r\n    top: 0px;\r\n    left: 0;\n}\n.gradient[data-v-048706dc] {\r\n    width: 100%;\r\n    height: 150px;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 70px;\n}\n.header-img[data-v-048706dc] {\r\n    width: 100%;\r\n    max-height: 200px;\r\n    position: absolute;\r\n    left:0;\r\n    top: 0;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: 0% 0%;\r\n       object-position: 0% 0%;\n}\n.icon[data-v-048706dc] {\r\n    display:flex;\r\n    justify-content: center;\n}\n.icon img[data-v-048706dc]{\r\n    max-width: 100px;\r\n    max-height: 100px;\r\n    z-index: 3;\r\n    margin-top: 80px;\n}\n.set-name[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 20px;\r\n    color: white;\r\n    z-index: 3;\r\n\r\n    margin-top: 15px;\n}\n.set-description[data-v-048706dc] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\r\n    opacity: .3;\r\n\r\n    width: 60%;\r\n    left: 20%;\r\n\r\n    margin-top: 15px;\n}\n.points[data-v-048706dc] {\r\n    width: 100%;\r\n    position: relative;\r\n\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-flow: row;\r\n    flex-wrap: nowrap;\n}\n.points-text[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 30px;\r\n    color:white;\n}\n.points-icon img[data-v-048706dc]{\r\n    max-width: 30px;\r\n    max-height: 70px;\r\n\r\n    margin-left: 10px;\n}\n.set-body[data-v-048706dc]{\r\n    position: relative;\r\n    margin-top: 40px;\r\n    width: 90%;\r\n    left: 5%;\r\n    display:flex;\r\n    justify-content: space-around;\r\n    align-items: center;\n}\n.challenge-item[data-v-048706dc] {\r\n    min-width: 33.333%;\r\n    height: 80px;\r\n\r\n    display: flex;\r\n    flex-flow: column;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.challenge-item img[data-v-048706dc] {\r\n    max-width: 50px;\r\n    max-height: 50px;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46571,9 +46743,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ChallengeSetOverview_vue_vue_type_template_id_048706dc_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChallengeSetOverview.vue?vue&type=template&id=048706dc&scoped=true */ "./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=template&id=048706dc&scoped=true");
 /* harmony import */ var _ChallengeSetOverview_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChallengeSetOverview.vue?vue&type=script&lang=js */ "./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=script&lang=js");
+/* harmony import */ var _ChallengeSetOverview_vue_vue_type_style_index_0_id_048706dc_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css */ "./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css");
 
 
 
+
+;
 _ChallengeSetOverview_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ChallengeSetOverview_vue_vue_type_template_id_048706dc_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render
 _ChallengeSetOverview_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__scopeId = "data-v-048706dc"
 /* hot reload */
@@ -49509,6 +49684,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeSet_vue_vue_type_style_index_0_id_c3a8f67a_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeSet_vue_vue_type_style_index_0_id_c3a8f67a_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
 /* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeSet_vue_vue_type_style_index_0_id_c3a8f67a_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeSet_vue_vue_type_style_index_0_id_c3a8f67a_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css":
+/*!*****************************************************************************************************************************!*\
+  !*** ./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css ***!
+  \*****************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeSetOverview_vue_vue_type_style_index_0_id_048706dc_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader/index.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeSetOverview_vue_vue_type_style_index_0_id_048706dc_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeSetOverview_vue_vue_type_style_index_0_id_048706dc_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeSetOverview_vue_vue_type_style_index_0_id_048706dc_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChallengeSetOverview_vue_vue_type_style_index_0_id_048706dc_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
 /* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
 
 
@@ -53752,6 +53944,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! !../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("70ab524d", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Challenges/ChallengeSetOverview.vue?vue&type=style&index=0&id=048706dc&scoped=true&lang=css");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.id, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! !../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("f9248dd0", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
