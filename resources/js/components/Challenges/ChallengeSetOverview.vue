@@ -133,7 +133,7 @@ export default {
 .set-header {
     position: relative;
     width: 100%;
-    height: 350px;
+    height: 330px;
 
     display: flex;
     justify-content: center;
@@ -155,7 +155,7 @@ export default {
     height: 150px;
     position: absolute;
     left: 0;
-    top: 70px;
+    top: 51px;
     
 }
 
