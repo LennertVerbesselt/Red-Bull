@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44.224" height="62.473" viewBox="0 0 44.224 62.473">
+  <g id="Cycling" transform="translate(-163.483 -383.951)">
+    <g id="Group_45" data-name="Group 45" transform="translate(165.483 383.951)">
+      <circle id="Ellipse_30" data-name="Ellipse 30" cx="20.112" cy="20.112" r="20.112" transform="translate(0 20.249)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="4"/>
+      <circle id="Ellipse_31" data-name="Ellipse 31" cx="4.888" cy="4.888" r="4.888" transform="translate(15.224 35.367)" fill="#fff"/>
+      <path id="Path_135" data-name="Path 135" d="M173.759,389.482s.454,3.024,11.1,4.075c2.475.245,10.868-2.185,13.822-4.075s1.3-4.961-2.717-4.725-9.8,3.282-16.6-.013S173.759,389.482,173.759,389.482Z" transform="translate(-166.822 -383.951)" fill="#fff"/>
+      <line id="Line_43" data-name="Line 43" y2="33.342" transform="translate(19.757 7.018)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3.812"/>
+    </g>
+    <line id="Line_44" data-name="Line 44" x2="22.8" transform="translate(175.415 424.115)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.859"/>
+    <line id="Line_45" data-name="Line 45" x1="3.861" y2="5.639" transform="translate(196.284 421.955)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.859"/>
+    <line id="Line_46" data-name="Line 46" x1="3.861" y2="5.639" transform="translate(173.484 420.817)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.859"/>
+  </g>
+</svg>

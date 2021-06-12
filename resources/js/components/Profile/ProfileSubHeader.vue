@@ -2,13 +2,14 @@
 
   <div class="profile-sub-header">
       <div class="foreach-category" :key="category" v-for="category in CurrencyPoints">
-          
+          <div class="icon">
+              <img :src="category.icon" />
+              </div>
           <div class="currency-points">
               {{category.points}}
+              
           </div>
-          <div class="currency-name">
-              {{category.category_name}}
-          </div>
+          
       </div>
   </div>
 
@@ -30,10 +31,18 @@ export default {
     },
     data:function() {
         return {
+            categoryicon: "../../assets/icons/categories/",
         }
     },
 	methods: {
+        getURL(name){
+            this.categoryicon += name;
+            this.categoryicon += ".svg"
+            console.log(this.categoryicon);
+        }
 	},
+    created() {
+    },
 	mounted() {
 		
 	}
@@ -50,6 +59,7 @@ export default {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+    overflow-y:hidden;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -62,16 +72,36 @@ export default {
     font-family: "Akzidenz Medium";
     font-size: 14px;
     color:white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .currency-points {
     font-family: "Akzidenz Bold Extended";
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .currency-name {
     position: relative;
     top: 15px;
+}
+
+.icon {
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon img {
+    
+    top: 0px;
+    max-height: 80px;
+    max-width: 100px;
+    opacity: .2;
 }
 
 </style>

@@ -55,6 +55,7 @@ class ProfileController extends Controller
             foreach($categories as $ca) {
                 if($cu->category_id === $ca->category_id){
                     $cu['category_name'] = $ca->category_name;
+                    $cu['icon'] = $ca->icon;
                 }
             }
         }

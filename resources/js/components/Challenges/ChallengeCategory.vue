@@ -6,9 +6,15 @@
     <div class="categoryName">
         {{CategoryName}}
     </div>
-    <!--<div class="categoryPoints">
-        {{CategoryPoints}}
-    </div>-->
+    <div class="categorypoints">
+        <div class="points">
+            {{Category.points}}
+        </div>
+        <div class="icon">
+            <img :src="Category.icon" />
+        </div>
+    </div>
+    
     <button class="dropdown">
         <img class="dropdownIcon" v-if="ShowCategory" @click="ShowCategory = !ShowCategory" src="../../../assets/downvote.png" alt="">
 
@@ -16,8 +22,11 @@
     </button>
 </div>
 <div v-if="ShowCategory">
-    <li class="ChallengeSet" :key="challengeset" v-for="challengeset in ChallengeSets">
-            <ChallengeSet :ChallengeSetName="challengeset.name" :ChallengeSetID="challengeset.id" :Challenges="challengeset.challenges" :ChallengeSetIcon="challengeset.icon" :ChallengeSet="challengeset"></ChallengeSet>
+    <li class="ChallengeSet" :key="challengeset" v-for="challengeset in ChallengeSets"><div v-if="challengeset.percentage != 100">
+            <ChallengeSet :ChallengeSetName="challengeset.name" :ChallengeSetID="challengeset.id" :Challenges="challengeset.challenges" :ChallengeSetIcon="challengeset.icon" :ChallengeSet="challengeset"></ChallengeSet></div>
+    </li>
+    <li class="ChallengeSet" :key="challengeset" v-for="challengeset in ChallengeSets"><div v-if="challengeset.percentage == 100">
+            <ChallengeSet :ChallengeSetName="challengeset.name" :ChallengeSetID="challengeset.id" :Challenges="challengeset.challenges" :ChallengeSetIcon="challengeset.icon" :ChallengeSet="challengeset"></ChallengeSet></div>
     </li>
 </div>
     
@@ -85,6 +94,10 @@ export default {
 
     border: 2px solid white;
     border-radius: 6px;
+
+    display: flex;
+    justify-content:left;
+    align-items: center;
 }
 
 .categoryName  {
@@ -94,31 +107,18 @@ export default {
     color: white;
 
     text-align: left;
-    position: absolute;
-    left: 15%;
-    top: 25px;
+    
+    margin-right: 15px;
 }
 
-.categoryPoints {
-    font-family: "Akzidenz Bold";
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: white;
-    opacity: 0.5;
 
-    text-align: left;
-    position: absolute;
-    right: 25%;
-    top: 26px;
-}
 
 .favourite {
     height: 15px;
     fill: white;
-
-    position: absolute;
-    left: 5%;
-    top: 25px;
+    margin-left: 25px;
+    margin-right: 15px;
+    
 }
 
 .dropdown {
@@ -128,14 +128,44 @@ export default {
 
 .dropdownIcon {
     height: 10px;
-
-    position: absolute;
-    right: 10%;
-    top: 28px;
+    margin-right: 25px;
 }
 
 li {
     list-style-type: none;
+}
+
+.categorypoints {
+    position: relative;
+    height: 100%;
+    width: 100px;
+    margin-left: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.points {
+    font-family: "Akzidenz Medium";
+    font-size: 20px;
+    color: white;
+}
+
+.icon {
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon img {
+    width: 60px;
+    top: 0px;
+    max-height: 40px;
+    max-width: 40px;
+    opacity: .2;
 }
 
 

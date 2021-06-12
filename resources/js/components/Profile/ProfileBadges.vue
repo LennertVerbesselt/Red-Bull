@@ -155,20 +155,20 @@ export default {
 
 .challengeset-icon-container {
     width: 100%;
-    max-width: 115px;
+    max-width: 120px;
     height: 170px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
-.challengeset-icon {
+.challengeset-icon-container img {
     max-height: 140px;
     max-width: 140px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .challengeset-name {
@@ -192,7 +192,7 @@ export default {
 
 .progress-gauge {
     position: absolute;
-    width:130px;
+    width:120px;
     bottom:0;
     
 }

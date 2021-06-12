@@ -18100,9 +18100,18 @@ __webpack_require__.r(__webpack_exports__);
     Categories: Object
   },
   data: function data() {
-    return {};
+    return {
+      categoryicon: "../../assets/icons/categories/"
+    };
   },
-  methods: {},
+  methods: {
+    getURL: function getURL(name) {
+      this.categoryicon += name;
+      this.categoryicon += ".svg";
+      console.log(this.categoryicon);
+    }
+  },
+  created: function created() {},
   mounted: function mounted() {}
 });
 
@@ -19296,9 +19305,24 @@ var _hoisted_2 = {
   "class": "categoryName"
 };
 var _hoisted_3 = {
-  "class": "dropdown"
+  "class": "categorypoints"
 };
 var _hoisted_4 = {
+  "class": "points"
+};
+var _hoisted_5 = {
+  "class": "icon"
+};
+var _hoisted_6 = {
+  "class": "dropdown"
+};
+var _hoisted_7 = {
+  key: 0
+};
+var _hoisted_8 = {
+  key: 0
+};
+var _hoisted_9 = {
   key: 0
 };
 
@@ -19325,7 +19349,13 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     alt: ""
   })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.CategoryName), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<div class=\"categoryPoints\">\r\n        {{CategoryPoints}}\r\n    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", _hoisted_3, [_ctx.ShowCategory ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.Category.points), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+    src: $props.Category.icon
+  }, null, 8
+  /* PROPS */
+  , ["src"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", _hoisted_6, [_ctx.ShowCategory ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
     key: 0,
     "class": "dropdownIcon",
     onClick: _cache[3] || (_cache[3] = function ($event) {
@@ -19341,11 +19371,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     }),
     src: _assets_upvote_png__WEBPACK_IMPORTED_MODULE_4__.default,
     alt: ""
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), _ctx.ShowCategory ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.ChallengeSets, function (challengeset) {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), _ctx.ShowCategory ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.ChallengeSets, function (challengeset) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       "class": "ChallengeSet",
       key: challengeset
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeSet, {
+    }, [challengeset.percentage != 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeSet, {
       ChallengeSetName: challengeset.name,
       ChallengeSetID: challengeset.id,
       Challenges: challengeset.challenges,
@@ -19353,7 +19383,22 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       ChallengeSet: challengeset
     }, null, 8
     /* PROPS */
-    , ["ChallengeSetName", "ChallengeSetID", "Challenges", "ChallengeSetIcon", "ChallengeSet"])]);
+    , ["ChallengeSetName", "ChallengeSetID", "Challenges", "ChallengeSetIcon", "ChallengeSet"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  )), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.ChallengeSets, function (challengeset) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
+      "class": "ChallengeSet",
+      key: challengeset
+    }, [challengeset.percentage == 100 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChallengeSet, {
+      ChallengeSetName: challengeset.name,
+      ChallengeSetID: challengeset.id,
+      Challenges: challengeset.challenges,
+      ChallengeSetIcon: challengeset.icon,
+      ChallengeSet: challengeset
+    }, null, 8
+    /* PROPS */
+    , ["ChallengeSetName", "ChallengeSetID", "Challenges", "ChallengeSetIcon", "ChallengeSet"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
@@ -21266,10 +21311,10 @@ var _hoisted_1 = {
   "class": "profile-sub-header"
 };
 var _hoisted_2 = {
-  "class": "currency-points"
+  "class": "icon"
 };
 var _hoisted_3 = {
-  "class": "currency-name"
+  "class": "currency-points"
 };
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
@@ -21279,9 +21324,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
       "class": "foreach-category",
       key: category
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.points), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.category_name), 1
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+      src: category.icon
+    }, null, 8
+    /* PROPS */
+    , ["src"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.points), 1
     /* TEXT */
     )]);
   }), 128
@@ -22702,7 +22749,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.category[data-v-32f30126] {\r\n    width: 90%;\r\n    height: 65px;\r\n    \r\n    position: relative;\r\n    left: 5%;\r\n    margin-top: 30px;\r\n\r\n    border: 2px solid white;\r\n    border-radius: 6px;\n}\n.categoryName[data-v-32f30126]  {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 15px;\r\n    letter-spacing: 2px;\r\n    color: white;\r\n\r\n    text-align: left;\r\n    position: absolute;\r\n    left: 15%;\r\n    top: 25px;\n}\n.categoryPoints[data-v-32f30126] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 13px;\r\n    letter-spacing: 2px;\r\n    color: white;\r\n    opacity: 0.5;\r\n\r\n    text-align: left;\r\n    position: absolute;\r\n    right: 25%;\r\n    top: 26px;\n}\n.favourite[data-v-32f30126] {\r\n    height: 15px;\r\n    fill: white;\r\n\r\n    position: absolute;\r\n    left: 5%;\r\n    top: 25px;\n}\n.dropdown[data-v-32f30126] {\r\n    background-color: transparent;\r\n    border: none;\n}\n.dropdownIcon[data-v-32f30126] {\r\n    height: 10px;\r\n\r\n    position: absolute;\r\n    right: 10%;\r\n    top: 28px;\n}\nli[data-v-32f30126] {\r\n    list-style-type: none;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.category[data-v-32f30126] {\r\n    width: 90%;\r\n    height: 65px;\r\n    \r\n    position: relative;\r\n    left: 5%;\r\n    margin-top: 30px;\r\n\r\n    border: 2px solid white;\r\n    border-radius: 6px;\r\n\r\n    display: flex;\r\n    justify-content:left;\r\n    align-items: center;\n}\n.categoryName[data-v-32f30126]  {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 15px;\r\n    letter-spacing: 2px;\r\n    color: white;\r\n\r\n    text-align: left;\r\n    \r\n    margin-right: 15px;\n}\n.favourite[data-v-32f30126] {\r\n    height: 15px;\r\n    fill: white;\r\n    margin-left: 25px;\r\n    margin-right: 15px;\n}\n.dropdown[data-v-32f30126] {\r\n    background-color: transparent;\r\n    border: none;\n}\n.dropdownIcon[data-v-32f30126] {\r\n    height: 10px;\r\n    margin-right: 25px;\n}\nli[data-v-32f30126] {\r\n    list-style-type: none;\n}\n.categorypoints[data-v-32f30126] {\r\n    position: relative;\r\n    height: 100%;\r\n    width: 100px;\r\n    margin-left: auto;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.points[data-v-32f30126] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 20px;\r\n    color: white;\n}\n.icon[data-v-32f30126] {\r\n    position: absolute;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.icon img[data-v-32f30126] {\r\n    width: 60px;\r\n    top: 0px;\r\n    max-height: 40px;\r\n    max-width: 40px;\r\n    opacity: .2;\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23158,7 +23205,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.categories[data-v-95e78950]{\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\n}\n.category[data-v-95e78950] {\r\n    margin-top: 15px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\n}\n.category-header[data-v-95e78950] {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: left;\r\n    align-items:center;\r\n    height: 30px;\n}\n.category-name[data-v-95e78950] {\r\n    align-items:center;\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 18px;\r\n    color: white;\n}\r\n\r\n/*.category-line {\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n    height: 2px;\r\n    background-color: white;\r\n}*/\n.challengesets[data-v-95e78950] {\r\n    width: 100%;\r\n    height: 170px;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    overflow-x: auto;\r\n    overflow-y: hidden;\r\n    -webkit-overflow-scrolling: touch;\n}\n.challengeset[data-v-95e78950] {\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n    width: 130px;\r\n\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\n}\n.challengeset-icon-container[data-v-95e78950] {\r\n    width: 100%;\r\n    max-width: 115px;\r\n    height: 170px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.challengeset-icon[data-v-95e78950] {\r\n    max-height: 140px;\r\n    max-width: 140px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.challengeset-name[data-v-95e78950] {\r\n     font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color:white;\r\n    opacity: 0.4;\r\n    white-space: nowrap;\r\n  overflow: hidden;\n}\n.progress-bar[data-v-95e78950] {\r\n    position: relative;\r\n    height: 75px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    flex-direction: column;\n}\n.progress-gauge[data-v-95e78950] {\r\n    position: absolute;\r\n    width:130px;\r\n    bottom:0;\n}\n.progress-text[data-v-95e78950] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    color:#ffffff;\n}\n.ep-circle--progress__fill[data-v-95e78950] {\r\n    box-shadow: 0px 0px 5px #EB5876;\n}\n.progress-done[data-v-95e78950] {\r\n    width: 30px;\r\n    height: 30px;\n}\n.all-badges-and-statistics[data-v-95e78950] {\r\n    position: relative;\r\n    width: 100%;\r\n    top: 5px;\r\n    left: 0%;\r\n    padding-top: 20px;\r\n    padding-bottom: 10px;\r\n\r\n    border-radius: 0px 0px 10px 10px;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\n}\n.all-badges[data-v-95e78950] {\r\n    width: 160px;\r\n    height: 30px;\r\n\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    background-color: #EB5876;\r\n\r\n    \r\n    box-shadow: 0px 0px 3px #EB5876;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    transform: skewX(-30deg);\n}\n.all-badges-title[data-v-95e78950] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color: white;\r\n    text-decoration: none;\r\n    transform: skewX(30deg);\n}\n.statistics[data-v-95e78950] {\r\n    width: 160px;\r\n    height: 30px;\r\n\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    background-color: #EB5876;\r\n\r\n    \r\n    box-shadow: 0px 0px 3px #EB5876;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    transform: skewX(-30deg);\n}\n.statistics-title[data-v-95e78950] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color: white;\r\n    text-decoration: none;\r\n    transform: skewX(30deg);\n}\n.router-link[data-v-95e78950] {\r\n    text-decoration: none;\n}\n.all-badges-and-statistics a[data-v-95e78950] {\r\n    text-decoration: none;\n}\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.categories[data-v-95e78950]{\r\n    position: relative;\r\n    width: 90%;\r\n    left: 5%;\n}\n.category[data-v-95e78950] {\r\n    margin-top: 15px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\n}\n.category-header[data-v-95e78950] {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: left;\r\n    align-items:center;\r\n    height: 30px;\n}\n.category-name[data-v-95e78950] {\r\n    align-items:center;\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 18px;\r\n    color: white;\n}\r\n\r\n/*.category-line {\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n    height: 2px;\r\n    background-color: white;\r\n}*/\n.challengesets[data-v-95e78950] {\r\n    width: 100%;\r\n    height: 170px;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    overflow-x: auto;\r\n    overflow-y: hidden;\r\n    -webkit-overflow-scrolling: touch;\n}\n.challengeset[data-v-95e78950] {\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n    width: 130px;\r\n\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\n}\n.challengeset-icon-container[data-v-95e78950] {\r\n    width: 100%;\r\n    max-width: 120px;\r\n    height: 170px;\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\n}\n.challengeset-icon-container img[data-v-95e78950] {\r\n    max-height: 140px;\r\n    max-width: 140px;\r\n\r\n    display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\n}\n.challengeset-name[data-v-95e78950] {\r\n     font-family: \"Akzidenz Regular\";\r\n    font-size: 14px;\r\n    color:white;\r\n    opacity: 0.4;\r\n    white-space: nowrap;\r\n  overflow: hidden;\n}\n.progress-bar[data-v-95e78950] {\r\n    position: relative;\r\n    height: 75px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    flex-direction: column;\n}\n.progress-gauge[data-v-95e78950] {\r\n    position: absolute;\r\n    width:120px;\r\n    bottom:0;\n}\n.progress-text[data-v-95e78950] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 14px;\r\n    color:#ffffff;\n}\n.ep-circle--progress__fill[data-v-95e78950] {\r\n    box-shadow: 0px 0px 5px #EB5876;\n}\n.progress-done[data-v-95e78950] {\r\n    width: 30px;\r\n    height: 30px;\n}\n.all-badges-and-statistics[data-v-95e78950] {\r\n    position: relative;\r\n    width: 100%;\r\n    top: 5px;\r\n    left: 0%;\r\n    padding-top: 20px;\r\n    padding-bottom: 10px;\r\n\r\n    border-radius: 0px 0px 10px 10px;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\n}\n.all-badges[data-v-95e78950] {\r\n    width: 160px;\r\n    height: 30px;\r\n\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    background-color: #EB5876;\r\n\r\n    \r\n    box-shadow: 0px 0px 3px #EB5876;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    transform: skewX(-30deg);\n}\n.all-badges-title[data-v-95e78950] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color: white;\r\n    text-decoration: none;\r\n    transform: skewX(30deg);\n}\n.statistics[data-v-95e78950] {\r\n    width: 160px;\r\n    height: 30px;\r\n\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    background-color: #EB5876;\r\n\r\n    \r\n    box-shadow: 0px 0px 3px #EB5876;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    transform: skewX(-30deg);\n}\n.statistics-title[data-v-95e78950] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color: white;\r\n    text-decoration: none;\r\n    transform: skewX(30deg);\n}\n.router-link[data-v-95e78950] {\r\n    text-decoration: none;\n}\n.all-badges-and-statistics a[data-v-95e78950] {\r\n    text-decoration: none;\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23254,7 +23301,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.profile-sub-header[data-v-29cb9f75] {\r\n    width: 100%;\r\n    height: 80px;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    overflow-x: auto;\r\n    -webkit-overflow-scrolling: touch;\n}\n.foreach-category[data-v-29cb9f75] {\r\n    flex: 0 0 auto;\r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n    width: 100px;\r\n\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\n}\n.currency-points[data-v-29cb9f75] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 20px;\n}\n.currency-name[data-v-29cb9f75] {\r\n    position: relative;\r\n    top: 15px;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.profile-sub-header[data-v-29cb9f75] {\r\n    width: 100%;\r\n    height: 80px;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    overflow-x: auto;\r\n    overflow-y:hidden;\r\n    -webkit-overflow-scrolling: touch;\n}\n.foreach-category[data-v-29cb9f75] {\r\n    flex: 0 0 auto;\r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n    width: 100px;\r\n\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.currency-points[data-v-29cb9f75] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 25px;\n}\n.currency-name[data-v-29cb9f75] {\r\n    position: relative;\r\n    top: 15px;\n}\n.icon[data-v-29cb9f75] {\r\n    position: absolute;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.icon img[data-v-29cb9f75] {\r\n    \r\n    top: 0px;\r\n    max-height: 80px;\r\n    max-width: 100px;\r\n    opacity: .2;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

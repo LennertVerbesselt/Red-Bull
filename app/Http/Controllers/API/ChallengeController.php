@@ -16,6 +16,7 @@ use App\Models\Challenge_Badge;
 use App\Models\QR;
 use App\Models\User_Interests_Categories;
 use App\Models\Challenge_sets_Icon;
+use App\Models\Currency_Points;
 
 
 
@@ -105,87 +106,96 @@ class ChallengeController extends Controller
         $favourites = (array) json_decode(User_interests_Categories::where('user_id', Auth::user()->id)->get()->first()->favourites);
         $icons = Challenge_sets_Icon::get();
 
+        $currencypoints = Currency_Points::where('user_id', Auth::user()->id)->orderby('points', 'DESC')->get();
+
         $challengespage = [];
 
-        foreach($categories as $category){
-            $categorysub = [];
+        foreach($currencypoints as $cu) {
+            foreach($categories as $category){
+                if($category->category_id == $cu->category_id){
+                $categorysub = [];
 
-            $categorysub['category_id'] = $category->category_id;
-            $categorysub['category_name'] = $category->category_name;
+                $categorysub['category_id'] = $category->category_id;
+                $categorysub['category_name'] = $category->category_name;
+                $categorysub['icon'] = $category->icon;
+                $categorysub['points'] = $cu->points;
 
-            if($favourites[$category->category_name]){
-                $categorysub['favourite'] = true;
-            } else {
-                $categorysub['favourite'] = false;
-            }
-
-            foreach($challengesets as $challengeset){
-
-                if($challengeset->category_id == $category->category_id){
-                    $challengesubset = [];
-                    $completed = 0;
-                    $total = 0;
-
-                    $challengesubset['id'] = $challengeset->id;
-                    $challengesubset['event_id'] = $challengeset->event_id;
-                    $challengesubset['category_id'] = $challengeset->category_id;
-                    $challengesubset['name'] = $challengeset->name;
-                    $challengesubset['length'] = $challengeset->length;
-                    $challengesubset['difficulty'] = $challengeset->difficulty;
-                    $challengesubset['active_untill'] = $challengeset->active_untill;
-
-                    foreach($icons as $icon){
-                        if($icon->challenge_set_id === $challengeset->id){
-                            $challengesubset['icon'] = $icon->url;
-                        }
-                    }
-
-                    foreach($challenges as $challenge){
-
-                        if($challenge->challenge_set_id === $challengeset->id){
-                            $challengesub = [];
-
-                            $challengesub['id'] = $challenge->id;
-                            $challengesub['challenge_set_id'] = $challenge->challenge_set_id;
-                            $challengesub['name'] = $challenge->name;
-                            $challengesub['difficulty'] = $challenge->difficulty;
-                            $challengesub['description'] = $challenge->description;
-                            $challengesub['points'] = $challenge->points;
-                            $challengesub['cans_needed_to_unlock'] = $challenge->cans_needed_to_unlock;
-                            $challengesub['upvote_ratio'] = $challenge->upvote_ratio;
-
-                            foreach($challengebadges as $challengebadge){
-                                if($challengebadge->challenge_id == $challenge->id){
-                                    $challengesub['badge'] = $challengebadge->url;
-                                }
-                            }
-                            foreach($challengeprogressions as $challengeprogression){
-                                if($challengeprogression->challenge_id == $challenge->id){
-                                    $challengesub['progression'] = $challengeprogression;
-                                    if($challengeprogression->complete){
-                                        $completed++;
-                                    }
-                                    $total++;
-                                }
-                            }
-
-                            $percentage = $completed/$total * 100;
-
-                            $challengesubset['percentage'] = $percentage;
-                            $challengesubset['completed'] = $completed;
-                            $challengesubset['total'] = $total;
-
-                            $challengesubset['challenges'][$challenge->id] = $challengesub;
-                        }
-                    }
-
-                    $categorysub['challengesets'][$challengeset->id] = $challengesubset;
-
+                if($favourites[$category->category_name]){
+                    $categorysub['favourite'] = true;
+                } else {
+                    $categorysub['favourite'] = false;
                 }
-            }
 
-            array_push($challengespage, $categorysub);
+                foreach($challengesets as $challengeset){
+
+                    if($challengeset->category_id == $category->category_id){
+                        $challengesubset = [];
+                        $completed = 0;
+                        $total = 0;
+
+                        $challengesubset['id'] = $challengeset->id;
+                        $challengesubset['event_id'] = $challengeset->event_id;
+                        $challengesubset['category_id'] = $challengeset->category_id;
+                        $challengesubset['name'] = $challengeset->name;
+                        $challengesubset['length'] = $challengeset->length;
+                        $challengesubset['difficulty'] = $challengeset->difficulty;
+                        $challengesubset['active_untill'] = $challengeset->active_untill;
+
+                        foreach($icons as $icon){
+                            if($icon->challenge_set_id === $challengeset->id){
+                                $challengesubset['icon'] = $icon->url;
+                            }
+                        }
+
+                        foreach($challenges as $challenge){
+
+                            if($challenge->challenge_set_id === $challengeset->id){
+                                $challengesub = [];
+
+                                $challengesub['id'] = $challenge->id;
+                                $challengesub['challenge_set_id'] = $challenge->challenge_set_id;
+                                $challengesub['name'] = $challenge->name;
+                                $challengesub['difficulty'] = $challenge->difficulty;
+                                $challengesub['description'] = $challenge->description;
+                                $challengesub['points'] = $challenge->points;
+                                $challengesub['cans_needed_to_unlock'] = $challenge->cans_needed_to_unlock;
+                                $challengesub['upvote_ratio'] = $challenge->upvote_ratio;
+
+                                foreach($challengebadges as $challengebadge){
+                                    if($challengebadge->challenge_id == $challenge->id){
+                                        $challengesub['badge'] = $challengebadge->url;
+                                    }
+                                }
+                                foreach($challengeprogressions as $challengeprogression){
+                                    if($challengeprogression->challenge_id == $challenge->id){
+                                        $challengesub['progression'] = $challengeprogression;
+                                        if($challengeprogression->complete){
+                                            $completed++;
+                                        }
+                                        $total++;
+                                    }
+                                }
+
+                                $percentage = $completed/$total * 100;
+
+                                $challengesubset['percentage'] = $percentage;
+                                $challengesubset['completed'] = $completed;
+                                $challengesubset['total'] = $total;
+
+                                $challengesubset['challenges'][$challenge->id] = $challengesub;
+                            }
+                        }
+
+                        $categorysub['challengesets'][$challengeset->id] = $challengesubset;
+
+                    }
+                }
+
+                array_push($challengespage, $categorysub);
+            }
         }
+        
+    }
 
 
 
