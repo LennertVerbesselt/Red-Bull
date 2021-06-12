@@ -211,6 +211,10 @@ export default {
     color: white;
 }
 
+.ChallengeSet a {
+    text-decoration: none;
+}
+
 
 
 </style>
