@@ -18,6 +18,7 @@ import ProfileStatistics from "../components/Profile/ProfileStatistics.vue";
 
 import Upload from "../views/Upload.vue";
 import ChallengeQRScanner from "../components/Challenges/ChallengeQRScanner.vue";
+import ChallengeSetOverview from "../components/Challenges/ChallengeSetOverview.vue";
 
 import Explanation from "../views/Explanation.vue";
 import Introduction from "../views/Introduction.vue";
@@ -48,6 +49,16 @@ const routes = [
     path: "/challenges",
     name: "Challenges",
     component: Challenges,
+  },
+  {
+    path: "/challengeset",
+    name: "ChallengeSet",
+    component: ChallengeSetOverview,
+    props: true,
+    meta: {
+      enterClass: 'animate__animated animate__fadeInLeft',
+      leaveClass: 'animate__animated animate__fadeOutRight'
+    }
   },
   {
     path: "/qrscanner",

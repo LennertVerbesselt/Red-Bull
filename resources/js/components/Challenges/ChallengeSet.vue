@@ -1,6 +1,6 @@
 <template>
 
-<div class="ChallengeSet" v-if="ChallengeSet.percentage != 100">
+<div class="ChallengeSet" v-if="ChallengeSet.percentage != 100" @click="ChallengeSetShow = !ChallengeSetShow">
 
     <div class="challengeseticon ">
         <img :src="ChallengeSetIcon" />
@@ -25,7 +25,7 @@
     </div>
 </div>
 
-<div v-if="ChallengeSet.percentage == 100" class="challengeset completed">
+<div v-if="ChallengeSet.percentage == 100" class="challengeset completed" :click="changeShow">
 
     <div class="icon-completed">
         <img :src="ChallengeSetIcon" />
@@ -48,12 +48,22 @@
                 </div>
     
 </div>
+
+
+    <transition name="set" mode="out-in">
+        <div class="transition-wrapper" v-if="ChallengeSetShow">
+                <ChallengeSetOverview></ChallengeSetOverview>
+        </div>
+    </transition>
+
     
 </template>
 
 <script>
 
 import Challenge from './ChallengeItem.vue'
+import ChallengeSetOverview from './ChallengeSetOverview.vue'
+import VueFinalModal from 'vue-final-modal'
 import { VeProgress } from "vue-ellipse-progress";
 
 export default {
@@ -61,6 +71,8 @@ export default {
     components: {
         Challenge,
         VeProgress,
+        ChallengeSetOverview,
+        VueFinalModal,
     },
     props: {
         CategoryName: String,
@@ -79,7 +91,7 @@ export default {
     },
     data:function() {
         return {
-            ChallengeSetShow: true,
+            ChallengeSetShow: false,
             options: {
                 color: "#EB5876",
                 colorFill: "#121426",
@@ -94,17 +106,15 @@ export default {
                 line: "round",
                 
                 },
+            showModal: false,
             
         }
     },
     methods: {
-        getChallenges(){
-            axios.post('api/getchallenges', {challengesetid: this.ChallengeSetID }).then(response => {
-                this.Challenges=response.data.challenges;
-            }).catch(error => {
-                console.log("Error, Challenges not obtained");
-            });
-        },
+        changeShow() {
+            this.ChallengeSetShow = !this.ChallengeSetShow;
+            console.log(this.ChallengeSetShow);
+        }
     },
     created() {
         
@@ -205,6 +215,20 @@ export default {
     font-size: 14px;
     letter-spacing: 2px;
     color: white;
+}
+
+.set-enter-active,  .set-leave-active{
+	transition: all 0.3s ease-out;
+}
+
+.set-enter-from {
+	
+	opacity:0;
+}
+
+.set-leave-to {
+	
+	opacity:0;
 }
 
 </style>
