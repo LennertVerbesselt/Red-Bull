@@ -19868,6 +19868,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _assets_gradient_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../assets/gradient.png */ "./resources/assets/gradient.png");
 /* harmony import */ var _assets_qrIcon_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../assets/qrIcon.svg */ "./resources/assets/qrIcon.svg");
+/* harmony import */ var _assets_ChallengeQRScannerIcon_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../assets/ChallengeQRScannerIcon.png */ "./resources/assets/ChallengeQRScannerIcon.png");
+/* harmony import */ var _assets_cloud_upload_alt_solid_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../assets/cloud-upload-alt-solid.svg */ "./resources/assets/cloud-upload-alt-solid.svg");
+
+
 
 
 
@@ -19931,45 +19935,90 @@ var _hoisted_15 = {
 var _hoisted_16 = {
   "class": "PopupContainer"
 };
-var _hoisted_17 = {
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "25",
+  height: "25",
+  viewBox: "0 0 25 25"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("g", {
+  id: "Close",
+  transform: "translate(-383 -557)"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+  id: "Rectangle_156",
+  "data-name": "Rectangle 156",
+  width: "25",
+  height: "25",
+  rx: "12",
+  transform: "translate(383 557)",
+  fill: "#eb5876"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
+  id: "Icon_ionic-ios-close",
+  "data-name": "Icon ionic-ios-close",
+  d: "M15.888,15.009l2.658-2.658a.623.623,0,0,0-.881-.881l-2.658,2.658L12.349,11.47a.623.623,0,1,0-.881.881l2.658,2.658-2.658,2.658a.623.623,0,1,0,.881.881l2.658-2.658,2.658,2.658a.623.623,0,0,0,.881-.881Z",
+  transform: "translate(380.494 554.491)",
+  fill: "#fff",
+  stroke: "#fff",
+  "stroke-width": "0.5"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_18 = {
   "class": "popup-badge"
 };
-var _hoisted_18 = {
-  "class": "popup-title"
-};
 var _hoisted_19 = {
-  "class": "popup-description"
+  key: 0,
+  "class": "badge-locked"
 };
 var _hoisted_20 = {
+  key: 1,
+  "class": "badge-unlocked"
+};
+var _hoisted_21 = {
+  key: 2,
+  "class": "badge-pending"
+};
+var _hoisted_22 = {
+  key: 3,
+  "class": "badge-complete"
+};
+var _hoisted_23 = {
+  "class": "popup-title"
+};
+var _hoisted_24 = {
+  "class": "popup-description"
+};
+var _hoisted_25 = {
   key: 0,
   "class": "description-locked"
 };
-var _hoisted_21 = {
+var _hoisted_26 = {
   key: 1,
   "class": "description-unlocked"
 };
-var _hoisted_22 = {
+var _hoisted_27 = {
   key: 2,
   "class": "description-pending"
 };
-var _hoisted_23 = {
+var _hoisted_28 = {
   key: 3,
   "class": "description-completed"
 };
-var _hoisted_24 = {
+var _hoisted_29 = {
   "class": "popup-points"
 };
-var _hoisted_25 = {
+var _hoisted_30 = {
   "class": "popup-points-icon"
 };
-var _hoisted_26 = {
+var _hoisted_31 = {
   "class": "popup-points-number"
 };
-var _hoisted_27 = {
+var _hoisted_32 = {
   "class": "popup-cans"
 };
 
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "popup-cans-icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   src: _assets_qrIcon_svg__WEBPACK_IMPORTED_MODULE_2__.default
@@ -19977,24 +20026,64 @@ var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_29 = {
+var _hoisted_34 = {
   key: 0,
   "class": "popup-cans-number-unstarted"
 };
-var _hoisted_30 = {
+var _hoisted_35 = {
   key: 1,
   "class": "popup-cans-number-scanning"
 };
-var _hoisted_31 = {
+var _hoisted_36 = {
   key: 2,
   "class": "popup-cans-number-unlocked"
 };
+var _hoisted_37 = {
+  "class": "popup-cta"
+};
+var _hoisted_38 = {
+  key: 0,
+  "class": "popup-locked"
+};
 
-var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "popup-state"
+var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  "class": "qricon",
+  src: _assets_ChallengeQRScannerIcon_png__WEBPACK_IMPORTED_MODULE_3__.default
 }, null, -1
 /* HOISTED */
 );
+
+var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "qr-text"
+}, "Scan", -1
+/* HOISTED */
+);
+
+var _hoisted_41 = {
+  key: 1,
+  "class": "popup-unlocked"
+};
+
+var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _assets_cloud_upload_alt_solid_svg__WEBPACK_IMPORTED_MODULE_4__.default
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "upload-text"
+}, "Upload", -1
+/* HOISTED */
+);
+
+var _hoisted_44 = {
+  key: 2,
+  "class": "popup-pending"
+};
+var _hoisted_45 = {
+  key: 3,
+  "class": "popup-complete"
+};
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -20002,6 +20091,8 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   var _component_challenge_item = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("challenge-item");
 
   var _component_BottomMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BottomMenu");
+
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
     name: "slide",
@@ -20065,31 +20156,83 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     onClick: _cache[2] || (_cache[2] = function () {
       return $options.closePopup && $options.closePopup.apply($options, arguments);
     })
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ShowPopup ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ShowPopup ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+    "class": "closepopup",
+    onClick: _cache[3] || (_cache[3] = function () {
+      return $options.closePopup && $options.closePopup.apply($options, arguments);
+    })
+  }, [_hoisted_17]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [_ctx.ChallengePopup.progression.locked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+    src: _ctx.ChallengePopup.badge,
+    "class": "greybadge"
+  }, null, 8
+  /* PROPS */
+  , ["src"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.unlocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+    src: _ctx.ChallengePopup.badge,
+    "class": "greybadge"
+  }, null, 8
+  /* PROPS */
+  , ["src"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.pending ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+    src: _ctx.ChallengePopup.badge,
+    "class": "greybadge"
+  }, null, 8
+  /* PROPS */
+  , ["src"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.complete ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
     src: _ctx.ChallengePopup.badge
   }, null, 8
   /* PROPS */
-  , ["src"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.name), 1
+  , ["src"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.name), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_19, [_ctx.ChallengePopup.progression.locked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_20, " Scan " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.cans_needed_to_unlock - _ctx.ChallengePopup.progression.cans_scanned) + " QR Codes ", 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_24, [_ctx.ChallengePopup.progression.locked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_25, " Scan " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.cans_needed_to_unlock - _ctx.ChallengePopup.progression.cans_scanned) + " QR Codes ", 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.unlocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.description), 1
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.unlocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.description), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.pending ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_22, " Stay tuned, we are verifying your sumbission! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.complete ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_23, " Completed: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.description), 1
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.pending ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_27, " Verifying your sumbission! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.complete ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_28, " Completed: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.description), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
     src: _ctx.Category.icon
   }, null, 8
   /* PROPS */
-  , ["src"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_26, " +" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.points), 1
+  , ["src"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_31, " +" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.points), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_27, [_hoisted_28, 0 == _ctx.ChallengePopup.progression.cans_scanned ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.progression.cans_scanned) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.cans_needed_to_unlock), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_32, [_hoisted_33, 0 == _ctx.ChallengePopup.progression.cans_scanned ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.progression.cans_scanned) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.cans_needed_to_unlock), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), 0 != _ctx.ChallengePopup.progression.cans_scanned && _ctx.ChallengePopup.cans_needed_to_unlock > _ctx.ChallengePopup.progression.cans_scanned ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.progression.cans_scanned) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.cans_needed_to_unlock), 1
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), 0 != _ctx.ChallengePopup.progression.cans_scanned && _ctx.ChallengePopup.cans_needed_to_unlock > _ctx.ChallengePopup.progression.cans_scanned ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.progression.cans_scanned) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.cans_needed_to_unlock), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.cans_scanned == _ctx.ChallengePopup.cans_needed_to_unlock ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.progression.cans_scanned) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.cans_needed_to_unlock), 1
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.cans_scanned == _ctx.ChallengePopup.cans_needed_to_unlock ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.progression.cans_scanned) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.ChallengePopup.cans_needed_to_unlock), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_32])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_37, [_ctx.ChallengePopup.progression.locked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: {
+      name: 'ChallengeQRScanner',
+      params: {
+        id: _ctx.ChallengeID
+      }
+    }
+  }, {
+    "default": _withId(function () {
+      return [_hoisted_39, _hoisted_40];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["to"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.unlocked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: {
+      name: 'Upload',
+      params: {
+        id: _ctx.ChallengePopup.id
+      }
+    }
+  }, {
+    "default": _withId(function () {
+      return [_hoisted_42, _hoisted_43];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["to"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.pending ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_44, " Stay Tuned! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.ChallengePopup.progression.complete ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_45, " Completed! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
   /* STABLE_FRAGMENT */
   );
 });
@@ -23206,7 +23349,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.wrapper[data-v-048706dc]{\r\n    position: absolute;\r\n    top:0;\r\n    left:0;\r\n    width: 100vw;\r\n    height: 100%;\r\n\r\n    color: white;\r\n    z-index: 5;\n}\n.slide-enter-active[data-v-048706dc],\r\n.slide-leave-active[data-v-048706dc] {\r\n  transition: all 0.75s ease-out;\n}\n.slide-enter-from[data-v-048706dc] {\r\n  opacity: 0;\n}\n.slide-leave-to[data-v-048706dc] {\r\n  opacity: 0;\n}\n.back-text[data-v-048706dc] {\r\n    position: fixed;\r\n    top: 15px;\r\n    left: 25px;\r\n    z-index: 3; \r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 16px;\r\n    color: #121426;\n}\n.set-header[data-v-048706dc] {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 330px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-flow: column;\n}\n.header-background[data-v-048706dc] {\r\n    height: 100%;\r\n    width: 100%;\r\n    position: absolute;\r\n    top: 0px;\r\n    left: 0;\n}\n.gradient[data-v-048706dc] {\r\n    width: 100%;\r\n    height: 150px;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 51px;\n}\n.header-img[data-v-048706dc] {\r\n    width: 100%;\r\n    max-height: 200px;\r\n    position: absolute;\r\n    left:0;\r\n    top: 0;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: 0% 0%;\r\n       object-position: 0% 0%;\n}\n.icon[data-v-048706dc] {\r\n    display:flex;\r\n    justify-content: center;\n}\n.icon img[data-v-048706dc]{\r\n    max-width: 100px;\r\n    max-height: 100px;\r\n    z-index: 3;\r\n    margin-top: 80px;\n}\n.set-name[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 20px;\r\n    color: white;\r\n    z-index: 3;\r\n\r\n    margin-top: 15px;\n}\n.set-description[data-v-048706dc] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\r\n    opacity: .3;\r\n\r\n    width: 60%;\r\n    left: 20%;\r\n\r\n    margin-top: 15px;\n}\n.points[data-v-048706dc] {\r\n    width: 100%;\r\n    position: relative;\r\n\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-flow: row;\r\n    flex-wrap: nowrap;\n}\n.points-text[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 30px;\r\n    color:white;\n}\n.points-icon img[data-v-048706dc]{\r\n    max-width: 30px;\r\n    max-height: 70px;\r\n\r\n    margin-left: 10px;\n}\n.set-body[data-v-048706dc]{\r\n    position: relative;\r\n    margin-top: 40px;\r\n    width: 90%;\r\n    left: 5%;\r\n    display:flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    flex-wrap: wrap;\n}\n.challenge-item[data-v-048706dc] {\r\n    min-width: 33.333%;\r\n    height: 80px;\r\n\r\n    display: flex;\r\n    flex-flow: column;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.challenge-item img[data-v-048706dc] {\r\n    max-width: 50px;\r\n    max-height: 50px;\n}\n.title[data-v-048706dc] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 12px;\r\n    color: white;\n}\n.ChallengePopupOverlay[data-v-048706dc] {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n\r\n    background-color: #121426;\r\n    opacity: 0.8;\r\n\r\n    z-index: 5;\n}\n.ChallengePopup[data-v-048706dc] {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.PopupContainer[data-v-048706dc] {\r\n    position: relative;\r\n\r\n    width: 250px;\r\n    height: 350px;\r\n    background-color: #121426;\r\n    opacity: 1;\r\n\r\n    border-radius: 10px;\r\n    /*border: 2px solid #EB5876;*/\r\n\r\n    box-shadow: 0px 0px 20px #EB5876;\r\n\r\n    z-index: 6;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    flex-flow: column;\n}\n.popup-badge img[data-v-048706dc]{\r\n    max-width: 70px;\r\n    max-height: 70px;\r\n\r\n    margin-top: 15px;\n}\n.popup-title[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 12px;\r\n    color: white;\n}\n.popup-description[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 24px;\r\n    color: white;\r\n    max-width: 200px;\n}\n.popup-points[data-v-048706dc], .popup-cans[data-v-048706dc] {\r\n    width: 50%;\r\n\r\n    left: 25%;\r\n\r\n    display:flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.popup-points-icon img[data-v-048706dc], .popup-cans img[data-v-048706dc] {\r\n    width: 30px;\r\n    height: 30px;\n}\n.popup-points-number[data-v-048706dc], .popup-cans-number-unstarted[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 24px;\r\n    color: white;\n}\n.popup-cans-number-scanning[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 24px;\r\n    color: #FFF07C;\n}\n.popup-cans-number-unlocked[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 24px;\r\n    color: #58EB71;\n}\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.wrapper[data-v-048706dc]{\r\n    position: absolute;\r\n    top:0;\r\n    left:0;\r\n    width: 100vw;\r\n    height: 100%;\r\n\r\n    color: white;\r\n    z-index: 5;\n}\n.slide-enter-active[data-v-048706dc],\r\n.slide-leave-active[data-v-048706dc] {\r\n  transition: all 0.75s ease-out;\n}\n.slide-enter-from[data-v-048706dc] {\r\n  opacity: 0;\n}\n.slide-leave-to[data-v-048706dc] {\r\n  opacity: 0;\n}\n.back-text[data-v-048706dc] {\r\n    position: fixed;\r\n    top: 15px;\r\n    left: 25px;\r\n    z-index: 3; \r\n\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 16px;\r\n    color: #121426;\n}\n.set-header[data-v-048706dc] {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 330px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-flow: column;\n}\n.header-background[data-v-048706dc] {\r\n    height: 100%;\r\n    width: 100%;\r\n    position: absolute;\r\n    top: 0px;\r\n    left: 0;\n}\n.gradient[data-v-048706dc] {\r\n    width: 100%;\r\n    height: 150px;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 51px;\n}\n.header-img[data-v-048706dc] {\r\n    width: 100%;\r\n    max-height: 200px;\r\n    position: absolute;\r\n    left:0;\r\n    top: 0;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: 0% 0%;\r\n       object-position: 0% 0%;\n}\n.icon[data-v-048706dc] {\r\n    display:flex;\r\n    justify-content: center;\n}\n.icon img[data-v-048706dc]{\r\n    max-width: 100px;\r\n    max-height: 100px;\r\n    z-index: 3;\r\n    margin-top: 80px;\n}\n.set-name[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 20px;\r\n    color: white;\r\n    z-index: 3;\r\n\r\n    margin-top: 15px;\n}\n.set-description[data-v-048706dc] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 14px;\r\n    color:white;\r\n    opacity: .3;\r\n\r\n    width: 60%;\r\n    left: 20%;\r\n\r\n    margin-top: 15px;\n}\n.points[data-v-048706dc] {\r\n    width: 100%;\r\n    position: relative;\r\n\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-flow: row;\r\n    flex-wrap: nowrap;\n}\n.points-text[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 30px;\r\n    color:white;\n}\n.points-icon img[data-v-048706dc]{\r\n    max-width: 30px;\r\n    max-height: 70px;\r\n\r\n    margin-left: 10px;\n}\n.set-body[data-v-048706dc]{\r\n    position: relative;\r\n    margin-top: 40px;\r\n    width: 90%;\r\n    left: 5%;\r\n    display:flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    flex-wrap: wrap;\n}\n.challenge-item[data-v-048706dc] {\r\n    min-width: 33.333%;\r\n    height: 80px;\r\n\r\n    display: flex;\r\n    flex-flow: column;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.challenge-item img[data-v-048706dc] {\r\n    max-width: 50px;\r\n    max-height: 50px;\n}\n.title[data-v-048706dc] {\r\n    font-family: \"Akzidenz Regular\";\r\n    font-size: 12px;\r\n    color: white;\n}\n.ChallengePopupOverlay[data-v-048706dc] {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n\r\n    background-color: #121426;\r\n    opacity: 0.8;\r\n\r\n    z-index: 5;\n}\n.ChallengePopup[data-v-048706dc] {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.PopupContainer[data-v-048706dc] {\r\n    position: relative;\r\n\r\n    width: 260px;\r\n    height: 450px;\r\n    background-color: #121426;\r\n    opacity: 1;\r\n\r\n    border-radius: 10px;\r\n    /*border: 2px solid #EB5876;*/\r\n\r\n    box-shadow: 0px 0px 20px #EB5876;\r\n\r\n    z-index: 6;\r\n\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    flex-flow: column;\n}\n.popup-badge img[data-v-048706dc]{\r\n    max-width: 70px;\r\n    max-height: 70px;\r\n\r\n    margin-top: 15px;\n}\n.popup-title[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold\";\r\n    font-size: 12px;\r\n    color: white;\n}\n.popup-description[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 20px;\r\n    color: white;\r\n    max-width: 200px;\r\n\r\n    margin-bottom: 25px;\n}\n.popup-points[data-v-048706dc], .popup-cans[data-v-048706dc] {\r\n    width: 50%;\r\n\r\n    left: 25%;\r\n\r\n    display:flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.popup-cans[data-v-048706dc] {\r\n    margin-bottom: 25px;\n}\n.popup-points-icon img[data-v-048706dc], .popup-cans img[data-v-048706dc] {\r\n    width: 30px;\r\n    height: 30px;\n}\n.popup-points-number[data-v-048706dc], .popup-cans-number-unstarted[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 24px;\r\n    color: white;\n}\n.popup-cans-number-scanning[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 24px;\r\n    color: #FFF07C;\n}\n.popup-cans-number-unlocked[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 24px;\r\n    color: #58EB71;\n}\n.greybadge[data-v-048706dc] {\r\n    filter: grayscale(100%);\n}\n.popup-complete[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 24px;\r\n    color: #58EB71;\r\n\r\n    margin-bottom: 15px;\n}\n.popup-pending[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 24px;\r\n    color:#FFF07C;\r\n\r\n    margin-bottom: 15px;\n}\n.popup-unlocked a[data-v-048706dc] {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-wrap: nowrap;\r\n   \r\n    margin-bottom: 15px;\n}\n.upload-text[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 20px;\r\n    color:white;\n}\n.popup-unlocked a[data-v-048706dc] {\r\n    text-decoration: none;\n}\n.popup-unlocked img[data-v-048706dc] {\r\n    width: 30px;\r\n    height: 30px;\r\n    margin: 0px 10px;\n}\n.popup-locked a[data-v-048706dc] {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-wrap: nowrap;\r\n   \r\n    margin-bottom: 15px;\n}\n.qr-text[data-v-048706dc] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 20px;\r\n    color:white;\n}\n.popup-locked a[data-v-048706dc] {\r\n    text-decoration: none;\n}\n.popup-locked img[data-v-048706dc] {\r\n    width: 25px;\r\n    height: 25px;\r\n    margin: 0px 10px;\n}\n.popup-cta[data-v-048706dc] {\r\n    margin-bottom: 15px;\n}\n.closepopup[data-v-048706dc] {\r\n    position: absolute;\r\n    top: 15px;\r\n    right:15px;\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24074,6 +24217,21 @@ module.exports = function (url, options) {
 
   return url;
 };
+
+/***/ }),
+
+/***/ "./resources/assets/ChallengeQRScannerIcon.png":
+/*!*****************************************************!*\
+  !*** ./resources/assets/ChallengeQRScannerIcon.png ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/ChallengeQRScannerIcon.png?645ce2b7e70a6c8554e46459179a548b");
 
 /***/ }),
 
