@@ -126,7 +126,7 @@ class ChallengeController extends Controller
         $challengebadges = Challenge_Badge::get();
         $icons = Challenge_sets_Icon::get();
 
-        return view('CMS/challenges', ['challenges' => $challenges, 'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges, 'challengeseticons' => $icons]);
+        return view('CMS/uploadchallengebadge', ['challenges' => $challenges, 'events' => $events, 'categories' => $categories, 'challenge_sets' => $challengeSets, 'challengebadges' => $challengebadges, 'challengeseticons' => $icons]);
     }
 
     public function uploadChallengeBadge(Request $request) {
