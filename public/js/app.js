@@ -20204,7 +20204,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     to: {
       name: 'ChallengeQRScanner',
       params: {
-        id: _ctx.ChallengeID
+        id: _ctx.ChallengePopup.id
       }
     }
   }, {

@@ -108,7 +108,7 @@
             
             <div class="popup-cta">
                 <div class="popup-locked" v-if="ChallengePopup.progression.locked">
-                    <router-link :to="{ name: 'ChallengeQRScanner', params: {id: ChallengeID} }">
+                    <router-link :to="{ name: 'ChallengeQRScanner', params: {id: ChallengePopup.id} }">
                         <img class="qricon"  src="./../../../assets/ChallengeQRScannerIcon.png" />
                         <div class="qr-text">Scan</div>
                     </router-link>
