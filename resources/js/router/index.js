@@ -19,6 +19,7 @@ import ProfileStatistics from "../components/Profile/ProfileStatistics.vue";
 import Upload from "../views/Upload.vue";
 import ChallengeQRScanner from "../components/Challenges/ChallengeQRScanner.vue";
 import ChallengeSetOverview from "../components/Challenges/ChallengeSetOverview.vue";
+import ChallengeSelect from "../components/Challenges/ChallengeSelect.vue";
 
 import Explanation from "../views/Explanation.vue";
 import Introduction from "../views/Introduction.vue";
@@ -54,6 +55,12 @@ const routes = [
     path: "/challengesetoverview",
     name: "ChallengeSetOverview",
     component: ChallengeSetOverview,
+    props: true,
+  },
+  {
+    path: "/challengeselect",
+    name: "ChallengeSelect",
+    component: ChallengeSelect,
     props: true,
   },
   {
