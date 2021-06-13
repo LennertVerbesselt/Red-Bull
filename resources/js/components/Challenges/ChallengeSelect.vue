@@ -1,29 +1,99 @@
 <template>
+
     <div class="challenge-select-wrapper">
-        <transition name="slide" mode="out-in">
+            
             <div class="categories" v-if="showCategories"> 
                 <div class="title">Select Category:</div>
-                <button @click="toChallengeSets">Next</button>
+                <div class="categories-body">
+                <div class="category" :key="category" v-for="category in ChallengesPage" @click="setCategory(category.category_id, category.challengesets)">
+                    
+                    <div class="category-icon" >
+                        <img :src="category.icon" />
+                    </div>
+                    <label class="rad-label" >
+                        <div class="rad-text" >{{category.category_name}}</div>
+                        <input type="radio" class="rad-input" name="rad" >
+                        <div class="rad-design" ></div>
+                        
+                    </label>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div v-if="FinalCategory" @click="toChallengeSets" class="next">
+                        <div class="next-text">Next</div>
+                    </div>
+                </div>
             </div>
-        </transition>
-        <transition name="slide" mode="out-in">
+        
+        
             <div class="challenge-sets" v-if="showChallengeSets">
                 <div class="title">Select Challenge Set:</div>
+
+                <div class="categories-body">
+                <div class="category" :key="set" v-for="set in ChallengeSets" @click="setChallengeSet(set.id, set.challenges)">
+                    
+                    <div class="category-icon">
+                        <img :src="set.icon" />
+                    </div>
+                    <label class="rad-label">
+                        <div class="rad-text">{{set.name}}</div>
+                        <input type="radio" class="rad-input" name="rad">
+                        <div class="rad-design"></div>
+                        
+                    </label>
+                    </div>
+                </div>
+
+
+                <div class="buttons">
+                    <div @click="toCategories" class="next">
+                        <div class="next-text">Back</div>
+                    </div>
+                    <div v-if="FinalChallengeSet != 0" @click="toChallenges" class="next">
+                        <div class="next-text">Next</div>
+                    </div>
+                </div>
             </div>
-        </transition>
-        <transition name="slide" mode="out-in">
+        
+        
             <div class="challenges" v-if="showChallenges">
                 <div class="title">Select Challenge:</div>
+
+                <div class="categories-body">
+                <div class="category" :key="challenge" v-for="challenge in Challenges" @click="setChallenge(challenge.id)">
+                    
+                    <div class="category-icon">
+                        <img :src="challenge.badge" />
+                    </div>
+                    <label class="rad-label">
+                        <div class="rad-text">{{challenge.name}}</div>
+                        <input type="radio" class="rad-input" name="rad">
+                        <div class="rad-design"></div>
+                        
+                    </label>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <div @click="toChallengeSets" class="next">
+                        <div class="next-text">Back</div>
+                    </div>
+                    <div v-if="FinalChallenge != 0" class="next">
+                        <div class="next-text">Next</div>
+                    </div>
+                </div>
             </div>
-        </transition>
+        
     </div>
+    
 </template>
 
 <script>
+
+
 export default {
     name:'ChallengeSelect',
     components: {
-
     },
     props: {
 
@@ -35,6 +105,7 @@ export default {
             showChallenges:false,
 
             ChallengesPage: [],
+            ChallengeSets: [],
             
             ChallengeSet: [],
             Challenges: [],
@@ -67,10 +138,38 @@ export default {
             });
         },
 
+        toCategories(){
+            
+            this.showCategories = true;
+            this.showChallengeSets = false;
+            this.showChallenges = false;
+        },
+
 
         toChallengeSets(){
             this.showCategories = false;
             this.showChallengeSets = true;
+            this.showChallenges = false;
+        },
+
+        toChallenges(){
+            this.showCategories = false;
+            this.showChallengeSets = false;
+            this.showChallenges = true;
+        },
+
+        setCategory(category, sets){
+            this.FinalCategory = category;
+            this.ChallengeSets = sets;
+            
+        },
+        setChallengeSet(set, challenges){
+            this.FinalChallengeSet = set;
+            this.Challenges = challenges;
+            
+        },
+        setChallenge(challenge){
+            this.FinalChallenge = challenge;
         },
 
     },
@@ -87,37 +186,186 @@ export default {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: all 0.75s ease-out;
+  transition: all 1s ease;
 }
-
-
-.slide-enter-to {
-  position: absolute;
-  right: 0;
-}
-
 
 .slide-enter-from {
-  position: absolute;
-  right: -100%;
+  opacity: 0;
 }
-
 
 .slide-leave-to {
-  position: absolute;
-  left: -100%;
+  opacity: 0;
 }
 
-
-.slide-leave-from {
-  position: absolute;
-  left: 0;
+.buttons {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
 }
+
+.next {
+    width: 160px;
+    height: 30px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    background-color: #EB5876;
+
+    
+    box-shadow: 0px 0px 3px #EB5876;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    -ms-transform: skewX(-30deg);
+    -webkit-transform: skewX(-30deg);
+    transform: skewX(-30deg);
+}
+
+.next-text {
+    font-family: "Akzidenz Medium";
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    -ms-transform: skewX(30deg);
+    -webkit-transform: skewX(30deg);
+    transform: skewX(30deg); 
+    
+}
+
 
 .title {
     font-family: "Akzidenz Bold Extended";
     font-size: 22px;
     color: white;
+    margin-top: 35px;
+    margin-bottom: 20px;
 }
+
+
+
+.categories-body {
+    position: relative;
+    width: 90%;
+    left:5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.category {
+    height: 100px;
+    width: 40%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.category-name {
+    font-family: "Akzidenz Bold";
+    font-size: 22px;
+    color: white;
+    text-align: center;
+}
+
+
+.category-icon {
+    position:absolute;
+    width: 140px;
+    height: 100px;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.category-icon img {
+    max-width: 60px;
+    max-height: 60px;
+    position: relative;
+    top:0;
+
+    opacity: 0.2;
+}
+
+.rad-label {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-around;
+
+  border-radius: 10px;
+  
+  margin: 10px 0;
+
+  cursor: pointer;
+  transition: .3s;
+
+  height: 100%;
+  width: 100%;
+}
+
+.rad-label:hover,
+.rad-label:focus-within {
+  background: hsla(0, 0%, 80%, .14);
+}
+
+.rad-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.rad-design {
+  width: 15px;
+  height: 15px;
+  border-radius: 100px;
+
+  background-color: #EB5876;
+  position: relative;
+  bottom: 0;
+}
+
+.rad-design::before {
+  content: '';
+
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+
+  background: hsl(0, 0%, 90%);
+  transform: scale(1.1);
+  transition: .3s;
+}
+
+.rad-input:checked+.rad-design::before {
+  transform: scale(0);
+}
+
+.rad-text {
+  
+  font-weight: 900;
+
+  transition: .3s;
+  font-family: "Akzidenz Medium";
+    font-size: 20px;
+    color: white;
+}
+
+.rad-input:checked~.rad-text {
+  color: hsl(0, 0%, 40%);
+}
+
 
 </style>
