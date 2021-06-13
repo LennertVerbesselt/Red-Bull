@@ -3,10 +3,11 @@
 <div class="Challenge">
     
     <div v-if="ChallengeLocked" class="locked">
-        <img  :src="ChallengeBadge" class="greybadge" />
         <div class="lock">
         <img src="./../../../assets/lock-solid.svg" />
         </div>
+        <img  :src="ChallengeBadge" class="greybadge" />
+        
         <div v-if="ChallengeLocked" class="ChallengeName">
             {{ChallengeName}}
         </div>
@@ -14,14 +15,15 @@
     </div>
 
     <div v-if="ChallengeUnlocked" class="unlocked">
+        <div class="upload">
+            <img   src="./../../../assets/cloud-upload-alt-solid.svg" />
+           </div>
         <img :src="ChallengeBadge" class="greybadge" />
         <div class="ChallengeName">
             {{ChallengeName}}
         </div>
        <!-- <router-link :to="{ name: 'Upload', params: { id: ChallengeID } }">-->
-           <div class="upload">
-            <img   src="./../../../assets/cloud-upload-alt-solid.svg" />
-           </div>
+           
            <!--</router-link>-->
     </div>
 
@@ -166,18 +168,25 @@ export default {
 
 .lock, .upload {
     height: 0px;
-    
+    position: relative;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.lock img, .upload img{
+.lock img {
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    top: 0px;
+}
+
+.upload img{
     width: 15px;
     height: 15px;
     position: absolute;
-    top: 35px;
+    top: 0px;
     
 
     

@@ -101,7 +101,7 @@ export default defineComponent({
           this.$router.go(-1);
         }
         else {
-          this.$router.push('/challengeselect');
+          this.$router.push({ name: 'ChallengeSelect', params: { QRCode: this.result } })
         }
     },
 

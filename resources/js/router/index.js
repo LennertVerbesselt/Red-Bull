@@ -12,6 +12,7 @@ import Leaderboards from "../views/Leaderboards.vue";
 import QRScanner from "../views/QRScanner.vue";
 import Events from "../views/Events.vue";
 import Profile from "../views/Profile.vue";
+import Settings from "../views/Settings.vue";
 
 import AllBadges from "../components/Profile/AllBadges.vue";
 import ProfileStatistics from "../components/Profile/ProfileStatistics.vue";
@@ -117,8 +118,11 @@ const routes = [
     name: "Explanation",
     component: Explanation,
   },
-  
-  
+  {
+    path: "/settings",
+    name: "Settings",
+    component: Settings,
+  },
 
 
 ];

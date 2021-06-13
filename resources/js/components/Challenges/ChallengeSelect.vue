@@ -60,9 +60,10 @@
                 <div class="title">Select Challenge:</div>
 
                 <div class="categories-body">
-                <div class="category" :key="challenge" v-for="challenge in Challenges" @click="setChallenge(challenge.id)">
+                <div class="" :key="challenge" v-for="challenge in Challenges" @click="setChallenge(challenge.id)" >
+                    <div class="category" v-if="challenge.progression.locked">
                     
-                    <div class="category-icon">
+                    <div class="category-icon" >
                         <img :src="challenge.badge" />
                     </div>
                     <label class="rad-label">
@@ -72,14 +73,15 @@
                         
                     </label>
                     </div>
+                    </div>
                 </div>
 
                 <div class="buttons">
                     <div @click="toChallengeSets" class="next">
                         <div class="next-text">Back</div>
                     </div>
-                    <div v-if="FinalChallenge != 0" class="next">
-                        <div class="next-text">Next</div>
+                    <div v-if="FinalChallenge != 0" class="next" @click="onDecode">
+                        <div class="next-text">Submit</div>
                     </div>
                 </div>
             </div>
@@ -96,7 +98,7 @@ export default {
     components: {
     },
     props: {
-
+        QRCode: String,
     },
     data:function() {
         return  {
@@ -110,6 +112,7 @@ export default {
             ChallengeSet: [],
             Challenges: [],
             Category: [],
+            code: "",
 
             FinalCategory: 0,
             FinalChallengeSet: 0,
@@ -137,6 +140,33 @@ export default {
                 console.log("Error, Challenges not obtained");
             });
         },
+
+         onDecode () {
+             console.log(this.QRCode);
+             console.log(this.FinalChallenge);
+
+            // Check backend
+            axios.post('api/checkqrcode', {qrcode: this.QRCode, challengeid: this.FinalChallenge}).then(response => {
+                        if(response.data.status) {
+                        this.handleValidQRCode(response.data.challengedefined);
+                        
+                        } else {
+                        }
+                    }).catch(error => {
+                        console.log("Error");
+                    });
+
+            
+            },
+
+        handleValidQRCode(c) {
+                if(c){
+                this.$router.push('/challenges');
+                }
+                else {
+                this.$router.push({ name: 'Challenges', params: { QRCode: this.result } })
+                }
+            },
 
         toCategories(){
             
@@ -166,6 +196,7 @@ export default {
         setChallengeSet(set, challenges){
             this.FinalChallengeSet = set;
             this.Challenges = challenges;
+            
             
         },
         setChallenge(challenge){
@@ -363,9 +394,6 @@ export default {
     color: white;
 }
 
-.rad-input:checked~.rad-text {
-  color: hsl(0, 0%, 40%);
-}
 
 
 </style>

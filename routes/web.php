@@ -67,6 +67,9 @@ Route::get('/explanation', function () {
 Route::get('/challengeselect', function () {
     return view('welcome');
 });
+Route::get('/settings', function () {
+    return view('welcome');
+});
 
 //CMS Routes
 Route::get('/CMS', [OverviewController::class, 'index'])->name('overview');
