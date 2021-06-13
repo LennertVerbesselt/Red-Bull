@@ -32,10 +32,8 @@
                     @endauth
                 </div>
             @endif
-            <div id="app">
-                
-
-            </div>
+            <div id="app"></div>
+            <div id="modals"></div>
 
             </div>   
 

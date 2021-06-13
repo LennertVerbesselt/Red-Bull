@@ -2,11 +2,11 @@
 <transition name="slide" appear>
     <div class="wrapper">
         <div class="back">
-            <router-link to="/challenges">
+            
                 <div class="back-text">
-                    Back
+                    <a @click="$router.go(-1)">Back</a>
                 </div>
-            </router-link>
+
         </div>
         <div class="set-header">
             <div class="header-background">
@@ -32,29 +32,74 @@
             </div>
         </div>
         <div class="set-body" >
-            <div class="challenge-item" :key="challenge" v-for="challenge in Challenges">
-                <div class="badge">
-                    <img :src="challenge.badge" />
-                </div>
-                <div class="title">
-                    {{challenge.name}}
-                </div>
+            <div class="challenge-item" :key="challenge" v-for="challenge in Challenges" @click="openPopup(challenge)">
+                <challenge-item :ChallengeName="challenge.name" :ChallengePoints="challenge.points" :ChallengeBadge="challenge.badge" :ChallengeCansNeeded="challenge.cans_needed_to_unlock" :ChallengeDescription="challenge.description" :ChallengeDifficulty="challenge.difficulty" :ChallengeID="challenge.id" :ChallengeProgression="challenge.progression"></challenge-item>  
+
+                
             </div>
 
         </div>
+        <BottomMenu></BottomMenu>
     </div>
+    
+ 
 </transition>
+
+<div class="ChallengePopupOverlay" v-if="ShowPopup" @click="closePopup"></div>
+
+<div class="ChallengePopup" v-if="ShowPopup">
+    <div class="popupoverlay">
+        <div class="PopupContainer">
+            <div class="popup-badge">
+                <img :src="ChallengePopup.badge" />
+            </div>
+            <div class="popup-title"> {{ChallengePopup.name}} </div>
+            <div class="popup-description">
+                <div class="description-locked" v-if="ChallengePopup.progression.locked">
+                    Scan {{ChallengePopup.cans_needed_to_unlock - ChallengePopup.progression.cans_scanned}} QR Codes
+                </div>
+                <div class="description-unlocked" v-if="ChallengePopup.progression.unlocked">
+                    {{ChallengePopup.description}}
+                </div>
+                <div class="description-pending" v-if="ChallengePopup.progression.pending">
+                    Stay tuned, we are verifying your sumbission!
+                </div>
+                <div class="description-completed" v-if="ChallengePopup.progression.complete">
+                    Completed: {{ChallengePopup.description}}
+                </div>
+            </div>
+            <div class="popup-points">
+                <div class="popup-points-icon">
+                    <img :src="Category.icon" />
+                    </div>
+                <div class="popup-points-number"> +{{ChallengePopup.points}}</div>
+            </div>
+            <div class="popup-cans">
+                <div class="popup-cans-icon">
+                    <img src="./../../../assets/qrIcon.svg" />
+                </div>
+                <div class="popup-cans-number-unstarted" v-if="0 == ChallengePopup.progression.cans_scanned ">{{ChallengePopup.progression.cans_scanned}}/{{ChallengePopup.cans_needed_to_unlock}} </div>
+                <div class="popup-cans-number-scanning" v-if="0 != ChallengePopup.progression.cans_scanned && ChallengePopup.cans_needed_to_unlock > ChallengePopup.progression.cans_scanned">{{ChallengePopup.progression.cans_scanned}}/{{ChallengePopup.cans_needed_to_unlock}} </div>
+                <div class="popup-cans-number-unlocked" v-if="ChallengePopup.progression.cans_scanned == ChallengePopup.cans_needed_to_unlock">{{ChallengePopup.progression.cans_scanned}}/{{ChallengePopup.cans_needed_to_unlock}} </div>
+            </div>
+            
+            <div class="popup-state"></div>
+        </div>
+    </div>
+</div>
 
 </template>
 
 <script>
 
-
+import ChallengeItem from './ChallengeItem.vue'
+import BottomMenu from './../BottomMenu.vue'
 
 export default {
 	name: 'ChallengeSetOverview', 
     components: {
-        
+        ChallengeItem,
+        BottomMenu,
     },
     props: {
         ChallengeSetID: Number,
@@ -66,6 +111,8 @@ export default {
           Challenges: [],
           Event: [],
           Category: [],
+          ShowPopup: false,
+          ChallengePopup: [],
       }
     },
 	methods: {
@@ -80,6 +127,17 @@ export default {
                 console.log("Error, Challenges not obtained");
             });
         },
+
+        openPopup(challenge) {
+            this.ChallengePopup = challenge;
+            this.ShowPopup = !this.ShowPopup;
+        },
+
+        closePopup() {
+            this.ShowPopup = !this.ShowPopup;
+        }
+
+        
 	},
 	created() {
         if(this.ChallengeSetID){
@@ -127,7 +185,7 @@ export default {
 
     font-family: "Akzidenz Bold";
     font-size: 16px;
-    color: #123456;
+    color: #121426;
 }
 
 .set-header {
@@ -236,6 +294,7 @@ export default {
     display:flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 
 }
 
@@ -254,5 +313,116 @@ export default {
     max-height: 50px;
 
 }
+
+.title {
+    font-family: "Akzidenz Regular";
+    font-size: 12px;
+    color: white;
+}
+
+.ChallengePopupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #121426;
+    opacity: 0.8;
+
+    z-index: 5;
+
+}
+
+.ChallengePopup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.PopupContainer {
+    position: relative;
+
+    width: 250px;
+    height: 350px;
+    background-color: #121426;
+    opacity: 1;
+
+    border-radius: 10px;
+    /*border: 2px solid #EB5876;*/
+
+    box-shadow: 0px 0px 20px #EB5876;
+
+    z-index: 6;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: column;
+}
+
+.popup-badge img{
+    max-width: 70px;
+    max-height: 70px;
+
+    margin-top: 15px;
+
+}
+
+.popup-title {
+    font-family: "Akzidenz Bold";
+    font-size: 12px;
+    color: white;
+
+}
+
+.popup-description {
+    font-family: "Akzidenz Bold Extended";
+    font-size: 24px;
+    color: white;
+    max-width: 200px;
+}
+
+.popup-points, .popup-cans {
+    width: 50%;
+
+    left: 25%;
+
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-points-icon img, .popup-cans img {
+    width: 30px;
+    height: 30px;
+}
+
+.popup-points-number, .popup-cans-number-unstarted {
+    font-family: "Akzidenz Bold Extended";
+    font-size: 24px;
+    color: white;
+}
+
+.popup-cans-number-scanning {
+    font-family: "Akzidenz Bold Extended";
+    font-size: 24px;
+    color: #FFF07C;
+}
+
+.popup-cans-number-unlocked {
+    font-family: "Akzidenz Bold Extended";
+    font-size: 24px;
+    color: #58EB71;
+}
+
+
 
 </style>

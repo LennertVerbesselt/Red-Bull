@@ -3,7 +3,10 @@
 <div class="Challenge">
     
     <div v-if="ChallengeLocked" class="locked">
-        <img src="./../../../assets/lock-solid.svg" class="lock" />
+        <img  :src="ChallengeBadge" class="greybadge" />
+        <div class="lock">
+        <img src="./../../../assets/lock-solid.svg" />
+        </div>
         <div v-if="ChallengeLocked" class="ChallengeName">
             {{ChallengeName}}
         </div>
@@ -15,34 +18,40 @@
         <div class="ChallengeName">
             {{ChallengeName}}
         </div>
-        <router-link :to="{ name: 'Upload', params: { id: ChallengeID } }"><img class="upload"  src="./../../../assets/cloud-upload-alt-solid.svg" /></router-link>
+       <!-- <router-link :to="{ name: 'Upload', params: { id: ChallengeID } }">-->
+           <div class="upload">
+            <img   src="./../../../assets/cloud-upload-alt-solid.svg" />
+           </div>
+           <!--</router-link>-->
     </div>
 
     <div v-if="ChallengePending" class="pending">
         <img :src="ChallengeBadge" class="greybadge" />
         <div class="ChallengeName">
-            {{ChallengeName}}: Pending
+            {{ChallengeName}}
         </div>
     </div>
 
     <div v-if="ChallengeComplete" class="complete">
         <img  :src="ChallengeBadge" class="badge" />
         <div class="ChallengeName">
-            {{ChallengeName}}: Complete
+            {{ChallengeName}}
         </div>
     </div>
     
     
     
-    <div class="qr" v-if="ChallengeLocked">
+    <!--<div class="qr" v-if="ChallengeLocked">
         <router-link :to="{ name: 'ChallengeQRScanner', params: {id: ChallengeID} }">
             <img class="qricon"  src="./../../../assets/ChallengeQRScannerIcon.png" />
             <div class="qrremaining">{{ChallengeProgression.cans_scanned}}/{{ChallengeCansNeeded}}</div>
         </router-link>
-    </div>
+    </div>-->
 </div>
 
-
+<div class="ChallengePopup" v-if="ShowPopup">
+fsdqfsqd
+</div>
 
     
 </template>
@@ -64,7 +73,7 @@ export default {
         ChallengeDescription: String,
         ChallengeCansNeeded: String,
         ChallengePoints: Number,
-        ChallengeProgression: Object,
+        ChallengeProgression: Array,
         ChallengeBadge: String,
         
         
@@ -77,6 +86,7 @@ export default {
             ChallengePending: false,
             ChallengeComplete: false,
             challenge_id: 0,
+            ShowPopup: false,
         }
     },
     methods: {
@@ -135,15 +145,12 @@ export default {
 
 <style scoped>
 .Challenge {
-    width: 86%;
-    height: 55px;
-    
-    position: relative;
-    left: 7%;
-    margin-top: 15px;
 
-    border: 1px solid white;
-    border-radius: 6px;
+    display:flex;
+    justify-content: space-around;
+    flex-flow: column;
+    align-items: center;
+
 }
 
 .ChallengeName  {
@@ -151,79 +158,41 @@ export default {
     font-size: 12px;
     letter-spacing: 0px;
     color: white;
+    opacity: .5;
 
-    text-align: left;
-    position: absolute;
-    left: 15%;
-    top: 38%;
+    text-align: center;
+    
 }
 
-.categoryPoints {
-    font-family: "Akzidenz Bold";
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: white;
-    opacity: 0.5;
+.lock, .upload {
+    height: 0px;
+    
 
-    text-align: left;
-    position: absolute;
-    right: 25%;
-    top: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.favourite {
+.lock img, .upload img{
+    width: 15px;
     height: 15px;
-    fill: white;
-
     position: absolute;
-    left: 5%;
-    top: 25px;
-}
+    top: 35px;
+    
 
-.dropdown {
-    background-color: transparent;
-    border: none;
-}
-
-.dropdownIcon {
-    height: 10px;
-
-    position: absolute;
-    right: 10%;
-    top: 28px;
-}
-
-li {
-    list-style-type: none;
-}
-
-.lock {
-    width: 25px;
-    height: 25px;
-
-    position: absolute;
-    left: 4%;
-    top: 25%;
+    
 }
 
 .badge {
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
 
-    position: absolute;
-    left: 4%;
-    top: 25%;
+    
  }
 
  .greybadge {
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-
-    position: absolute;
-    left: 4%;
-    top: 25%;
+    width: 40px;
+    height: 40px;
 
     filter: grayscale(100%);
  }
@@ -238,7 +207,7 @@ li {
     overflow: hidden;
     white-space: nowrap;
 }
-
+/*
 .qricon {
     position: absolute;
     right: 3px;
@@ -255,17 +224,7 @@ li {
     font-size: 8px;
     color:white;
     text-align: center;
-}
+}*/
 
-.upload {
-    position: absolute;
-    right: 5%;
-    top: 27%;
-    width: 40px;
-    height: 40px;
-    width: 25px;
-    height: 25px;
-    
-}
 
 </style>

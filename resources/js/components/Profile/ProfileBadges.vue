@@ -19,6 +19,7 @@
         
         <div class="challengesets" >
             <div class="challengeset" :key="challengeset" v-for="challengeset in category.challengesets">
+                <router-link :to="{ name: 'ChallengeSetOverview', params: {ChallengeSetID: challengeset.id}}">
 
                 <div class="challengeset-icon-container">
                 <img class="challengeset-icon" :src="challengeset.icon" />
@@ -47,7 +48,7 @@
                 </div>
 
                 
-
+                </router-link>
             </div>
         </div>
     </div>
