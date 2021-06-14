@@ -3,10 +3,10 @@
       <div class="event-info">
           <div class="text">
           <h1>{{event.name}}</h1>
-         <h2>20/03</h2>
+         <h2>{{event.datetime}}</h2>
          </div>
            <div class="images">
-      <img src="./../../../assets/Airflick.jpg" class="eventBG" alt="">        
+      <img src="{{event.url}}" class="eventBG" alt="">        
       <img src="./../../../assets/EventGradient.png" class="gradient" alt="">
      </div>
      </div>
@@ -31,6 +31,7 @@ export default {
                 console.log(response.data.events);
             });
         }
+        
    
     },
 
@@ -74,10 +75,9 @@ h2 {
      color: white;
  }
 .gradient {
-
+    position:relative;
     height: 104px;
     width: 375px;
-    position: absolute;
     top: 101.5px;
     right: 0;
     z-index: 2;
