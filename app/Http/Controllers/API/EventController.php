@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use DB;
 use App\Models\Category;
 use App\Models\Event;
 use App\Models\Event_Ticket;
@@ -50,5 +50,11 @@ class EventController extends Controller
         }
 
         return ['featuredevents'=> $featuredeventsforvue];
+    }
+
+    public function getEvents() {
+         $events=Event::all();
+         return view(['events'=>$events]);
+
     }
 }

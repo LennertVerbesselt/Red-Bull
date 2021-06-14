@@ -85,3 +85,6 @@ Route::post('/updateinterests', [CategoryController::class, 'updateInterests'])-
 Route::post('/setfavourite', [CategoryController::class, 'setFavourite'])->name('setfavourite');
 
 Route::get('/getprofiledata', [ProfileController::class, 'getProfileData'])->name('getprofiledata');
+
+
+Route::get('/getevents',[EventController::class,'getEvents']);
