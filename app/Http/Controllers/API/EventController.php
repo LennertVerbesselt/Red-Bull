@@ -53,8 +53,8 @@ class EventController extends Controller
     }
 
     public function getEvents() {
-         $events=Event::all();
-         return view(['events'=>$events]);
+         $events=Event::get();
+         return (['events'=>$events]);
 
     }
 }

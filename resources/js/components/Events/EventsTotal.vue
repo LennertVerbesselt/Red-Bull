@@ -15,24 +15,28 @@
 
 <script>
 export default {
+    name: "EventsTotal",
     data: function () {
         return {
-            events:[],
+            events: [],
 
-    }
-},
+        }   
+    },
 
-methods: {
+    methods: {
          getEvents() {
              axios.get('api/getevents').then(response => {
                 
                 this.events = response.data.events;
                 console.log(response.data.events);
-                return response.data.events;
             });
         }
    
     },
+
+    created() {
+        this.getEvents();
+    }
 
 }
    
