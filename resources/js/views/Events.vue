@@ -9,7 +9,7 @@
     
     
     
-   <BottomMenu> </BottomMenu>
+   <BottomMenu class="menu"> </BottomMenu>
 
 </template>
 
@@ -62,6 +62,8 @@ export default {
   letter-spacing: 1px;
   
 }
-
+.menu {
+  z-index: 100;
+}
 
 </style>

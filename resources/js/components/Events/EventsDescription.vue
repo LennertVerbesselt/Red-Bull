@@ -1,8 +1,10 @@
 <template>
     <div class="popup">
         <div class="inner">
-            <img class="eventHeader" :src="Post.headerurl" alt="">
-            <img src="./../../../assets/gradient.png" class="gradient-description" alt="">
+            <div class="banner">
+                <img class="eventHeader" :src="Post.headerurl" alt="">
+                <img src="./../../../assets/gradient.png" class="gradient-description" alt="">
+            </div>
             <h1 class="eventTittle">{{Post.name}}</h1>
             <h3 class="eventDate">{{getDatefromDatetime(Post.datetime)}}</h3>
             <body class="eventDescription">
@@ -43,7 +45,8 @@ props: {
     color: white;
 }
 .inner {
-    height: 500px;
+position: relative;
+height: 500px;
 }
 .eventHeader {
     width: 375px;
@@ -52,7 +55,7 @@ props: {
     display: flex;
     justify-content: center;
     position: relative;
-    top: -250px;
+   
 }
 .prizeInfo svg{
    padding-top: 12px;
@@ -60,7 +63,8 @@ props: {
 }
 .eventDescription {
     position: relative;
-    top:-300px;
+    top: -100px;
+    
 }
 .buyButton{
     border: none;
@@ -71,20 +75,30 @@ props: {
     border-radius: 6px;
     font-weight: bold;
     position: relative;
-    top: -150px;
+   
 }
 .gradient-description {
-    width: 375px;
+    width: 100%;
     position: relative;
     top: -200px;
+
 }
 .eventDate {
     position: relative;
-    top: -300px;
+    top: -120px;
 }
 .eventTittle {
     position: relative;
-    top: -300px;
+    top: -100px;
 }
+.banner {
+    height: 260px;
+    overflow: hidden;
+}
+.eventHeader {
 
+    width: 500px;
+    margin: 0;
+    padding: 0;
+}
 </style>

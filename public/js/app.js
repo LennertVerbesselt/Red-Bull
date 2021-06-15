@@ -20844,8 +20844,11 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "inner"
 };
+var _hoisted_3 = {
+  "class": "banner"
+};
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   src: _assets_gradient_png__WEBPACK_IMPORTED_MODULE_1__.default,
   "class": "gradient-description",
   alt: ""
@@ -20853,17 +20856,17 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_4 = {
+var _hoisted_5 = {
   "class": "eventTittle"
 };
-var _hoisted_5 = {
+var _hoisted_6 = {
   "class": "eventDate"
 };
-var _hoisted_6 = {
+var _hoisted_7 = {
   "class": "eventDescription"
 };
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "prizeInfo"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
@@ -20892,7 +20895,7 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
   "class": "buyButton"
 }, "Buy Here", -1
 /* HOISTED */
@@ -20901,19 +20904,19 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
     "class": "eventHeader",
     src: $props.Post.headerurl,
     alt: ""
   }, null, 8
   /* PROPS */
-  , ["src"]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.Post.name), 1
+  , ["src"]), _hoisted_4]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.Post.name), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getDatefromDatetime($props.Post.datetime)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getDatefromDatetime($props.Post.datetime)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("body", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.Post.description), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("body", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.Post.description), 1
   /* TEXT */
-  ), _hoisted_7, _hoisted_8])]);
+  ), _hoisted_8, _hoisted_9])]);
 });
 
 /***/ }),
@@ -20963,7 +20966,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.events, function (event) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
-      "class": "container",
+      "class": [_ctx.ShowEventDescription ? 'description' : 'container'],
       key: event,
       onClick: _cache[1] || (_cache[1] = function ($event) {
         return _ctx.ShowEventDescription = !_ctx.ShowEventDescription;
@@ -20984,7 +20987,9 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       Post: event
     }, null, 8
     /* PROPS */
-    , ["onClick", "Post"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+    , ["onClick", "Post"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2
+    /* CLASS */
+    );
   }), 128
   /* KEYED_FRAGMENT */
   );
@@ -23108,7 +23113,9 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_EventsTotal, {
     "class": "events"
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu, {
+    "class": "menu"
+  })], 64
   /* STABLE_FRAGMENT */
   );
 });
@@ -24145,7 +24152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.popup[data-v-20c97b10] {\r\n    color: white;\n}\n.inner[data-v-20c97b10] {\r\n    height: 500px;\n}\n.eventHeader[data-v-20c97b10] {\r\n    width: 375px;\n}\n.prizeInfo[data-v-20c97b10] {\r\n    display: flex;\r\n    justify-content: center;\r\n    position: relative;\r\n    top: -250px;\n}\n.prizeInfo svg[data-v-20c97b10]{\r\n   padding-top: 12px;\r\n   padding-right:25px;\n}\n.eventDescription[data-v-20c97b10] {\r\n    position: relative;\r\n    top:-300px;\n}\n.buyButton[data-v-20c97b10]{\r\n    border: none;\r\n    color: white;\r\n    background-color: #EB5876;\r\n    width: 91px;\r\n    height: 36px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    position: relative;\r\n    top: -150px;\n}\n.gradient-description[data-v-20c97b10] {\r\n    width: 375px;\r\n    position: relative;\r\n    top: -200px;\n}\n.eventDate[data-v-20c97b10] {\r\n    position: relative;\r\n    top: -300px;\n}\n.eventTittle[data-v-20c97b10] {\r\n    position: relative;\r\n    top: -300px;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.popup[data-v-20c97b10] {\r\n    color: white;\n}\n.inner[data-v-20c97b10] {\r\nposition: relative;\r\nheight: 500px;\n}\n.eventHeader[data-v-20c97b10] {\r\n    width: 375px;\n}\n.prizeInfo[data-v-20c97b10] {\r\n    display: flex;\r\n    justify-content: center;\r\n    position: relative;\n}\n.prizeInfo svg[data-v-20c97b10]{\r\n   padding-top: 12px;\r\n   padding-right:25px;\n}\n.eventDescription[data-v-20c97b10] {\r\n    position: relative;\r\n    top: -100px;\n}\n.buyButton[data-v-20c97b10]{\r\n    border: none;\r\n    color: white;\r\n    background-color: #EB5876;\r\n    width: 91px;\r\n    height: 36px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    position: relative;\n}\n.gradient-description[data-v-20c97b10] {\r\n    width: 100%;\r\n    position: relative;\r\n    top: -200px;\n}\n.eventDate[data-v-20c97b10] {\r\n    position: relative;\r\n    top: -120px;\n}\n.eventTittle[data-v-20c97b10] {\r\n    position: relative;\r\n    top: -100px;\n}\n.banner[data-v-20c97b10] {\r\n    height: 260px;\r\n    overflow: hidden;\n}\n.eventHeader[data-v-20c97b10] {\r\n\r\n    width: 500px;\r\n    margin: 0;\r\n    padding: 0;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24169,7 +24176,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.eventBG[data-v-30adf0c0] {\r\n    position: relative;\r\ntop: -100px;\r\nwidth: 100%;\r\nz-index: 1;\n}\nh1[data-v-30adf0c0] {\r\n    margin-top: 5px;\r\n    margin-bottom: 0;\n}\nh2[data-v-30adf0c0] {\r\n    margin-top: 5px;\n}\n.text[data-v-30adf0c0] {\r\n    position: relative;\r\n    z-index: 5;\r\n    padding-right: 15px;\n}\n.container[data-v-30adf0c0] {\r\n\r\n\r\n    width: 100%;\n}\n.event-info[data-v-30adf0c0] {\r\n     text-align: right;\r\n     color: white;\n}\n.gradient[data-v-30adf0c0] {\r\n    position:relative;\r\n    height: 104px;\r\n    width: 375px;\r\n    top: 101.5px;\r\n    right: 0;\r\n    z-index: 2;\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n*[data-v-30adf0c0] {\n}\n.images[data-v-30adf0c0] {\r\n    position: relative;\r\ntop: -100px;\r\nheight: 104px;\r\noverflow: hidden;\n}\n.eventBG[data-v-30adf0c0] {\r\n    width: 400px;\r\n    margin: 0;\r\n    padding: 0;\r\n    z-index: 2;\r\n    position: relative;\r\n    top: -50px;\n}\nh1[data-v-30adf0c0] {\r\n    font-family: \"Akzidenz Bold\";\r\n    margin-top: 5px;\r\n    margin-bottom: 0;\n}\nh2[data-v-30adf0c0] {\r\n    margin-top: 5px;\r\n    font-family: \"Akzidenz Light\";\r\n    font-size: 20px;\n}\n.text[data-v-30adf0c0] {\r\n    position: relative;\r\n    z-index: 5;\r\n    padding-right: 15px;\n}\n.container[data-v-30adf0c0] {\r\n\r\n    height: 104px;\r\n    width: 100%;\n}\n.description[data-v-30adf0c0] {\r\n    height: 700px;\r\n    width: 100%;\n}\n.event-info[data-v-30adf0c0] {\r\n     text-align: right;\r\n     color: white;\r\n     height: 130px;\n}\n.gradient[data-v-30adf0c0] {\r\n \r\nposition: relative;\r\ntop: -320px;\r\nz-index: 4;\r\nheight: 200px;\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24793,7 +24800,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.events[data-v-1b973310] {\r\n  margin-top: 50px;\n}\n.pagetitle[data-v-1b973310] {\r\n  font-family: \"Akzidenz Bold\";\r\n  color:white;\r\n  font-size: 28px;\r\n  letter-spacing: 1px;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.events[data-v-1b973310] {\r\n  margin-top: 50px;\n}\n.pagetitle[data-v-1b973310] {\r\n  font-family: \"Akzidenz Bold\";\r\n  color:white;\r\n  font-size: 28px;\r\n  letter-spacing: 1px;\n}\n.menu[data-v-1b973310] {\r\n  z-index: 100;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
