@@ -1,28 +1,53 @@
 <template>
-  <div class="container" v-for="event in events" :key="event">
-      <router-link :to="{ name:'EventDescription', params:{EventSetID: event.id}}">
+  <div class="container" v-for="event in events" :key="event" @click="ShowEventDescription = !ShowEventDescription">
       <div class="event-info">
-          <div class="text">
-          <h1>{{event.name}}</h1>
-         <h2>{{event.datetime}}</h2>
-         </div>
+           <div class="text">
+             <h1>{{event.name}}</h1>
+             <h2>{{event.datetime}}</h2>
+           </div>
            <div class="images">
-      <img src="{{event.header}}" class="eventBG" alt="">        
-      <img src="./../../../assets/EventGradient.png" class="gradient" alt="">
+             <img src="{{event.url}}" class="eventBG" alt="">        
+             <img src="./../../../assets/EventGradient.png" class="gradient" alt="">
+            </div>
      </div>
+         <events-description v-if="ShowEventDescription" @click="ShowEventDescription = !ShowEventDescription" >
+            <img class="eventHeader" src="./../../../assets/AirFlick.jpg" alt="">
+            <h1>{{event.name}}</h1>
+            <body>
+                {{event.description}}
+            </body>
+            <div class="prizeInfo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
+  <g id="Group_27" data-name="Group 27" transform="translate(-32 -392)">
+    <rect id="Rectangle_170" data-name="Rectangle 170" width="8" height="29" transform="translate(43 392)" fill="#fff"/>
+    <rect id="Rectangle_171" data-name="Rectangle 171" width="8" height="29" transform="translate(61 403) rotate(90)" fill="#fff"/>
+  </g>
+</svg>
+            <h3>One step closer to win prizes!</h3>
+            </div>
+            <button class="buyButton">Buy Here</button>
+       </events-description>
      </div>
-     </router-link>
-       </div>
+
+        
 </template>
 
 <script>
+import EventsDescription from './EventsDescription.vue';
 export default {
+  components: { EventsDescription },
     name: "EventsTotal",
     data: function () {
         return {
             events: [],
+            ShowEventDescription:false,
 
         }   
+    },
+    setup() {
+        return {
+            EventsDescription
+        }
     },
 
     methods: {
@@ -69,8 +94,9 @@ h2 {
 
 .container {
 
-    height: 104px;
+
     width: 100%;
+
 }
  .event-info {
      text-align: right;
@@ -86,8 +112,31 @@ h2 {
 
 
 }
- .container  {
-   overflow: hidden;
+.eventHeader {
+    width: 375px;
+}
+.prizeInfo {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.prizeInfo svg{
+   padding-top: 12px;
+   padding-right:25px;
+}
+.prizeInfo h1 {
+    position: relative;
+    top: -100px;
+}
 
- }
+.buyButton{
+    border: none;
+    color: white;
+    background-color: #EB5876;
+    width: 91px;
+    height: 36px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
 </style>
