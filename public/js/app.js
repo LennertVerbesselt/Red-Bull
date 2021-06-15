@@ -17512,7 +17512,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    Post: Object
+  },
+  methods: {
+    getDatefromDatetime: function getDatefromDatetime(datetime) {
+      var phpdate = String(datetime);
+      var date = phpdate.substring(0, 10);
+      return date;
+    }
+  }
+});
 
 /***/ }),
 
@@ -17558,6 +17569,9 @@ __webpack_require__.r(__webpack_exports__);
       var phpdate = String(datetime);
       var date = phpdate.substring(0, 10);
       return date;
+    },
+    getDescription: function getDescription() {
+      this.ShowEventDescription = !this.ShowEventDescription;
     }
   },
   created: function created() {
@@ -20816,6 +20830,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _assets_gradient_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../assets/gradient.png */ "./resources/assets/gradient.png");
+
 
 
 var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-20c97b10");
@@ -20829,83 +20845,25 @@ var _hoisted_2 = {
   "class": "inner"
 };
 
-(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
-
-var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true)])]);
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Events/EventsTotal.vue?vue&type=template&id=30adf0c0&scoped=true":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Events/EventsTotal.vue?vue&type=template&id=30adf0c0&scoped=true ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _assets_EventGradient_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../assets/EventGradient.png */ "./resources/assets/EventGradient.png");
-/* harmony import */ var _assets_AirFlick_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../assets/AirFlick.jpg */ "./resources/assets/AirFlick.jpg");
-/* harmony import */ var _assets_gradient_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../assets/gradient.png */ "./resources/assets/gradient.png");
-
-
-
-
-
-var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-30adf0c0");
-
-(0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-30adf0c0");
-
-var _hoisted_1 = {
-  "class": "event-info"
-};
-var _hoisted_2 = {
-  "class": "text"
-};
-var _hoisted_3 = {
-  "class": "images"
-};
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-  src: _assets_EventGradient_png__WEBPACK_IMPORTED_MODULE_1__.default,
-  "class": "gradient",
-  alt: ""
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-  "class": "eventHeader",
-  src: _assets_AirFlick_jpg__WEBPACK_IMPORTED_MODULE_2__.default,
-  alt: ""
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-  src: _assets_gradient_png__WEBPACK_IMPORTED_MODULE_3__.default,
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _assets_gradient_png__WEBPACK_IMPORTED_MODULE_1__.default,
   "class": "gradient-description",
   alt: ""
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_7 = {
+var _hoisted_4 = {
   "class": "eventTittle"
 };
-var _hoisted_8 = {
+var _hoisted_5 = {
   "class": "eventDate"
 };
-var _hoisted_9 = {
+var _hoisted_6 = {
   "class": "eventDescription"
 };
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "prizeInfo"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
@@ -20934,9 +20892,67 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
   "class": "buyButton"
 }, "Buy Here", -1
+/* HOISTED */
+);
+
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
+
+var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+    "class": "eventHeader",
+    src: $props.Post.headerurl,
+    alt: ""
+  }, null, 8
+  /* PROPS */
+  , ["src"]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.Post.name), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getDatefromDatetime($props.Post.datetime)), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("body", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.Post.description), 1
+  /* TEXT */
+  ), _hoisted_7, _hoisted_8])]);
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Events/EventsTotal.vue?vue&type=template&id=30adf0c0&scoped=true":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Events/EventsTotal.vue?vue&type=template&id=30adf0c0&scoped=true ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _assets_EventGradient_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../assets/EventGradient.png */ "./resources/assets/EventGradient.png");
+
+
+
+var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-30adf0c0");
+
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-30adf0c0");
+
+var _hoisted_1 = {
+  "class": "event-info"
+};
+var _hoisted_2 = {
+  "class": "text"
+};
+var _hoisted_3 = {
+  "class": "images"
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _assets_EventGradient_png__WEBPACK_IMPORTED_MODULE_1__.default,
+  "class": "gradient",
+  alt: ""
+}, null, -1
 /* HOISTED */
 );
 
@@ -20949,7 +20965,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
       "class": "container",
       key: event,
-      onClick: _cache[2] || (_cache[2] = function ($event) {
+      onClick: _cache[1] || (_cache[1] = function ($event) {
         return _ctx.ShowEventDescription = !_ctx.ShowEventDescription;
       })
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(event.name), 1
@@ -20964,25 +20980,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     /* PROPS */
     , ["src"]), _hoisted_4])]), _ctx.ShowEventDescription ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_events_description, {
       key: 0,
-      onClick: _cache[1] || (_cache[1] = function ($event) {
-        return _ctx.ShowEventDescription = !_ctx.ShowEventDescription;
-      })
-    }, {
-      "default": _withId(function () {
-        return [_hoisted_5, _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(event.name), 1
-        /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getDatefromDatetime(event.datetime)), 1
-        /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("body", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(event.description), 1
-        /* TEXT */
-        ), _hoisted_10, _hoisted_11];
-      }),
-      _: 2
-      /* DYNAMIC */
-
-    }, 1024
-    /* DYNAMIC_SLOTS */
-    )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+      onClick: $options.getDescription,
+      Post: event
+    }, null, 8
+    /* PROPS */
+    , ["onClick", "Post"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
   }), 128
   /* KEYED_FRAGMENT */
   );
@@ -24143,7 +24145,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.popup[data-v-20c97b10] {\r\n    color: white;\n}\n.inner[data-v-20c97b10] {\r\n    height: 500px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.popup[data-v-20c97b10] {\r\n    color: white;\n}\n.inner[data-v-20c97b10] {\r\n    height: 500px;\n}\n.eventHeader[data-v-20c97b10] {\r\n    width: 375px;\n}\n.prizeInfo[data-v-20c97b10] {\r\n    display: flex;\r\n    justify-content: center;\r\n    position: relative;\r\n    top: -250px;\n}\n.prizeInfo svg[data-v-20c97b10]{\r\n   padding-top: 12px;\r\n   padding-right:25px;\n}\n.eventDescription[data-v-20c97b10] {\r\n    position: relative;\r\n    top:-300px;\n}\n.buyButton[data-v-20c97b10]{\r\n    border: none;\r\n    color: white;\r\n    background-color: #EB5876;\r\n    width: 91px;\r\n    height: 36px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    position: relative;\r\n    top: -150px;\n}\n.gradient-description[data-v-20c97b10] {\r\n    width: 375px;\r\n    position: relative;\r\n    top: -200px;\n}\n.eventDate[data-v-20c97b10] {\r\n    position: relative;\r\n    top: -300px;\n}\n.eventTittle[data-v-20c97b10] {\r\n    position: relative;\r\n    top: -300px;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24167,7 +24169,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.eventBG[data-v-30adf0c0] {\r\n    position: relative;\r\ntop: -100px;\r\nwidth: 100%;\r\nz-index: 1;\n}\nh1[data-v-30adf0c0] {\r\n    margin-top: 5px;\r\n    margin-bottom: 0;\n}\nh2[data-v-30adf0c0] {\r\n    margin-top: 5px;\n}\n.text[data-v-30adf0c0] {\r\n    position: relative;\r\n    z-index: 5;\r\n    padding-right: 15px;\n}\n.container[data-v-30adf0c0] {\r\n\r\n\r\n    width: 100%;\n}\n.event-info[data-v-30adf0c0] {\r\n     text-align: right;\r\n     color: white;\n}\n.gradient[data-v-30adf0c0] {\r\n    position:relative;\r\n    height: 104px;\r\n    width: 375px;\r\n    top: 101.5px;\r\n    right: 0;\r\n    z-index: 2;\n}\n.eventHeader[data-v-30adf0c0] {\r\n    width: 375px;\n}\n.prizeInfo[data-v-30adf0c0] {\r\n    display: flex;\r\n    justify-content: center;\r\n    position: relative;\r\n    top: -250px;\n}\n.prizeInfo svg[data-v-30adf0c0]{\r\n   padding-top: 12px;\r\n   padding-right:25px;\n}\n.eventDescription[data-v-30adf0c0] {\r\n    position: relative;\r\n    top:-300px;\n}\n.eventTittle[data-v-30adf0c0] {\r\n    position: relative;\r\n    top: -300px;\n}\n.buyButton[data-v-30adf0c0]{\r\n    border: none;\r\n    color: white;\r\n    background-color: #EB5876;\r\n    width: 91px;\r\n    height: 36px;\r\n    border-radius: 6px;\r\n    font-weight: bold;\r\n    position: relative;\r\n    top: -150px;\n}\n.gradient-description[data-v-30adf0c0] {\r\n    width: 375px;\r\n    position: relative;\r\n    top: -200px;\n}\n.eventDate[data-v-30adf0c0] {\r\n    position: relative;\r\n    top: -300px;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.eventBG[data-v-30adf0c0] {\r\n    position: relative;\r\ntop: -100px;\r\nwidth: 100%;\r\nz-index: 1;\n}\nh1[data-v-30adf0c0] {\r\n    margin-top: 5px;\r\n    margin-bottom: 0;\n}\nh2[data-v-30adf0c0] {\r\n    margin-top: 5px;\n}\n.text[data-v-30adf0c0] {\r\n    position: relative;\r\n    z-index: 5;\r\n    padding-right: 15px;\n}\n.container[data-v-30adf0c0] {\r\n\r\n\r\n    width: 100%;\n}\n.event-info[data-v-30adf0c0] {\r\n     text-align: right;\r\n     color: white;\n}\n.gradient[data-v-30adf0c0] {\r\n    position:relative;\r\n    height: 104px;\r\n    width: 375px;\r\n    top: 101.5px;\r\n    right: 0;\r\n    z-index: 2;\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -25035,21 +25037,6 @@ module.exports = function (url, options) {
 
   return url;
 };
-
-/***/ }),
-
-/***/ "./resources/assets/AirFlick.jpg":
-/*!***************************************!*\
-  !*** ./resources/assets/AirFlick.jpg ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/AirFlick.jpg?a1b9e2367a2f8c26a2e2527d75cc212c");
 
 /***/ }),
 

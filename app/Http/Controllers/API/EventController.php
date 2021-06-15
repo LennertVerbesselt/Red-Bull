@@ -61,8 +61,7 @@ class EventController extends Controller
             $header = Event_Header::where('event_id', $event->id)->get()->last();
                      $event["headerurl"]= $header->url;
                     
-            
-        }
+             }
         return (['events'=>$events]);
 
     }
