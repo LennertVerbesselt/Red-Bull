@@ -6,7 +6,7 @@
              <h2>{{getDatefromDatetime(event.datetime)}}</h2>
            </div>
            <div class="images">
-             <img src="{{event.url}}" class="eventBG" alt="">        
+             <img :src="event.headerurl" class="eventBG" alt="">        
              <img src="./../../../assets/EventGradient.png" class="gradient" alt="">
             </div>
      </div>
