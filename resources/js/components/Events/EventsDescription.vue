@@ -80,7 +80,8 @@ height: 500px;
 .gradient-description {
     width: 100%;
     position: relative;
-    top: -200px;
+    margin-top: 20px;
+    top: -210px;
 
 }
 .eventDate {

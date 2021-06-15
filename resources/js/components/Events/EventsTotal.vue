@@ -10,7 +10,7 @@
              <img src="./../../../assets/EventGradient.png" class="gradient" alt="">
             </div>
      </div>
-         <events-description  v-if="event.show" @click="getDescription" :Post="event" ></events-description>
+         <events-description  v-if="event.show"  :Post="event" ></events-description>
      </div>
 
         
@@ -118,9 +118,11 @@ h2 {
 .gradient {
  
 position: relative;
-top: -320px;
+top: -340px;
+left: -50px;
 z-index: 4;
-height: 200px;
+height: 250px;
+padding-bottom: 50px;
 
 }
 
