@@ -1,15 +1,17 @@
 <template>
   <div class="container" v-for="event in events" :key="event">
+      <router-link :to="{ name:'EventDescription', params:{EventSetID: event.id}}">
       <div class="event-info">
           <div class="text">
           <h1>{{event.name}}</h1>
          <h2>{{event.datetime}}</h2>
          </div>
            <div class="images">
-      <img src="{{event.url}}" class="eventBG" alt="">        
+      <img src="{{event.header}}" class="eventBG" alt="">        
       <img src="./../../../assets/EventGradient.png" class="gradient" alt="">
      </div>
      </div>
+     </router-link>
        </div>
 </template>
 

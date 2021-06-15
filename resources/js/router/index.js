@@ -25,6 +25,8 @@ import ChallengeSelect from "../components/Challenges/ChallengeSelect.vue";
 import Explanation from "../views/Explanation.vue";
 import Introduction from "../views/Introduction.vue";
 
+import EventDescription from "../components/Events/EventDescription.vue";
+
 
 const routes = [
   {
@@ -123,6 +125,11 @@ const routes = [
     name: "Settings",
     component: Settings,
   },
+  {
+    path:"/eventdescription",
+    name:"eventdescription",
+    component:EventDescription,
+  }
 
 
 ];
