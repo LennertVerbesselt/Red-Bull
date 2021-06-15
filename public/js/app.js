@@ -17548,7 +17548,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       events: [],
-      ShowEventDescription: false
+      ShowEventDescription: true
     };
   },
   setup: function setup() {
@@ -17570,7 +17570,8 @@ __webpack_require__.r(__webpack_exports__);
       var date = phpdate.substring(0, 10);
       return date;
     },
-    getDescription: function getDescription() {
+    getDescription: function getDescription(event) {
+      event.show = !event.show;
       this.ShowEventDescription = !this.ShowEventDescription;
     }
   },
@@ -20966,11 +20967,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.events, function (event) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
-      "class": [_ctx.ShowEventDescription ? 'description' : 'container'],
-      key: event,
-      onClick: _cache[1] || (_cache[1] = function ($event) {
-        return _ctx.ShowEventDescription = !_ctx.ShowEventDescription;
-      })
+      "class": [event.show ? 'description' : 'container'],
+      key: event.id,
+      onClick: function onClick($event) {
+        return $options.getDescription(event);
+      }
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(event.name), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getDatefromDatetime(event.datetime)), 1
@@ -20981,15 +20982,15 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       alt: ""
     }, null, 8
     /* PROPS */
-    , ["src"]), _hoisted_4])]), _ctx.ShowEventDescription ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_events_description, {
+    , ["src"]), _hoisted_4])]), event.show ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_events_description, {
       key: 0,
       onClick: $options.getDescription,
       Post: event
     }, null, 8
     /* PROPS */
-    , ["onClick", "Post"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2
-    /* CLASS */
-    );
+    , ["onClick", "Post"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 10
+    /* CLASS, PROPS */
+    , ["onClick"]);
   }), 128
   /* KEYED_FRAGMENT */
   );
@@ -24176,7 +24177,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n*[data-v-30adf0c0] {\n}\n.images[data-v-30adf0c0] {\r\n    position: relative;\r\ntop: -100px;\r\nheight: 104px;\r\noverflow: hidden;\n}\n.eventBG[data-v-30adf0c0] {\r\n    width: 400px;\r\n    margin: 0;\r\n    padding: 0;\r\n    z-index: 2;\r\n    position: relative;\r\n    top: -50px;\n}\nh1[data-v-30adf0c0] {\r\n    font-family: \"Akzidenz Bold\";\r\n    margin-top: 5px;\r\n    margin-bottom: 0;\n}\nh2[data-v-30adf0c0] {\r\n    margin-top: 5px;\r\n    font-family: \"Akzidenz Light\";\r\n    font-size: 20px;\n}\n.text[data-v-30adf0c0] {\r\n    position: relative;\r\n    z-index: 5;\r\n    padding-right: 15px;\n}\n.container[data-v-30adf0c0] {\r\n\r\n    height: 104px;\r\n    width: 100%;\n}\n.description[data-v-30adf0c0] {\r\n    height: 700px;\r\n    width: 100%;\n}\n.event-info[data-v-30adf0c0] {\r\n     text-align: right;\r\n     color: white;\r\n     height: 130px;\n}\n.gradient[data-v-30adf0c0] {\r\n \r\nposition: relative;\r\ntop: -320px;\r\nz-index: 4;\r\nheight: 200px;\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.images[data-v-30adf0c0] {\r\n    position: relative;\r\ntop: -100px;\r\nheight: 104px;\r\noverflow: hidden;\n}\n.eventBG[data-v-30adf0c0] {\r\n    width: 400px;\r\n    margin: 0;\r\n    padding: 0;\r\n    z-index: 2;\r\n    position: relative;\r\n    top: -50px;\n}\nh1[data-v-30adf0c0] {\r\n    font-family: \"Akzidenz Bold\";\r\n    margin-top: 5px;\r\n    margin-bottom: 0;\n}\nh2[data-v-30adf0c0] {\r\n    margin-top: 5px;\r\n    font-family: \"Akzidenz Light\";\r\n    font-size: 20px;\n}\n.text[data-v-30adf0c0] {\r\n    position: relative;\r\n    z-index: 5;\r\n    padding-right: 15px;\n}\n.container[data-v-30adf0c0] {\r\n\r\n    height: 104px;\r\n    width: 100%;\n}\n.description[data-v-30adf0c0] {\r\n    height: 700px;\r\n    width: 100%;\n}\n.event-info[data-v-30adf0c0] {\r\n     text-align: right;\r\n     color: white;\r\n     height: 130px;\n}\n.gradient[data-v-30adf0c0] {\r\n \r\nposition: relative;\r\ntop: -320px;\r\nz-index: 4;\r\nheight: 200px;\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24800,7 +24801,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.events[data-v-1b973310] {\r\n  margin-top: 50px;\n}\n.pagetitle[data-v-1b973310] {\r\n  font-family: \"Akzidenz Bold\";\r\n  color:white;\r\n  font-size: 28px;\r\n  letter-spacing: 1px;\n}\n.menu[data-v-1b973310] {\r\n  z-index: 100;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.events[data-v-1b973310] {\r\n  margin-top: 50px;\n}\n.pagetitle[data-v-1b973310] {\r\n  font-family: \"Akzidenz Bold\";\r\n  color:white;\r\n  font-size: 28px;\r\n  letter-spacing: 1px;\r\n  padding: 20px;\n}\n.menu[data-v-1b973310] {\r\n  z-index: 100;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

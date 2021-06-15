@@ -60,6 +60,7 @@ export default {
   color:white;
   font-size: 28px;
   letter-spacing: 1px;
+  padding: 20px;
   
 }
 .menu {

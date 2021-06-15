@@ -1,5 +1,5 @@
 <template>
-  <div  :class="[ShowEventDescription ? 'description' : 'container']" v-for="event in events" :key="event" @click="ShowEventDescription = !ShowEventDescription">
+  <div  :class="[event.show ? 'description' : 'container']" v-for="event in events" :key="event.id" @click="getDescription(event)">
       <div class="event-info">
            <div class="text">
              <h1>{{event.name}}</h1>
@@ -10,7 +10,7 @@
              <img src="./../../../assets/EventGradient.png" class="gradient" alt="">
             </div>
      </div>
-         <events-description  v-if="ShowEventDescription" @click="getDescription" :Post="event" ></events-description>
+         <events-description  v-if="event.show" @click="getDescription" :Post="event" ></events-description>
      </div>
 
         
@@ -24,7 +24,7 @@ export default {
     data: function () {
         return {
             events: [],
-            ShowEventDescription:false,
+            ShowEventDescription:true,
 
         }   
     },
@@ -47,9 +47,11 @@ export default {
             var date = phpdate.substring(0,10);
             return date;
         },
-        getDescription() {
+        getDescription(event) {
+            event.show =!event.show;
             this.ShowEventDescription = !this.ShowEventDescription;
-        }
+            }
+        
         
    
     },
@@ -63,9 +65,7 @@ export default {
 </script>
 
 <style scoped>
-* {
 
-}
 .images {
     position: relative;
 top: -100px;
