@@ -16,4 +16,7 @@ export default {
 .popup {
     color: white;
 }
+.inner {
+    height: 500px;
+}
 </style>

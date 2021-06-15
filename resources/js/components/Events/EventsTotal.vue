@@ -3,7 +3,7 @@
       <div class="event-info">
            <div class="text">
              <h1>{{event.name}}</h1>
-             <h2>{{event.datetime}}</h2>
+             <h2>{{getDatefromDatetime(event.datetime)}}</h2>
            </div>
            <div class="images">
              <img src="{{event.url}}" class="eventBG" alt="">        
@@ -12,8 +12,10 @@
      </div>
          <events-description v-if="ShowEventDescription" @click="ShowEventDescription = !ShowEventDescription" >
             <img class="eventHeader" src="./../../../assets/AirFlick.jpg" alt="">
-            <h1>{{event.name}}</h1>
-            <body>
+            <img src="./../../../assets/gradient.png" class="gradient-description" alt="">
+            <h1 class="eventTittle">{{event.name}}</h1>
+            <h3 class="eventDate">{{getDatefromDatetime(event.datetime)}}</h3>
+            <body class="eventDescription">
                 {{event.description}}
             </body>
             <div class="prizeInfo">
@@ -57,6 +59,11 @@ export default {
                 this.events = response.data.events;
                 console.log(response.data.events);
             });
+        },
+         getDatefromDatetime(datetime){
+            var phpdate = String(datetime);
+            var date = phpdate.substring(0,10);
+            return date;
         }
         
    
@@ -118,15 +125,20 @@ h2 {
 .prizeInfo {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    position: relative;
+    top: -250px;
 }
 .prizeInfo svg{
    padding-top: 12px;
    padding-right:25px;
 }
-.prizeInfo h1 {
+.eventDescription {
     position: relative;
-    top: -100px;
+    top:-300px;
+}
+.eventTittle {
+    position: relative;
+    top: -300px;
 }
 
 .buyButton{
@@ -137,6 +149,18 @@ h2 {
     height: 36px;
     border-radius: 6px;
     font-weight: bold;
+    position: relative;
+    top: -150px;
 }
+.gradient-description {
+    width: 375px;
+    position: relative;
+    top: -200px;
+}
+.eventDate {
+    position: relative;
+    top: -300px;
+}
+
 
 </style>

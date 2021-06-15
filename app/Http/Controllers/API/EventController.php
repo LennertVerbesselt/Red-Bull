@@ -54,13 +54,14 @@ class EventController extends Controller
 
     public function getEvents() {
          $events=Event::get();
-         return (['events'=>$events]);
+         
 
          $headers = Event_Header::get();
          foreach($events as $event) {
             foreach($headers as $header) {
                 if($header->event_id == $event->id) {
-                    $event["headerurl"] = $header->url;
+                     $event["headerurl"]= $header->url;
+                    return (['events'=>$events]);
                 }
             }
         }
