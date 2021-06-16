@@ -8,4 +8,5 @@ import veProgress from "vue-ellipse-progress";
 
 
 
+
 createApp(App).use(router).mount("#app").use(VueAgile).use(QrReader).use(veProgress);

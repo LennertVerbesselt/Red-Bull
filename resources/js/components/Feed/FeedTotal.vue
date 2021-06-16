@@ -14,6 +14,13 @@
 		</div>
 	</transition>
 
+	<div class="loading" v-if="loading"><div class="bg"><div class="scaling-squares-spinner" :style="spinnerStyle">
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+</div></div></div>
+
 </template>
 
 <script>
@@ -40,6 +47,7 @@ export default {
 			FollowingPosts: [],
 			featured: true,
 			following: false,
+			loading: false,
         }
     },
 	methods: {
@@ -62,26 +70,31 @@ export default {
 		},
 
 		getFeaturedPosts(){
+			this.loading = true;
 			axios.get('api/getfeaturedposts').then(response => {
 				this.FeaturedPosts = response.data.featuredposts;
-				console.log(this.FeaturedPosts)
+				console.log(this.FeaturedPosts);
+				this.loading =false;
             }).catch(error => {
                 console.log("Error");
+				this.loading =false;
             });
 		},
 
 		getFollowingPosts(){
+			this.loading =true;
 			axios.get('api/getfollowingposts').then(response => {
 				this.FollowingPosts = response.data.followingposts;
-				console.log(this.FollowingPosts)
+				console.log(this.FollowingPosts);
+				this.loading =false;
             }).catch(error => {
                 console.log("Error");
+				this.loading =false;
             });
 		},
 	},
 	created(){
 		this.getFeaturedPosts();
-		this.getFollowingPosts();
 	}
 }
 </script>

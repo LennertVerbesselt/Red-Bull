@@ -12,6 +12,13 @@
         </div>
         <form-button class="button" type="primary submit">I'm done!</form-button>
     </form>
+
+    <div class="loading" v-if="loading"><div class="bg"><div class="scaling-squares-spinner" :style="spinnerStyle">
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+</div></div></div>
     
 </template>
 
@@ -31,15 +38,18 @@ export default {
         return {
             Categories: [],
             fields: {},
+            loading: false,
         }
     },
     methods: {
         getCategories() {
+            this.loading = true;
             axios.get('api/getcategories').then(response => {
                 this.Categories=response.data.categories;
                 this.Categories.forEach(element => {
                     this.fields[element.category_name] = false;
                 });
+                this.loading =false;
                 console.log("Categories Obtained");
             }).catch(error => {
                 console.log("Error, categories not obtained");
@@ -47,10 +57,12 @@ export default {
         },
 
         updateInterests(){
+            this.loading = true;
             axios.post('api/updateinterests', {data: this.fields}).then(response => {
                 this.$router.push('/');
             }).catch(error => {
                 console.log("Error, categories not obtained");
+                this.loading = false;
             });
         },
     },

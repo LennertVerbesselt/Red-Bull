@@ -41,6 +41,8 @@
         </div>
         <BottomMenu></BottomMenu>
     </div>
+
+    
     
  
 </transition>
@@ -132,6 +134,13 @@
     </div>
 </div>
 
+<div class="loading" v-if="loading"><div class="bg"><div class="scaling-squares-spinner" :style="spinnerStyle">
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+</div></div></div>
+
 </template>
 
 <script>
@@ -157,18 +166,22 @@ export default {
           Category: [],
           ShowPopup: false,
           ChallengePopup: [],
+          loading: false,
       }
     },
 	methods: {
         getChallenges(){
+            this.loading = true;
             axios.post('api/getchallenges', {challengesetid: this.id }).then(response => {
                 this.ChallengeSet=response.data.challengeset;
                 this.Challenges=response.data.challenges;
                 this.Event=response.data.event;
                 this.Category = response.data.category;
                 console.log(response);
+                this.loading =false;
             }).catch(error => {
                 console.log("Error, Challenges not obtained");
+                this.loading =false;
             });
         },
 

@@ -13,7 +13,13 @@
          <events-description  v-if="event.show"  :Post="event" ></events-description>
      </div>
 
-        
+<div class="loading" v-if="loading"><div class="bg"><div class="scaling-squares-spinner" :style="spinnerStyle">
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+</div></div></div>
+
 </template>
 
 <script>
@@ -25,7 +31,7 @@ export default {
         return {
             events: [],
             ShowEventDescription:true,
-
+            loading: false,
         }   
     },
     setup() {
@@ -36,10 +42,12 @@ export default {
 
     methods: {
          getEvents() {
+             this.loading = true;
              axios.get('api/getevents').then(response => {
                 
                 this.events = response.data.events;
                 console.log(response.data.events);
+                this.loading =false;
             });
         },
          getDatefromDatetime(datetime){

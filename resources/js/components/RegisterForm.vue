@@ -29,6 +29,13 @@
           
     </form>
     </div>
+
+    <div class="loading" v-if="loading"><div class="bg"><div class="scaling-squares-spinner" :style="spinnerStyle">
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+</div></div></div>
 </template>
     
 <script>
@@ -43,17 +50,21 @@ export default {
             fields: {},
             errors: {},
             showErrors: false,
+            loading:false,
         }
     },
     methods: {
         register() {
+            this.loading = true;
             axios.post('api/register', this.fields).then(response => {
                 this.fields={};
+                this.loading = false;
                 this.$router.push('/survey');
             }).catch(error => {
                 this.showErrors = true;
                 this.errors = error.response.data.errors;
                 console.log(error.response.data.errors);
+                this.loading = false;
             });
         }
     }

@@ -37,6 +37,13 @@
     </form>
 
 <BottomMenu> </BottomMenu>
+
+<div class="loading" v-if="loading"><div class="bg"><div class="scaling-squares-spinner" :style="spinnerStyle">
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+</div></div></div>
 </template>
 
 <script>
@@ -68,6 +75,7 @@ export default {
                 fromChallenge: true,
                 fileName: "",
                 compressedfile: null,
+                loading: false,
             }
         },
 	methods: {
@@ -79,14 +87,18 @@ export default {
             });
         },
         getChallenge(){
+            this.loading = true;
             axios.post('api/getchallenge', {challengeid: this.ChallengeID}).then(response => {
                 this.Challenge = response.data.challenge;
+                this.loading =false;
             }).catch(error => {
                 console.log("Error");
+                this.loading =false;
             });
 
         },
         onFileChange(e) {
+            this.loading = true;
             this.file = e.target.files[0];
             this.fileName = e.target.files[0].name;
             this.url = URL.createObjectURL(this.file);
@@ -112,9 +124,11 @@ export default {
                 .catch(function (error) {
                 console.log(error.message);
                 });
+                this.loading =false;
         },
 
         uploadPost(e){
+            this.loading = true;
             e.preventDefault();
             let existingObj = this;
 
@@ -132,8 +146,10 @@ export default {
             data.append('compressedfile', this.compressedfile);
             console.log(data);
             axios.post('api/uploadpost', data).then(response => {
+                this.loading =false;
                 this.$router.push('/');
             }).catch(error => {
+                this.loading =false;
                 this.$router.push('/');
             });
         }

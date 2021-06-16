@@ -26,9 +26,10 @@
 <script>
 import { VueAgile } from 'vue-agile'
 
+
 export default { 
     components: {
-        agile: VueAgile 
+        agile: VueAgile,
     },
     data: function () {
         return {
@@ -68,10 +69,12 @@ export default {
     },
     methods: {
         getFeaturedEvents(){
+            
             axios.get('api/getfeaturedevents').then(response => {
                 
                 this.featuredevents = response.data.featuredevents;
                 console.log(response.data.featuredevents);
+                
                 return response.data.featuredevents;
             });
         },

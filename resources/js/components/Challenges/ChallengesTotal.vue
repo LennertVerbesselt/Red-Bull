@@ -16,6 +16,13 @@
 </li>
 </div>
 
+<div class="loading" v-if="loading"><div class="bg"><div class="scaling-squares-spinner" :style="spinnerStyle">
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+</div></div></div>
+
 </template>
 <script>
 
@@ -40,6 +47,7 @@ export default {
             Favourites: [],
             FavouritesActive: false,
             ChallengesPage: [],
+            loading: false,
         }
     },
     methods: {
@@ -55,14 +63,16 @@ export default {
         },
 
         getChallengesPage() {
+            this.loading = true;
             axios.get('api/getchallengespage').then(response => {
                 console.log(response.data);
                 this.ChallengesPage = response.data.challengespage;
                 this.FavouriteCategories = response.data.favouritecategories;
-
+                this.loading =false;
                 console.log("All Challenges Obtained");
             }).catch(error => {
                 console.log("Error, All challenges not obtained");
+                this.loading =false;
             });
         },
 
