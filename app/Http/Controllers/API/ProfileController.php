@@ -512,15 +512,57 @@ class ProfileController extends Controller
 
         $tt .= "\n";
         $tt .= "\t";
-        $tt .= "Posts:" . "\n"; 
+        $tt .= "Posts:" . "\n";
+        $tt .= "\n"; 
+
+        $posts = Post::where('user_id', Auth::user()->id)->get();
+        foreach($a["posts"] as $p){
+            $tt .= "Post Caption:" . $p["description"] . "\n";
+            $tt .= "Post Image:" .  $p["url"] . "\n";
+            $tt .= "Post Upvotes:" .  $p["upvotes"] . "\n";
+            $tt .= "Post Downvotes:" .  $p["downvotes"] . "\n";
+            $tt .= "Post Datetime:" .  $p["datetime"] . "\n";
+            $tt .= "\n";
+        }
 
         $tt .= "\n";
         $tt .= "\t";
-        $tt .= "Upvotes:" . "\n"; 
+        $tt .= "Upvotes:" . "\n";
+        $tt .= "\n"; 
+
+        foreach($a["upvotes"] as $p){
+            $tt .= "Post Caption:" . $p["post"]["description"] . "\n";
+            $tt .= "Post Image:" .  $p["post"]["url"] . "\n";
+            $tt .= "Post Upvotes:" .  $p["post"]["upvotes"] . "\n";
+            $tt .= "Post Downvotes:" .  $p["post"]["downvotes"] . "\n";
+            $tt .= "Post Datetime:" .  $p["post"]["datetime"] . "\n";
+            $tt .= "\n";
+        }
 
         $tt .= "\n";
         $tt .= "\t";
-        $tt .= "Downvotes:" . "\n"; 
+        $tt .= "Downvotes:" . "\n";
+        $tt .= "\n"; 
+
+        foreach($a["downvotes"] as $p){
+            $tt .= "Post Caption:" . $p["post"]["description"] . "\n";
+            $tt .= "Post Image:" .  $p["post"]["url"] . "\n";
+            $tt .= "Post Upvotes:" .  $p["post"]["upvotes"] . "\n";
+            $tt .= "Post Downvotes:" .  $p["post"]["downvotes"] . "\n";
+            $tt .= "Post Datetime:" .  $p["post"]["datetime"] . "\n";
+            $tt .= "\n";
+        }
+
+
+        $tt .= "\n";
+        $tt .= "\n";
+        $tt .= "\n";
+        $tt .= "\n";
+
+        $tt .= "This is currently all the data Red Bull Events has collected about you. If you have any questions or think certain information is missing, please let us know by contacting customer support. We'll help you as soon as possible." . "\n";
+        $tt .= "\n";
+        $tt .= "Thank you for choosing Red Bull Events & Have a great day!" . "\n";
+         
 
         return $tt;
 
