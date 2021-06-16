@@ -4,6 +4,12 @@
 <img class="header-illustration" src="../../assets/Final_Illustration_test1.png" alt="">
 </div>
 
+<div class="errors" v-if="showErrors">
+        <div v-if="errors.email" class="error-message">{{errors.email[0]}}</div>
+        <div v-if="errors.password" class="error-message">{{errors.password[0]}}</div>
+        <div class="error-message">Please try again.</div>
+    </div>
+
    <form  @submit.prevent="register">
         <div class="form-group">
             <input type="email"  class="" placeholder="Email" v-model="fields.email">
@@ -35,6 +41,8 @@ export default {
     data() {
         return{
             fields: {},
+            errors: {},
+            showErrors: false,
         }
     },
     methods: {
@@ -43,7 +51,9 @@ export default {
                 this.fields={};
                 this.$router.push('/survey');
             }).catch(error => {
-                console.log("Error");
+                this.showErrors = true;
+                this.errors = error.response.data.errors;
+                console.log(error.response.data.errors);
             });
         }
     }
@@ -126,5 +136,31 @@ h4 {
 
 .header-illustration {
     width: 350px;
+}
+
+.errors {
+    width: 80%;
+    position: relative;
+    left: 10%;
+    padding: 5px 0px;
+    
+
+    border: 2px solid #EB5876;
+    background-color: #ffd3dc;
+
+    border-radius: 6px;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.error-message {
+    font-family: "Akzidenz Regular";
+    color: #EB5876;
+    font-size: 16px;
+    text-align: center;
+    margin: 5px 10px;
 }
 </style>

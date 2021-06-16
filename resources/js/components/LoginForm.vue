@@ -3,6 +3,11 @@
     <img class="header-illustration" src="../../assets/Final_Illustration_test1.png" alt="">
   </div>
     <div class="login">
+
+    <div class="errors" v-if="showErrors">
+        <div class="error-message">{{errors.email[0]}} Please try again.</div>
+    </div>
+        
  
     <form @submit.prevent="login">
         <div class="form-group">
@@ -38,7 +43,9 @@ export default {
             fields: {
                 email:"",
                 password:""
-            }
+            },
+            errors: {},
+            showErrors: false,
         }
     },
     methods: {
@@ -49,7 +56,9 @@ export default {
                 this.$router.push('/');
                 
             }).catch(error => {
-                console.log("Error, Login not succesfull");
+                this.showErrors = true;
+                this.errors = error.response.data.errors;
+                console.log(error.response.data.errors);
             });
         }
     }
@@ -125,6 +134,30 @@ h4 {
 .header-illustration {
     width: 100%;
     margin-top: 5%;
+}
+
+.errors {
+    width: 80%;
+    position: relative;
+    left: 10%;
+    height: 50px;
+
+    border: 2px solid #EB5876;
+    background-color: #ffd3dc;
+
+    border-radius: 6px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message {
+    font-family: "Akzidenz Regular";
+    color: #EB5876;
+    font-size: 16px;
+    text-align: left;
+    margin-left: 10px;
 }
 
 </style>
