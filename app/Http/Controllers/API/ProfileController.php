@@ -357,6 +357,120 @@ class ProfileController extends Controller
         } 
         $alldata["downvotes"] = $down;
 
-        return['data' => $alldata];
+        $textfile = $this->createTextFile($alldata);
+
+        return['data' => $alldata, 'textfile' => $textfile];
+    }
+
+    function createTextFile($a){
+        $tt = "ALL DATA: " . $a["user-info"]["user"]["name"];
+
+        $tt .= "\n";
+        $tt .= "\n";
+        $tt .= "\t";
+        $tt .= "General Info:" . "\n"; 
+
+        $tt .= "Username:" . "\n"; 
+        $tt .= "Email:" . "\n";
+        $tt .= "First Name:" . "\n";
+        $tt .= "Last Name:" . "\n";
+        $tt .= "Created account:" . "\n";
+
+        $tt .= "\n";
+        $tt .= "\t";
+        $tt .= "Profile Statistics:" . "\n"; 
+
+        $tt .= "Followers:" . "\n"; 
+        $tt .= "Following:" . "\n"; 
+        $tt .= "Number of Posts:" . "\n"; 
+        $tt .= "Total Cans Scanned:" . "\n"; 
+
+        $tt .= "\n";
+        $tt .= "\t";
+        $tt .= "Profile Pictures:" . "\n"; 
+
+        $tt .= "Filename:" . "\n";
+        $tt .= "URL:" . "\n";  
+        $tt .= "Active:" . "\n"; 
+
+        $tt .= "\n";
+        $tt .= "\t";
+        $tt .= "Followers:" . "\n";
+        
+        $tt .= "Username:" . "\n"; 
+        $tt .= "Email:" . "\n";
+        $tt .= "First Name:" . "\n";
+        $tt .= "Last Name:" . "\n";
+
+        $tt .= "\n";
+        $tt .= "\t";
+        $tt .= "Following:" . "\n"; 
+
+        $tt .= "Username:" . "\n"; 
+        $tt .= "Email:" . "\n";
+        $tt .= "First Name:" . "\n";
+        $tt .= "Last Name:" . "\n";
+
+        $tt .= "\n";
+        $tt .= "\t";
+        $tt .= "Currency Points:" . "\n"; 
+
+        $tt .= "Category:" . "\n"; 
+        $tt .= "Points:" . "\n";
+
+        $tt .= "\n";
+        $tt .= "\t";
+        $tt .= "Challenges Overview By Category:" . "\n"; 
+
+        $tt .= "Categories:" . "\n";
+
+        $tt .= "\n";
+        $tt .= "\t" . "Category Name:" . "\n";
+        $tt .= "\t" . "Category Icon:" . "\n";
+
+        $tt .= "\n";
+
+        $tt .= "\t" . "\t" . "Challenge Sets:" . "\n";
+
+        $tt .= "\n";
+
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Name:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Description:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Length:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Difficulty:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Icon:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Amount of Challenges:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Amount of Completed Challenges:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Completion Percentage:" . "\n";
+
+        $tt .= "\n";
+
+        $tt .= "\t" . "\t" . "\t" . "\t" . "Challenges:" . "\n";
+
+        $tt .= "\n";
+
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Name:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Description:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Difficulty:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Points:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Cans To Unlock:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Upvote Ratio:" . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Badge:" . "\n";
+
+        $tt .= "\n";
+        $tt .= "\t";
+        $tt .= "Posts:" . "\n"; 
+
+        $tt .= "\n";
+        $tt .= "\t";
+        $tt .= "Upvotes:" . "\n"; 
+
+        $tt .= "\n";
+        $tt .= "\t";
+        $tt .= "Downvotes:" . "\n"; 
+
+        return $tt;
+
+
     }
 }

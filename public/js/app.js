@@ -19171,8 +19171,17 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getAllData: function getAllData() {
-      axios.get('api/getalldata').then(function (response) {})["catch"](function (error) {
-        console.log("Error");
+      axios.get('api/getalldata').then(function (response) {
+        var blob = new Blob([response.data.textfile], {
+          type: 'text'
+        });
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = "Your data";
+        link.click();
+        URL.revokeObjectURL(link.href);
+      })["catch"](function (error) {
+        console.log("Errorrrr");
       });
     },
     deleteAllData: function deleteAllData() {}

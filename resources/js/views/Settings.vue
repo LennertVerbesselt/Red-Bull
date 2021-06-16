@@ -79,9 +79,19 @@ export default {
 
         getAllData() {
             axios.get('api/getalldata').then(response => {
+                
+                const blob = new Blob([response.data.textfile], { type: 'text' });
+                
+                const link = document.createElement('a');
+                
+                link.href = URL.createObjectURL(blob);
+                
+                link.download = "Your data";
+                link.click();
+                URL.revokeObjectURL(link.href);
 
             }).catch(error => {
-                console.log("Error");
+                console.log("Errorrrr");
             });
         },
 
