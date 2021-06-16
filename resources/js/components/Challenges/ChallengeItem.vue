@@ -193,15 +193,15 @@ export default {
 }
 
 .badge {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
 
     
  }
 
  .greybadge {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
 
     filter: grayscale(100%);
  }

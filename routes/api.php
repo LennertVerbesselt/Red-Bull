@@ -77,6 +77,9 @@ Route::post('/uploadpost', [UploadController::class, 'uploadPost'])->name('uploa
 //QR Code Stuff
 Route::post('/checkqrcode', [ChallengeController::class, 'checkQRCode'])->name('checkqrcode');
 
+//Events Stuff
+Route::get('/getevents',[EventController::class,'getEvents']);
+
 //Profile Stuff
 Route::post('/follow', [UserController::class, 'follow'])->name('follow');
 Route::post('/unfollow', [UserController::class, 'unfollow'])->name('unfollow');
@@ -87,4 +90,7 @@ Route::post('/setfavourite', [CategoryController::class, 'setFavourite'])->name(
 Route::get('/getprofiledata', [ProfileController::class, 'getProfileData'])->name('getprofiledata');
 
 
-Route::get('/getevents',[EventController::class,'getEvents']);
+
+
+//GDPR Stuff
+Route::get('/getalldata', [ProfileController::class, 'getAllData'])->name('getalldata');

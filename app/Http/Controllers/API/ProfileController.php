@@ -188,4 +188,175 @@ class ProfileController extends Controller
 
         return ['profiledata' => $profiledata];
     }
+
+    function getAllData() {
+        $user = Auth::user();
+
+        $alldata = [];
+
+        //Compiling User Info
+
+        //User data
+        $user = User::find(Auth::user()->id);
+        $alldata["user-info"]["user"] = $user;
+
+        //Profile data
+        $profile = Profile::where('user_id', $user->id)->get()->first();
+        $alldata["user-info"]["profile"] = $profile;
+
+        //Profile Statistics
+        $stats = Profile_Statistics::where('user_id', $user->id)->get()->first();
+        $alldata["user-info"]["stats"] = $stats;
+
+        //All Profile Pictures
+        $profilepictures = Profile_Picture::where('user_id', $user->id)->get();
+        $alldata["user-info"]["profilepictures"] = $profilepictures;
+
+        //Compiling Followers
+        $followers = Follower::where('followed', $user->id)->get();
+        $alldata["user-info"]["followers"] = $followers;
+
+        //Compiling Following
+        $following = Follower::where('following', $user->id)->get();
+        $alldata["user-info"]["following"] = $following;
+
+        //Compiling Currency Points
+        $points = Currency_Points::where('user_id', $user->id)->get();
+        $alldata["currencypoints"] = $points;
+
+
+        //Compiling Challenge Data
+        $categories = Category::get();
+        $challengesets = Challenge_Set::get();
+        $challenges = Challenge::get();
+        $challengebadges = Challenge_Badge::get();
+        $challengeprogressions = Challenge_Progression::where('user_id', Auth::user()->id)->get();
+        $favourites = (array) json_decode(User_interests_Categories::where('user_id', Auth::user()->id)->get()->first()->favourites);
+        $icons = Challenge_sets_Icon::get();
+
+        $currencypoints = Currency_Points::where('user_id', Auth::user()->id)->orderby('points', 'DESC')->get();
+
+        $challengespage = [];
+
+        foreach($currencypoints as $cu) {
+            foreach($categories as $category){
+                if($category->category_id == $cu->category_id){
+                $categorysub = [];
+
+                $categorysub['category_id'] = $category->category_id;
+                $categorysub['category_name'] = $category->category_name;
+                $categorysub['icon'] = $category->icon;
+                $categorysub['points'] = $cu->points;
+
+                if($favourites[$category->category_name]){
+                    $categorysub['favourite'] = true;
+                } else {
+                    $categorysub['favourite'] = false;
+                }
+
+                foreach($challengesets as $challengeset){
+
+                    if($challengeset->category_id == $category->category_id){
+                        $challengesubset = [];
+                        $completed = 0;
+                        $total = 0;
+
+                        $challengesubset['id'] = $challengeset->id;
+                        $challengesubset['event_id'] = $challengeset->event_id;
+                        $challengesubset['category_id'] = $challengeset->category_id;
+                        $challengesubset['name'] = $challengeset->name;
+                        $challengesubset['length'] = $challengeset->length;
+                        $challengesubset['difficulty'] = $challengeset->difficulty;
+                        $challengesubset['active_untill'] = $challengeset->active_untill;
+
+                        foreach($icons as $icon){
+                            if($icon->challenge_set_id === $challengeset->id){
+                                $challengesubset['icon'] = $icon->url;
+                            }
+                        }
+
+                        foreach($challenges as $challenge){
+
+                            if($challenge->challenge_set_id === $challengeset->id){
+                                $challengesub = [];
+
+                                $challengesub['id'] = $challenge->id;
+                                $challengesub['challenge_set_id'] = $challenge->challenge_set_id;
+                                $challengesub['name'] = $challenge->name;
+                                $challengesub['difficulty'] = $challenge->difficulty;
+                                $challengesub['description'] = $challenge->description;
+                                $challengesub['points'] = $challenge->points;
+                                $challengesub['cans_needed_to_unlock'] = $challenge->cans_needed_to_unlock;
+                                $challengesub['upvote_ratio'] = $challenge->upvote_ratio;
+
+                                foreach($challengebadges as $challengebadge){
+                                    if($challengebadge->challenge_id == $challenge->id){
+                                        $challengesub['badge'] = $challengebadge->url;
+                                    }
+                                }
+                                foreach($challengeprogressions as $challengeprogression){
+                                    if($challengeprogression->challenge_id == $challenge->id){
+                                        $challengesub['progression'] = $challengeprogression;
+                                        if($challengeprogression->complete){
+                                            $completed++;
+                                        }
+                                        $total++;
+                                    }
+                                }
+
+                                $percentage = $completed/$total * 100;
+
+                                $challengesubset['percentage'] = $percentage;
+                                $challengesubset['completed'] = $completed;
+                                $challengesubset['total'] = $total;
+
+                                $challengesubset['challenges'][$challenge->id] = $challengesub;
+                            }
+                        }
+
+                        $categorysub['challengesets'][$challengeset->id] = $challengesubset;
+
+                    }
+                }
+
+                array_push($challengespage, $categorysub);
+            }
+        }
+        
+    }
+
+        $alldata["challenge-data"]= $challengespage;
+        
+        //Compiling Posts
+        $posts = Post::where('user_id', $user->id)->orderby('created_at', 'DESC')->get();
+        $postimages = Post_Image::get();
+
+        foreach($posts as $p) {
+            foreach($postimages as $pi) {
+                if($p->id === $pi->post_id){
+                    $p['url'] = $pi->url;
+                }
+            }
+        }
+
+        $alldata["posts"] = $posts;
+
+        //Compiling Upvotes
+        $up = Post_Upvotes::where('user_id', $user->id)->get();
+        foreach($up as $u){
+            $post = Post::where('id', $u->post_id)->get()->first();
+            $u["post"] = $post;
+        } 
+        $alldata["upvotes"] = $up;
+
+        //Compiling Downvotes
+        $down = Post_Downvotes::where('user_id', $user->id)->get();
+        foreach($down as $d){
+            $post = Post::where('id', $d->post_id)->get()->first();
+            $d["post"] = $post;
+        } 
+        $alldata["downvotes"] = $down;
+
+        return['data' => $alldata];
+    }
 }

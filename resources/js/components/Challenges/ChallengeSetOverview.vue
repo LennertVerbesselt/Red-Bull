@@ -197,10 +197,10 @@ export default {
 
 <style scoped>
 .wrapper{
-    position: absolute;
+    position: relative;
     top:0;
     left:0;
-    width: 100vw;
+    width: 100%;
     height: 100%;
 
     color: white;
@@ -344,7 +344,7 @@ export default {
 
 .challenge-item {
     min-width: 33.333%;
-    height: 80px;
+    height: 120px;
 
     display: flex;
     flex-flow: column;

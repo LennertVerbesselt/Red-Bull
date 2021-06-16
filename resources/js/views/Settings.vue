@@ -11,14 +11,37 @@
     </div>
 </div>
 
+<div class="segment-title"><span>Account Settings</span></div>
 <div class="account-wrapper">
-    <div class="segment-title"><span>Account Settings</span></div>
+    
 </div>
+<div class="segment-title">Privacy Settings</div>
 <div class="privacy-wrapper">
-    <div class="segment-title">Privacy Settings</div>
+    
 </div>
+<div class="segment-title">GDPR Settings</div>
 <div class="gdpr-wrapper">
-    <div class="segment-title">GDPR Settings</div>
+    
+    <div class="right">
+        <div class="right-title">Right of acces:</div>
+        <div class="button" @click="getAllData">
+        <div class="button-text">GET YOUR DATA</div>
+    </div>
+    </div>
+
+    <div class="right">
+        <div class="right-title">Right of Correction:</div>
+        <div class="button">
+        <div class="button-text">SUBMIT A TICKET</div>
+    </div>
+    </div>
+
+    <div class="right">
+        <div class="right-title">Right to be Forgotten:</div>
+        <div class="button">
+        <div class="button-text">DELETE ACCOUNT</div>
+    </div>
+    </div>
 </div>
 <div class="apply-changes">
 
@@ -36,6 +59,45 @@ export default {
     name: "Settings",
     components: {
         BottomMenu,
+    },
+    props: {
+
+    },
+    data:function() {
+        return {
+
+        }
+    },
+    methods: {
+        checkIfLoggedIn() {
+            axios.get('api/getsessiondata').then(response => {
+            }).catch(error => {
+                console.log("Error");
+				this.$router.push('/login');
+            });
+        },
+
+        getAllData() {
+            axios.get('api/getalldata').then(response => {
+
+            }).catch(error => {
+                console.log("Error");
+            });
+        },
+
+        deleteAllData() {
+
+        }
+
+
+
+    },
+    created() {
+        this.checkIfLoggedIn();
+
+    },
+    mounted() {
+
     }
 }
 </script>
@@ -72,11 +134,12 @@ export default {
 
 .segment-title {
     font-family: "Akzidenz Bold Extended";
-    font-size: 20px;
+    font-size: 22px;
     color:white;
 
     margin-left: 10px;
-
+    margin-top: 20px;
+    
     display: flex;
     flex-flow: row;
     justify-content: flex-start;
@@ -88,9 +151,60 @@ export default {
     margin-top: 15px;
     position: relative;
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.right {
+    position: relative;
+    width: 94%;
+    height: 30px;
+    left: 0%;
+    margin: 10px 0px;
+
+    display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.right-title {
+    font-family: "Akzidenz Medium";
+    font-size: 16px;
+    color:white;
+    text-align: right;
+}
+
+.button {
+    width: 130px;
+    height: 25px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    background-color: #EB5876;
+
+    
+    box-shadow: 0px 0px 3px #EB5876;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    -ms-transform: skewX(-30deg);
+    -webkit-transform: skewX(-30deg);
+    transform: skewX(-30deg);
+}
+
+.button-text {
+    font-family: "Akzidenz Medium";
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    -ms-transform: skewX(30deg);
+    -webkit-transform: skewX(30deg);
+    transform: skewX(30deg); 
+    
 }
 
 </style>
