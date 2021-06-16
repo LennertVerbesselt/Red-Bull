@@ -359,8 +359,19 @@ class ProfileController extends Controller
 
         $textfile = $this->createTextFile($alldata);
 
-        return['data' => $alldata, 'textfile' => $textfile];
+    return['data' => $alldata, 'textfile' => $textfile];
     }
+
+
+
+
+
+
+
+
+
+
+
 
     function createTextFile($a){
         $tt = "ALL DATA: " . $a["user-info"]["user"]["name"];
@@ -370,92 +381,134 @@ class ProfileController extends Controller
         $tt .= "\t";
         $tt .= "General Info:" . "\n"; 
 
-        $tt .= "Username:" . "\n"; 
-        $tt .= "Email:" . "\n";
-        $tt .= "First Name:" . "\n";
-        $tt .= "Last Name:" . "\n";
-        $tt .= "Created account:" . "\n";
+        $tt .= "Username: " . $a["user-info"]["user"]["name"] . "\n"; 
+        $tt .= "Email: " . $a["user-info"]["user"]["email"] . "\n";
+        $tt .= "First Name: " . $a["user-info"]["profile"]["first_name"] . "\n";
+        $tt .= "Last Name: " . $a["user-info"]["profile"]["last_name"] . "\n";
+        $tt .= "Created account: " . $a["user-info"]["user"]["created_at"] . "\n";
 
         $tt .= "\n";
         $tt .= "\t";
         $tt .= "Profile Statistics:" . "\n"; 
 
-        $tt .= "Followers:" . "\n"; 
-        $tt .= "Following:" . "\n"; 
-        $tt .= "Number of Posts:" . "\n"; 
-        $tt .= "Total Cans Scanned:" . "\n"; 
+        $tt .= "Followers:" . $a["user-info"]["stats"]["followers"] . "\n"; 
+        $tt .= "Following:" . $a["user-info"]["stats"]["following"] . "\n"; 
+        $tt .= "Number of Posts:" . $a["user-info"]["stats"]["amount_of_posts"] . "\n"; 
+        $tt .= "Total Cans Scanned:" . $a["user-info"]["stats"]["total_cans_scanned"] . "\n"; 
 
         $tt .= "\n";
         $tt .= "\t";
-        $tt .= "Profile Pictures:" . "\n"; 
+        $tt .= "Profile Pictures:" . "\n";
+        $tt .= "\n"; 
 
-        $tt .= "Filename:" . "\n";
-        $tt .= "URL:" . "\n";  
-        $tt .= "Active:" . "\n"; 
+        foreach($a["user-info"]["profilepictures"] as $p){
+            $tt .= "Filename:" . $p["filename"] . "\n";
+            $tt .= "URL:" . $p["url"] . "\n";  
+            $tt .= "Active:" . $p["active"] . "\n"; 
+            $tt .= "\n";
+        }
 
         $tt .= "\n";
         $tt .= "\t";
         $tt .= "Followers:" . "\n";
+        $tt .= "\n";
         
-        $tt .= "Username:" . "\n"; 
-        $tt .= "Email:" . "\n";
-        $tt .= "First Name:" . "\n";
-        $tt .= "Last Name:" . "\n";
+        foreach($a["user-info"]["followers"] as $f){
+            $fp = Profile::where('user_id', $f["following"])->get()->first();
+
+            $tt .= "Username:" .  $fp->username . "\n"; 
+            $tt .= "First Name:" . $fp->first_name . "\n";
+            $tt .= "Last Name:" . $fp->last_name . "\n";
+            $tt .= "\n";
+        }
 
         $tt .= "\n";
         $tt .= "\t";
-        $tt .= "Following:" . "\n"; 
+        $tt .= "Following:" . "\n";
+        $tt .= "\n";
+        
+        foreach($a["user-info"]["followers"] as $f){
+            $fp = Profile::where('user_id', $f["followed"])->get()->first();
 
-        $tt .= "Username:" . "\n"; 
-        $tt .= "Email:" . "\n";
-        $tt .= "First Name:" . "\n";
-        $tt .= "Last Name:" . "\n";
+            $tt .= "Username:" .  $fp->username . "\n"; 
+            $tt .= "First Name:" . $fp->first_name . "\n";
+            $tt .= "Last Name:" . $fp->last_name . "\n";
+            $tt .= "\n";
+        } 
 
         $tt .= "\n";
         $tt .= "\t";
-        $tt .= "Currency Points:" . "\n"; 
+        $tt .= "Currency Points:" . "\n";
+        $tt .= "\n";
 
-        $tt .= "Category:" . "\n"; 
-        $tt .= "Points:" . "\n";
+        foreach($a["challenge-data"] as $c){
+            $tt .= "Category:" . $c["category_name"] . "\n"; 
+            $tt .= "Points:" . $c["points"] . "\n";
+            $tt .= "\n";
+        }
 
         $tt .= "\n";
         $tt .= "\t";
-        $tt .= "Challenges Overview By Category:" . "\n"; 
+        $tt .= "Challenges Overview By Category:" . "\n";
+        $tt .= "\n"; 
 
         $tt .= "Categories:" . "\n";
+        $tt .= "\n";
+
+        foreach($a["challenge-data"] as $c){
 
         $tt .= "\n";
-        $tt .= "\t" . "Category Name:" . "\n";
-        $tt .= "\t" . "Category Icon:" . "\n";
+        $tt .= "\t" . "Category Name:" . $c["category_name"] . "\n";
+        $tt .= "\t" . "Category Icon:" . $c["icon"] . "\n";
 
         $tt .= "\n";
 
         $tt .= "\t" . "\t" . "Challenge Sets:" . "\n";
 
         $tt .= "\n";
+        
+        $challengesets = Challenge_Set::where('category_id', $c["category_id"])->get();
+        foreach($challengesets as $cs){
 
-        $tt .= "\t" . "\t" . "\t" . "Challenge Set Name:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "Challenge Set Description:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "Challenge Set Length:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "Challenge Set Difficulty:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "Challenge Set Icon:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "Challenge Set Amount of Challenges:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "Challenge Set Amount of Completed Challenges:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "Challenge Set Completion Percentage:" . "\n";
-
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Name:" . $cs["name"] . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Description:" . $cs["description"] . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Length:" . $cs["length"] . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Difficulty:" . $cs["difficulty"] . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Icon:" . $cs["icon"] . "\n";
+        $tt .= "\t" . "\t" . "\t" . "Challenge Set Amount of Challenges:" . $cs["total"] . "\n";
         $tt .= "\n";
 
         $tt .= "\t" . "\t" . "\t" . "\t" . "Challenges:" . "\n";
 
         $tt .= "\n";
 
-        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Name:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Description:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Difficulty:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Points:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Cans To Unlock:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Upvote Ratio:" . "\n";
-        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Badge:" . "\n";
+        $challenges = Challenge::where('challenge_set_id', $cs->id)->get();
+        foreach($challenges as $ci){
+
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Name:" . $ci->name . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Description:" . $ci->description . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Difficulty:" . $ci->difficulty . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Points:" . $ci->points . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Cans To Unlock:" . $ci->cans_needed_to_unlock . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Upvote Ratio:" . $ci->upvote_ratio . "\n";
+
+        $p = Challenge_Progression::where('challenge_id', $ci->id)->where('user_id', Auth::user()->id)->get()->last();
+
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Cans Scanned:" . $p->cans_scanned . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Locked:" . $p->locked . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Unlocked:" . $p->unlocked . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Pending:" . $p->pending . "\n";
+        $tt .= "\t" . "\t" . "\t" . "\t" . "\t" . "Challenge Complete:" . $p->complete . "\n";
+        $tt .= "\n";
+        $tt .= "\n";
+        }
+        $tt .= "\n";
+        $tt .= "\n";
+        }
+        $tt .= "\n";
+        $tt .= "\n";
+        }
+
 
         $tt .= "\n";
         $tt .= "\t";
