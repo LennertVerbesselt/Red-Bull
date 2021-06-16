@@ -19184,7 +19184,16 @@ __webpack_require__.r(__webpack_exports__);
         console.log("Errorrrr");
       });
     },
-    deleteAllData: function deleteAllData() {}
+    deleteAllData: function deleteAllData() {},
+    logout: function logout() {
+      var _this2 = this;
+
+      axios.post('api/logout').then(function (response) {
+        _this2.$router.push('/login');
+      })["catch"](function (error) {
+        console.log("Couldn't log out!");
+      });
+    }
   },
   created: function created() {
     this.checkIfLoggedIn();
@@ -23415,9 +23424,21 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"right\" data-v-6af1f6c2><div class=\"right-title\" data-v-6af1f6c2>Right of Correction:</div><div class=\"button\" data-v-6af1f6c2><div class=\"button-text\" data-v-6af1f6c2>SUBMIT A TICKET</div></div></div><div class=\"right\" data-v-6af1f6c2><div class=\"right-title\" data-v-6af1f6c2>Right to be Forgotten:</div><div class=\"button\" data-v-6af1f6c2><div class=\"button-text\" data-v-6af1f6c2>DELETE ACCOUNT</div></div></div>", 2);
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "apply-changes"
-}, null, -1
+var _hoisted_16 = {
+  "class": "bottom-actions"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "button-text"
+}, "LOG OUT", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "button-text"
+}, "APPLY CHANGES")], -1
 /* HOISTED */
 );
 
@@ -23435,7 +23456,12 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     onClick: _cache[2] || (_cache[2] = function () {
       return $options.getAllData && $options.getAllData.apply($options, arguments);
     })
-  }, [_hoisted_13])]), _hoisted_14]), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
+  }, [_hoisted_13])]), _hoisted_14]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+    "class": "button",
+    onClick: _cache[3] || (_cache[3] = function () {
+      return $options.logout && $options.logout.apply($options, arguments);
+    })
+  }, [_hoisted_17]), _hoisted_18]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BottomMenu)], 64
   /* STABLE_FRAGMENT */
   );
 });
@@ -24938,7 +24964,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.SettingsHeader[data-v-6af1f6c2] {\r\n    width: 100%;\r\n    height: 60px;\r\n    position: relative;\r\n    left: 0;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-bottom: 2px solid white;\n}\n.back-text[data-v-6af1f6c2] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 16px;\r\n    color: white;\r\n    position: absolute;\r\n    top: 20px;\r\n    left: 25px;\n}\n.page-title[data-v-6af1f6c2] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 20px;\r\n    color: white;\n}\n.segment-title[data-v-6af1f6c2] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 22px;\r\n    color:white;\r\n\r\n    margin-left: 10px;\r\n    margin-top: 20px;\r\n    \r\n    display: flex;\r\n    flex-flow: row;\r\n    justify-content: flex-start;\r\n    align-items: center;\n}\n.account-wrapper[data-v-6af1f6c2], .privacy-wrapper[data-v-6af1f6c2], .gdpr-wrapper[data-v-6af1f6c2] {\r\n    width: 100%;\r\n    margin-top: 15px;\r\n    position: relative;\r\n    display: flex;\r\n    flex-flow: column;\r\n    justify-content: flex-start;\r\n    align-items: center;\n}\n.right[data-v-6af1f6c2] {\r\n    position: relative;\r\n    width: 94%;\r\n    height: 30px;\r\n    left: 0%;\r\n    margin: 10px 0px;\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.right-title[data-v-6af1f6c2] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 16px;\r\n    color:white;\r\n    text-align: right;\n}\n.button[data-v-6af1f6c2] {\r\n    width: 130px;\r\n    height: 25px;\r\n\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    background-color: #EB5876;\r\n\r\n    \r\n    box-shadow: 0px 0px 3px #EB5876;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    transform: skewX(-30deg);\n}\n.button-text[data-v-6af1f6c2] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 12px;\r\n    color: white;\r\n    text-decoration: none;\r\n    transform: skewX(30deg);\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.SettingsHeader[data-v-6af1f6c2] {\r\n    width: 100%;\r\n    height: 60px;\r\n    position: relative;\r\n    left: 0;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-bottom: 2px solid white;\n}\n.back-text[data-v-6af1f6c2] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 16px;\r\n    color: white;\r\n    position: absolute;\r\n    top: 20px;\r\n    left: 25px;\n}\n.page-title[data-v-6af1f6c2] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 20px;\r\n    color: white;\n}\n.segment-title[data-v-6af1f6c2] {\r\n    font-family: \"Akzidenz Bold Extended\";\r\n    font-size: 22px;\r\n    color:white;\r\n\r\n    margin-left: 10px;\r\n    margin-top: 20px;\r\n    \r\n    display: flex;\r\n    flex-flow: row;\r\n    justify-content: flex-start;\r\n    align-items: center;\n}\n.account-wrapper[data-v-6af1f6c2], .privacy-wrapper[data-v-6af1f6c2], .gdpr-wrapper[data-v-6af1f6c2] {\r\n    width: 100%;\r\n    margin-top: 15px;\r\n    position: relative;\r\n    display: flex;\r\n    flex-flow: column;\r\n    justify-content: flex-start;\r\n    align-items: center;\n}\n.right[data-v-6af1f6c2] {\r\n    position: relative;\r\n    width: 94%;\r\n    height: 30px;\r\n    left: 0%;\r\n    margin: 10px 0px;\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.right-title[data-v-6af1f6c2] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 16px;\r\n    color:white;\r\n    text-align: right;\n}\n.button[data-v-6af1f6c2] {\r\n    width: 130px;\r\n    height: 25px;\r\n\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    background-color: #EB5876;\r\n\r\n    \r\n    box-shadow: 0px 0px 3px #EB5876;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    transform: skewX(-30deg);\n}\n.button-text[data-v-6af1f6c2] {\r\n    font-family: \"Akzidenz Medium\";\r\n    font-size: 12px;\r\n    color: white;\r\n    text-decoration: none;\r\n    transform: skewX(30deg);\n}\n.bottom-actions[data-v-6af1f6c2] {\r\n    margin: 50px 0px;\r\n    width: 100%;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    justify-content: space-evenly;\r\n    align-items: center;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

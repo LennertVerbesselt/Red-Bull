@@ -43,9 +43,16 @@
     </div>
     </div>
 </div>
-<div class="apply-changes">
-
+<div class="bottom-actions" >
+<div class="button"  @click="logout">
+        <div class="button-text">LOG OUT</div>
+    </div>
+<div class="button">
+        <div class="button-text">APPLY CHANGES</div>
+    </div>
 </div>
+
+
 
 <BottomMenu></BottomMenu>
     
@@ -97,7 +104,15 @@ export default {
 
         deleteAllData() {
 
-        }
+        },
+
+        logout(){
+            axios.post('api/logout').then(response => {
+                this.$router.push('/login');
+            }).catch(error => {
+                console.log("Couldn't log out!");
+            });
+        },
 
 
 
@@ -215,6 +230,16 @@ export default {
     -webkit-transform: skewX(30deg);
     transform: skewX(30deg); 
     
+}
+
+.bottom-actions {
+    margin: 50px 0px;
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 </style>

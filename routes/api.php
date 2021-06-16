@@ -39,6 +39,10 @@ Route::post('/register', [RegisteredUserController::class, 'store'])
 
 //Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
 
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+                ->middleware('auth')
+                ->name('logout');
+
 //Big Picture Stuff
 Route::get('/getsessiondata', [AuthenticatedSessionController::class, 'retrieveSessionData'])->name('getsessiondata');
 
