@@ -596,7 +596,7 @@ class ProfileController extends Controller
         $imageName = $user->id . "-" . $user->name . "-" . $fileName . ".jpg";
 
         //Save image to AWS
-        $path = Storage::disk('s3')->putFileAs('/ProfilePictures',$request->image,$imageName);
+        $path = Storage::disk('s3')->putFileAs('/ProfilePictures',$request->file,$imageName);
 
         //Set image on AWS public
         Storage::disk('s3')->setVisibility($path, 'public');
