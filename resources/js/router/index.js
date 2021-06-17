@@ -16,6 +16,7 @@ import Settings from "../views/Settings.vue";
 
 import AllBadges from "../components/Profile/AllBadges.vue";
 import ProfileStatistics from "../components/Profile/ProfileStatistics.vue";
+import UploadProfilePicture from "../components/Profile/UploadProfilePicture.vue";
 
 import Upload from "../views/Upload.vue";
 import ChallengeQRScanner from "../components/Challenges/ChallengeQRScanner.vue";
@@ -89,6 +90,11 @@ const routes = [
     path: "/profilestatistics",
     name: "ProfileStatistics",
     component: ProfileStatistics,
+  },
+  {
+    path: "/uploadprofilepicture",
+    name: "UploadProfilePicture",
+    component: UploadProfilePicture,
   },
   {
     path: "/upload",

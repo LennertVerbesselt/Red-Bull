@@ -563,9 +563,61 @@ class ProfileController extends Controller
         $tt .= "\n";
         $tt .= "Thank you for choosing Red Bull Events & Have a great day!" . "\n";
          
-
         return $tt;
+    }
 
+    function updateInfo(Request $request){
+        $user = User::find(Auth::user()->id);
 
+        $profile = Profile::where('user_id', $user->id)->get()->first();
+
+        $profile->first_name = $request->firstname;
+        $profile->last_name = $request->lastname;
+        $profile->save();
+
+        return;
+    }
+
+    function uploadProfilePicture(Request $request) {
+        $userid = Auth::user()->id;
+        $user = User::find($userid);
+        
+        //Generate Filename
+        $FileNameValueLength = 40;
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $fileName = '';
+        for($i = 0; $i < $FileNameValueLength; $i++) {
+            $number = random_int(0, 36);
+            $character = base_convert($number, 10, 36);
+            $fileName .= $character;
+        }
+
+        //Compile image name with generated name and readable data for debugging
+        $imageName = $user->id . "-" . $user->name . "-" . $fileName . ".jpg";
+
+        //Save image to AWS
+        $path = Storage::disk('s3')->putFileAs('/ProfilePictures',$request->image,$imageName);
+
+        //Set image on AWS public
+        Storage::disk('s3')->setVisibility($path, 'public');
+
+        //Create & Save new Profile Picture object
+        $profilepicture = new Profile_Picture;
+        $profilepicture->user_id = $user->id;
+        $profilepicture->filename = $path;
+        $profilepicture->url = Storage::disk('s3')->url($path);
+        $profilepicture->active = True;
+        $profilepicture->save();
+
+        //Check for previous profile picture && Deactivate previous profile picture
+        $previousprofilepictures = Profile_Picture::get();
+        $currentprofilepicture = Profile_Picture::latest()->first();
+        foreach($previousprofilepictures as $profilepicture) {
+            if ($profilepicture->user_id == $currentprofilepicture->user_id && $profilepicture->id != $currentprofilepicture->id){
+                $profilepicture->active = False;
+                $profilepicture->save();
+            }
+        }
+        return;
     }
 }

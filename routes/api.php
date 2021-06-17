@@ -93,6 +93,8 @@ Route::post('/setfavourite', [CategoryController::class, 'setFavourite'])->name(
 
 Route::get('/getprofiledata', [ProfileController::class, 'getProfileData'])->name('getprofiledata');
 
+Route::post('/updateinfo', [ProfileController::class, 'updateInfo'])->name('updateInfo');
+Route::post('/uploadprofilepicture', [ProfileController::class, 'uploadProfilePicture'])->name('uploadprofilepicture');
 
 
 

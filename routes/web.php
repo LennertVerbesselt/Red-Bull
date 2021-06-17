@@ -70,6 +70,9 @@ Route::get('/challengeselect', function () {
 Route::get('/settings', function () {
     return view('welcome');
 });
+Route::get('/uploadprofilepicture', function () {
+    return view('welcome');
+});
 
 //CMS Routes
 Route::get('/CMS', [OverviewController::class, 'index'])->name('overview');
