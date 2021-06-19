@@ -79,6 +79,12 @@ class UploadController extends Controller
             $img->url = Storage::disk('s3')->url($path);
             $img->save();
 
+            //Update Profile Statistics 
+            /*$stats = Profile_Statistics::where('user_id', Auth::user()->id)->get()->first();
+            $stats->increment('amount_of_posts');
+            $stats->save();*/
+
+
             $post = Post::latest()->first();
             return['post' => $post];
 
@@ -147,6 +153,12 @@ class UploadController extends Controller
             $img->filename = $path;
             $img->url = Storage::disk('s3')->url($path);
             $img->save();
+
+            //Update Profile Statistics 
+            /*$stats = Profile_Statistics::where('user_id', Auth::user()->id)->get()->first();
+            $stats->increment('amount_of_posts');
+            $stats->save();*/
+
 
             $post = Post::latest()->first();
             return['post' => $post];

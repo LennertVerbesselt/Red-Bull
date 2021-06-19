@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use App\Models\Follower;
+use App\Models\Profile_Statistics;
 
 
 class UserController extends Controller
@@ -25,6 +26,14 @@ class UserController extends Controller
             $f->following = $user->id;
             $f->save();
 
+            $followedstats = Profile_Statistics::where('user_id', $postuser->id)->get()->first();
+            $followedstats->increment('followers');
+            $followedstats->save();
+
+            $followingstats = Profile_Statistics::where('user_id', $user->id)->get()->first();
+            $followingstats->increment('following');
+            $followingstats->save();
+
             return['followed' => $f];
         } else {
             return ['alreadyfollowed' =>$pf];
@@ -40,6 +49,14 @@ class UserController extends Controller
 
         $f = Follower::where('followed', $postuser->id)->where('following', $user->id)->get()->first();
         $f->delete();
+
+        $followedstats = Profile_Statistics::where('user_id', $postuser->id)->get()->first();
+            $followedstats->decrement('followers');
+            $followedstats->save();
+
+            $followingstats = Profile_Statistics::where('user_id', $user->id)->get()->first();
+            $followingstats->decrement('following');
+            $followingstats->save();
 
         return ['unfollowed' => $f];
     }
