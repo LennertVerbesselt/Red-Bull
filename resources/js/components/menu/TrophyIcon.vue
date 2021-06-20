@@ -1,5 +1,5 @@
 <template>
-  <img src="./../../../assets/trophyIcon.svg" class="navicon" />
+  <img src="./../../../assets/trophy.svg" class="navicon" />
 </template>
 
 <script>

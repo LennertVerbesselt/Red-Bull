@@ -23688,11 +23688,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _assets_trophyIcon_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../assets/trophyIcon.svg */ "./resources/assets/trophyIcon.svg");
+/* harmony import */ var _assets_trophy_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../assets/trophy.svg */ "./resources/assets/trophy.svg");
 
 
 var _hoisted_1 = {
-  src: _assets_trophyIcon_svg__WEBPACK_IMPORTED_MODULE_1__.default,
+  src: _assets_trophy_svg__WEBPACK_IMPORTED_MODULE_1__.default,
   "class": "navicon"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -26310,10 +26310,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/trophyIcon.svg":
-/*!*****************************************!*\
-  !*** ./resources/assets/trophyIcon.svg ***!
-  \*****************************************/
+/***/ "./resources/assets/trophy.svg":
+/*!*************************************!*\
+  !*** ./resources/assets/trophy.svg ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26321,7 +26321,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/trophyIcon.svg?05243739daec278d55c06c88249d1262");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/trophy.svg?7b3485f3f655df9b80ef68b6ad524e45");
 
 /***/ }),
 
