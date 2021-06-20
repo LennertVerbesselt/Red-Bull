@@ -98,7 +98,7 @@ export default defineComponent({
     async handleValidQRCode(c) {
       await this.timeout(1000);
         if(c){
-          this.$router.go(-1);
+          this.$router.push('/challenges');
         }
         else {
           this.$router.push({ name: 'ChallengeSelect', params: { QRCode: this.result } })

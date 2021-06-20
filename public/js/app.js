@@ -18740,7 +18740,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 if (c) {
-                  _this2.$router.go(-1);
+                  _this2.$router.push('/challenges');
                 } else {
                   _this2.$router.push({
                     name: 'ChallengeSelect',
