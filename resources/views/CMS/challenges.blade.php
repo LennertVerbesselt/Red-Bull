@@ -66,7 +66,7 @@
                                 <tr>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         
-                                        <img class="w-6/12 h-6/12"
+                                        <img class="w-6/12 h-6/12" style="max-width:100px;max-height:100px"
                                                     src="{{$current_icon->url}}"
                                                     alt="" />
                                                     
@@ -178,7 +178,7 @@
                                 <tr>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         
-                                        <img class="w-6/12 h-6/12"
+                                        <img class="w-6/12 h-6/12" style="max-width:100px;max-height:100px"
                                                     src="{{$current_challengebadge->url}}"
                                                     alt="" />
                                                     
