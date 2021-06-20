@@ -122,11 +122,10 @@ class ProfileController extends Controller
                             $challengesub['cans_needed_to_unlock'] = $challenge->cans_needed_to_unlock;
                             $challengesub['upvote_ratio'] = $challenge->upvote_ratio;
 
-                            foreach($challengebadges as $challengebadge){
-                                if($challengebadge->challenge_id == $challenge->id){
-                                    $challengesub['badge'] = $challengebadge->url;
-                                }
-                            }
+                            $badge = Challenge_Badge::where('challenge_id', $challenge->id)->get()->last();
+                            $challengesub['badge'] = $badge->url;
+                            
+                            
                             foreach($challengeprogressions as $challengeprogression){
                                 if($challengeprogression->challenge_id == $challenge->id){
                                     $challengesub['progression'] = $challengeprogression;
@@ -163,8 +162,8 @@ class ProfileController extends Controller
 
         foreach($progressions as $p) {
             
-                $badge = Challenge_Badge::where('challenge_id', $p->challenge_id)->get()->first();
-                $challenge = Challenge::where('id', $p->challenge_id)->get()->first();
+                $badge = Challenge_Badge::where('challenge_id', $p->challenge_id)->get()->last();
+                $challenge = Challenge::where('id', $p->challenge_id)->get()->last();
 
                 $p['badge'] = $badge->url;
                 $p['name'] = $challenge->name;

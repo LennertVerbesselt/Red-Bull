@@ -181,12 +181,14 @@ export default {
     width:100%;
     margin-top: 30px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
 
 .badge {
     width: 33%;
+    height: 100px;
     display: flex;
     justify-content: center;
     flex-flow: column;

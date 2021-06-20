@@ -13,6 +13,7 @@ use App\Models\Profile_Statistics;
 use App\Models\Category;
 use App\Models\Currency_Points;
 use App\Models\Challenge;
+use App\Models\Challenge_Set;
 use App\Models\Challenge_Progression;
 use App\Models\Profile_Picture;
 use App\Models\Post;
@@ -176,8 +177,11 @@ class PostController extends Controller
 
                 $totalvotes = $upvotes + $downvotes;
 
-                if($totalvotes == $minimumtotal){
-                    if(($downvotes * $ratio) <= $upvotes){
+                if($totalvotes >= $minimumtotal){
+                    //This checks the number of downvotes and upvotes to the preset ratio.
+                    //We have temporarily disabled this for demo purposes.
+
+                    //if(($downvotes * $ratio) <= $upvotes){
                         $progression = Challenge_Progression::where('user_id', $post->user_id)->where('challenge_id', $post->challenge_id)->get()->first();
 
                         $progression->locked = 0;
@@ -185,8 +189,13 @@ class PostController extends Controller
                         $progression->pending = 0;
                         $progression->complete = 1;
                         $progression->save();
+
+                        $set = Challenge_Set::where('id', $challenge->challenge_set_id)->get()->first();
+                        $points = Currency_Points::where('category_id', $set->category_id)->get()->first();
+                        $points->points += $challenge->points;
+                        $points->save();
                         
-                    } else {
+                   /* } else {
                         $progression = Challenge_Progression::where('user_id', $post->user_id)->where('challenge_id', $post->challenge_id)->get()>first();
 
                         $progression->locked = 0;
@@ -195,7 +204,7 @@ class PostController extends Controller
                         $progression->complete = 0;
                         $progression->save();
                         
-                    }
+                    }*/
                 }
 
 
