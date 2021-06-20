@@ -56,7 +56,7 @@ class ChallengeController extends Controller
             $totalpoints += $c->points;
         }
 
-        $event = Event::find($challengeset->category_id);
+        $event = Event::find($challengeset->event_id);
         $eventheader = Event_Header::where('event_id', $event->id)->get()->last();
         $event["header"] = $eventheader->url;
 

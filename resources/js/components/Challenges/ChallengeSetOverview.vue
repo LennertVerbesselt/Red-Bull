@@ -159,7 +159,7 @@ export default {
     },
     data:function() {
       return {
-          id: 13,
+          id: 1,
           ChallengeSet: [],
           Challenges: [],
           Event: [],
