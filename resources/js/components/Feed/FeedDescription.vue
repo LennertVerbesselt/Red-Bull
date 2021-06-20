@@ -32,8 +32,8 @@ export default {
     position: absolute;
     left: 12px;
     line-height: 15px;
-    width: 100%;
-    max-width: 400px;
+    
+    
 }
  body {
      color: white;
@@ -58,7 +58,6 @@ export default {
     overflow: hidden;
     white-space: wrap;
     margin-left: 4px;
-    max-width: 400px;
  }
 
  .comments {
